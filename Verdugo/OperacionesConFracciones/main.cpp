@@ -2,14 +2,14 @@
 UNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE
 Materia: Estructura de Datos
 NRC: 9686
-Integrantes: Alex Trejo
+Integrantes: Sebastian Verdugo
+             Alex Trejo
 			 Allan Panchi
-			 Sebastian Verdugo
 			 Alejandro Andrade
 Fecha de inicio: 04/05/2023
 Fecha de modificación: 09/05/2023
 
-Realizar 4 operaciones en una interface que incluyan datos abstractos
+Crear 4 operaciones en una interface que incluyan datos abstractos
 */
 
 #include <iostream>
