@@ -19,7 +19,7 @@ Imprementar la interface en una clase y llamar a esta clase en el main
 int main(int argc, char const *argv[])
 {
 	Fraccion fraccion;
-	Fraccion obj1(2, 0);
+	Fraccion obj1(2, 1);
 	Fraccion obj2(6, 3);
 	fraccion = fraccion.proceso(obj1, obj2);
 	fraccion.toString();
