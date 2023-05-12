@@ -7,9 +7,9 @@ Integrantes: Alex Trejo
 			 Sebastian Verdugo
 			 Alejandro Andrade
 Fecha de inicio: 04/05/2023
-Fecha de modificación: 09/05/2023
+Fecha de modificación: 11/05/2023
 
-Realizar 4 operaciones en una interface que incluyan datos abstractos 
+Imprementar la interface en una clase y llamar a esta clase en el main
 */
 
 #include <iostream>
@@ -27,14 +27,22 @@ int main(int argc, char const *argv[])
 	obj1.toString();
 	obj2.toString();
 
+	
 	IOperaciones* op = new Operaciones();
 
-	std::cout << "Operacion 1: "<< op->operacion1(obj1, obj2);
-	std::cout << "\nOperacion 2: ";
-	op->operacion2(obj1, obj2).toString();
-	std::cout << "Operacion 3: ";
-	op->operacion3(-3.9, -3.9).toString();
-	std::cout << "Operacion 4: "<< op->operacion4(2.3, 4.1);
+	float a = 2.3;
+	std::cout << "Operacion con parametros float y TDA ->\n";
+	op->operacion(a, obj1);
+	std::cout << "float + numerador de fraccion de obj1 -> " << a << std::endl;
+
+	std::cout << "Operacion con parametros TDA\n";
+	std::cout << "Numerador 1 * Numerador 2 -> " << op->operacion(obj1, obj2) << std::endl;
+
+	std::cout << "Operacion con parametros float\n";
+	std::cout << "Numerador de fraccion = flotante1*flotante2 y Denominador = flotante1-flotante2 -> ";
+	op->operacion(4.1, 2.3).toString();
+
+	system("pause");
 
 	return 0;
 }

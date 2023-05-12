@@ -7,9 +7,9 @@ Integrantes: Alex Trejo
           Sebastian Verdugo
           Alejandro Andrade
 Fecha de inicio: 04/05/2023
-Fecha de modificación: 09/05/2023
+Fecha de modificación: 11/05/2023
 
-Realizar 4 operaciones en una interface que incluyan datos abstractos 
+Imprementar la interface en una clase y llamar a esta clase en el main 
 */
 
 #if !defined(__Fraccion_Fraccion_h)

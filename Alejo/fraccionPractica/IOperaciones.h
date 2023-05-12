@@ -7,9 +7,9 @@ Integrantes: Alex Trejo
           Sebastian Verdugo
           Alejandro Andrade
 Fecha de inicio: 04/05/2023
-Fecha de modificación: 09/05/2023
+Fecha de modificación: 11/05/2023
 
-Realizar 4 operaciones en una interface que incluyan datos abstractos 
+Imprementar la interface en una clase y llamar a esta clase en el main 
 */
 
 #if !defined(__Fraccion_IOperaciones_h)
@@ -20,10 +20,9 @@ Realizar 4 operaciones en una interface que incluyan datos abstractos
 class IOperaciones
 {
 public:
-   virtual float operacion1(Fraccion fraccion1, Fraccion fraccion2)=0;
-   virtual Fraccion operacion2(Fraccion fraccion1, Fraccion fraccion2)=0;
-   virtual Fraccion operacion3(float flotante1, float flotante2)=0;
-   virtual float operacion4(float flotante1, float flotante2)=0;
+   virtual void operacion(float flotante, Fraccion fraccion)=0;
+   virtual float operacion(Fraccion fraccion1, Fraccion fraccion2)=0;
+   virtual Fraccion operacion(float flotante1, float flotante2)=0;
 
 protected:
 private:
