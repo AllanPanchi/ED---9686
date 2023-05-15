@@ -27,9 +27,6 @@ public:
 
    virtual float operacion(float flotante1, float flotante2, float flotante)=0;
 
-protected:
-private:
-
 };
 
 #endif // INTERFACEOPERACIONES_H_INCLUDED

@@ -41,7 +41,7 @@ int main(int argc, char const *argv[])
 	cout << "\nOperacion con dos fracciones pero retorna un flotante : "
 	<< op->operacion(obj1, obj2) << endl;
 
-	cout << "\nOperacion con 2 flotantes y me retorna una Fraccion"; 
+	cout << "\nOperacion con 2 flotantes y me retorna una Fraccion: "; 
 	op->operacion(-3.9F, 73.9F).toString();
 
 	cout << "\nOpreacion con 3 flotantes y me retorna un flotante : "
