@@ -12,5 +12,5 @@ Prueba 1, Cifrado con Recursividad
 class Operaciones
 {
 public:
-    static int sumarMatrizRecursivamente(int** punteroMatriz, int fila, int columna, int cifrado);
+    static int cifrarMatriz(int**, int, int, int);
 };

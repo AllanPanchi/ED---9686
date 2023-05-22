@@ -40,7 +40,7 @@ int main(int argc, char* argv[])
 		std::cout << "\n";
 	}
 
-	int cifrado = sumarMatrizRecursivamente(_matriz, 0, 0, 0);
+	int cifrado = cifrarMatriz(_matriz, 0, 0, 0);
 	std::cout << "\nEl cifrado es: " << cifrado << "\n";
 
     system("pause");
