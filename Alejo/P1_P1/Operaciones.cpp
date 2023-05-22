@@ -19,7 +19,7 @@ int sumarDigitos(int numero) {
     }
 }
 
-int sumarMatrizRecursivamente(int** matriz, int f, int c, int cifrado) {
+int cifrarMatriz(int** matriz, int f, int c, int cifrado) {
     if (f == 3 && c == 3) {
         cifrado += *(*(matriz + f) + c);
         return sumarDigitos(cifrado);
@@ -28,9 +28,9 @@ int sumarMatrizRecursivamente(int** matriz, int f, int c, int cifrado) {
     cifrado += *(*(matriz + f) + c);
     
     if (c == 3) {
-        return sumarMatrizRecursivamente(matriz, f + 1, 0, cifrado);
+        return cifrarMatriz(matriz, f + 1, 0, cifrado);
     }
     
-    return sumarMatrizRecursivamente(matriz, f, c + 1, cifrado);
+    return cifrarMatriz(matriz, f, c + 1, cifrado);
 }
 
