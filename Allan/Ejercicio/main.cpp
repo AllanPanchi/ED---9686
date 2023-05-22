@@ -4,7 +4,7 @@ Materia: Estructura de Datos
 NRC: 9686
 Integrantes: Allan Panchi
 Fecha de inicio: 22/05/2023
-Fecha de modificación: 22/05/2023
+Fecha de modificaciï¿½n: 22/05/2023
 
 Suma de los elementos entre matrices
 */
@@ -12,10 +12,10 @@ Suma de los elementos entre matrices
 #include <conio.h>
 #include <stdlib.h>
 #include <time.h>
-#define dimension 5
+//#define dimension 5
 using namespace std;
 
-int sumarElementosMatriz(int** mat1, int filas, int columnas, int filaActual, int columnaActual)
+int sumarEncriptadaMatriz(int** mat1, int filas, int columnas, int filaActual, int columnaActual)
 {
     if(filaActual==filas)
     {
@@ -31,7 +31,7 @@ int elemento = mat1[filaActual][columnaActual];
         Columna = 0;
     }
 
-    int sumaRestante = sumarElementosMatriz(mat1, filas, columnas, Fila, Columna);
+    int sumaRestante = sumarEncriptadaMatriz(mat1, filas, columnas, Fila, Columna);
     int sumaTotal = elemento + sumaRestante;
 
     if (sumaTotal > 9)
@@ -49,6 +49,12 @@ int elemento = mat1[filaActual][columnaActual];
 
 int main(int argc, char** argv) {
 	int** mat1 = nullptr;
+
+    int dimension;
+
+    printf("Ingrese la dimesion de la matriz cuadrada: ");
+    scanf("%d", &dimension);
+
 
 	mat1 = (int**)malloc(dimension * sizeof(int*));
 	for (int j = 0; j < dimension; j++) {
@@ -73,7 +79,7 @@ int main(int argc, char** argv) {
 	cout << "\n";
 
 	cout << "La suma de todos los elementos encriptados es: ";
-	int resultado = sumarElementosMatriz(mat1, dimension, dimension, 0, 0);
+	int resultado = sumarEncriptadaMatriz(mat1, dimension, dimension, 0, 0);
 	cout << resultado << endl;
 
 	return 0;
