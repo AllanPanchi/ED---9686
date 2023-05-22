@@ -18,9 +18,10 @@ Crear 4 operaciones en una interface que incluyan datos abstractos
 
 int main(int argc, char const *argv[])
 {
-	Fraccion fraccion;
-	Fraccion obj1(2, 1);
-	Fraccion obj2(6, 3);
+
+    Fraccion fraccion;
+	Fraccion obj1(12, 5);
+	Fraccion obj2(18, 4);
 	fraccion = fraccion.proceso(obj1, obj2);
 	fraccion.toString();
 
@@ -33,8 +34,8 @@ int main(int argc, char const *argv[])
 	std::cout << "\nOperacion 2: ";
 	op->operacion2(obj1, obj2).toString();
 	std::cout << "Operacion 3: ";
-	op->operacion3(-3.9, 3.9).toString();
-	std::cout << "Operacion 4: "<< op->operacion4(2.3, 4.1);
+	op->operacion3(5.1, 2).toString();
+	std::cout << "Operacion 4: "<< op->operacion4(1.4, 4);
 
 	return 0;
 }
