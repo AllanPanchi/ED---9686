@@ -1,3 +1,14 @@
+/*
+UNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE
+Materia: Estructura de Datos
+NRC: 9686
+Nombre: Alejandro Andrade
+Fecha de inicio: 22/05/2023
+Fecha de modificación: 22/05/2023
+
+Prueba 1, Cifrado con Recursividad
+*/
+
 #include "Operaciones.h"
 
 int sumarDigitos(int numero) {
@@ -8,18 +19,18 @@ int sumarDigitos(int numero) {
     }
 }
 
-int sumarMatrizRecursivamente(int** punteroMatriz, int fila, int columna, int sumaParcial) {
-    if (fila == 3 && columna == 3) {
-        sumaParcial += *(*(punteroMatriz + fila) + columna);
-        return sumarDigitos(sumaParcial);
+int sumarMatrizRecursivamente(int** matriz, int f, int c, int cifrado) {
+    if (f == 3 && c == 3) {
+        cifrado += *(*(matriz + f) + c);
+        return sumarDigitos(cifrado);
     }
 
-    sumaParcial += *(*(punteroMatriz + fila) + columna);
+    cifrado += *(*(matriz + f) + c);
     
-    if (columna == 3) {
-        return sumarMatrizRecursivamente(punteroMatriz, fila + 1, 0, sumaParcial);
+    if (c == 3) {
+        return sumarMatrizRecursivamente(matriz, f + 1, 0, cifrado);
     }
     
-    return sumarMatrizRecursivamente(punteroMatriz, fila, columna + 1, sumaParcial);
+    return sumarMatrizRecursivamente(matriz, f, c + 1, cifrado);
 }
 
