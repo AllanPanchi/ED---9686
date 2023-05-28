@@ -12,12 +12,12 @@ int main() {
 
     // std::cout << "\n" <<factorial(5);
     
-    const auto facotrial = [](int n){
+    const auto factorial = [](int n){
         const auto factorial_1 = [](int n, const auto& val)->int{
             return n>1? n * val(n-1, val):1;
         };
         return factorial_1(n, factorial_1);
     };
-    std::cout << "\n" <<factorial(5);
+    std::cout << "\n" << factorial(5);
     return 0;
 }
