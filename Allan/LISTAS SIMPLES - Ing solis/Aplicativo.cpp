@@ -12,6 +12,7 @@ int main(int argc, char** argv) {
 	lst.insertar(57);
 	lst.insertar(85);
 	lst.insertar(95);
+	lst.insertar(105);
 	lst.mostrarLista();
 	return 0;
 }
