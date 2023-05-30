@@ -9,7 +9,7 @@ int main(int argc, char** argv) {
 	lst.insertar(45);
 	lst.insertar(55);
 	lst.insertar(65);
-	lst.insertar(57);
+	lst.insertar(75);
 	lst.insertar(85);
 	lst.insertar(95);
 	lst.insertar(105);
