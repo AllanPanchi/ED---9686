@@ -19,18 +19,19 @@ int sumarDigitos(int numero) {
     }
 }
 
-int cifrarMatriz(int** matriz, int f, int c, int cifrado) {
-    if (f == 3 && c == 3) {
+int cifrarMatriz(int** matriz, int f, int c, int cifrado, int dim) {
+    int dimension = (dim-1);
+    if (f == dimension && c == dimension) {
         cifrado += *(*(matriz + f) + c);
         return sumarDigitos(cifrado);
     }
 
     cifrado += *(*(matriz + f) + c);
     
-    if (c == 3) {
-        return cifrarMatriz(matriz, f + 1, 0, cifrado);
+    if (c == dimension) {
+        return cifrarMatriz(matriz, f + 1, 0, cifrado, dim);
     }
     
-    return cifrarMatriz(matriz, f, c + 1, cifrado);
+    return cifrarMatriz(matriz, f, c + 1, cifrado, dim);
 }
 

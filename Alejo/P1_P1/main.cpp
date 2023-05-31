@@ -19,6 +19,9 @@ int main(int argc, char* argv[])
     int dim = 4;
     int** _matriz = nullptr;
 
+	std::cout << "Ingrese la dimension de la matriz: ";
+	std::cin >> dim;
+
 	_matriz = (int**)malloc(dim * sizeof(int*));
 	for (int j = 0; j < dim; j++) {
 		*(_matriz + j) = (int*)malloc(dim * sizeof(int*));
@@ -40,7 +43,7 @@ int main(int argc, char* argv[])
 		std::cout << "\n";
 	}
 
-	int cifrado = cifrarMatriz(_matriz, 0, 0, 0);
+	int cifrado = cifrarMatriz(_matriz, 0, 0, 0, dim);
 	std::cout << "\nEl cifrado es: " << cifrado << "\n";
 
     system("pause");
