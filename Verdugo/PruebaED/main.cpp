@@ -9,14 +9,10 @@ Fecha de modificación: 22/05/2023
 Suma de filas de matrices recursiva
 */
 #include <iostream>
-#include <conio.h>
-#include <stdlib.h>
-#include <time.h>
+#include <cstdlib>  // Para la función rand()
+#include <ctime>    // Para la función time()
 
 using namespace std;
-
-const int ROWS = 3;
-const int COLS = 3;
 
 // Función recursiva para sumar los dígitos de un número
 int sumarDigitos(int num) {
@@ -27,8 +23,8 @@ int sumarDigitos(int num) {
 }
 
 // Función recursiva para sumar los elementos de una fila
-int sumarFila(int matriz[ROWS][COLS], int fila, int columna = 0, int suma = 0) {
-  if (columna == COLS) {
+int sumarFila(int matriz[][3], int fila, int columna = 0, int suma = 0) {
+  if (columna == 3) {
     // Verificar si la suma es un número de dos cifras
     if (suma > 9) {
       return sumarDigitos(suma);
@@ -40,8 +36,8 @@ int sumarFila(int matriz[ROWS][COLS], int fila, int columna = 0, int suma = 0) {
 }
 
 // Función recursiva para sumar todas las filas de la matriz
-int sumarFilas(int matriz[ROWS][COLS], int fila = 0, int sumaTotal = 0) {
-  if (fila == ROWS) {
+int sumarFilas(int matriz[][3], int fila = 0, int sumaTotal = 0) {
+  if (fila == 3) {
     // Verificar si la suma total es un número de dos cifras
     if (sumaTotal > 9) {
       return sumarDigitos(sumaTotal);
@@ -55,16 +51,35 @@ int sumarFilas(int matriz[ROWS][COLS], int fila = 0, int sumaTotal = 0) {
 }
 
 int main() {
-  int matriz[ROWS][COLS] = {
-    {2, 3, 4},
-    {5, 6, 7},
-    {8, 9, 1}
-  };
+  int dimension;
+
+  // Obtener la dimensión de la matriz
+  std::cout << "Ingrese la dimensión de la matriz: ";
+  std::cin >> dimension;
+
+  // Verificar si la dimensión es válida
+  if (dimension <= 0) {
+    std::cout << "La dimensión debe ser un número entero positivo." << std::endl;
+    return 1;
+  }
+
+  // Generar la matriz cuadrada aleatoriamente
+  int matriz[dimension][dimension];
+
+  // Semilla para generar números aleatorios
+  srand(time(0));
+
+  // Llenar la matriz con números aleatorios entre 10 y 99
+  for (int i = 0; i < dimension; i++) {
+    for (int j = 0; j < dimension; j++) {
+      matriz[i][j] = rand() % 90 + 10;
+    }
+  }
 
   // Mostrar la matriz generada
   std::cout << "Matriz generada:\n";
-  for (int i = 0; i < ROWS; i++) {
-    for (int j = 0; j < COLS; j++) {
+  for (int i = 0; i < dimension; i++) {
+    for (int j = 0; j < dimension; j++) {
       std::cout << matriz[i][j] << " ";
     }
     std::cout << std::endl;
