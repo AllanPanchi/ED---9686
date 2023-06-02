@@ -8,7 +8,6 @@ int main() {
 
     lst.insertarPorCabeza(1);
     
-    
     lst.mostrarLista();
 
     lst.alterarValores();
