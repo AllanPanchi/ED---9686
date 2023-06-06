@@ -22,7 +22,7 @@ class ListaProducto{
     bool listaVacia();
 
     ListaProducto();
-
+    
     void insertar(Producto producto);
 
     // Eliminar un producto de la lista
