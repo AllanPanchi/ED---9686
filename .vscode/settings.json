@@ -1,5 +1,6 @@
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
     "files.associations": {
         "iostream": "cpp",
         "atomic": "cpp",
@@ -65,4 +66,11 @@
 =======
     "C_Cpp.errorSquiggles": "enabled"
 >>>>>>> 65089d56c9938e0541ec920da79b50f860c77b4a
+=======
+    "C_Cpp.errorSquiggles": "enabled",
+    "files.associations": {
+        "xstring": "cpp",
+        "ostream": "cpp"
+    }
+>>>>>>> 4e0e3b027318c07b611a60f78a6140269f183889
 }
