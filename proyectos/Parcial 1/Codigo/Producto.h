@@ -3,95 +3,30 @@
 #include <string>
 #include "Fecha.h"
 
-template <typename T>
-class Producto: public IProducto<T> {
+class Producto {
     private:
-        T codigo;
+
+        int codigo;
         std::string nombre;
         float precio;
-        
-        Fecha fechaElaboracion;
-        Fecha fechaCaducidad;
-    
+        FechaConcreta fechaElaboracion;
+        FechaConcreta fechaCaducidad;
 
     public:
-        void setCodigo(T codigo) override;
-        T getCodigo()const override;
+        void setCodigo(int codigo);
+        int getCodigo();
 
-        void setNombre(const std::string& nombre) override;
-        std::string getNombre()const override;
+        void setNombre(std::string nombre);
+        std::string getNombre();
 
-        void setPrecio(float precio)override;
-        float getPrecio()const override;
+        void setPrecio(float precio);
+        float getPrecio();
 
-         void setFechaElaboracion(const Fecha& fechaElaboracion);
-        Fecha getFechaElaboracion() const;
+        void setFechaElaboracion(FechaConcreta fechaElaboracion);
+        FechaConcreta getFechaElaboracion();
 
-        void setFechaCaducidad(const Fecha& fechaCaducidad);
-        Fecha getFechaCaducidad() const;
+        void setFechaCaducidad(FechaConcreta fechaCaducidad);
+        FechaConcreta getFechaCaducidad();
 
-        /*Fecha getfechaElaboracion();
-        Fecha getfechaCaducidad();
-
-        Fecha setfechaElaboracion(float fechaElaboracion);
-        Fecha getfechaElaboracion();*/
-
-
-
-        
-
-
-
-
-
+        void toString();
 };
-
-template<typename T>
-void Producto<T>::setCodigo(T codigo) {
-    this->codigo = codigo;
-}
-
-template<typename T>
-T Producto<T>::getCodigo() const {
-    return codigo;
-}
-
-template<typename T>
-void Producto<T>::setNombre(const std::string& nombre) {
-    this->nombre = nombre;
-}
-
-template<typename T>
-std::string Producto<T>::getNombre() const {
-    return nombre;
-}
-
-template<typename T>
-void Producto<T>::setPrecio(float precio) {
-    this->precio = precio;
-}
-
-template<typename T>
-float Producto<T>::getPrecio() const {
-    return precio;
-}
-
-template<typename T>
-void Producto<T>::setFechaElaboracion(const Fecha& fechaElaboracion) {
-    this->fechaElaboracion = fechaElaboracion;
-}
-
-template<typename T>
-Fecha Producto<T>::getFechaElaboracion() const {
-    return fechaElaboracion;
-}
-
-template<typename T>
-void Producto<T>::setFechaCaducidad(const Fecha& fechaCaducidad) {
-    this->fechaCaducidad = fechaCaducidad;
-}
-
-template<typename T>
-Fecha Producto<T>::getFechaCaducidad() const {
-    return fechaCaducidad;
-}

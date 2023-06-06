@@ -2,6 +2,7 @@
 #include "Producto.h"
 #include "Fecha.cpp"
 #include "IProducto.h"
+#include "Nodo.cpp"
 
 class ListaProducto{
     private:
@@ -29,7 +30,7 @@ class ListaProducto{
     void eliminar(int codigo);
 
     // Buscar un producto en la lista por medio del atrubuto codigo que es int y retornarlo
-    Producto* buscar(int codigo);
+    Nodo* buscar(int codigo);
 
     // Mostrar todos los productos de la lista
     void mostrar();
@@ -41,9 +42,9 @@ class ListaProducto{
     void actualizarPrecio(int codigo, float precio);
 
     // actualizar el atributo fechaElaboracion que es de tipo Fecha de un producto de la lista en el que se busca por codigo
-    void actualizarFechaElaboracion(int codigo, Fecha fechaElaboracion);
+    void actualizarFechaElaboracion(int codigo, FechaConcreta fechaElaboracion);
 
     // actualizar el atributo fechaCaducidad que es de tipo Fecha de un producto de la lista en el que se busca por codigo
-    void actualizarFechaCaducidad(int codigo, Fecha fechaCaducidad);
+    void actualizarFechaCaducidad(int codigo, FechaConcreta fechaCaducidad);
 
 };
