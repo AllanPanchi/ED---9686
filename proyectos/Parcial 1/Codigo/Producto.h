@@ -24,26 +24,17 @@ class Producto: public IProducto<T> {
         void setPrecio(float precio)override;
         float getPrecio()const override;
 
-         void setFechaElaboracion(const Fecha& fechaElaboracion);
+        void setFechaElaboracion(const Fecha& fechaElaboracion);
         Fecha getFechaElaboracion() const;
 
         void setFechaCaducidad(const Fecha& fechaCaducidad);
         Fecha getFechaCaducidad() const;
 
-        /*Fecha getfechaElaboracion();
+        Fecha getfechaElaboracion();
         Fecha getfechaCaducidad();
 
         Fecha setfechaElaboracion(float fechaElaboracion);
-        Fecha getfechaElaboracion();*/
-
-
-
-        
-
-
-
-
-
+        Fecha getfechaElaboracion();
 };
 
 template<typename T>
