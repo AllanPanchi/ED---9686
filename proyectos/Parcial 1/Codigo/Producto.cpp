@@ -1,52 +1,62 @@
-#pragma once
-#include <iostream>
-#include "Producto.h"
-#include "Fecha.h"
+// #include <iostream>
+// #include "Producto.h"
 
-void Producto::setCodigo(int codigo) {
-    this->codigo = codigo;
-}
+// Producto::Producto(int codigo, std::string nombre, float precio,const FechaConcreta& fechaElaboracion,const FechaConcreta& fechaCaducidad) {
+//     this->codigo = codigo;
+//     this->nombre = nombre;
+//     this->precio = precio;
+//     this->fechaElaboracion = fechaElaboracion;
+//     this->fechaCaducidad = fechaCaducidad;
+// }
 
-int Producto::getCodigo() {
-    return codigo;
-}
+// Producto::Producto() : codigo(0), nombre(""), precio(0.0) {}
 
-void Producto::setNombre(std::string nombre) {
-    this->nombre = nombre;
-}
+// Producto::~Producto() {}
 
-std::string Producto::getNombre() {
-    return nombre;
-}
+// void Producto::setCodigo(int codigo) {
+//     this->codigo = codigo;
+// }
 
-void Producto::setPrecio(float precio) {
-    this->precio = precio;
-}
+// int Producto::getCodigo() {
+//     return codigo;
+// }
 
-float Producto::getPrecio() {
-    return precio;
-}
+// void Producto::setNombre(std::string nombre) {
+//     this->nombre = nombre;
+// }
 
-FechaConcreta Producto::getFechaElaboracion() {
-    return this->fechaElaboracion;
-}
+// std::string Producto::getNombre() {
+//     return nombre;
+// }
 
-FechaConcreta Producto::getFechaCaducidad() {
-    return this->fechaCaducidad;
-}
+// void Producto::setPrecio(float precio) {
+//     this->precio = precio;
+// }
 
-void Producto::setFechaElaboracion(FechaConcreta fechaElaboracion) {
-    this->fechaElaboracion = fechaElaboracion;
-}
+// float Producto::getPrecio() {
+//     return precio;
+// }
 
-void Producto::setFechaCaducidad(FechaConcreta fechaCaducidad) {
-    this->fechaCaducidad = fechaCaducidad;
-}
+// FechaConcreta Producto::getFechaElaboracion() {
+//     return this->fechaElaboracion;
+// }
 
-void Producto::toString() {
-    std::cout << "Codigo: " << this->codigo << std::endl;
-    std::cout << "Nombre: " << this->nombre << std::endl;
-    std::cout << "Precio: " << this->precio << std::endl;
-    std::cout << "Fecha de elaboracion: "; this->fechaElaboracion.print();
-    std::cout << "Fecha de caducidad: "; this->fechaCaducidad.print();
-}
+// FechaConcreta Producto::getFechaCaducidad() {
+//     return this->fechaCaducidad;
+// }
+
+// void Producto::setFechaElaboracion(const FechaConcreta& fechaElaboracion) {
+//     this->fechaElaboracion = fechaElaboracion;
+// }
+
+// void Producto::setFechaCaducidad(const FechaConcreta& fechaCaducidad) {
+//     this->fechaCaducidad = fechaCaducidad;
+// }
+
+// void Producto::toString() {
+//     std::cout << "Codigo: " << this->codigo << std::endl;
+//     std::cout << "Nombre: " << this->nombre << std::endl;
+//     std::cout << "Precio: " << this->precio << std::endl;
+//     std::cout << "Fecha de elaboracion: "; this->fechaElaboracion.print();
+//     std::cout << "Fecha de caducidad: "; this->fechaCaducidad.print();
+// }

@@ -51,7 +51,7 @@
         Nodo *tmp = this->primero;
         Nodo *tmp2 = this->primero;
         while(tmp){
-            if(tmp->getSiguiente()->getProducto().getCodigo() == codigo){
+            if(tmp->getProducto().getCodigo() == codigo){
                 if(tmp == this->primero){
                     this->primero = tmp->siguiente;
                     delete tmp;
@@ -72,7 +72,7 @@
     Nodo* ListaProducto::buscar(int codigo){
         Nodo *tmp = this->primero;
         while(tmp){
-            if(tmp->getSiguiente()->getProducto().getCodigo() == codigo){
+            if(tmp->getProducto().getCodigo() == codigo){
                 return tmp;
             }
             tmp = tmp->siguiente;
@@ -84,56 +84,8 @@
     void ListaProducto::mostrar(){
         Nodo *tmp = this->primero;
         while(tmp){
-            tmp->getSiguiente()->getProducto().toString();
-            tmp = tmp->siguiente;
-        }
-    }
-
-    // actualizar el atributo nombre que es de tipo string de un producto de la lista en el que se busca por codigo
-    
-    void ListaProducto::actualizarNombre(int codigo, std::string nombre){
-        Nodo *tmp = this->primero;
-        while(tmp){
-            if(tmp->getSiguiente()->getProducto().getCodigo() == codigo){
-                tmp->getSiguiente()->getProducto().setNombre(nombre);
-                break;
-            }
-            tmp = tmp->siguiente;
-        }
-    }
-
-    // actualizar el atributo precio que es de tipo double de un producto de la lista en el que se busca por codigo
-    void ListaProducto::actualizarPrecio(int codigo, float precio){
-        Nodo *tmp = this->primero;
-        while(tmp){
-            if(tmp->getSiguiente()->getProducto().getCodigo() == codigo){
-                tmp->getSiguiente()->getProducto().setPrecio(precio);
-                break;
-            }
-            tmp = tmp->siguiente;
-        }
-    }
-
-    // actualizar el atributo fechaElaboracion que es de tipo Fecha de un producto de la lista en el que se busca por codigo
-    void ListaProducto::actualizarFechaElaboracion(int codigo, FechaConcreta fechaElaboracion){
-        Nodo *tmp = this->primero;
-        while(tmp){
-            if(tmp->getSiguiente()->getProducto().getCodigo() == codigo){
-                tmp->getSiguiente()->getProducto().setFechaElaboracion(fechaElaboracion);
-                break;
-            }
-            tmp = tmp->siguiente;
-        }
-    }
-
-    // actualizar el atributo fechaCaducidad que es de tipo Fecha de un producto de la lista en el que se busca por codigo
-    void ListaProducto::actualizarFechaCaducidad(int codigo, FechaConcreta fechaCaducidad){
-        Nodo *tmp = this->primero;
-        while(tmp){
-            if(tmp->getSiguiente()->getProducto().getCodigo() == codigo){
-                tmp->getSiguiente()->getProducto().setFechaCaducidad(fechaCaducidad);
-                break;
-            }
+            tmp->getProducto().toString();
+            std::cout << "---------------------" << std::endl;
             tmp = tmp->siguiente;
         }
     }

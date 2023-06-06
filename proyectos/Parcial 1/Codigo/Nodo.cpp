@@ -1,8 +1,8 @@
 #include "Nodo.h"
 
-Nodo::Nodo(Producto product, Nodo *sig=NULL, Nodo *ant=NULL){
-	this->producto = product;
-	this->siguiente = sig;
+Nodo::Nodo(Producto product, Nodo *sig, Nodo *ant){
+    this->producto = product;
+    this->siguiente = sig;
     this->anterior = ant;
 }
 

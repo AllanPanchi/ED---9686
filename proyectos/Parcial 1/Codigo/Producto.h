@@ -1,7 +1,9 @@
-#pragma once
+#ifndef PRODUCTO_H
+#define PRODUCTO_H
+
+#include "FechaConcreta.h"
 #include <iostream>
 #include <string>
-
 
 class Producto {
     private:
@@ -13,41 +15,78 @@ class Producto {
         FechaConcreta fechaCaducidad;
 
     public:
-        void setCodigo(int codigo);
-        int getCodigo();
+        // Producto(int codigo, std::string nombre, float precio,const FechaConcreta& FechaElaboracion,const FechaConcreta& FechaCaducidad);
+        // Producto();
+        // ~Producto();
 
-        void setNombre(std::string nombre);
-        std::string getNombre();
+        // void setCodigo(int codigo);
+        // int getCodigo();
 
-        void setPrecio(float precio);
-<<<<<<< HEAD
-        float getPrecio()const;
+        // void setNombre(std::string nombre);
+        // std::string getNombre();
 
-<<<<<<< HEAD
-        void setFechaElaboracion(const Fecha& fechaElaboracion);
-        Fecha getFechaElaboracion() const;
-=======
-         void setFechaElaboracion(Fecha<T>* fechaElaboracion);
-      Fecha<T>* getFechaElaboracion() const;
->>>>>>> 65089d56c9938e0541ec920da79b50f860c77b4a
+        // void setPrecio(float precio);
+        // float getPrecio();
 
-        void setFechaCaducidad(Fecha<T>* fechaCaducidad);
-    Fecha<T>* getFechaCaducidad() const;
+        // void setFechaElaboracion(const FechaConcreta&);
+        // FechaConcreta getFechaElaboracion();
 
-        Fecha getfechaElaboracion();
-        Fecha getfechaCaducidad();
+        // void setFechaCaducidad(const FechaConcreta&);
+        // FechaConcreta getFechaCaducidad();
 
-        Fecha setfechaElaboracion(float fechaElaboracion);
-        Fecha getfechaElaboracion();
-=======
-        float getPrecio();
+        // void toString();
 
-        void setFechaElaboracion(FechaConcreta fechaElaboracion);
-        FechaConcreta getFechaElaboracion();
+        Producto() : codigo(0), nombre(""), precio(0.0) {}
 
-        void setFechaCaducidad(FechaConcreta fechaCaducidad);
-        FechaConcreta getFechaCaducidad();
+        ~Producto() {}
 
-        void toString();
->>>>>>> 4e0e3b027318c07b611a60f78a6140269f183889
+        void setCodigo(int codigo) {
+            this->codigo = codigo;
+        }
+
+        int getCodigo() {
+            return codigo;
+        }
+
+        void setNombre(std::string nombre) {
+            this->nombre = nombre;
+        }
+
+        std::string getNombre() {
+            return nombre;
+        }
+
+        void setPrecio(float precio) {
+            this->precio = precio;
+        }
+
+        float getPrecio() {
+            return precio;
+        }
+
+        FechaConcreta getFechaElaboracion() {
+            return this->fechaElaboracion;
+        }
+
+        FechaConcreta getFechaCaducidad() {
+            return this->fechaCaducidad;
+        }
+
+        void setFechaElaboracion(const FechaConcreta& fechaElaboracion) {
+            this->fechaElaboracion = fechaElaboracion;
+        }
+
+        void setFechaCaducidad(const FechaConcreta& fechaCaducidad) {
+            this->fechaCaducidad = fechaCaducidad;
+        }
+
+        void toString() {
+            std::cout << "Codigo: " << this->codigo << std::endl;
+            std::cout << "Nombre: " << this->nombre << std::endl;
+            std::cout << "Precio: " << this->precio << std::endl;
+            std::cout << "Fecha de elaboracion: "; this->fechaElaboracion.print();
+            std::cout << "Fecha de caducidad: "; this->fechaCaducidad.print();
+        }
 };
+
+#endif  // PRODUCTO_H
