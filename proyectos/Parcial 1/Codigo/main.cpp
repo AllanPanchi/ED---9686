@@ -1,10 +1,14 @@
 #include "ListaProducto.cpp"
+#include "ValDatos.cpp"
 #include <iostream>
 #include <chrono>
 #include <thread>
+#include <stdlib.h>
 
 int main(int argc, char const *argv[]){
 
+    ValidarDatos validar;
+    int opcion;
     ListaProducto lista;
 
     Producto producto1;
@@ -28,28 +32,58 @@ int main(int argc, char const *argv[]){
     producto3.setPrecio(30.0);
     producto3.setFechaElaboracion(FechaConcreta(3, 1, 2021));
     producto3.setFechaCaducidad(FechaConcreta(3, 1, 2022));
+    do{
+        std::cout << "Menu de opciones" << std::endl;
+        std::cout << "1. Insertar Producto" << std::endl;
+        std::cout << "2. Eliminar Producto" << std::endl;
+        std::cout << "3. Buscar Producto" << std::endl;
+        std::cout << "4. Mostrar Producto" << std::endl;
+        std::cout << "5. Salir" << std::endl;
+        std::cout << "Ingrese la opcion: " << std::endl;
+        opcion = validar.validarEntero();
 
-    lista.insertar(producto1);
-    lista.insertar(producto2);
-    lista.insertar(producto3);
+        switch(opcion)
+        {
+            case 1:
+                lista.insertar(producto1);
+                lista.insertar(producto2);
+                lista.insertar(producto3);
+                std::cout << "El producto ha sido añadido" << std::endl;
+            break;
 
-    lista.mostrar();
+            case 2:
+                lista.eliminar(3);
+                lista.mostrar();
+            break;
 
-    std::this_thread::sleep_for(std::chrono::seconds(3));
-    system("cls");
+            case 3:
+                Nodo *nodo = lista.buscar(3);
+                nodo->getProducto().toString();
+            break;
+            case 4:
+                lista.mostrar();
+            break;
+            case 5:
+                exit(1);
+            break;
 
-    lista.eliminar(1);
 
-    lista.mostrar();
+        }
 
-    std::this_thread::sleep_for(std::chrono::seconds(3));
-    system("cls");
+        }while(opcion != 5);
 
-    Nodo *nodo = lista.buscar(3);
-    nodo->getProducto().toString();
+        /*lista.mostrar();
 
-    std::this_thread::sleep_for(std::chrono::seconds(3));
-    system("cls");
+        std::this_thread::sleep_for(std::chrono::seconds(3));
+        system("cls");
 
-    return 0;
+        lista.mostrar();
+
+        std::this_thread::sleep_for(std::chrono::seconds(3));
+        system("cls");
+
+        std::this_thread::sleep_for(std::chrono::seconds(3));
+        system("cls");*/
+
+        return 0;
 }

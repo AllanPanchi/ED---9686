@@ -4,6 +4,37 @@
 #include <conio.h>
 #include <string>
 
+int ValidarDatos::validarEnteroMenu() {		
+	char entrada;
+	char tecla;
+    while (true) {
+        tecla = getch();
+        
+        if (tecla == '\r') {
+            std::cout << std::endl;
+            break;
+        } else if (tecla == '\b') {
+            if (entrada) {
+                std::cout << "\b \b";
+                entrada = '\0';
+            }
+        } else if (isdigit(tecla) && !entrada) {
+            entrada = tecla;
+            std::cout << tecla;
+        }
+    }
+    
+    if (entrada) {
+        int numero = entrada - '0';
+		if (numero >= 1 || numero <= 4)
+		{
+			return numero;
+		}
+		
+    } else {
+        return -1;
+    }
+}
 
 int ValidarDatos::validarEntero() {		
 	char *entrada = new char[30];
