@@ -1,4 +1,5 @@
-#include "Producto.cpp"
+#pragma once
+#include "Producto.h"
 
 class Nodo{
 	private:
@@ -19,7 +20,7 @@ class Nodo{
 
         void setAnterior(Nodo *ant);
 
-        Nodo* getAnterior();	
+        Nodo* getAnterior();
 		
 	    friend class ListaProducto;
 };

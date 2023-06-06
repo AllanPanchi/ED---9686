@@ -1,8 +1,32 @@
 #include "ValDatos.h"
-#include <iostream>
 #include <cstdlib>
 #include <conio.h>
-#include <string>
+
+int ValidarDatos::generarCodigo(){
+	std::random_device rd;
+	std::mt19937 gen(rd());
+	std::uniform_int_distribution<int> dis(10000, 99999);
+
+	return dis(gen);
+}
+
+// int ValidarDatos::generarCodigoValidado(ListaProducto lista){
+// 	Nodo *tmp = lista.getPrimero();
+
+// 	int codigo = ValidarDatos::generarCodigo();
+
+// 	while(tmp){
+// 		if(tmp->getProducto().getCodigo() == codigo){
+// 			codigo = ValidarDatos::generarCodigo();
+// 			tmp = lista.getPrimero();
+// 		}
+// 		else{
+// 			tmp = tmp->getSiguiente();
+// 		}
+// 	}
+
+//     return codigo;
+// }
 
 int ValidarDatos::validarEnteroMenu() {		
 	char entrada;
@@ -26,7 +50,7 @@ int ValidarDatos::validarEnteroMenu() {
     
     if (entrada) {
         int numero = entrada - '0';
-		if (numero >= 1 || numero <= 4)
+		if (numero >= 1 || numero <= 5)
 		{
 			return numero;
 		}
@@ -34,6 +58,7 @@ int ValidarDatos::validarEnteroMenu() {
     } else {
         return -1;
     }
+	return 1;
 }
 
 int ValidarDatos::validarEntero() {		
@@ -101,25 +126,25 @@ float ValidarDatos::validarFloat() {
   
 }
 
-std::string validarString() {
-    std::string entrada;
-    char tecla;
+// std::string validarString() {
+//     std::string entrada;
+//     char tecla;
 
-    while (true) {
+//     while (true) {
         
-		tecla = getch();
+// 		tecla = getch();
 
-        if (tecla == '\r') {
-            std::cout << std::endl;
-            break;
-        } else if (tecla == '\b' && !entrada.empty()) {
-            entrada.pop_back();
-            std::cout << "\b \b";
-        } else if (std::isalpha(tecla) || std::isspace(tecla)) {
-            entrada += tecla;
-            std::cout << tecla;
-        }
-    }
+//         if (tecla == '\r') {
+//             std::cout << std::endl;
+//             break;
+//         } else if (tecla == '\b' && !entrada.empty()) {
+//             entrada.pop_back();
+//             std::cout << "\b \b";
+//         } else if (std::isalpha(tecla) || std::isspace(tecla)) {
+//             entrada += tecla;
+//             std::cout << tecla;
+//         }
+//     }
 
-    return entrada;
-}
+//     return entrada;
+// }

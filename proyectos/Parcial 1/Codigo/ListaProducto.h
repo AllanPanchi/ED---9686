@@ -1,7 +1,6 @@
+#pragma once
 #include <iostream>
 #include "Producto.h"
-#include "FechaConcreta.h"
-#include "IProducto.h"
 #include "Nodo.cpp"
 
 class ListaProducto{

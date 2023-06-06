@@ -1,7 +1,7 @@
 #ifndef PRODUCTO_H
 #define PRODUCTO_H
 
-#include "FechaConcreta.h"
+
 #include <iostream>
 #include <string>
 
@@ -11,11 +11,11 @@ class Producto {
         int codigo;
         std::string nombre;
         float precio;
-        FechaConcreta fechaElaboracion;
-        FechaConcreta fechaCaducidad;
+        int anioElaboracion;
+        int anioCaducidad;
 
     public:
-        // Producto(int codigo, std::string nombre, float precio,const FechaConcreta& FechaElaboracion,const FechaConcreta& FechaCaducidad);
+        // Producto(int codigo, std::string nombre, float precio, int anioElaboracion, int anioCaducidad);
         // Producto();
         // ~Producto();
 
@@ -28,15 +28,23 @@ class Producto {
         // void setPrecio(float precio);
         // float getPrecio();
 
-        // void setFechaElaboracion(const FechaConcreta&);
-        // FechaConcreta getFechaElaboracion();
+        // void setAnioElaboracion(int);
+        // int getAnioElaboracion();
 
-        // void setFechaCaducidad(const FechaConcreta&);
-        // FechaConcreta getFechaCaducidad();
+        // void setAnioCaducidad(int);
+        // int getAnioCaducidad();
 
         // void toString();
+        
+        Producto(int c, std::string n, float p,int aE,int aC) {
+            this->codigo = c;
+            this->nombre = n;
+            this->precio = p;
+            this->anioElaboracion = aE;
+            this->anioCaducidad = aC;
+        }
 
-        Producto() : codigo(0), nombre(""), precio(0.0) {}
+        Producto() : codigo(0), nombre(""), precio(0.0), anioElaboracion(0), anioCaducidad(0) {}
 
         ~Producto() {}
 
@@ -64,28 +72,28 @@ class Producto {
             return precio;
         }
 
-        FechaConcreta getFechaElaboracion() {
-            return this->fechaElaboracion;
+        void setAnioElaboracion(int anioElaboracion) {
+            this->anioElaboracion = anioElaboracion;
         }
 
-        FechaConcreta getFechaCaducidad() {
-            return this->fechaCaducidad;
+        int getAnioElaboracion() {
+            return this->anioElaboracion;
         }
 
-        void setFechaElaboracion(const FechaConcreta& fechaElaboracion) {
-            this->fechaElaboracion = fechaElaboracion;
+        void setAnioCaducidad(int anioCaducidad) {
+            this->anioCaducidad = anioCaducidad;
         }
 
-        void setFechaCaducidad(const FechaConcreta& fechaCaducidad) {
-            this->fechaCaducidad = fechaCaducidad;
+        int getAnioCaducidad() {
+            return this->anioCaducidad;
         }
 
         void toString() {
             std::cout << "Codigo: " << this->codigo << std::endl;
             std::cout << "Nombre: " << this->nombre << std::endl;
             std::cout << "Precio: " << this->precio << std::endl;
-            std::cout << "Fecha de elaboracion: "; this->fechaElaboracion.print();
-            std::cout << "Fecha de caducidad: "; this->fechaCaducidad.print();
+            std::cout << "Anio de elaboracion: " << this->anioElaboracion << std::endl;
+            std::cout << "Anio de caducidad: "<< this->anioCaducidad << std::endl;
         }
 };
 

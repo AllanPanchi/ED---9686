@@ -1,4 +1,7 @@
+
 #include "ListaProducto.h"
+#include "Nodo.h"
+
 
     Nodo* ListaProducto::getPrimero(){
         return this->primero;
@@ -21,7 +24,7 @@
         Nodo *tmp=this->primero;
         while(tmp){
             cont++;
-            tmp=tmp->siguiente;
+            tmp=tmp->getSiguiente();
         }
         return cont;
     }
@@ -41,30 +44,27 @@
             this->primero=nuevo;
         }
         else{
-            this->actual->siguiente=nuevo;
+            this->actual->setSiguiente(nuevo);
         }
         this->actual=nuevo;
     }
-
-    // Eliminar un producto de la lista
+    
     void ListaProducto::eliminar(int codigo){
         Nodo *tmp = this->primero;
-        Nodo *tmp2 = this->primero;
         while(tmp){
             if(tmp->getProducto().getCodigo() == codigo){
                 if(tmp == this->primero){
-                    this->primero = tmp->siguiente;
+                    this->primero = tmp->getSiguiente();
                     delete tmp;
                     break;
                 }
                 else{
-                    tmp2->siguiente = tmp->siguiente;
+                    tmp->getAnterior()->setSiguiente(tmp->getSiguiente());
+                    tmp->getSiguiente()->setAnterior(tmp->getAnterior());
                     delete tmp;
                     break;
                 }
             }
-            tmp2 = tmp;
-            tmp = tmp->siguiente;
         }
     }
 
@@ -75,7 +75,7 @@
             if(tmp->getProducto().getCodigo() == codigo){
                 return tmp;
             }
-            tmp = tmp->siguiente;
+            tmp = tmp->getSiguiente();
         }
         return NULL;
     }
@@ -86,6 +86,6 @@
         while(tmp){
             tmp->getProducto().toString();
             std::cout << "---------------------" << std::endl;
-            tmp = tmp->siguiente;
+            tmp = tmp->getSiguiente();
         }
     }
