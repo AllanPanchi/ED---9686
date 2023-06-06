@@ -35,21 +35,21 @@ float Producto<T>::getPrecio() const {
 }
 
 template<typename T>
-Fecha Producto<T>::getfechaElaboracion() {
-    return fechaElaboracion;
-}
-
-template<typename T>
-Fecha Producto<T>::getfechaCaducidad() {
-    return fechaCaducidad;
-}
-
-template<typename T>
-void Producto<T>::setfechaElaboracion(const Fecha& fechaElaboracion) {
+void Producto<T>::setFechaElaboracion(Fecha<T>* fechaElaboracion) {
     this->fechaElaboracion = fechaElaboracion;
 }
 
 template<typename T>
-void Producto<T>::setfechaCaducidad(const Fecha& fechaCaducidad) {
+Fecha<T>* Producto<T>::getFechaElaboracion() const {
+    return fechaElaboracion;
+}
+
+template<typename T>
+void Producto<T>::setFechaCaducidad(Fecha<T>* fechaCaducidad) {
     this->fechaCaducidad = fechaCaducidad;
+}
+
+template<typename T>
+Fecha<T>* Producto<T>::getFechaCaducidad() const {
+    return fechaCaducidad;
 }

@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
     "files.associations": {
         "iostream": "cpp",
         "atomic": "cpp",
@@ -61,4 +62,7 @@
         "sstream": "cpp"
     },
     "C_Cpp.errorSquiggles": "disabled"
+=======
+    "C_Cpp.errorSquiggles": "enabled"
+>>>>>>> 65089d56c9938e0541ec920da79b50f860c77b4a
 }

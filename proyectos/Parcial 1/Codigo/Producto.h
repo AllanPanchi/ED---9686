@@ -1,34 +1,42 @@
 #pragma once
 #include <iostream>
 #include <string>
-#include "Fecha.h"
+
 
 template <typename T>
-class Producto: public IProducto<T> {
+class Fecha;
+
+template <typename T>
+class Producto{
     private:
         T codigo;
         std::string nombre;
         float precio;
         
-        Fecha fechaElaboracion;
-        Fecha fechaCaducidad;
+        Fecha<T>* fechaElaboracion;
+        Fecha<T>* fechaCaducidad;
     
 
     public:
-        void setCodigo(T codigo) override;
-        T getCodigo()const override;
+        void setCodigo(T codigo);
+        T getCodigo()const;
 
-        void setNombre(const std::string& nombre) override;
-        std::string getNombre()const override;
+        void setNombre(const std::string& nombre);
+        std::string getNombre()const;
 
-        void setPrecio(float precio)override;
-        float getPrecio()const override;
+        void setPrecio(float precio);
+        float getPrecio()const;
 
+<<<<<<< HEAD
         void setFechaElaboracion(const Fecha& fechaElaboracion);
         Fecha getFechaElaboracion() const;
+=======
+         void setFechaElaboracion(Fecha<T>* fechaElaboracion);
+      Fecha<T>* getFechaElaboracion() const;
+>>>>>>> 65089d56c9938e0541ec920da79b50f860c77b4a
 
-        void setFechaCaducidad(const Fecha& fechaCaducidad);
-        Fecha getFechaCaducidad() const;
+        void setFechaCaducidad(Fecha<T>* fechaCaducidad);
+    Fecha<T>* getFechaCaducidad() const;
 
         Fecha getfechaElaboracion();
         Fecha getfechaCaducidad();
@@ -68,21 +76,21 @@ float Producto<T>::getPrecio() const {
 }
 
 template<typename T>
-void Producto<T>::setFechaElaboracion(const Fecha& fechaElaboracion) {
+void Producto<T>::setFechaElaboracion(Fecha<T>* fechaElaboracion) {
     this->fechaElaboracion = fechaElaboracion;
 }
 
 template<typename T>
-Fecha Producto<T>::getFechaElaboracion() const {
+Fecha<T>* Producto<T>::getFechaElaboracion() const {
     return fechaElaboracion;
 }
 
 template<typename T>
-void Producto<T>::setFechaCaducidad(const Fecha& fechaCaducidad) {
+void Producto<T>::setFechaCaducidad(Fecha<T>* fechaCaducidad) {
     this->fechaCaducidad = fechaCaducidad;
 }
 
 template<typename T>
-Fecha Producto<T>::getFechaCaducidad() const {
+Fecha<T>* Producto<T>::getFechaCaducidad() const {
     return fechaCaducidad;
 }
