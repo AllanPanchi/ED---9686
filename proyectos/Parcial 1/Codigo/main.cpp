@@ -4,6 +4,7 @@
 #include <iostream>
 #include <chrono>
 #include <thread>
+#include <fstream>
 #include <stdlib.h>
 
 int main(int argc, char const *argv[]){
@@ -15,6 +16,8 @@ int main(int argc, char const *argv[]){
     Producto producto1;
     int codigo;
     
+    cargarDatosDesdeArchivo("Productos.txt");
+
     while(continuar){
         
         std::cout << "Menu de opciones" << std::endl;
@@ -22,7 +25,7 @@ int main(int argc, char const *argv[]){
         std::cout << "2. Eliminar Producto" << std::endl;
         std::cout << "3. Buscar Producto" << std::endl;
         std::cout << "4. Mostrar Producto" << std::endl;
-        std::cout << "5.Actualizar Producto" << std::endl;
+        std::cout << "5. Actualizar Producto" << std::endl;
         std::cout << "6. Salir" << std::endl;
         std::cout << "Ingrese la opcion: " << std::endl;
         opcion = ValidarDatos::validarEnteroMenu();
@@ -102,13 +105,7 @@ int main(int argc, char const *argv[]){
                     //lista.eliminar(codigo);
                     lista.actualizar(nodoTm);
                     //lista.insertar(producto1);
-                    
-                    
                 }
-
-
-
-
                 break;
                 
             case 6:
@@ -127,5 +124,8 @@ int main(int argc, char const *argv[]){
         }
 
     }
+
+    sobreescribirArchivo("Productos.txt");
+
     return 0;
 }

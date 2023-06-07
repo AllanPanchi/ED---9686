@@ -37,4 +37,12 @@ class ListaProducto{
     // Mostrar todos los productos de la lista
     void mostrar();
 
+    // void cargarDatosEnArchivo(const std::string& nombreArchivo, ListaProducto& lista);
+
+    // void guardarDatosEnArchivo(const std::string& nombreArchivo, const ListaProducto& lista);
+
+    void sobreescribirArchivo(const std::string& nombreArchivo);
+
+    void cargarDatosDesdeArchivo(const std::string& nombreArchivo);
+
 };
