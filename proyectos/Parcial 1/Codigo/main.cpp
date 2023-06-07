@@ -16,7 +16,7 @@ int main(int argc, char const *argv[]){
     Producto producto1;
     int codigo;
     
-    cargarDatosDesdeArchivo("Productos.txt");
+    cargarDatosDesdeArchivo("Productos.txt", lista);
 
     while(continuar){
         
@@ -125,7 +125,7 @@ int main(int argc, char const *argv[]){
 
     }
 
-    sobreescribirArchivo("Productos.txt");
+    sobreescribirArchivo("Productos.txt", lista);
 
     return 0;
 }

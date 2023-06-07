@@ -115,11 +115,11 @@
         }
     }
 
-    void sobreescribirArchivo(const std::string& nombreArchivo) {
+    void sobreescribirArchivo(const std::string& nombreArchivo, ListaProducto& lista) {
         std::ofstream archivo(nombreArchivo);
 
         if (archivo.is_open()) {
-            Nodo* temp = getPrimero();
+            Nodo* temp = lista.getPrimero();
             while (temp != nullptr) {
                 archivo << temp->getProducto().getCodigo() << " " << temp->getProducto().getNombre() << " " << temp->getProducto().getPrecio() \
                 << " " << temp->getProducto().getAnioElaboracion() << " " << temp->getProducto().getAnioCaducidad() << std::endl;
@@ -133,7 +133,7 @@
         }
     }
 
-    void cargarDatosDesdeArchivo(const std::string& nombreArchivo) {
+    void cargarDatosDesdeArchivo(const std::string& nombreArchivo, ListaProducto& lista) {
         std::ifstream archivo(nombreArchivo);
 
         if (archivo.is_open()) {
@@ -142,7 +142,7 @@
             std::string nombre;
             while (archivo >> codigo >> nombre >> precio >> anioDeElaboracion >> anioDeCaducidad) {
                 Producto producto(codigo, nombre, precio, anioDeElaboracion, anioDeCaducidad);
-                insertar(producto);
+                lista.insertar(producto);
             }
 
             archivo.close();
@@ -150,49 +150,3 @@
             std::cout << "No se pudo abrir el archivo." << std::endl;
         }
     }
-
-    /*void cargarDatosEnArchivo(const std::string& nombreArchivo, ListaProducto& lista){
-        std::ifstream archivo(nombreArchivo);
-        if (!archivo.is_open()) {
-            std::cout << "Error al abrir el archivo" << std::endl;
-            return;
-        }
-        
-        std::string linea;
-        while (std::getline(archivo, linea)) {
-            std::istringstream iss(linea);
-            std::string codigoStr, nombre, precioStr, aniodeelaboracionStr, aniodecaducidadStr;
-            if (std::getline(iss, codigoStr, ',') && std::getline(iss, nombre, ',') && 
-            std::getline(iss, precioStr, ',') && std::getline(iss, aniodeelaboracionStr, ',') &&
-            std::getline(iss, aniodecaducidadStr)){
-            int codigo = std::stoi(codigoStr);
-            float precio = std::stof(precioStr);
-            int aniodeelaboracion = std::stoi(aniodeelaboracionStr);
-            int aniodecaducidad = std::stoi(aniodecaducidadStr);
-
-            Producto producto(codigo, nombre, precio, aniodeelaboracion, aniodecaducidad);
-            lista.insertar(producto);
-        }
-        }
-        archivo.close();
-        std::cout << "Datos cargados correctamente" << std::endl;
-    }
-
-    void guardarDatosEnArchivo(const std::string& nombreArchivo, const ListaProducto& lista){
-        std::ofstream archivo(nombreArchivo);
-        if (!archivo.is_open()) {
-            std::cout << "Error al abrir el archivo" << std::endl;
-            return;
-        }
-        Nodo* tmp = lista.getPrimero();
-        while(tmp){
-            archivo << tmp->getProducto().getCodigo() << "," << tmp->getProducto().getNombre() 
-            << "," << tmp->getProducto().getPrecio() << "," << tmp->getProducto().getAnioElaboracion() 
-            << "," << tmp->getProducto().getAnioCaducidad() << std::endl;
-            tmp = tmp->getSiguiente();
-        }
-        archivo.close();
-        std::cout << "Datos guardados correctamente" << std::endl;
-    }*/
-
-

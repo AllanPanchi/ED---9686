@@ -32,17 +32,12 @@ class ListaProducto{
     Nodo* buscar(int codigo);
 
     void actualizar(Nodo *actual);
-    
 
     // Mostrar todos los productos de la lista
     void mostrar();
 
-    // void cargarDatosEnArchivo(const std::string& nombreArchivo, ListaProducto& lista);
+    void sobreescribirArchivo(const std::string& nombreArchivo, ListaProducto& lista);
 
-    // void guardarDatosEnArchivo(const std::string& nombreArchivo, const ListaProducto& lista);
-
-    void sobreescribirArchivo(const std::string& nombreArchivo);
-
-    void cargarDatosDesdeArchivo(const std::string& nombreArchivo);
+    void cargarDatosDesdeArchivo(const std::string& nombreArchivo, ListaProducto& lista);
 
 };
