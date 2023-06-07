@@ -31,6 +31,9 @@ class ListaProducto{
     // Buscar un producto en la lista por medio del atrubuto codigo que es int y retornarlo
     Nodo* buscar(int codigo);
 
+    void actualizar(Nodo *actual);
+    
+
     // Mostrar todos los productos de la lista
     void mostrar();
 

@@ -1,4 +1,4 @@
-#include "ValDatos.h"
+/*#include "ValDatos.h"
 #include <cstdlib>
 #include <conio.h>
 
@@ -147,4 +147,4 @@ float ValidarDatos::validarFloat() {
 //     }
 
 //     return entrada;
-// }
+// }*/

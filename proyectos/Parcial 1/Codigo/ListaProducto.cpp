@@ -1,6 +1,7 @@
 
 #include "ListaProducto.h"
 #include "Nodo.h"
+#include "ValDatos.h"
 
 
     Nodo* ListaProducto::getPrimero(){
@@ -78,6 +79,29 @@
             tmp = tmp->getSiguiente();
         }
         return NULL;
+    }
+
+    void ListaProducto::actualizar(Nodo *actual){
+        
+        
+        actual->getProducto().toString();
+        std::cout << "Ingrese el nuevo nombre de producto:\t";
+       
+        actual->producto.setNombre(ValidarDatos::validarString());
+
+        std::cout <<"Ingrese el nuevo precio:\t";
+        actual->producto.setPrecio(ValidarDatos::validarFloat());
+
+        std::cout <<"Ingrese el nuevo anio de elaboracion:\t";
+        actual->producto.setAnioElaboracion(ValidarDatos::validarEntero());
+        
+        std::cout <<"Ingrese el nuevo anio de vencimiento:\t";
+        actual->producto.setAnioCaducidad(ValidarDatos::validarEntero());
+        
+
+        actual->getProducto().toString();
+        
+        std::cout <<"El producto ha sido actualizado" << std::endl;
     }
 
     // Mostrar todos los productos de la lista
