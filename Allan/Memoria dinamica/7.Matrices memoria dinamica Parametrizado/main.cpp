@@ -10,6 +10,7 @@ int ingresar(char *msj){
 }
 void iniciar(int);
 void iniciar(int  dim){
+
 	int pot;
 	int **mR=nullptr;
 	int **m1=nullptr;
@@ -19,16 +20,15 @@ void iniciar(int  dim){
 	operaciones1.segmentar();
 	operaciones1.encerar();
 	operaciones1.imprimir();
-	/*
-	m1=operaciones.generar();
-	m2=operaciones.generar();
-	operaciones.imprimir(m1);
-	operaciones.imprimir(m2);*/
+	m1=Operaciones::generar();
+	m2=Operaciones::generar();
+	Operaciones::imprimir(m1);
+	Operaciones::imprimir(m2);
 }
 int main(int argc, char** argv) {
 	int dim;
 	dim=ingresar("Ingrese la dimension de la matriz");
 	iniciar(dim);
-	
+
 	return 0;
 }

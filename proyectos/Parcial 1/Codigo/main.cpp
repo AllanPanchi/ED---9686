@@ -4,6 +4,7 @@
 #include <iostream>
 #include <chrono>
 #include <thread>
+#include <fstream>
 #include <stdlib.h>
 
 int main(int argc, char const *argv[]){
@@ -11,10 +12,12 @@ int main(int argc, char const *argv[]){
     bool continuar = true;
     int opcion;
     ListaProducto lista;
-    Nodo *nodo = NULL;
+    Nodo *nodoTm = NULL;
     Producto producto1;
     int codigo;
     
+    cargarDatosDesdeArchivo("Productos.txt");
+
     while(continuar){
         
         std::cout << "Menu de opciones" << std::endl;
@@ -22,7 +25,8 @@ int main(int argc, char const *argv[]){
         std::cout << "2. Eliminar Producto" << std::endl;
         std::cout << "3. Buscar Producto" << std::endl;
         std::cout << "4. Mostrar Producto" << std::endl;
-        std::cout << "5. Salir" << std::endl;
+        std::cout << "5. Actualizar Producto" << std::endl;
+        std::cout << "6. Salir" << std::endl;
         std::cout << "Ingrese la opcion: " << std::endl;
         opcion = ValidarDatos::validarEnteroMenu();
 
@@ -41,8 +45,8 @@ int main(int argc, char const *argv[]){
                 system("cls");
                 std::cout << "Ingrese el codigo del producto a eliminar: ";
                 codigo = ValidarDatos::validarEntero();
-                nodo = lista.buscar(codigo);
-                if (nodo == NULL)
+                nodoTm = lista.buscar(codigo);
+                if (nodoTm == NULL)
                 {
                     std::cout << "El producto no existe" << std::endl;
                     std::this_thread::sleep_for(std::chrono::seconds(3));
@@ -59,15 +63,15 @@ int main(int argc, char const *argv[]){
                 system("cls");
                 std::cout << "Ingrese el codigo del producto a buscar: ";
                 codigo = ValidarDatos::validarEntero();
-                nodo = lista.buscar(codigo);
-                if (nodo == NULL)
+                nodoTm = lista.buscar(codigo);
+                if (nodoTm == NULL)
                 {
                     std::cout << "El producto no existe" << std::endl;
                     std::this_thread::sleep_for(std::chrono::seconds(3));
                     system("cls");
                 } else {
                     std::cout << "El producto es: " << std::endl;
-                    nodo->getProducto().toString();
+                    nodoTm->getProducto().toString();
                 }
                 
                 std::this_thread::sleep_for(std::chrono::seconds(3));
@@ -85,8 +89,26 @@ int main(int argc, char const *argv[]){
                     lista.mostrar();
                 }
                 break;
-                
+            
             case 5:
+                system("cls");
+                std::cout << "Ingrese el codigo del producto a actualizar:\t";
+                codigo = ValidarDatos::validarEntero();
+                nodoTm = lista.buscar(codigo);
+                if (nodoTm == NULL)
+                {
+                    std::cout << "El producto no existe" << std::endl;
+                    std::this_thread::sleep_for(std::chrono::seconds(3));
+                    system("cls");
+                } else {
+                    
+                    //lista.eliminar(codigo);
+                    lista.actualizar(nodoTm);
+                    //lista.insertar(producto1);
+                }
+                break;
+                
+            case 6:
                 
                 system("cls");
                 continuar = false;
@@ -102,5 +124,8 @@ int main(int argc, char const *argv[]){
         }
 
     }
+
+    sobreescribirArchivo("Productos.txt");
+
     return 0;
 }

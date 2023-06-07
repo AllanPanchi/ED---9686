@@ -1,6 +1,8 @@
 
 #include "ListaProducto.h"
 #include "Nodo.h"
+#include "ValDatos.h"
+#include <fstream>
 
 
     Nodo* ListaProducto::getPrimero(){
@@ -80,6 +82,29 @@
         return NULL;
     }
 
+    void ListaProducto::actualizar(Nodo *actual){
+        
+        
+        actual->getProducto().toString();
+        std::cout << "Ingrese el nuevo nombre de producto:\t";
+       
+        actual->producto.setNombre(ValidarDatos::validarString());
+
+        std::cout <<"Ingrese el nuevo precio:\t";
+        actual->producto.setPrecio(ValidarDatos::validarFloat());
+
+        std::cout <<"Ingrese el nuevo anio de elaboracion:\t";
+        actual->producto.setAnioElaboracion(ValidarDatos::validarEntero());
+        
+        std::cout <<"Ingrese el nuevo anio de vencimiento:\t";
+        actual->producto.setAnioCaducidad(ValidarDatos::validarEntero());
+        
+
+        actual->getProducto().toString();
+        
+        std::cout <<"El producto ha sido actualizado" << std::endl;
+    }
+
     // Mostrar todos los productos de la lista
     void ListaProducto::mostrar(){
         Nodo *tmp = this->primero;
@@ -89,3 +114,85 @@
             tmp = tmp->getSiguiente();
         }
     }
+
+    void sobreescribirArchivo(const std::string& nombreArchivo) {
+        std::ofstream archivo(nombreArchivo);
+
+        if (archivo.is_open()) {
+            Nodo* temp = getPrimero();
+            while (temp != nullptr) {
+                archivo << temp->getProducto().getCodigo() << " " << temp->getProducto().getNombre() << " " << temp->getProducto().getPrecio() \
+                << " " << temp->getProducto().getAnioElaboracion() << " " << temp->getProducto().getAnioCaducidad() << std::endl;
+                temp = temp->getSiguiente();
+            }
+
+            archivo.close();
+            std::cout << "Archivo sobrescrito exitosamente." << std::endl;
+        } else {
+            std::cout << "No se pudo abrir el archivo para sobrescribir." << std::endl;
+        }
+    }
+
+    void cargarDatosDesdeArchivo(const std::string& nombreArchivo) {
+        std::ifstream archivo(nombreArchivo);
+
+        if (archivo.is_open()) {
+            int codigo, anioDeElaboracion, anioDeCaducidad;
+            float precio;
+            std::string nombre;
+            while (archivo >> codigo >> nombre >> precio >> anioDeElaboracion >> anioDeCaducidad) {
+                Producto producto(codigo, nombre, precio, anioDeElaboracion, anioDeCaducidad);
+                insertar(producto);
+            }
+
+            archivo.close();
+        } else {
+            std::cout << "No se pudo abrir el archivo." << std::endl;
+        }
+    }
+
+    /*void cargarDatosEnArchivo(const std::string& nombreArchivo, ListaProducto& lista){
+        std::ifstream archivo(nombreArchivo);
+        if (!archivo.is_open()) {
+            std::cout << "Error al abrir el archivo" << std::endl;
+            return;
+        }
+        
+        std::string linea;
+        while (std::getline(archivo, linea)) {
+            std::istringstream iss(linea);
+            std::string codigoStr, nombre, precioStr, aniodeelaboracionStr, aniodecaducidadStr;
+            if (std::getline(iss, codigoStr, ',') && std::getline(iss, nombre, ',') && 
+            std::getline(iss, precioStr, ',') && std::getline(iss, aniodeelaboracionStr, ',') &&
+            std::getline(iss, aniodecaducidadStr)){
+            int codigo = std::stoi(codigoStr);
+            float precio = std::stof(precioStr);
+            int aniodeelaboracion = std::stoi(aniodeelaboracionStr);
+            int aniodecaducidad = std::stoi(aniodecaducidadStr);
+
+            Producto producto(codigo, nombre, precio, aniodeelaboracion, aniodecaducidad);
+            lista.insertar(producto);
+        }
+        }
+        archivo.close();
+        std::cout << "Datos cargados correctamente" << std::endl;
+    }
+
+    void guardarDatosEnArchivo(const std::string& nombreArchivo, const ListaProducto& lista){
+        std::ofstream archivo(nombreArchivo);
+        if (!archivo.is_open()) {
+            std::cout << "Error al abrir el archivo" << std::endl;
+            return;
+        }
+        Nodo* tmp = lista.getPrimero();
+        while(tmp){
+            archivo << tmp->getProducto().getCodigo() << "," << tmp->getProducto().getNombre() 
+            << "," << tmp->getProducto().getPrecio() << "," << tmp->getProducto().getAnioElaboracion() 
+            << "," << tmp->getProducto().getAnioCaducidad() << std::endl;
+            tmp = tmp->getSiguiente();
+        }
+        archivo.close();
+        std::cout << "Datos guardados correctamente" << std::endl;
+    }*/
+
+

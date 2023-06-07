@@ -44,7 +44,7 @@ class ValidarDatos
             
             if (entrada) {
                 int numero = entrada - '0';
-                if (numero >= 1 || numero <= 5)
+                if (numero >= 1 || numero <= 6)
                 {
                     return numero;
                 }

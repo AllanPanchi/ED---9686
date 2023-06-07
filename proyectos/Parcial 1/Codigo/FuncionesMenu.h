@@ -8,9 +8,7 @@ class FuncionesMenu
 {
     public:
         // static Producto insertarProducto(ListaProducto lista);
-        static void eliminarProducto(){}
-        static void buscarProducto(){}
-        static void mostrarProducto(){}
+        
 
         static Producto insertarProducto()
         {
@@ -20,12 +18,13 @@ class FuncionesMenu
             producto.setNombre(ValidarDatos::validarString());
             std::cout << "Ingrese el precio del producto: ";
             producto.setPrecio(ValidarDatos::validarFloat());
-            std::cout << "Ingrese el a\xC3\xB1o de elaboracion del producto" << std::endl;
+            std::cout << "Ingrese el a\xf1o de elaboracion del producto" << std::endl;
             producto.setAnioElaboracion(ValidarDatos::validarEntero());
-            std::cout << "Ingrese el a\xC3\xB1o de vencimiento del producto: " << std::endl;
+            std::cout << "Ingrese el a\xf1o de vencimiento del producto: " << std::endl;
             producto.setAnioCaducidad(ValidarDatos::validarEntero());
 
             return producto;
         }
+        
 
 };
