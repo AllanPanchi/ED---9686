@@ -7,7 +7,7 @@
 #include <stdlib.h>
 
 int main(int argc, char const *argv[]){
-
+    
     bool continuar = true;
     int opcion;
     ListaProducto lista;

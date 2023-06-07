@@ -15,6 +15,6 @@ Recursividad: Operaciones con matrices
 class Operaciones
 {
 public:
-    static void cifrarMatriz(int** mat1, int** mat2, int** matR, int f, int c);
-    static void multiplicacionDeMatrices(int** mat1, int** mat2, int** matR, int f, int c);
+    static void sumarMatriz(int** mat1, int** mat2, int** matR, int f, int c);
+    static void multiplicacionDeMatrices(int** mat1, int** mat2, int** matR, int size);
 };

@@ -65,7 +65,7 @@ int main(int argc, char** argv) {
 
 	cout << "\nSuma de Matrices es: ";
 	
-	Operaciones::cifrarMatriz(mat1, mat2, matR, 2, 2);
+	Operaciones::sumarMatriz(mat1, mat2, matR, 2, 2);
 
 	cout << "\nLa matriz R es:\n";
 	for (int i = 0; i < 3; i++) {
@@ -77,8 +77,9 @@ int main(int argc, char** argv) {
 	}
 
 	cout << "\nMultiplicacion de Matrices es: ";
+
 	
-	Operaciones::multiplicacionDeMatrices(mat1, mat2, matR, 2, 2);
+	Operaciones::multiplicacionDeMatrices(mat1, mat2, matR, 3);
 
 	cout << "\nLa matriz R es:\n";
 	for (int i = 0; i < 3; i++) {
