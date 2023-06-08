@@ -82,6 +82,20 @@
         return NULL;
     }
 
+    // Buscar todos los producto en la lista por medio del atrubuto anioElaboracion que es int y retorar una lista
+    ListaProducto ListaProducto::buscarPorAnioElaboracion(int anioElaboracion){
+        ListaProducto lista;
+        Nodo *tmp = this->primero;
+        while(tmp){
+            if(tmp->getProducto().getAnioElaboracion() == anioElaboracion){
+                lista.insertar(tmp->getProducto());
+            }
+            tmp = tmp->getSiguiente();
+        }
+        return lista;
+    }
+
+
     void ListaProducto::actualizar(Nodo *actual){
         
         
@@ -148,5 +162,14 @@
             archivo.close();
         } else {
             std::cout << "No se pudo abrir el archivo." << std::endl;
+        }
+    }
+
+    void ListaProducto::liberarLista(ListaProducto& lista) {
+        Nodo* temp = lista.getPrimero();
+        while (temp != nullptr) {
+            Nodo* temp2 = temp;
+            temp = temp->getSiguiente();
+            delete temp2;
         }
     }
