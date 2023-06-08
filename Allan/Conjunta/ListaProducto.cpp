@@ -71,16 +71,33 @@
     }
 
     // Buscar un producto en la lista por medio del atrubuto codigo que es int y retornarlo
-    Nodo* ListaProducto::buscar(int codigo){
-        Nodo *tmp = this->primero;
-        while(tmp){
-            if(tmp->getProducto().getCodigo() == codigo){
-                return tmp;
+Nodo* ListaProducto::buscar(int fecha) {
+    Nodo *tmp = this->primero;
+    Nodo *productosEncontrados = nullptr; // Variable para almacenar los productos encontrados
+
+    while (tmp) {
+        if (tmp->getProducto().getAnioElaboracion() == fecha) {
+            // Si se encuentra un producto con la fecha especificada, se agrega a la lista de productos encontrados
+            Nodo *nuevoNodo = new Nodo(tmp->getProducto());
+            if (productosEncontrados == nullptr) {
+                productosEncontrados = nuevoNodo;
+            } else {
+                Nodo *ultimoNodo = productosEncontrados;
+                while (ultimoNodo->getSiguiente() != nullptr) {
+                    ultimoNodo = ultimoNodo->getSiguiente();
+                }
+                ultimoNodo->setSiguiente(nuevoNodo);
             }
-            tmp = tmp->getSiguiente();
         }
-        return NULL;
+        tmp = tmp->getSiguiente();
     }
+
+    if (productosEncontrados == nullptr) {
+        std::cout << "No se encontraron productos con la fecha especificada." << std::endl;
+    }
+
+    return productosEncontrados;
+}
 
     void ListaProducto::actualizar(Nodo *actual){
         
@@ -121,7 +138,7 @@
         if (archivo.is_open()) {
             Nodo* temp = lista.getPrimero();
             while (temp != nullptr) {
-                archivo << temp->getProducto().getCodigo() << " " << temp->getProducto().getNombre() << " " << temp->getProducto().getPrecio()
+                archivo << temp->getProducto().getCodigo() << " " << temp->getProducto().getNombre() << " " << temp->getProducto().getPrecio() \
                 << " " << temp->getProducto().getAnioElaboracion() << " " << temp->getProducto().getAnioCaducidad() << std::endl;
                 temp = temp->getSiguiente();
             }
