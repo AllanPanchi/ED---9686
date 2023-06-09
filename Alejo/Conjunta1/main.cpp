@@ -32,26 +32,37 @@ int main(int argc, char const *argv[]){
         switch(opcion)
         {
             case 1:
-
+            
+                lista.vaciarLista();
                 cargarDatosDesdeArchivo("Productos.txt", lista);
                 system("cls");
                 producto1 = FuncionesMenu::insertarProducto();
                 lista.insertar(producto1);
                 std::cout << "El producto ha sido añadido" << std::endl;
-                lista.mostrar();
-                system("cls");
                 sobreescribirArchivo("Productos.txt", lista);
+                
                 break;
             
             case 2:
 
                 system("cls");
+                lista.vaciarLista();
                 cargarDatosDesdeArchivo("Productos.txt", lista);
                 lista.mostrar();
                 system("cls");
+
+                if (lista.listaVacia()){
+                    std::cout << "No hay productos en la lista" << std::endl;
+                    std::this_thread::sleep_for(std::chrono::seconds(3));
+                    break;
+                }
+
                 std::cout << "Ingrese el codigo del producto a eliminar: ";
                 codigo = ValidarDatos::validarEntero();
                 nodoTm = lista.buscar(codigo);
+
+                lista.mostrar();
+
                 if (nodoTm == NULL)
                 {
                     std::cout << "El producto no existe" << std::endl;
@@ -61,10 +72,11 @@ int main(int argc, char const *argv[]){
                     lista.eliminar(codigo);
                     std::cout << "El producto " << codigo << " se ha sido eliminado" << std::endl;
                     lista.mostrar();
+                    std::this_thread::sleep_for(std::chrono::seconds(3));
                     system("cls");
                     sobreescribirArchivo("Productos.txt", lista);
                 }
-                
+
                 break;
 
             case 3:
@@ -73,6 +85,13 @@ int main(int argc, char const *argv[]){
                 cargarDatosDesdeArchivo("Productos.txt", lista);
                 lista.mostrar();
                 system("cls");
+
+                if (lista.listaVacia()){
+                    std::cout << "No hay productos en la lista" << std::endl;
+                    std::this_thread::sleep_for(std::chrono::seconds(3));
+                    break;
+                }
+
                 std::cout << "Ingrese el codigo del producto a buscar: ";
                 codigo = ValidarDatos::validarEntero();
                 nodoTm = lista.buscar(codigo);
@@ -80,21 +99,29 @@ int main(int argc, char const *argv[]){
                 {
                     std::cout << "El producto no existe" << std::endl;
                     std::this_thread::sleep_for(std::chrono::seconds(3));
-                    system("cls");
                 } else {
                     std::cout << "El producto es: " << std::endl;
                     nodoTm->getProducto().toString();
+                    std::this_thread::sleep_for(std::chrono::seconds(3));
                 }
                 
-                std::this_thread::sleep_for(std::chrono::seconds(3));
+                
                 system("cls");
                 break;
                 
             case 4:
                 
                 system("cls");
+                lista.vaciarLista();
                 cargarDatosDesdeArchivo("Productos.txt", lista);
                 lista.mostrar();
+
+                if (lista.listaVacia()){
+                    std::cout << "No hay productos en la lista" << std::endl;
+                    std::this_thread::sleep_for(std::chrono::seconds(3));
+                    break;
+                }
+
                 system("cls");
                 if (lista.size() == 0)
                 {
@@ -103,13 +130,22 @@ int main(int argc, char const *argv[]){
                     std::cout << "Los productos son: " << std::endl;
                     lista.mostrar();
                 }
+
                 break;
             
             case 5:
                 system("cls");
+                lista.vaciarLista();
                 cargarDatosDesdeArchivo("Productos.txt", lista);
                 lista.mostrar();
                 system("cls");
+
+                if (lista.listaVacia()){
+                    std::cout << "No hay productos en la lista" << std::endl;
+                    std::this_thread::sleep_for(std::chrono::seconds(3));
+                    break;
+                }
+
                 std::cout << "Ingrese el codigo del producto a actualizar:\t";
                 codigo = ValidarDatos::validarEntero();
                 nodoTm = lista.buscar(codigo);
@@ -124,14 +160,24 @@ int main(int argc, char const *argv[]){
                     system("cls");
                     sobreescribirArchivo("Productos.txt", lista);
                 }
+
                 break;
             
             case 6:
 
                 system("cls");
+                lista.vaciarLista();
+                listaDeBusquedaPorAnio.vaciarLista();
                 cargarDatosDesdeArchivo("Productos.txt", lista);
                 lista.mostrar();
                 system("cls");
+
+                if (lista.listaVacia()){
+                    std::cout << "No hay productos en la lista" << std::endl;
+                    std::this_thread::sleep_for(std::chrono::seconds(3));
+                    break;
+                }
+                
                 std::cout << "Ingrese la anio de elaboracion del producto a buscar: ";
                 fecha = ValidarDatos::validarEntero();
                 while (fecha < 1000 || fecha > 9999)
@@ -168,8 +214,6 @@ int main(int argc, char const *argv[]){
         }
 
     }
-
-
 
     return 0;
 }

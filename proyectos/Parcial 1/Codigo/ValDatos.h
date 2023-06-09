@@ -8,11 +8,39 @@
 class ValidarDatos
 {
     public:
-        // static int generarCodigo();
-        // static int validarEntero();
-        // static int validarEnteroMenu();
-        // static float validarFloat();
-        //static std::string validarString();
+
+        static int validarFecha(int fecha)
+        {
+            fecha = ValidarDatos::validarEntero();
+            while (fecha < 1000 || fecha > 9999)
+            {
+                std::cout << "Ingrese un anio valido: ";
+                fecha = ValidarDatos::validarEntero();
+            }
+
+            return fecha;
+        }
+
+        // valida que el precio en float solo se guarde con 2 decimales
+        static float validarPrecio(float precio){
+            int entero = precio;
+            float decimal = precio - entero;
+            decimal *= 100;
+            decimal = (int)decimal;
+            decimal /= 100;
+            precio = entero + decimal;
+            return precio;
+        }
+
+        static std::string validarNombre(std::string nombre){
+            nombre = ValidarDatos::validarString();
+            while (nombre == "")
+            {
+                std::cout << "Ingrese un nombre valido: ";
+                nombre = ValidarDatos::validarString();
+            }
+            return nombre;
+        }
 
         static int generarCodigo(){
             std::random_device rd;
@@ -79,7 +107,6 @@ class ValidarDatos
             return atoi(entrada); 
         }
 
-
         static float validarFloat() {
             char *entrada = new char[30];
             char tecla;
@@ -134,7 +161,7 @@ class ValidarDatos
                 } else if (tecla == '\b' && !entrada.empty()) {
                     entrada.pop_back();
                     std::cout << "\b \b";
-                } else if (std::isalpha(tecla) || std::isspace(tecla)) {
+                } else if (std::isalpha(tecla) && !std::isspace(tecla)) {
                     entrada += tecla;
                     std::cout << tecla;
                 }

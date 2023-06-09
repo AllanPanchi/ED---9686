@@ -41,14 +41,16 @@
     }
 
     void ListaProducto::insertar(Producto producto){
-        Nodo *nuevo = new Nodo(producto);
-        if (listaVacia()){
-            this->primero=nuevo;
+        Nodo* nuevo = new Nodo(producto);
+        if (this->primero == NULL) {
+            this->primero = nuevo;
+            this->actual = nuevo;
         }
-        else{
+        else {
             this->actual->setSiguiente(nuevo);
+            nuevo->setAnterior(this->actual);
+            this->actual = nuevo;
         }
-        this->actual=nuevo;
     }
     
     void ListaProducto::eliminar(int codigo){
@@ -57,18 +59,25 @@
             if(tmp->getProducto().getCodigo() == codigo){
                 if(tmp == this->primero){
                     this->primero = tmp->getSiguiente();
+                    if (this->primero) {
+                        this->primero->setAnterior(nullptr);
+                    }
                     delete tmp;
-                    break;
                 }
                 else{
-                    tmp->getAnterior()->setSiguiente(tmp->getSiguiente());
-                    tmp->getSiguiente()->setAnterior(tmp->getAnterior());
+                    tmp->anterior->siguiente = tmp->getSiguiente();
+                    if (tmp->siguiente) {
+                        tmp->siguiente->anterior = tmp->getAnterior();
+                    }
                     delete tmp;
-                    break;
                 }
+                break;
             }
+            tmp = tmp->getSiguiente(); // Actualizar el puntero tmp
         }
+
     }
+
 
     // Buscar un producto en la lista por medio del atrubuto codigo que es int y retornarlo
     Nodo* ListaProducto::buscar(int codigo){
@@ -82,22 +91,41 @@
         return NULL;
     }
 
+    // Buscar todos los producto en la lista por medio del atrubuto anioElaboracion que es int y retorar una lista
+    ListaProducto ListaProducto::buscarPorAnioElaboracion(int anioElaboracion){
+        ListaProducto lista;
+        Nodo *tmp = this->primero;
+        while(tmp){
+            if(tmp->getProducto().getAnioElaboracion() == anioElaboracion){
+                lista.insertar(tmp->getProducto());
+            }
+            tmp = tmp->getSiguiente();
+        }
+        return lista;
+    }
+
     void ListaProducto::actualizar(Nodo *actual){
         
-        
+        int fecha = 1000;
+        float precio = 0.0;
+
         actual->getProducto().toString();
         std::cout << "Ingrese el nuevo nombre de producto:\t";
        
         actual->producto.setNombre(ValidarDatos::validarString());
 
         std::cout <<"Ingrese el nuevo precio:\t";
-        actual->producto.setPrecio(ValidarDatos::validarFloat());
+        precio = ValidarDatos::validarFloat();
+        precio = ValidarDatos::validarPrecio(precio);
+        actual->producto.setPrecio(precio);
 
         std::cout <<"Ingrese el nuevo anio de elaboracion:\t";
-        actual->producto.setAnioElaboracion(ValidarDatos::validarEntero());
+        fecha = ValidarDatos::validarFecha(fecha);
+        actual->producto.setAnioElaboracion(fecha);
         
         std::cout <<"Ingrese el nuevo anio de vencimiento:\t";
-        actual->producto.setAnioCaducidad(ValidarDatos::validarEntero());
+        fecha = ValidarDatos::validarFecha(fecha);
+        actual->producto.setAnioCaducidad(fecha);
         
 
         actual->getProducto().toString();
@@ -149,4 +177,15 @@
         } else {
             std::cout << "No se pudo abrir el archivo." << std::endl;
         }
+    }
+
+    void ListaProducto::vaciarLista() {
+        Nodo* nodoActual = this->primero;
+        while (nodoActual != nullptr) {
+            Nodo* nodoSiguiente = nodoActual->getAnterior();
+            delete nodoActual;
+            nodoActual = nodoSiguiente;
+        }
+        this->primero = nullptr;
+        this->actual = nullptr;
     }

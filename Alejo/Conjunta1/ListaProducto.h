@@ -42,6 +42,5 @@ class ListaProducto{
 
     void cargarDatosDesdeArchivo(const std::string& nombreArchivo, ListaProducto& lista);
 
-    void liberarLista(ListaProducto& lista);
-
+    void vaciarLista();
 };
