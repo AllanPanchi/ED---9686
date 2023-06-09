@@ -1,3 +1,16 @@
+/*
+UNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE
+Materia: Estructura de Datos
+NRC: 9686
+Integrantes:    Alejandro Andrade
+                Allan Panchi
+                Alex Trejo 
+                Sebastian Verdugo
+Fecha de inicio: 02/05/2023
+Fecha de modificación: 08/06/2023
+
+Proyecto sobre registros utlizando listas doblemente enlazadas
+*/
 #pragma once
 #include <string>
 #include <random>

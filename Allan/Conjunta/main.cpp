@@ -62,16 +62,16 @@ int main(int argc, char const *argv[]){
             case 3:
                 
                 system("cls");
-                std::cout << "Ingrese la fecha del producto a buscar: ";
-                fecha = ValidarDatos::validarEntero();
-                nodoTm = lista.buscar(fecha);
+                std::cout << "Ingrese el codigo del producto a buscar: ";
+                codigo = ValidarDatos::validarEntero();
+                nodoTm = lista.buscar(codigo);
                 if (nodoTm == NULL)
                 {
                     std::cout << "El producto no existe" << std::endl;
                     std::this_thread::sleep_for(std::chrono::seconds(3));
                     system("cls");
                 } else {
-                    std::cout << "El producto encontrados con la fecha: "<< fecha << ":" << std::endl;
+                    std::cout << "El producto encontrados con el codigo: "<< codigo << ":" << std::endl;
                     while (nodoTm)
                     {   
                         nodoTm->getProducto().toString();

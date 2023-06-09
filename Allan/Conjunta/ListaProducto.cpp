@@ -71,12 +71,12 @@
     }
 
     // Buscar un producto en la lista por medio del atrubuto codigo que es int y retornarlo
-Nodo* ListaProducto::buscar(int fecha) {
+    Nodo* ListaProducto::buscar(int codigo) {
     Nodo *tmp = this->primero;
     Nodo *productosEncontrados = nullptr; // Variable para almacenar los productos encontrados
 
     while (tmp) {
-        if (tmp->getProducto().getAnioElaboracion() == fecha) {
+        if (tmp->getProducto().getCodigo() == codigo) {
             // Si se encuentra un producto con la fecha especificada, se agrega a la lista de productos encontrados
             Nodo *nuevoNodo = new Nodo(tmp->getProducto());
             if (productosEncontrados == nullptr) {

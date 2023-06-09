@@ -29,7 +29,7 @@ class ListaProducto{
     void eliminar(int codigo);
 
     // Buscar un producto en la lista por medio del atrubuto codigo que es int y retornarlo
-    Nodo* buscar(int fecha);
+    Nodo* buscar(int condigo);
 
     void actualizar(Nodo *actual);
 
