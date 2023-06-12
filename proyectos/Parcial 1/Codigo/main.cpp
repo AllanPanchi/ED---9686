@@ -95,6 +95,7 @@ int main(int argc, char const *argv[]){
             case 3:
                 
                 system("cls");
+                lista.vaciarLista();
                 cargarDatosDesdeArchivo("Productos.txt", lista);
                 lista.mostrar();
                 system("cls");

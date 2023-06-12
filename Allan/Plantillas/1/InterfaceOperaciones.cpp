@@ -13,7 +13,7 @@ Realizar 4 operaciones en una interface que incluyan datos abstractos
 */
 #include "InterfaceOperaciones.h"
 
-using namespace std;
+
 
 class Operaciones : public InterfaceOperaciones
 {
@@ -23,7 +23,7 @@ public:
    {
       if(den == 0)
       {
-         cout << "El 0 no esta permitido en el denominador, se le cambiara por 1";
+         std::cout << "El 0 no esta permitido en el denominador, se le cambiara por 1" << std::endl;
          den = 1;
       }
       return den;
