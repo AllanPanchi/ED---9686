@@ -56,11 +56,17 @@ class ValidarDatos
         }
 
         static int generarCodigo(){
-            std::random_device rd;
-            std::mt19937 gen(rd());
-            std::uniform_int_distribution<int> dis(10000, 99999);
 
-            return dis(gen);
+            // lambda para generar un numero aleatorio entre 10000 y 99999
+            auto random = []() -> int {
+                std::random_device rd;
+                std::mt19937 gen(rd());
+                std::uniform_int_distribution<int> dis(10000, 99999);
+
+                return dis(gen);
+            };
+
+            return random();
         }
 
         static int validarEnteroMenu() {		
