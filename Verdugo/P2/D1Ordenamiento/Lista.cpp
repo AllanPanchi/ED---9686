@@ -52,7 +52,7 @@ Ordenamiento de lista circular doblemente enlazadas
     }
 
     void Lista::insertar(Registro registro){
-        Nodo<Registro>* nuevo = new Nodo(registro);
+        Nodo<Registro>* nuevo = new Nodo<Registro>(registro);
 	if (this->primero == nullptr)
 	{
 		this->primero = nuevo;
