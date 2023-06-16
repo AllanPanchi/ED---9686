@@ -14,13 +14,7 @@ Ordenamiento de lista circular doblemente enlazadas
 
 #pragma once
 #include <iostream>
-#include <string>
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 978ffe834b84b684e208ab6816907325e30ce63c
-#include "Persona.h"
+#include "Persona.cpp"
 
 class Registro
 {
@@ -31,6 +25,7 @@ public:
    void setEntrada(std::string newEntrada);
    std::string getSalida(void);
    void setSalida(std::string newSalida);
+   void toString(void);
    Registro();
    ~Registro();
 
