@@ -109,3 +109,16 @@ Persona::~Persona()
 {
    // TODO : implement
 }
+
+////////////////////////////////////////////////////////////////////////
+// Name:       Persona::toString()
+// Purpose:    Implementation of Persona::toString()
+// Return:     void
+////////////////////////////////////////////////////////////////////////
+
+void Persona::toString(void)
+{
+   std::cout << "Cedula: " << cedula << std::endl;
+   std::cout << "Nombre: " << nombre << std::endl;
+   std::cout << "Apellido: " << apellido << std::endl;
+}

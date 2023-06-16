@@ -13,7 +13,6 @@ Ordenamiento de lista circular doblemente enlazadas
 */
 
 #include "Registro.h"
-#include "Persona.h"
 
 ////////////////////////////////////////////////////////////////////////
 // Name:       Registro::getPersona()
@@ -85,6 +84,13 @@ std::string Registro::getSalida(void)
 void Registro::setSalida(std::string newSalida)
 {
    salida = newSalida;
+}
+
+void Registro::toString(void)
+{
+   persona.toString();
+   std::cout << "Hora de entrada: " << entrada << std::endl;
+   std::cout << "Hora de salida: " << salida << std::endl;
 }
 
 ////////////////////////////////////////////////////////////////////////

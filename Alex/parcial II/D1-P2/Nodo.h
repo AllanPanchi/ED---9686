@@ -12,21 +12,21 @@ Fecha de modificación: 15/06/2023
 Ordenamiento de lista circular doblemente enlazadas
 */
 
-#include "Producto.h"
+#include "Registro.cpp"
 
 template <typename T>
 class Nodo{
 	private:
-		T producto;
+		T registro;
         Nodo<T> *anterior;
 		Nodo<T> *siguiente;
 	public:
     
-		Nodo(T product, Nodo<T> *sig=NULL, Nodo<T> *ant=NULL);
+		Nodo(T registro, Nodo<T> *sig=NULL, Nodo<T> *ant=NULL);
 
-        void setProducto(T product);
+        void setRegistro(T registro);
 
-		T getProducto();
+		T getRegistro();
 
         void setSiguiente(Nodo<T> *sig);
 
@@ -36,5 +36,5 @@ class Nodo{
 
         Nodo<T>* getAnterior();
 		
-	    friend class ListaProducto;
+	    friend class Lista;
 };

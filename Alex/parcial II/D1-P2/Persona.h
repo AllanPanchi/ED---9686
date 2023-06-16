@@ -11,6 +11,7 @@ Fecha de modificación: 15/06/2023
 
 Ordenamiento de lista circular doblemente enlazadas
 */
+
 #include <iostream>
 
 class Persona
@@ -22,10 +23,9 @@ public:
    void setNombre(std::string newNombre);
    std::string getApellido(void);
    void setApellido(std::string newApellido);
+   void toString(void);
    Persona();
    ~Persona();
-
-  
 
 protected:
 private:

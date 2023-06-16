@@ -14,20 +14,20 @@ Ordenamiento de lista circular doblemente enlazadas
 #include "Nodo.h"
 
 template <typename T>
-Nodo<T>::Nodo(T product, Nodo<T> *sig, Nodo<T> *ant){
-    this->producto = product;
+Nodo<T>::Nodo(T registro, Nodo<T> *sig, Nodo<T> *ant){
+    this->registro = registro;
     this->siguiente = sig;
     this->anterior = ant;
 }
 
 template <typename T>
-void Nodo<T>::setProducto(T product){
-	this->producto = product;
+void Nodo<T>::setRegistro(T registro){
+	this->producto = registro;
 }
 
 template <typename T>
-T Nodo<T>::getProducto(){
-	return this->producto;
+T Nodo<T>::getRegistro(){
+	return this->registro;
 }
 
 template <typename T>
