@@ -17,7 +17,7 @@ Ordenamiento de lista circular doblemente enlazadas
 #include <string>
 
 
-#include <Persona.h>
+#include "Persona.h"
 
 class Registro
 {
