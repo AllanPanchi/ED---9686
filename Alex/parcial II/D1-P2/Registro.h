@@ -15,9 +15,7 @@ Ordenamiento de lista circular doblemente enlazadas
 #pragma once
 #include <iostream>
 #include <string>
-
-
-#include <Persona.h>
+#include "Persona.h"
 
 class Registro
 {

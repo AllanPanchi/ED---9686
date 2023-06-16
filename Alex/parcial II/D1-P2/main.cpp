@@ -13,7 +13,7 @@ Ordenamiento de lista circular doblemente enlazadas
 */
 
 #include "Registro.h"
-#include "Persona.h"
+
 
 int main(int argc, char **argv) {
 
