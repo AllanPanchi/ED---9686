@@ -19,7 +19,7 @@ int main(int argc, char **argv) {
 
     Persona persona;
     Registro registro;
-    Lista lista;
+    Lista<Registro> lista;
 
     persona.setCedula("123");
     persona.setNombre("A");
@@ -29,9 +29,9 @@ int main(int argc, char **argv) {
     registro.setEntrada("12:00");
     registro.setSalida("17:00");
 
-    lista.insertar(registro);
-    lista.mostrar();
-    
+    std::cout << "Lista de registros" << std::endl;
+    std::cout << "------------------" << std::endl;
+
     return 0;
 
 }

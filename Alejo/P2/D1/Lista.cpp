@@ -148,15 +148,15 @@ Ordenamiento de lista circular doblemente enlazadas
     //Mostrar todos los productos de la lista
     void Lista::mostrar(){
         if (this->primero != nullptr)
-	{
-		Nodo<Registro>* aux = this->primero;
-		do
-		{
-			aux->getRegistro().toString();
-			aux = aux->getSiguiente();
-		} while (aux != this->primero);
-		std::cout << std::endl;
-	}
+	    {
+            Nodo<Registro>* aux = this->primero;
+            do
+            {
+                aux->getRegistro().toString();
+                aux = aux->getSiguiente();
+            } while (aux != this->primero);
+            std::cout << std::endl;
+	    }
     }
 
     // void sobreescribirArchivo(const std::string& nombreArchivo, Lista& lista) {
