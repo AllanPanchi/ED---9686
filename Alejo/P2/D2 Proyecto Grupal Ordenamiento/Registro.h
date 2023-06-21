@@ -19,22 +19,23 @@ Ordenamiento de lista circular doblemente enlazadas
 class Registro
 {
 public:
-   Persona getPersona(void);
-   void setPersona(Persona newPersona);
-   std::string getEntrada(void);
-   void setEntrada(std::string newEntrada);
-   std::string getSalida(void);
-   void setSalida(std::string newSalida);
+   std::string getCedula(void);
+   void setCedula(std::string newCedula);
+   std::string getEstado(void);
+   void setEstado(std::string newEstado);
+   Fecha getEntrada(void);
+   void setEntrada(Fecha newEntrada);
+   Fecha getSalida(void);
+   void setSalida(Fecha newSalida);
    void toString(void);
    Registro();
+   Registro(std::string cedula, Fecha entrada, Fecha salida, std::string estado);
    ~Registro();
 
-protected:
 private:
-   Persona persona;
-   std::string entrada;
-   std::string salida;
-
+   std::string cedula, estado;
+   Fecha entrada;
+   Fecha salida;
 
 };
 

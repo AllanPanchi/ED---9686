@@ -94,9 +94,31 @@ void Persona::setApellido(std::string newApellido)
 // Return:     
 ////////////////////////////////////////////////////////////////////////
 
+Fecha Persona::getFechaNacimiento(void)
+{
+   return fechaNacimiento;
+}
+
+////////////////////////////////////////////////////////////////////////
+
+void Persona::setFechaNacimiento(Fecha newFechaNacimiento)
+{
+   fechaNacimiento = newFechaNacimiento;
+}
+
+Persona::Persona(std::string cedula, std::string nombre, std::string apellido, Fecha fechaNacimiento)
+{
+   this->cedula = cedula;
+   this->nombre = nombre;
+   this->apellido = apellido;
+   this->fechaNacimiento = fechaNacimiento;
+}
+
 Persona::Persona()
 {
-   
+   this->cedula = "";
+   this->nombre = "";
+   this->apellido = "";
 }
 
 ////////////////////////////////////////////////////////////////////////
@@ -121,4 +143,8 @@ void Persona::toString(void)
    std::cout << "Cedula: " << cedula << std::endl;
    std::cout << "Nombre: " << nombre << std::endl;
    std::cout << "Apellido: " << apellido << std::endl;
+   std::cout << "Fecha de nacimiento: " << fechaNacimiento.getDia() 
+                  << "/" << fechaNacimiento.getMes() 
+                  << "/" << fechaNacimiento.getAnio() 
+                  << std::endl;
 }

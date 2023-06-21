@@ -15,29 +15,29 @@ Ordenamiento de lista circular doblemente enlazadas
 #include "Lista.h"
 
     template <typename T>
-    Nodo<Registro>* Lista<T>::getPrimero(){
+    Nodo<T>* Lista<T>::getPrimero(){
         return this->primero;
     }
 
     template <typename T>
-    Nodo<Registro>* Lista<T>::getActual(){
+    Nodo<T>* Lista<T>::getActual(){
         return this->actual;
     }
 
     template <typename T>
-    void Lista<T>::setPrimero(Nodo<Registro> *primero){
+    void Lista<T>::setPrimero(Nodo<T> *primero){
         this->primero=primero;
     }
 
     template <typename T>
-    void Lista<T>::setActual(Nodo<Registro> *actual){
+    void Lista<T>::setActual(Nodo<T> *actual){
         this->actual=actual;
     }
 
     template <typename T>
     int Lista<T>::size(){
         int cont=0;
-        Nodo<Registro> *tmp=this->primero;
+        Nodo<T> *tmp=this->primero;
         while(tmp){
             cont++;
             tmp=tmp->getSiguiente();
@@ -57,8 +57,8 @@ Ordenamiento de lista circular doblemente enlazadas
     }
 
     template <typename T>
-    void Lista<T>::insertar(Registro registro){
-        Nodo<Registro>* nuevo = new Nodo(registro);
+    void Lista<T>::insertar(T registro){
+        Nodo<T>* nuevo = new Nodo(registro);
 	if (this->primero == nullptr)
 	{
 		this->primero = nuevo;
@@ -82,7 +82,7 @@ Ordenamiento de lista circular doblemente enlazadas
     void Lista<T>::eliminar(std::string cedula){
         if (this->primero != nullptr)
 	{
-		if (this->primero->getRegistro().getPersona().getCedula() == cedula)
+		if (this->primero->getValor().getPersona().getCedula() == cedula)
 		{
 			Nodo<Registro>* aux = this->primero;
 			this->primero = this->primero->getSiguiente();
@@ -92,10 +92,10 @@ Ordenamiento de lista circular doblemente enlazadas
 		}
 		else
 		{
-			Nodo<Registro>* aux = this->primero;
+			Nodo<T>* aux = this->primero;
 			while (aux->getSiguiente() != this->primero)
 			{
-				if (aux->getSiguiente()->getRegistro().getPersona().getCedula() == cedula)
+				if (aux->getSiguiente()->getValor().getCedula() == cedula)
 				{
 					Nodo<Registro>* aux2 = aux->getSiguiente();
 					aux->setSiguiente(aux2->getSiguiente());
@@ -113,15 +113,34 @@ Ordenamiento de lista circular doblemente enlazadas
 
     // Buscar un producto en la lista por medio del atrubuto codigo que es int y retornarlo
     template <typename T>
-    Nodo<Registro>* Lista<T>::buscar(std::string cedula){
-        Nodo<Registro> *tmp = this->primero;
+    Nodo<T>* Lista<T>::buscar(std::string cedula){
+        Nodo<T> *tmp = this->primero;
         while(tmp){
-            if(tmp->getRegistro().getPersona().getCedula() == cedula){
+            if(tmp->getValor().getCedula() == cedula){
                 return tmp;
             }
             tmp = tmp->getSiguiente();
         }
         return NULL;
+    }
+
+    template <typename T>
+    Nodo<T>* Lista<T>::buscarUltimo(std::string cedula){
+        Nodo<T> *tmp = this->primero;
+        while(tmp){
+            if(tmp->getValor().getCedula() == cedula){
+                return tmp;
+            }
+            tmp = tmp->getAnterior();
+        }
+        return NULL;
+    }
+
+    // Actualizar el estado de un registro la lista
+    template <typename T>
+    void Lista<T>::actualizarEstado(Nodo<T> *actual, T valor){
+        actual->setValor(valor);
+        actual->getValor().toString();
     }
 
     // void Lista::actualizar(Nodo<Registro> *actual){
@@ -158,10 +177,10 @@ Ordenamiento de lista circular doblemente enlazadas
     void Lista<T>::mostrar(){
         if (this->primero != nullptr)
 	    {
-            Nodo<Registro>* aux = this->primero;
+            Nodo<T>* aux = this->primero;
             do
             {
-                aux->getRegistro().toString();
+                aux->getValor().toString();
                 aux = aux->getSiguiente();
             } while (aux != this->primero);
             std::cout << std::endl;
@@ -206,9 +225,9 @@ Ordenamiento de lista circular doblemente enlazadas
 
     template <typename T>
     void Lista<T>::vaciarLista() {
-        Nodo<Registro>* nodoActual = this->primero;
+        Nodo<T>* nodoActual = this->primero;
         while (nodoActual != nullptr) {
-            Nodo<Registro>* nodoSiguiente = nodoActual->getAnterior();
+            Nodo<T>* nodoSiguiente = nodoActual->getAnterior();
             delete nodoActual;
             nodoActual = nodoSiguiente;
         }

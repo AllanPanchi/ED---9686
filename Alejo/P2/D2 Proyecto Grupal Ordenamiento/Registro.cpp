@@ -20,9 +20,9 @@ Ordenamiento de lista circular doblemente enlazadas
 // Return:     Persona
 ////////////////////////////////////////////////////////////////////////
 
-Persona Registro::getPersona(void)
+std::string Registro::getCedula(void)
 {
-   return persona;
+   return cedula;
 }
 
 ////////////////////////////////////////////////////////////////////////
@@ -33,9 +33,19 @@ Persona Registro::getPersona(void)
 // Return:     void
 ////////////////////////////////////////////////////////////////////////
 
-void Registro::setPersona(Persona newPersona)
+void Registro::setCedula(std::string newCedula)
 {
-   persona = newPersona;
+   cedula = newCedula;
+}
+
+std::string Registro::getEstado(void)
+{
+   return estado;
+}
+
+void Registro::setEstado(std::string newEstado)
+{
+   estado = newEstado;
 }
 
 ////////////////////////////////////////////////////////////////////////
@@ -44,7 +54,7 @@ void Registro::setPersona(Persona newPersona)
 // Return:     std::string
 ////////////////////////////////////////////////////////////////////////
 
-std::string Registro::getEntrada(void)
+Fecha Registro::getEntrada(void)
 {
    return entrada;
 }
@@ -57,7 +67,7 @@ std::string Registro::getEntrada(void)
 // Return:     void
 ////////////////////////////////////////////////////////////////////////
 
-void Registro::setEntrada(std::string newEntrada)
+void Registro::setEntrada(Fecha newEntrada)
 {
    entrada = newEntrada;
 }
@@ -68,7 +78,7 @@ void Registro::setEntrada(std::string newEntrada)
 // Return:     std::string
 ////////////////////////////////////////////////////////////////////////
 
-std::string Registro::getSalida(void)
+Fecha Registro::getSalida(void)
 {
    return salida;
 }
@@ -81,14 +91,14 @@ std::string Registro::getSalida(void)
 // Return:     void
 ////////////////////////////////////////////////////////////////////////
 
-void Registro::setSalida(std::string newSalida)
+void Registro::setSalida(Fecha newSalida)
 {
    salida = newSalida;
 }
 
 void Registro::toString(void)
 {
-   persona.toString();
+   std::cout << "Cedula: " << cedula << std::endl;
    std::cout << "Hora de entrada: " << entrada << std::endl;
    std::cout << "Hora de salida: " << salida << std::endl;
 }
@@ -98,6 +108,14 @@ void Registro::toString(void)
 // Purpose:    Implementation of Registro::Registro()
 // Return:     
 ////////////////////////////////////////////////////////////////////////
+
+Registro::Registro(std::string cedula, Fecha entrada, Fecha salida, std::string estado)
+{
+   this->cedula = cedula;
+   this->entrada = entrada;
+   this->salida = salida;
+   this->estado = estado;
+}
 
 Registro::Registro()
 {

@@ -17,17 +17,17 @@ Ordenamiento de lista circular doblemente enlazadas
 template <typename T>
 class Lista{
     private:
-        Nodo<Registro> *primero;
-        Nodo<Registro> *actual;
+        Nodo<T> *primero;
+        Nodo<T> *actual;
     public:
 
-    Nodo<Registro>* getPrimero();
+    Nodo<T>* getPrimero();
 
-    Nodo<Registro>* getActual();
+    Nodo<T>* getActual();
 
-    void setPrimero(Nodo<Registro> *primero);
+    void setPrimero(Nodo<T> *primero);
 
-    void setActual(Nodo<Registro> *actual);
+    void setActual(Nodo<T> *actual);
 
     int size();
 
@@ -35,13 +35,18 @@ class Lista{
 
     Lista();
     
-    void insertar(Registro registro);
+    void insertar(T registro);
 
     // Eliminar un registro de la lista
     void eliminar(std::string cedula);
 
-    // Buscar un registro en la lista por medio del atrubuto codigo que es int y retornarlo
-    Nodo<Registro>* buscar(std::string cedula);
+    Nodo<T>* buscar(std::string cedula);
+
+    // Buscar el ultimo Nodo por su cedula
+    Nodo<T>* buscarUltimo(std::string cedula);
+
+    // Actualizar un registro de la lista
+    void actualizarEstado(Nodo<T> *actual, T dato);
 
     //void actualizar(Nodo<Registro> *actual);
 

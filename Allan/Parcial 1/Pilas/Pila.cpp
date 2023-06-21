@@ -43,7 +43,7 @@ int Pila::pop()
 {
 	if (!isEmpty())
 	{
-		int dato = tope->getDato();
+		int dato = tope->getValor();
 		Nodo<int>* aux = tope;
 		tope = tope->getSiguiente();
 		delete aux;
@@ -59,7 +59,7 @@ int Pila::peek()
 {
 	if (!isEmpty())
 	{
-		return tope->getDato();
+		return tope->getValor();
 	}
 	else
 	{

@@ -17,16 +17,16 @@ Ordenamiento de lista circular doblemente enlazadas
 template <typename T>
 class Nodo{
 	private:
-		T registro;
+		T valor;
         Nodo<T> *anterior;
 		Nodo<T> *siguiente;
 	public:
     
 		Nodo(T registro, Nodo<T> *sig=NULL, Nodo<T> *ant=NULL);
 
-        void setRegistro(T registro);
+        void setValor(T registro);
 
-		T getRegistro();
+		T getValor();
 
         void setSiguiente(Nodo<T> *sig);
 

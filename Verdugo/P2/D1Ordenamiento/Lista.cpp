@@ -75,7 +75,7 @@ Ordenamiento de lista circular doblemente enlazadas
     void Lista::eliminar(std::string cedula){
         if (this->primero != nullptr)
 	{
-		if (this->primero->getRegistro().getPersona().getCedula() == cedula)
+		if (this->primero->getValor().getPersona().getCedula() == cedula)
 		{
 			Nodo<Registro>* aux = this->primero;
 			this->primero = this->primero->getSiguiente();
@@ -88,7 +88,7 @@ Ordenamiento de lista circular doblemente enlazadas
 			Nodo<Registro>* aux = this->primero;
 			while (aux->getSiguiente() != this->primero)
 			{
-				if (aux->getSiguiente()->getRegistro().getPersona().getCedula() == cedula)
+				if (aux->getSiguiente()->getValor().getPersona().getCedula() == cedula)
 				{
 					Nodo<Registro>* aux2 = aux->getSiguiente();
 					aux->setSiguiente(aux2->getSiguiente());
@@ -108,7 +108,7 @@ Ordenamiento de lista circular doblemente enlazadas
     Nodo<Registro>* Lista::buscar(std::string cedula){
         Nodo<Registro> *tmp = this->primero;
         while(tmp){
-            if(tmp->getRegistro().getPersona().getCedula() == cedula){
+            if(tmp->getValor().getPersona().getCedula() == cedula){
                 return tmp;
             }
             tmp = tmp->getSiguiente();
@@ -152,7 +152,7 @@ Ordenamiento de lista circular doblemente enlazadas
 		Nodo<Registro>* aux = this->primero;
 		do
 		{
-			aux->getRegistro().toString();
+			aux->getValor().toString();
 			aux = aux->getSiguiente();
 		} while (aux != this->primero);
 		std::cout << std::endl;

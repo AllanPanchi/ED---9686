@@ -13,6 +13,7 @@ Ordenamiento de lista circular doblemente enlazadas
 */
 
 #include <iostream>
+#include "Fecha.cpp"
 
 class Persona
 {
@@ -23,8 +24,12 @@ public:
    void setNombre(std::string newNombre);
    std::string getApellido(void);
    void setApellido(std::string newApellido);
+   Fecha getFechaNacimiento(void);
+   void setFechaNacimiento(Fecha newFechaNacimiento);
+
    void toString(void);
    Persona();
+   Persona(std::string cedula, std::string nombre, std::string apellido, Fecha fechaNacimiento);
    ~Persona();
 
 protected:
@@ -32,7 +37,7 @@ private:
    std::string cedula;
    std::string nombre;
    std::string apellido;
-
+   Fecha fechaNacimiento;
 
 };
 

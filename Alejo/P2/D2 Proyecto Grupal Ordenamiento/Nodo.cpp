@@ -15,19 +15,19 @@ Ordenamiento de lista circular doblemente enlazadas
 
 template <typename T>
 Nodo<T>::Nodo(T registro, Nodo<T> *sig, Nodo<T> *ant){
-    this->registro = registro;
+    this->valor = registro;
     this->siguiente = sig;
     this->anterior = ant;
 }
 
 template <typename T>
-void Nodo<T>::setRegistro(T registro){
-	this->producto = registro;
+void Nodo<T>::setValor(T registro){
+	this->valor = registro;
 }
 
 template <typename T>
-T Nodo<T>::getRegistro(){
-	return this->registro;
+T Nodo<T>::getValor(){
+	return this->valor;
 }
 
 template <typename T>

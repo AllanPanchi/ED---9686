@@ -9,9 +9,9 @@ private:
 public:
 	Nodo(T dato);
 	~Nodo();
-	void setDato(T dato);
+	void setValor(T dato);
 	void setSiguiente(Nodo<T>* siguiente);
-	T getDato();
+	T getValor();
 	Nodo<T>* getSiguiente();
 };
 
@@ -30,7 +30,7 @@ Nodo<T>::~Nodo()
 
 //seters
 template <typename T>
-void Nodo<T>::setDato(T dato)
+void Nodo<T>::setValor(T dato)
 {
 	this->dato = dato;
 }
@@ -43,7 +43,7 @@ void Nodo<T>::setSiguiente(Nodo<T>* siguiente)
 
 //geters
 template <typename T>
-T Nodo<T>::getDato()
+T Nodo<T>::getValor()
 {
 	return this->dato;
 }
