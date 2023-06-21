@@ -4,7 +4,7 @@ Materia: Estructura de Datos
 NRC: 9686
 Integrantes:    Alejandro Andrade
                 Allan Panchi
-                Alex Trejo 
+                Alex Trejo
                 Sebastian Verdugo
 Fecha de inicio: 15/06/2023
 Fecha de modificación: 15/06/2023
@@ -19,11 +19,11 @@ int main(int argc, char **argv) {
 
     Persona persona;
     Registro registro;
-    Lista lista;
+    Lista<Registro> lista;
 
-    persona.setCedula("123");
-    persona.setNombre("A");
-    persona.setApellido("T");
+    persona.setCedula("1727275198");
+    persona.setNombre("Allan");
+    persona.setApellido("Panchi");
 
     registro.setPersona(persona);
     registro.setEntrada("12:00");
@@ -31,7 +31,9 @@ int main(int argc, char **argv) {
 
     lista.insertar(registro);
     lista.mostrar();
-    
+
+    system("pause");
+
     return 0;
 
 }

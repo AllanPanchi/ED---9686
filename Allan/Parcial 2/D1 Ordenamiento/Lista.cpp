@@ -4,7 +4,7 @@ Materia: Estructura de Datos
 NRC: 9686
 Integrantes:    Alejandro Andrade
                 Allan Panchi
-                Alex Trejo 
+                Alex Trejo
                 Sebastian Verdugo
 Fecha de inicio: 15/06/2023
 Fecha de modificación: 15/06/2023
@@ -14,25 +14,30 @@ Ordenamiento de lista circular doblemente enlazadas
 #include "Lista.h"
 #include "ValDatos.h"
 #include <fstream>
+#include <iostream>
 
-
-    Nodo<Registro>* Lista::getPrimero(){
+    template<class Registro>
+    Nodo<Registro>* Lista<Registro>::getPrimero(){
         return this->primero;
     }
 
-    Nodo<Registro>* Lista::getActual(){
+    template<class Registro>
+    Nodo<Registro>* Lista<Registro>::getActual(){
         return this->actual;
     }
 
-    void Lista::setPrimero(Nodo<Registro> *primero){
+    template<class Registro>
+    void Lista<Registro>::setPrimero(Nodo<Registro> *primero){
         this->primero=primero;
     }
 
-    void Lista::setActual(Nodo<Registro> *actual){
+    template<class Registro>
+    void Lista<Registro>::setActual(Nodo<Registro> *actual){
         this->actual=actual;
     }
 
-    int Lista::size(){
+    template<class Registro>
+    int Lista<Registro>::size(){
         int cont=0;
         Nodo<Registro> *tmp=this->primero;
         while(tmp){
@@ -42,17 +47,20 @@ Ordenamiento de lista circular doblemente enlazadas
         return cont;
     }
 
-    bool Lista::listaVacia(){
+    template<class Registro>
+    bool Lista<Registro>::listaVacia(){
         return (this->actual==NULL);
     }
 
-    Lista::Lista(){
+    template<class Registro>
+    Lista<Registro>::Lista(){
         this->primero=NULL;
         this->actual=NULL;
     }
 
-    void Lista::insertar(Registro registro){
-        Nodo<Registro>* nuevo = new Nodo(registro);
+    template <class Registro>
+    void Lista<Registro>::insertar(Registro registro){
+        Nodo<Registro>* nuevo = new Nodo<Registro>(registro);
 	if (this->primero == nullptr)
 	{
 		this->primero = nuevo;
@@ -72,7 +80,8 @@ Ordenamiento de lista circular doblemente enlazadas
 	}
     }
     
-    void Lista::eliminar(std::string cedula){
+    template<class Registro>
+    void Lista<Registro>::eliminar(std::string cedula){
         if (this->primero != nullptr)
 	{
 		if (this->primero->getRegistro().getPersona().getCedula() == cedula)
@@ -105,7 +114,8 @@ Ordenamiento de lista circular doblemente enlazadas
 
 
     // Buscar un producto en la lista por medio del atrubuto codigo que es int y retornarlo
-    Nodo<Registro>* Lista::buscar(std::string cedula){
+    template<class Registro>
+    Nodo<Registro>* Lista<Registro>::buscar(std::string cedula){
         Nodo<Registro> *tmp = this->primero;
         while(tmp){
             if(tmp->getRegistro().getPersona().getCedula() == cedula){
@@ -146,7 +156,8 @@ Ordenamiento de lista circular doblemente enlazadas
     // }
 
     //Mostrar todos los productos de la lista
-    void Lista::mostrar(){
+    template<class Registro>
+    void Lista<Registro>::mostrar(){
         if (this->primero != nullptr)
 	{
 		Nodo<Registro>* aux = this->primero;
@@ -195,7 +206,8 @@ Ordenamiento de lista circular doblemente enlazadas
     //     }
     // }
 
-    void Lista::vaciarLista() {
+    template<class Registro>
+    void Lista<Registro>::vaciarLista() {
         Nodo<Registro>* nodoActual = this->primero;
         while (nodoActual != nullptr) {
             Nodo<Registro>* nodoSiguiente = nodoActual->getAnterior();

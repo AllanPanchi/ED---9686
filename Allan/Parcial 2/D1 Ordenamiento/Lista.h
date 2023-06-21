@@ -13,8 +13,10 @@ Ordenamiento de lista circular doblemente enlazadas
 */
 
 #include <iostream>
+#include <string.h>
 #include "Nodo.cpp"
 
+template<class Registro>
 class Lista{
     private:
         Nodo<Registro> *primero;
