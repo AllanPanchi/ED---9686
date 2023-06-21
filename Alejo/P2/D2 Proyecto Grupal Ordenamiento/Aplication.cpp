@@ -31,7 +31,7 @@ void Aplication::registroNuevoEmpleado()
 	std::cin >> nombre;
 	std::cout << "Ingrese el apellido: ";
 	std::cin >> apellido;
-	std::cout << "Ingrese la fecha de nacimiento: ";
+	std::cout << "Fecha de nacimiento";
 	std::cin >> fechaNacimiento;
 	persona.setCedula(cedula);
 	persona.setNombre(nombre);
@@ -45,7 +45,6 @@ void Aplication::registroNuevoEmpleado()
 	std::cout << "Persona guardada con exito." << std::endl;
 
 }
-
 
 void Aplication::registrarEntrada(){
 	
@@ -64,27 +63,29 @@ void Aplication::registrarEntrada(){
 	std::cout << "\nIngrese la cedula: ";
 	std::cin >> cedula;
 
-	Nodo<Registro> *tmp = listaRegistro.buscarUltimo(cedula);
+	Nodo<Registro> *tmp = listaRegistro.buscarUltimo(cedula);	
+
 	if(tmp){
 		if(tmp->getValor().getEstado() == "Entrada"){
 			estado = "Salida";
 		}
 	}
 
-	eTmp = tmp->getValor().getEntrada();
-	sTmp = tmp->getValor().getSalida();
-
-	if(estado == "Entrada"){
-		registro.setCedula(cedula);
+	if (!tmp) {
+		estado = "Entrada";
 		entrada = Fecha::getFechaActual(entrada);
+		salida = Fecha::getFechaActual(salida);
+		registro.setCedula(cedula);
 		registro.setEntrada(entrada);
-		registro.setSalida(sTmp);
+		registro.setSalida(salida);
 		registro.setEstado(estado);
-		tmp->setValor(registro);
-		listaRegistro.mostrar();
+		listaRegistro.insertar(registro);
 		ManejoArchivos::guardarRegistros("registros.txt", listaRegistro);
 		return;
 	}
+
+	eTmp = tmp->getValor().getEntrada();
+	sTmp = tmp->getValor().getSalida();
 
 	if(estado == "Salida"){
 		registro.setCedula(cedula);
@@ -93,7 +94,18 @@ void Aplication::registrarEntrada(){
 		registro.setEntrada(eTmp);
 		registro.setEstado(estado);
 		tmp->setValor(registro);
-		listaRegistro.mostrar();
+		ManejoArchivos::guardarRegistros("registros.txt", listaRegistro);
+		return;
+	}
+
+	if(estado == "Entrada"){
+		registro.setCedula(cedula);
+		entrada = Fecha::getFechaActual(entrada);
+		salida = Fecha::getFechaActual(salida);
+		registro.setEntrada(entrada);
+		registro.setSalida(salida);
+		registro.setEstado(estado);
+		listaRegistro.insertar(registro);
 		ManejoArchivos::guardarRegistros("registros.txt", listaRegistro);
 		return;
 	}
@@ -102,12 +114,20 @@ void Aplication::registrarEntrada(){
 
 void Aplication::mostrarPersonasRegistradas()
 {
-	//operacionesPersona.mostrarPersonasRegistradas();
-	system("pause");
+	Lista<Persona> lista;
+	ManejoArchivos::cargarPersonas("personas.txt", lista);
+	if (lista.listaVacia()){
+		std::cout << "No hay personas registradas." << std::endl;
+	}
+	lista.mostrar();
 }
 
 void Aplication::mostrarRegistros()
 {
-	//registro.mostrarRegistros();
-	system("pause");
+	Lista<Registro> lista;
+	ManejoArchivos::cargarRegistros("registros.txt", lista);
+	if (lista.listaVacia()){
+		std::cout << "No hay registros." << std::endl;
+	}
+	lista.mostrar();
 }

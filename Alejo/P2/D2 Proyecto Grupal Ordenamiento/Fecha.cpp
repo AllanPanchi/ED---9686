@@ -313,7 +313,7 @@ std::ostream& operator<<(std::ostream& os, const Fecha& fecha)
 
 std::istream& operator>>(std::istream& is, Fecha& fecha)
 {
-    std::cout << "Ingrese el dia: ";
+    std::cout << "\nIngrese el dia: ";
     is >> fecha.dia;
     std::cout << "Ingrese el mes: ";
     is >> fecha.mes;

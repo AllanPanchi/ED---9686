@@ -126,8 +126,8 @@ Ordenamiento de lista circular doblemente enlazadas
 
     template <typename T>
     Nodo<T>* Lista<T>::buscarUltimo(std::string cedula){
-        Nodo<T> *tmp = this->primero;
-        while(tmp){
+        Nodo<T> *tmp = this->primero->getAnterior();
+        while(tmp != this->primero){
             if(tmp->getValor().getCedula() == cedula){
                 return tmp;
             }
