@@ -1,6 +1,8 @@
 #include "Aplication.h"
 #include <iostream>
 #include "Menu.h"
+#include "ValDatos.h"
+
 
 void Aplication::run()
 {
@@ -16,6 +18,7 @@ void Aplication::run()
 void Aplication::registroNuevoEmpleado()
 {
 	Persona persona;
+	ValidarDatos validar;
 	Lista<Persona> lista;
 
 	std::string cedula, nombre, apellido;
@@ -26,13 +29,18 @@ void Aplication::registroNuevoEmpleado()
 	system("cls");
 
 	std::cout << "\nIngrese la cedula: ";
-	std::cin >> cedula;
+	//std::cin >> cedula;
+	cedula = validar.ingresarCedulaValida();
 	std::cout << "Ingrese el nombre: ";
-	std::cin >> nombre;
+	//std::cin >> nombre ;
+	nombre= validar.validarNombreYApellido(nombre);
 	std::cout << "Ingrese el apellido: ";
-	std::cin >> apellido;
-	std::cout << "Fecha de nacimiento";
+	//std::cin >> apellido;
+	apellido= validar.validarNombreYApellido(apellido);
+	std::cout << "__Fecha de nacimiento__"<< std::endl;
 	std::cin >> fechaNacimiento;
+	fechaNacimiento.validarFecha(fechaNacimiento);
+	std::cout << "Fechga:" << fechaNacimiento.getAnio()<<std::endl;
 	persona.setCedula(cedula);
 	persona.setNombre(nombre);
 	persona.setApellido(apellido);
@@ -51,6 +59,7 @@ void Aplication::registrarEntrada(){
 	Registro registro;
 	Lista<Registro> listaRegistro;
 
+	ValidarDatos validar;
 	std::string cedula, estado;
 	Fecha entrada, salida, eTmp, sTmp;
 
@@ -61,7 +70,8 @@ void Aplication::registrarEntrada(){
 	system("cls");
 
 	std::cout << "\nIngrese la cedula: ";
-	std::cin >> cedula;
+	
+	cedula = validar.ingresarCedulaValida();
 
 	if (listaRegistro.listaVacia()) {
 		estado = "Entrada";
@@ -91,15 +101,11 @@ void Aplication::registrarEntrada(){
 
 	Nodo<Registro> *tmp = listaRegistro.buscarUltimo(cedula);	
 
-	tmp->getValor().toString();
-
 	if(tmp){
 		if(tmp->getValor().getEstado() == "Entrada"){
 			estado = "Salida";
 		}
 	}
-
-	
 
 	eTmp = tmp->getValor().getEntrada();
 	sTmp = tmp->getValor().getSalida();
