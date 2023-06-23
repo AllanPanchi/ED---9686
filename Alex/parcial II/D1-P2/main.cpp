@@ -20,6 +20,7 @@ int main(int argc, char **argv) {
     Persona persona;
     Registro registro;
     Lista lista;
+    int continuar=0;
 
     persona.setCedula("123");
     persona.setNombre("A");
@@ -31,6 +32,13 @@ int main(int argc, char **argv) {
 
     lista.insertar(registro);
     lista.mostrar();
+
+
+    do{
+        
+
+    }while(continuar==1);
+
     
     return 0;
 
