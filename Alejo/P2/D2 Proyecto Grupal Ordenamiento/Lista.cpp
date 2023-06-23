@@ -133,6 +133,10 @@ Ordenamiento de lista circular doblemente enlazadas
             }
             tmp = tmp->getAnterior();
         }
+        if (tmp->getValor().getCedula() == cedula)
+        {
+            return tmp;
+        }
         return NULL;
     }
 

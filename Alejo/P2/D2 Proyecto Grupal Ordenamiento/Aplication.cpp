@@ -60,18 +60,12 @@ void Aplication::registrarEntrada(){
 
 	system("cls");
 
+	listaRegistro.mostrar();	
+
 	std::cout << "\nIngrese la cedula: ";
 	std::cin >> cedula;
 
-	Nodo<Registro> *tmp = listaRegistro.buscarUltimo(cedula);	
-
-	if(tmp){
-		if(tmp->getValor().getEstado() == "Entrada"){
-			estado = "Salida";
-		}
-	}
-
-	if (!tmp) {
+	if (listaRegistro.listaVacia()) {
 		estado = "Entrada";
 		entrada = Fecha::getFechaActual(entrada);
 		salida = Fecha::getFechaActual(salida);
@@ -83,6 +77,31 @@ void Aplication::registrarEntrada(){
 		ManejoArchivos::guardarRegistros("registros.txt", listaRegistro);
 		return;
 	}
+
+	if (listaRegistro.buscarUltimo(cedula) == nullptr) {
+		estado = "Entrada";
+		entrada = Fecha::getFechaActual(entrada);
+		salida = Fecha::getFechaActual(salida);
+		registro.setCedula(cedula);
+		registro.setEntrada(entrada);
+		registro.setSalida(salida);
+		registro.setEstado(estado);
+		listaRegistro.insertar(registro);
+		ManejoArchivos::guardarRegistros("registros.txt", listaRegistro);
+		return;
+	}
+
+	Nodo<Registro> *tmp = listaRegistro.buscarUltimo(cedula);	
+
+	tmp->getValor().toString();
+
+	if(tmp){
+		if(tmp->getValor().getEstado() == "Entrada"){
+			estado = "Salida";
+		}
+	}
+
+	
 
 	eTmp = tmp->getValor().getEntrada();
 	sTmp = tmp->getValor().getSalida();
