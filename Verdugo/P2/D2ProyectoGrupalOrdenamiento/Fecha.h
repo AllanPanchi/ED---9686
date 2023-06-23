@@ -29,7 +29,7 @@ public:
     int getSegundo();
     void setSegundo(int segundo);
     bool esAnioBisiesto(int anio);
-    Fecha validarFecha(Fecha fecha);
+    Fecha validarFecha(Fecha &fecha);
 
     static Fecha getFechaActual(Fecha fecha);
 

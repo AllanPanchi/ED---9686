@@ -11,6 +11,7 @@ void Aplication::run()
 	menu.add(MenuItem("Registro Entrada / Salida.",std::bind(&Aplication::registrarEntrada,this)));
 	menu.add(MenuItem("Mostrar personas registradas", std::bind(&Aplication::mostrarPersonasRegistradas,this)));
 	menu.add(MenuItem("Mostrar todos los registros", std::bind(&Aplication::mostrarRegistros,this)));
+	menu.add(MenuItem("Mostrar registros ordenados por cedula", std::bind(&Aplication::mostrarRegistrosPorCedula, this)));
 	menu.run();
 
 }
@@ -40,6 +41,7 @@ void Aplication::registroNuevoEmpleado()
 	std::cout << "__Fecha de nacimiento__"<< std::endl;
 	std::cin >> fechaNacimiento;
 	fechaNacimiento.validarFecha(fechaNacimiento);
+	std::cout << "Fechga:" << fechaNacimiento.getAnio()<<std::endl;
 	persona.setCedula(cedula);
 	persona.setNombre(nombre);
 	persona.setApellido(apellido);
@@ -58,6 +60,7 @@ void Aplication::registrarEntrada(){
 	Registro registro;
 	Lista<Registro> listaRegistro;
 
+	ValidarDatos validar;
 	std::string cedula, estado;
 	Fecha entrada, salida, eTmp, sTmp;
 
@@ -68,17 +71,10 @@ void Aplication::registrarEntrada(){
 	system("cls");
 
 	std::cout << "\nIngrese la cedula: ";
-	std::cin >> cedula;
+	
+	cedula = validar.ingresarCedulaValida();
 
-	Nodo<Registro> *tmp = listaRegistro.buscarUltimo(cedula);	
-
-	if(tmp){
-		if(tmp->getValor().getEstado() == "Entrada"){
-			estado = "Salida";
-		}
-	}
-
-	if (!tmp) {
+	if (listaRegistro.listaVacia()) {
 		estado = "Entrada";
 		entrada = Fecha::getFechaActual(entrada);
 		salida = Fecha::getFechaActual(salida);
@@ -89,6 +85,27 @@ void Aplication::registrarEntrada(){
 		listaRegistro.insertar(registro);
 		ManejoArchivos::guardarRegistros("registros.txt", listaRegistro);
 		return;
+	}
+
+	if (listaRegistro.buscarUltimo(cedula) == nullptr) {
+		estado = "Entrada";
+		entrada = Fecha::getFechaActual(entrada);
+		salida = Fecha::getFechaActual(salida);
+		registro.setCedula(cedula);
+		registro.setEntrada(entrada);
+		registro.setSalida(salida);
+		registro.setEstado(estado);
+		listaRegistro.insertar(registro);
+		ManejoArchivos::guardarRegistros("registros.txt", listaRegistro);
+		return;
+	}
+
+	Nodo<Registro> *tmp = listaRegistro.buscarUltimo(cedula);	
+
+	if(tmp){
+		if(tmp->getValor().getEstado() == "Entrada"){
+			estado = "Salida";
+		}
 	}
 
 	eTmp = tmp->getValor().getEntrada();
@@ -137,4 +154,16 @@ void Aplication::mostrarRegistros()
 		std::cout << "No hay registros." << std::endl;
 	}
 	lista.mostrar();
+}
+
+void Aplication::mostrarRegistrosPorCedula()
+{
+	Lista<Registro> lista;
+	Lista<Registro> listaOrdenada;
+	ManejoArchivos::cargarRegistros("registros.txt", lista);
+	if (lista.listaVacia()){
+		std::cout << "No hay registros." << std::endl;
+	}
+	
+	lista.bucketSortCedula();
 }
