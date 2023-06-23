@@ -120,7 +120,7 @@ Fecha Fecha::validarFecha(Fecha &fecha) {
         // Validar año
         int anioNuevo, mesNuevo, diaNuevo;
         
-        while (fecha.getAnio() < 1955 || fecha.getAnio() > 2005) {
+        while (fecha.getAnio()<1956 || fecha.getAnio() > 2005) {
             std::cout << "Anio invalido. \n Ingrese de nuevo el anio:\t";
             fecha.setAnio(ValidarDatos::validarEntero());
             
