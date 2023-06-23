@@ -10,6 +10,7 @@ public:
 	void registrarEntrada();
 	void mostrarPersonasRegistradas();
 	void mostrarRegistros();
+	void mostrarRegistrosPorCedula();
 
 private:
 	Persona persona;

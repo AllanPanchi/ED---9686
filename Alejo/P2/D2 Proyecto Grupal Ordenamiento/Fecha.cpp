@@ -1,6 +1,7 @@
 #include "Fecha.h"
 #include <ctime>
 #include <locale>
+#include "ValDatos.h"
 
 Fecha::Fecha()
 {
@@ -110,6 +111,46 @@ Fecha Fecha::getFechaActual(Fecha fecha){
     
     return fecha;
 }
+
+bool Fecha::esAnioBisiesto(int anio) {
+        return (anio % 4 == 0 && anio % 100 != 0) || (anio % 400 == 0);
+}
+
+Fecha Fecha::validarFecha(Fecha &fecha) {
+        // Validar año
+        int anioNuevo, mesNuevo, diaNuevo;
+        
+        while (fecha.getAnio()<1956 || fecha.getAnio() > 2005) {
+            std::cout << "Anio invalido. \n Ingrese de nuevo el anio:\t";
+            fecha.setAnio(ValidarDatos::validarEntero());
+            
+        }
+        
+        // Validar mes
+        while (fecha.getMes() < 1  || fecha.getMes() > 12) {
+            std::cout << "Mes invalido. \n Ingrese de nuevo el mes:\t";
+            fecha.setMes(ValidarDatos::validarEntero());
+        }
+
+        // Validar día
+        int diasEnMes = 0;
+        if (fecha.getMes() == 2) {
+            diasEnMes = esAnioBisiesto(fecha.getAnio()) ? 29 : 28;
+        } else if (fecha.getMes() == 4 || fecha.getMes() == 6 || fecha.getMes() == 9 || fecha.getMes() == 11) {
+            diasEnMes = 30;
+        } else {
+            diasEnMes = 31;
+        }
+
+        while (fecha.getDia() < 1 || fecha.getDia() > diasEnMes) {
+            std::cout << "Dia invalido. \n Ingrese de nuevo el dia:\t";
+            fecha.setDia(ValidarDatos::validarEntero());
+        }
+
+        return fecha;
+}
+
+   
 
 bool Fecha::operator<(Fecha fecha)
 {
@@ -313,13 +354,20 @@ std::ostream& operator<<(std::ostream& os, const Fecha& fecha)
 
 std::istream& operator>>(std::istream& is, Fecha& fecha)
 {
-    std::cout << "\nIngrese el dia: ";
-    is >> fecha.dia;
-    std::cout << "Ingrese el mes: ";
-    is >> fecha.mes;
+   
+      
     std::cout << "Ingrese el anio: ";
     is >> fecha.anio;
+    std::cout << "Ingrese el mes: ";
+    is >> fecha.mes;
+    std::cout << "Ingrese el dia: ";
+    is >> fecha.dia;
+   
+    
     return is;
 }
+
+
+
 
 // Path: ED---9686\Alejo\P2\D2 Proyecto Grupal Ordenamiento\main.cpp

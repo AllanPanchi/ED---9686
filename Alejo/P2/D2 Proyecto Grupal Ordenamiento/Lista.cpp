@@ -36,9 +36,9 @@ Ordenamiento de lista circular doblemente enlazadas
 
     template <typename T>
     int Lista<T>::size(){
-        int cont=0;
+        int cont=1;
         Nodo<T> *tmp=this->primero;
-        while(tmp){
+        while(tmp != this->actual){
             cont++;
             tmp=tmp->getSiguiente();
         }
@@ -110,7 +110,6 @@ Ordenamiento de lista circular doblemente enlazadas
 
     }
 
-
     // Buscar un producto en la lista por medio del atrubuto codigo que es int y retornarlo
     template <typename T>
     Nodo<T>* Lista<T>::buscar(std::string cedula){
@@ -147,35 +146,6 @@ Ordenamiento de lista circular doblemente enlazadas
         actual->getValor().toString();
     }
 
-    // void Lista::actualizar(Nodo<Registro> *actual){
-        
-    //     int fecha = 1000;
-    //     float precio = 0.0;
-
-    //     actual->getProducto().toString();
-    //     std::cout << "Ingrese el nuevo nombre de producto:\t";
-       
-    //     actual->producto.setNombre(ValidarDatos::validarString());
-
-    //     std::cout <<"Ingrese el nuevo precio:\t";
-    //     precio = ValidarDatos::validarFloat();
-    //     precio = ValidarDatos::validarPrecio(precio);
-    //     actual->producto.setPrecio(precio);
-
-    //     std::cout <<"Ingrese el nuevo anio de elaboracion:\t";
-    //     fecha = ValidarDatos::validarFecha(fecha);
-    //     actual->producto.setAnioElaboracion(fecha);
-        
-    //     std::cout <<"Ingrese el nuevo anio de vencimiento:\t";
-    //     fecha = ValidarDatos::validarFecha(fecha);
-    //     actual->producto.setAnioCaducidad(fecha);
-        
-
-    //     actual->getProducto().toString();
-        
-    //     std::cout <<"El producto ha sido actualizado" << std::endl;
-    // }
-
     //Mostrar todos los productos de la lista
     template <typename T>
     void Lista<T>::mostrar(){
@@ -191,42 +161,6 @@ Ordenamiento de lista circular doblemente enlazadas
 	    }
     }
 
-    // void sobreescribirArchivo(const std::string& nombreArchivo, Lista& lista) {
-    //     std::ofstream archivo(nombreArchivo);
-
-    //     if (archivo.is_open()) {
-    //         Nodo<Registro>* temp = lista.getPrimero();
-    //         while (temp != nullptr) {
-    //             archivo << temp->getProducto().getCodigo() << " " << temp->getProducto().getNombre() << " " << temp->getProducto().getPrecio()
-    //             << " " << temp->getProducto().getAnioElaboracion() << " " << temp->getProducto().getAnioCaducidad() << std::endl;
-    //             temp = temp->getSiguiente();
-    //         }
-
-    //         archivo.close();
-    //         std::cout << "Archivo sobrescrito exitosamente." << std::endl;
-    //     } else {
-    //         std::cout << "No se pudo abrir el archivo para sobrescribir." << std::endl;
-    //     }
-    // }
-
-    // void cargarDatosDesdeArchivo(const std::string& nombreArchivo, Lista& lista) {
-    //     std::ifstream archivo(nombreArchivo);
-
-    //     if (archivo.is_open()) {
-    //         int codigo, anioDeElaboracion, anioDeCaducidad;
-    //         float precio;
-    //         std::string nombre;
-    //         while (archivo >> codigo >> nombre >> precio >> anioDeElaboracion >> anioDeCaducidad) {
-    //             Registro producto(codigo, nombre, precio, anioDeElaboracion, anioDeCaducidad);
-    //             lista.insertar(producto);
-    //         }
-
-    //         archivo.close();
-    //     } else {
-    //         std::cout << "No se pudo abrir el archivo." << std::endl;
-    //     }
-    // }
-
     template <typename T>
     void Lista<T>::vaciarLista() {
         Nodo<T>* nodoActual = this->primero;
@@ -238,3 +172,102 @@ Ordenamiento de lista circular doblemente enlazadas
         this->primero = nullptr;
         this->actual = nullptr;
     }
+
+    // Función de partición para el Quicksort
+    int partition(std::vector<int>& arr, int low, int high) {
+        int pivot = arr[high];
+        int i = low - 1;
+
+        for (int j = low; j <= high - 1; j++) {
+            if (arr[j] <= pivot) {
+                i++;
+                std::swap(arr[i], arr[j]);
+            }
+        }
+        std::swap(arr[i + 1], arr[high]);
+        return i + 1;
+    }
+
+    // Implementación del algoritmo Quicksort
+    void quicksort(std::vector<int>& arr, int low, int high) {
+        if (low < high) {
+            int pi = partition(arr, low, high);
+            quicksort(arr, low, pi - 1);
+            quicksort(arr, pi + 1, high);
+        }
+    }
+
+    template <typename T>
+    void Lista<T>::bucketSortCedula(){
+        int cedula;
+        int j = 0;
+        Nodo<T> *tmp = this->primero;
+        int n = this->size();
+        int b[n];
+
+        while(tmp != this->actual){
+            cedula = std::stoi(tmp->getValor().getCedula());
+            b[j] = cedula;
+            j++;
+            tmp = tmp->getSiguiente();
+            if (tmp == this->actual)
+            {
+                b[j] = std::stoi(tmp->getValor().getCedula());
+            }
+        }
+        int size = sizeof(b) / sizeof(b[0]);
+        int numBuckets = n - 1;
+
+        int maxVal = b[0];
+        int minVal = b[0];
+        for (int i = 1; i < size; i++) {
+            if (b[i] > maxVal) {
+                maxVal = b[i];
+            }
+            if (b[i] < minVal) {
+                minVal = b[i];
+            }
+        }
+
+        // Calcular el tamaño de cada balde
+        float range = (maxVal - minVal + 1) / static_cast<float>(numBuckets);
+
+        // Crear los baldes (buckets)
+        std::vector<std::vector<int>> buckets(numBuckets);
+
+        // Colocar los elementos en los baldes correspondientes
+        for (int i = 0; i < size; i++) {
+            int bucketIndex = static_cast<int>((b[i] - minVal) / range);
+            buckets[bucketIndex].push_back(b[i]);
+        }
+
+        // Ordenar cada balde utilizando Quicksort
+        for (int i = 0; i < numBuckets; i++) {
+            quicksort(buckets[i], 0, buckets[i].size() - 1);
+        }
+
+        // Concatenar los baldes ordenados en el arreglo original
+        int index = 0;
+        for (int i = 0; i < numBuckets; i++) {
+            for (int j = 0; j < buckets[i].size(); j++) {
+                b[index++] = buckets[i][j];
+            }
+        }
+
+        Lista<T> listaOrdenada;
+        Nodo<T> *tmp2 = this->primero;
+        for (int i = 0; i < n; i++)
+        {
+            tmp2 = this->buscar(std::to_string(b[i]));
+            if ( tmp2->getValor().getCedula() == std::to_string(b[i]))
+            {
+                listaOrdenada.insertar(tmp2->getValor());
+            }
+            
+        }
+
+        listaOrdenada.mostrar();
+        
+    }
+
+    

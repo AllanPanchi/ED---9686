@@ -25,7 +25,7 @@ class ValidarDatos
         static int validarFecha(int fecha)
         {
             fecha = ValidarDatos::validarEntero();
-            while (fecha < 1000 || fecha > 9999)
+            while (fecha <1956  || fecha > 2006)
             {
                 std::cout << "Ingrese un anio valido: ";
                 fecha = ValidarDatos::validarEntero();
@@ -34,18 +34,69 @@ class ValidarDatos
             return fecha;
         }
 
-        // valida que el precio en float solo se guarde con 2 decimales
-        static float validarPrecio(float precio){
-            int entero = precio;
-            float decimal = precio - entero;
-            decimal *= 100;
-            decimal = (int)decimal;
-            decimal /= 100;
-            precio = entero + decimal;
-            return precio;
+
+        
+        bool validarCedula(const std::string& cedula) {
+            if (cedula.length() == 10) {
+            
+                int sum = 0;
+                for (int i = 0; i < 9; i++) {
+                    int digit = cedula[i] - '0';
+                    if (i % 2 == 0) {
+                        digit *= 2;
+                        if (digit > 9) {
+                            digit -= 9;
+                        }
+                    }
+                    sum += digit;
+                }
+
+                int checksum = (sum % 10 == 0) ? 0 : (10 - sum % 10);
+                int lastDigit = cedula[9] - '0';
+
+                if (checksum == lastDigit) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        
+        std::string ingresarCedulaValida() {
+            std::string cedula;
+
+            while (true) {
+                
+                cedula = "";
+
+                char tecla;
+                while (true) {
+                    tecla = getch();
+
+                    if (tecla == '\r') {
+                        std::cout << std::endl;
+                        break;
+                    } else if (tecla == '\b' && !cedula.empty()) {
+                        cedula.pop_back();
+                        std::cout << "\b \b";
+                    } else if (std::isdigit(tecla) && cedula.length() < 10) {
+                        cedula += tecla;
+                        std::cout << tecla;
+                    }
+                }
+                if(cedula == "0000000000"){
+                    std::cout << "Cedula invalida. Por favor, intentelo nuevamente. Reingrese: \t";
+                } else if (validarCedula(cedula)) {
+                    break;
+                } else {
+                    std::cout << "Cedula invalida. Por favor, intentelo nuevamente. Reingrese: \t";
+                }
+            }
+
+            return cedula;
         }
 
-        static std::string validarNombre(std::string nombre){
+        static std::string validarNombreYApellido(std::string nombre){
+            
             nombre = ValidarDatos::validarString();
             while (nombre == "")
             {
