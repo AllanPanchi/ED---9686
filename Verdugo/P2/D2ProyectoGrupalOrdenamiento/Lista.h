@@ -13,6 +13,7 @@ Ordenamiento de lista circular doblemente enlazadas
 */
 
 #include "Nodo.cpp"
+#include <vector>
 
 template <typename T>
 class Lista{
@@ -48,8 +49,6 @@ class Lista{
     // Actualizar un registro de la lista
     void actualizarEstado(Nodo<T> *actual, T dato);
 
-    //void actualizar(Nodo<Registro> *actual);
-
     // Mostrar todos los registros de la lista
     void mostrar();
 
@@ -58,4 +57,6 @@ class Lista{
     void cargarDatosDesdeArchivo(const std::string& nombreArchivo, Lista& lista);
 
     void vaciarLista();
+
+    void bucketSortCedula();
 };

@@ -83,22 +83,17 @@ class ValidarDatos
                         std::cout << tecla;
                     }
                 }
-
-                if (validarCedula(cedula)) {
+                if(cedula == "0000000000"){
+                    std::cout << "Cedula invalida. Por favor, intentelo nuevamente. Reingrese: \t";
+                } else if (validarCedula(cedula)) {
                     break;
                 } else {
-                    std::cout << "Cedula invalida. Por favor, intentelo nuevamente." << std::endl;
+                    std::cout << "Cedula invalida. Por favor, intentelo nuevamente. Reingrese: \t";
                 }
             }
 
             return cedula;
         }
-        
-
-        
-
-
-        
 
         static std::string validarNombreYApellido(std::string nombre){
             

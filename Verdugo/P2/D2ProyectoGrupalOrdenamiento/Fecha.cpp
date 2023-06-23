@@ -116,17 +116,19 @@ bool Fecha::esAnioBisiesto(int anio) {
         return (anio % 4 == 0 && anio % 100 != 0) || (anio % 400 == 0);
 }
 
-Fecha Fecha::validarFecha(Fecha fecha) {
+Fecha Fecha::validarFecha(Fecha &fecha) {
         // Validar año
+        int anioNuevo, mesNuevo, diaNuevo;
         
-        while (fecha.getAnio()<1956 || fecha.getAnio() > 2006) {
-            std::cout << "Anio invalido." << std::endl;
+        while (fecha.getAnio()<1956 || fecha.getAnio() > 2005) {
+            std::cout << "Anio invalido. \n Ingrese de nuevo el anio:\t";
             fecha.setAnio(ValidarDatos::validarEntero());
+            
         }
-
+        
         // Validar mes
-        while (fecha.getMes() < 0  || fecha.getMes() > 13) {
-            std::cout << "Mes invalido." << std::endl;
+        while (fecha.getMes() < 1  || fecha.getMes() > 12) {
+            std::cout << "Mes invalido. \n Ingrese de nuevo el mes:\t";
             fecha.setMes(ValidarDatos::validarEntero());
         }
 
@@ -141,7 +143,7 @@ Fecha Fecha::validarFecha(Fecha fecha) {
         }
 
         while (fecha.getDia() < 1 || fecha.getDia() > diasEnMes) {
-            std::cout << "Dia inva  lido." << std::endl;
+            std::cout << "Dia invalido. \n Ingrese de nuevo el dia:\t";
             fecha.setDia(ValidarDatos::validarEntero());
         }
 
