@@ -123,6 +123,19 @@ Ordenamiento de lista circular doblemente enlazadas
         return NULL;
     }
 
+    // Buscar un producto en la lista por medio del atrubuto codigo que es int y retornarlo
+    template <typename T>
+    Nodo<T>* Lista<T>::buscarPorSueldo(float sueldo){
+        Nodo<T> *tmp = this->primero;
+        while(tmp){
+            if(tmp->getValor().getSueldo() == sueldo){
+                return tmp;
+            }
+            tmp = tmp->getSiguiente();
+        }
+        return NULL;
+    }
+
     template <typename T>
     Nodo<T>* Lista<T>::buscarUltimo(std::string cedula){
         Nodo<T> *tmp = this->primero->getAnterior();
@@ -204,6 +217,10 @@ Ordenamiento de lista circular doblemente enlazadas
         Nodo<T> *tmp = this->primero;
         int n = this->size();
         int b[n];
+
+        if (tmp->getValor().getCedula() == std::to_string(b[j])){
+
+        }
 
         while(tmp != this->actual){
             cedula = std::stoi(tmp->getValor().getCedula());

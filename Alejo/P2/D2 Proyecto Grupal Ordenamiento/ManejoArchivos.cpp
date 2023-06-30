@@ -7,7 +7,7 @@
         if (archivo.is_open()) {
             Nodo<Persona>* temp = lista.getPrimero();
             do {
-                archivo << temp->getValor().getCedula() << " " << temp->getValor().getNombre() << " " << temp->getValor().getApellido()
+                archivo << temp->getValor().getSueldo() << " " << temp->getValor().getCedula() << " " << temp->getValor().getNombre() << " " << temp->getValor().getApellido()
                 << " " << temp->getValor().getFechaNacimiento() << std::endl;
                 temp = temp->getSiguiente();
             } while (temp != lista.getPrimero());
@@ -23,14 +23,14 @@
         std::ifstream archivo(nombreArchivo);
 
         if (archivo.is_open()) {
+            float sueldo;
             std::string cedula, nombre, apellido;
             int dia, mes, anio, hora, minuto, segundo;
-            while (archivo >> cedula >> nombre >> apellido >> dia >> mes >> anio >> hora >> minuto >> segundo) {
+            while (archivo >> sueldo >> cedula >> nombre >> apellido >> dia >> mes >> anio >> hora >> minuto >> segundo) {
                 Fecha fechaNacimiento(dia, mes, anio, hora, minuto, segundo);
-                Persona persona(cedula, nombre, apellido, fechaNacimiento);
+                Persona persona(sueldo, cedula, nombre, apellido, fechaNacimiento);
                 lista.insertar(persona);
             }
-
             archivo.close();
         } else {
             std::cout << "No se pudo abrir el archivo." << std::endl;

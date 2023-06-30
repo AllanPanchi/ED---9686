@@ -18,6 +18,8 @@ Ordenamiento de lista circular doblemente enlazadas
 class Persona
 {
 public:
+   float getSueldo(void);
+   void setSueldo(float newSueldo);
    std::string getCedula(void);
    void setCedula(std::string newCedula);
    std::string getNombre(void);
@@ -29,11 +31,12 @@ public:
 
    void toString(void);
    Persona();
-   Persona(std::string cedula, std::string nombre, std::string apellido, Fecha fechaNacimiento);
+   Persona(float sueldo, std::string cedula, std::string nombre, std::string apellido, Fecha fechaNacimiento);
    ~Persona();
 
 protected:
 private:
+   float sueldo;
    std::string cedula;
    std::string nombre;
    std::string apellido;

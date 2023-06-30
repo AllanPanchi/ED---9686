@@ -11,6 +11,7 @@ public:
 	void mostrarPersonasRegistradas();
 	void mostrarRegistros();
 	void mostrarRegistrosPorCedula();
+	void mostrarRegistrosPorSueldo();
 
 private:
 	Persona persona;
