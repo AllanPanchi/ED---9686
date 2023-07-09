@@ -5,10 +5,36 @@
 #include <string>
 #include <stack>
 #include <algorithm>
+#include <vector>
+#include <sstream>
 
 // Verifica si un carácter es un operador válido
 bool esOperador(char c) {
     return (c == '+' || c == '-' || c == '*' || c == '/' || c == '^' || c == 's' || c == 'c' || c == 't');
+}
+
+std::string ordenarExpresion(std::string expresion) {
+    std::stringstream ss(expresion);
+    std::vector<std::string> terminos;
+    std::string termino;
+
+    // Obtener los términos de la expresión
+    while (getline(ss, termino, '-')) {
+        terminos.push_back(termino);
+    }
+
+    // Ordenar la expresión
+    std::sort(terminos.begin(), terminos.end(), [](const std::string& a, const std::string& b) {
+        return esOperador(a[0]) && !esOperador(b[0]);
+    });
+
+    // Construir la expresión ordenada
+    std::string expresionOrdenada;
+    for (const std::string& termino : terminos) {
+        expresionOrdenada += termino;
+    }
+
+    return expresionOrdenada;
 }
 
 // Determina la precedencia de un operador
@@ -207,6 +233,7 @@ double evaluarPostfija(const std::string& expresion) {
 
 void OperacionPolaca::operacionPolacaPrefija(std::string operacion)
 {
+
     std::string operacionPrefija;
     std::cout << "Operacion Polaca Prefija: " << std::endl;
     operacionPrefija = aPrefija(operacion);

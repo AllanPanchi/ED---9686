@@ -12,4 +12,6 @@ int main()
     OperacionPolaca::operacionPolacaPostfija(operacion);
     OperacionPolaca::operacionPolacaPrefija(operacion);
 
+    return 0;
+
 }
