@@ -78,7 +78,9 @@
         "xlocmes": "cpp",
         "xlocmon": "cpp",
         "xloctime": "cpp",
-        "regex": "cpp"
+        "regex": "cpp",
+        "map": "cpp",
+        "xtree": "cpp"
     },
     "C_Cpp.errorSquiggles": "enabled",
     "C_Cpp.default.compilerPath": "cl.exe",

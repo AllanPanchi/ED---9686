@@ -8,6 +8,7 @@ int main()
 
     std::cout << "Ingrese la operacion infija: " << std::endl;
     std::cin >> operacion;
+
     OperacionPolaca::operacionPolacaPostfija(operacion);
     OperacionPolaca::operacionPolacaPrefija(operacion);
 
