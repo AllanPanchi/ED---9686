@@ -1,204 +1,157 @@
-#pragma once
+
 #include <iostream>
 #include "Operaciones.h"
 
-//exponente
-    operaciones::operaciones(){
-        this->base = base;
-        this->exponente = exponente;
-        this->radicando= radicando;
-        this->indice= indice;
+Operaciones::Operaciones()
+{
+    // TODO : implement
+}
+
+Operaciones::~Operaciones()
+{
+    // TODO : implement
+}
+
+double Operaciones::getPI()
+{
+    return PI;
+}
+
+double Operaciones::getEPSILON()
+{
+    return EPSILON;
+}
+
+bool Operaciones::isNaN(double valor) {
+    // Verificar si el valor cumple las propiedades de un NaN
+    return valor != valor;
+}
+
+double Operaciones::abs(double valor)
+{
+    if (valor < 0.0)
+    {
+        return -valor;
+    }
+    return valor;
+}
+
+double Operaciones::normalizaRadian(double radian){
+	while (radian <= -2 * PI) {
+        radian += 2 * PI;
+    }
+
+    while (radian > 2 * PI) {
+        radian -= 2 * PI;
+    }
     
+    return radian;
+}
+
+int Operaciones::redondear(double numero)
+{
+    int numeroEntero = (int)numero;
+    double diferencia = numero - numeroEntero;
+
+    if (abs(diferencia) <= 0.5)
+    {
+        return numeroEntero;
     }
-
-
-    void operaciones::setBase(double base){
-        this->base = base;
-
+    else
+    {
+    	if (numeroEntero > 0) {
+    		return numeroEntero + 1;
+		} else {
+			return numeroEntero - 1;
+		}
     }
+}
 
+double Operaciones::seno(double operando)
+{
+	operando = normalizaRadian(operando);
+	
+    double resultado = 0.0;
+    double termino = operando;
+    double contador = 1.0;
 
-    double operaciones::getBase(){
-        return base;
-
-    }   
-
-
-    void operaciones::setExponente(int exponente){
-        this->exponente = exponente;
-
+    while (abs(termino) > EPSILON)
+    {
+        resultado += termino;
+        termino *= -(operando * operando) / ((contador + 1) * (contador + 2));
+        contador += 2;
     }
+    
+    if ((abs(resultado - redondear(resultado)) < EPSILON * 1e+2)) {
+    	return redondear(resultado);
+	}
 
+    return resultado;
+}
 
-    double operaciones::getExponente(){
-        return exponente;
+double Operaciones::coseno(double operando)
+{
+	operando = normalizaRadian(operando);
+	
+    double resultado = 0.0;
+    double termino = 1.0;
+    double contador = 0.0;
 
+    while (abs(termino) > EPSILON)
+    {
+        resultado += termino;
+        termino *= -(operando * operando) / ((contador + 1) * (contador + 2));
+        contador += 2;
     }
-
-    double operaciones::calcularExponente(double base, int exponente){
-
-        double resultado = 1.0;
-        bool negativo = false;
-
-        if (exponente < 0) {
-            exponente = -exponente;
-            negativo = true;
-        }
-
-        for (int i = 0; i < exponente; ++i) {
-            resultado *= base;
-        }
-
-        if (negativo) {
-            resultado = 1.0 / resultado;
-        }
-
-        return resultado;
-
-    }
-
-//fin exponente
-
-//raiz 
-    void operaciones::setRadicando(double radicando){
-        this->radicando = radicando;
-
-    }
-
-
-    double operaciones::getRadicando(){
-        return radicando;
-
-    }   
-
-
-    void operaciones::setIndice(int indice){
-        this->indice = indice;
-
-    }
-
-
-    double operaciones::getIndice(){
-        return indice;
-
-    }
-
-
-
-    //Retorna el valor absoluto para double
-    double fabs(double numero) {
-        return (numero < 0) ? -numero : numero;
-    }
-
-
-    double operaciones::calcularRaiz(double radicando, int indice){
-
-        double precision = 0.0001;
-        if (radicando < 0 && indice % 2 == 0) {
-                throw std::invalid_argument("No se puede calcular la raíz par de un número negativo");
-            }
-            if (radicando < 0 && indice % 2 != 0) {
-                radicando = -radicando;
-            }
-            
-            double aproximacion = radicando / 2;
-            
-            while (true) {
-                double potencia = 1.0;
-                for (int i = 0; i < indice; i++) {
-                    potencia *= aproximacion;
-                }
-                
-                double diferencia = aproximacion - (potencia - radicando) / (indice * potencia / aproximacion);
-                
-                if (fabs(diferencia) < precision) {
-                    break;
-                }
-                
-                aproximacion -= diferencia;
-            }
-            
-            return aproximacion;
-
-    }
-
-//Fin raiz
-
-//Seno
-    double operaciones::calcularSeno(double x) {
-        double precision = 0.0001;
-        double resultado = x;
-        double termino = x;
-        int signo = -1;
-        int n = 3;
         
-        while (fabs(termino) >= precision) {
-            termino = power(x, n) / factorial(n);
-            resultado += signo * termino;
-            signo *= -1;
-            n += 2;
-        }
-        
-        return resultado;
+    if ((abs(resultado - redondear(resultado)) < EPSILON * 1e+2)) {
+    	return redondear(resultado);
+	}
+
+    return resultado;
+}
+
+double Operaciones::tangente(double operando)
+{
+	operando = normalizaRadian(operando);
+    return seno(operando) / coseno(operando);
+}
+
+double Operaciones::log(double operando) {
+	if (operando <= 0) {
+        // Manejo de casos especiales: logaritmo indefinido o no válido        
+        return 0.0/0.0; // O devuelve NaN, dependiendo de tus necesidades
     }
 
-    double operaciones::factorial(int n) {
-        if (n <= 1) {
-            return 1;
-        }
-        double fact = 1;
-        for (int i = 2; i <= n; i++) {
-            fact *= i;
-        }
-        return fact;
+    double resultado = 0.0;
+    double termino = (operando - 1) / (operando + 1);
+    double exponente = termino;
+    int n = 1;
+
+    // Calcula el logaritmo utilizando la serie de Taylor del logaritmo natural
+    while (abs(exponente) > EPSILON) {
+        resultado += exponente;
+        n += 2;
+        termino *= (operando - 1) * (operando - 1) / (operando + 1) / (operando + 1);
+        exponente = termino / n;
     }
 
-    double operaciones::power(double base, int exponent) {
-        double result = 1;
-        for (int i = 0; i < exponent; i++) {
-            result *= base;
-        }
-        return result;
+    return 2 * resultado;
+}
+
+double Operaciones::potencia(double base, double exponente)
+{
+	if (exponente == 0) {
+		return 1;
+	}
+	
+    double resultado = 1;
+    double termino = 1;
+    int numeroIteraciones = 100;
+    double logBase = log(base);
+    for (int i = 1; i <= numeroIteraciones; i++) {
+        termino *= exponente * logBase / i;
+        resultado += termino;
     }
-
-    double operaciones::fabs(double numero) {
-        return (numero < 0) ? -numero : numero;
-    }
- //fin seno
-
-//coseno
-    double operaciones::calcularCoseno(double x) {
-        double precision=0.0001;
-        double resultado = 1.0;
-        double termino = 1.0;
-        int signo = -1;
-        int n = 2;
-        
-        while (fabs(termino) >= precision) {
-            termino = power(x, n) / factorial(n);
-            resultado += signo * termino;
-            signo *= -1;
-            n += 2;
-        }
-        
-        return resultado;
-    }
-//fin coseno
-
-//tangente
-    double operaciones::calcularTangente(double x){
-        double precision= 0.0001;
-        double seno= calcularSeno(x);
-        double coseno= calcularCoseno(x);
-
-        if(coseno == 0){
-            throw std::invalid_argument("No se puede calcular la tangente cuando el coseno es cero");
-
-        } 
-
-        return seno / coseno;
-
-    }
-
-
-
+    return resultado;
+}

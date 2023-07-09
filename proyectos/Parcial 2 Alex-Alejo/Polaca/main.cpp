@@ -1,8 +1,14 @@
+
 #include <iostream>
+#include "OperacionPolaca.cpp"
 
 int main()
 {
-    std::cout << "Ingrese la operación (infija): " << std::endl;
     std::string operacion;
+
+    std::cout << "Ingrese la operacion infija: " << std::endl;
     std::cin >> operacion;
+    OperacionPolaca::operacionPolacaPostfija(operacion);
+    OperacionPolaca::operacionPolacaPrefija(operacion);
+
 }

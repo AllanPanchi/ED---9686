@@ -1,54 +1,25 @@
 #pragma once
 
-class operaciones{
+class Operaciones{
 
     private:
-        double base;
-        int exponente;
-
-        double radicando;
-        int indice;
-
-        //calculo de seno
-
-        double factorial(int n);
-        double power(double base, int exponent);
-        double fabs(double numero);
+        const double PI = 3.141592653589793238463;
+        const double EPSILON = 1e-10;
     
     public:
         
-        operaciones();
-        
-        //exponente
-        void setBase(double base);
-        double getBase();
-        void setExponente(int exponente);
-        double getExponente();
-        double calcularExponente ( double base, int exponente); 
-
-        //raiz cuadrada y cubica
-        void setRadicando(double radicando);
-        double getRadicando();
-        void setIndice(int indice);
-        double getIndice();
-
-        double calcularRaiz (double radicando, int indice); 
-
-
-        //calculo seno
-        operaciones();
-        double calcularSeno(double x);
-
-        //calculo coseno
-
-        double calcularCoseno(double x);
-
-        //calculo tangente
-        double calcularTangente(double x);
-
-
-
-       
-
+        int redondear(double numero);
+        bool isNaN(double valor);
+        double abs(double valor);
+        double normalizaRadian(double radian);
+        double seno(double operando);
+        double coseno(double operando);
+        double tangente(double operando);
+        double log(double operando);
+        double potencia(double base, double exponente);
+        double getPI();
+        double getEPSILON();    
+        Operaciones();
+        ~Operaciones();
 
 };
