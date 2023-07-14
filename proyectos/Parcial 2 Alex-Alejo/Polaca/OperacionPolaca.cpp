@@ -10,31 +10,7 @@
 
 // Verifica si un carácter es un operador válido
 bool esOperador(char c) {
-    return (c == '+' || c == '-' || c == '*' || c == '/' || c == '^' || c == 's' || c == 'c' || c == 't');
-}
-
-std::string ordenarExpresion(std::string expresion) {
-    std::stringstream ss(expresion);
-    std::vector<std::string> terminos;
-    std::string termino;
-
-    // Obtener los términos de la expresión
-    while (getline(ss, termino, '-')) {
-        terminos.push_back(termino);
-    }
-
-    // Ordenar la expresión
-    std::sort(terminos.begin(), terminos.end(), [](const std::string& a, const std::string& b) {
-        return esOperador(a[0]) && !esOperador(b[0]);
-    });
-
-    // Construir la expresión ordenada
-    std::string expresionOrdenada;
-    for (const std::string& termino : terminos) {
-        expresionOrdenada += termino;
-    }
-
-    return expresionOrdenada;
+    return (c == 'n' || c == '+' || c == '-' || c == '*' || c == '/' || c == '^' || c == 's' || c == 'c' || c == 't');
 }
 
 // Determina la precedencia de un operador
@@ -63,61 +39,54 @@ double realizarOperacion(double op1, double op2, char operador) {
         return op1 / op2;
     else if (operador == '^')
         return operaciones.potencia(op1, op2);
-    else if (operador == 's')
+    else if (operador == 's'){
         return operaciones.seno(op1);
+    }
     else if (operador == 'c')
         return operaciones.coseno(op1);
-    else if (operador == 't')
+    else if (operador == 't'){
         return operaciones.tangente(op1);
+    }
     
     return 0.0;
 }
 
-// Convierte una expresión algebraica en notación polaca prefija
-std::string aPrefija(const std::string& expresion) {
-    std::string prefija;
-    std::stack<char> pila;
+std::string aPrefija(std::string expresion) {
+    std::stack<char> pilaOperadores;
+    std::string resultado;
 
-    // Recorre la expresión desde el final hasta el inicio
     for (int i = expresion.length() - 1; i >= 0; i--) {
-        char c = expresion[i];
+        char caracter = expresion[i];
 
-        // Si es un operador, desapila los operadores de mayor o igual precedencia
-        if (esOperador(c)) {
-            while (!pila.empty() && obtenerPrecedencia(pila.top()) >= obtenerPrecedencia(c)) {
-                prefija += pila.top();
-                pila.pop();
+        if (esOperador(caracter)) {
+            while (!pilaOperadores.empty() && obtenerPrecedencia(pilaOperadores.top()) > obtenerPrecedencia(caracter)) {
+                resultado = pilaOperadores.top() + resultado;
+                pilaOperadores.pop();
             }
-            pila.push(c);
+            pilaOperadores.push(caracter);
         }
-        // Si es un paréntesis de cierre, apílalo
-        else if (c == ')') {
-            pila.push(c);
+        else if (caracter == ')') {
+            pilaOperadores.push(caracter);
         }
-        // Si es un paréntesis de apertura, desapila hasta encontrar el paréntesis de cierre correspondiente
-        else if (c == '(') {
-            while (!pila.empty() && pila.top() != ')') {
-                prefija += pila.top();
-                pila.pop();
+        else if (caracter == '(') {
+            while (!pilaOperadores.empty() && pilaOperadores.top() != ')') {
+                resultado = pilaOperadores.top() + resultado;
+                pilaOperadores.pop();
             }
-            pila.pop(); // Elimina el paréntesis de cierre correspondiente
+            if (!pilaOperadores.empty())
+                pilaOperadores.pop(); // Eliminar el paréntesis de apertura
         }
-        // Si es un carácter alfanumérico o un operador de función, agrégalo a la expresión prefija
         else {
-            prefija += c;
+            resultado = caracter + resultado;
         }
     }
 
-    // Desapila los operadores restantes y los agrega a la expresión prefija
-    while (!pila.empty()) {
-        prefija += pila.top();
-        pila.pop();
+    while (!pilaOperadores.empty()) {
+        resultado = pilaOperadores.top() + resultado;
+        pilaOperadores.pop();
     }
 
-    // Invierte la expresión prefija para obtener el resultado final
-    reverse(prefija.begin(), prefija.end());
-
-    return prefija;
+    return resultado;
 }
 
 // Convierte una expresión algebraica en notación polaca postfija
@@ -163,6 +132,8 @@ std::string aPostfija(const std::string& expresion) {
     return postfija;
 }
 
+// separar digitos hasta encontrar un operador y operador hasta encontrar un digito
+
 // Evalúa una expresión en notación polaca prefija y devuelve el resultado
 double evaluarPrefija(const std::string& expresion) {
     std::stack<double> pila;
@@ -192,6 +163,12 @@ double evaluarPrefija(const std::string& expresion) {
             double numero = c - '0';
             pila.push(numero);
         }
+
+        else if (std::isdigit(c) && expresion[i - 1] == '-' && expresion[i - 2] == '(') {
+            double numero = c - '0';
+            numero = numero * -1;
+            pila.push(numero);
+        }
     }
 
     // El elemento restante en la pila será el resultado final
@@ -203,12 +180,19 @@ double evaluarPostfija(const std::string& expresion) {
     std::stack<double> pila;
 
     // Recorre la expresión de izquierda a derecha
-    for (char c : expresion) {
+    for (int i = 0; i < expresion.length(); i++) {
+        char c = expresion[i];
         // Si es un operador, desapila los operandos, realiza la operación y apila el resultado
         if (esOperador(c)) {
             double op1, op2;
 
-            if (c == 's' || c == 'c' || c == 't') {
+            if(c == 'n'){
+                double num = expresion[i-2] - '0';
+                num = num * -1;
+                pila.push(realizarOperacion(num, 0, expresion[i-1]));
+            }
+
+            else if (c == 's' || c == 'c' || c == 't') {
                 op1 = pila.top();
                 pila.pop();
                 pila.push(realizarOperacion(op1, 0, c));
@@ -235,18 +219,25 @@ void OperacionPolaca::operacionPolacaPrefija(std::string operacion)
 {
 
     std::string operacionPrefija;
+    float resultado;
     std::cout << "Operacion Polaca Prefija: " << std::endl;
-    operacionPrefija = aPrefija(operacion);
-    float resultado = evaluarPrefija(operacionPrefija);
+    if(operacion.find_first_of("sct") != std::string::npos){
+        operacionPrefija = aPostfija(operacion);
+        resultado = evaluarPostfija(operacionPrefija);
+    } else
+    {
+        operacionPrefija = aPrefija(operacion);
+        resultado = evaluarPrefija(operacionPrefija);
+    }
 
-    std::cout << operacionPrefija << std::endl;
+    std::cout << aPrefija(operacion) << std::endl;
     std::cout << "Resultado: " << resultado << std::endl;
 }
 
 void OperacionPolaca::operacionPolacaPostfija(std::string operacion)
 {
     std::string operacionPostfija;
-    std::cout << "Operacion Polaca Postfija: " << std::endl;
+    std::cout << "\nOperacion Polaca Postfija: " << std::endl;
     operacionPostfija = aPostfija(operacion);
     float resultado = evaluarPostfija(operacionPostfija);
     
