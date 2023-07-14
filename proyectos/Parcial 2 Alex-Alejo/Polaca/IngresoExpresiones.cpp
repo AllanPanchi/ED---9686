@@ -59,27 +59,30 @@ std::string ordenarExpresion(std::string expresion) {
         }
 
 		// Si el caracter anterior es un paréntesis de apertura y el anterior al paraéntesis es "s" o "t", entonces el número negativo no es el primero
-        if (expresion[indiceNegativo - 1] == '(' && (expresion[indiceNegativo - 2] == 's' || expresion[indiceNegativo - 2] == 't' && expresion[indiceNegativo + 1] == 'p')) {
-            int n = expresion[indiceNegativo + 1] - '0';
-            expresion[indiceNegativo] = n + '0';
-            expresion[indiceNegativo + 1] = ' ';
-            expresion = borrarEspacios(expresion);
-            std::string part1 = expresion.substr(0, indiceNegativo);
-            std::string part2 = expresion.substr(indiceNegativo + 2);
-            part1 = part1 + "p)" + "n";
-            expresion = part1 + part2;
-            continue;
-        }
+        if(expresion[indiceNegativo + 1] == 'p'){
+			if (expresion[indiceNegativo - 1] == '(' && (expresion[indiceNegativo - 2] == 's' || expresion[indiceNegativo - 2] == 't')) {
+				int n = expresion[indiceNegativo + 1] - '0';
+				expresion[indiceNegativo] = n + '0';
+				expresion[indiceNegativo + 1] = ' ';
+				expresion = borrarEspacios(expresion);
+				std::string part1 = expresion.substr(0, indiceNegativo);
+				std::string part2 = expresion.substr(indiceNegativo + 2);
+				part1 = part1 + "p)" + "n";
+				expresion = part1 + part2;
+				continue;
+			}
+		}
 
         // Si el caracter anterior es un paréntesis de apertura y el anterior al paraéntesis es "s" o "t", entonces el número negativo no es el primero
         if (expresion[indiceNegativo - 1] == '(' && (expresion[indiceNegativo - 2] == 's' || expresion[indiceNegativo - 2] == 't')) {
             int n = expresion[indiceNegativo + 1] - '0';
+			std::string c = expresion.substr(indiceNegativo + 1, 1);
             expresion[indiceNegativo] = n + '0';
             expresion[indiceNegativo + 1] = ' ';
             expresion = borrarEspacios(expresion);
             std::string part1 = expresion.substr(0, indiceNegativo);
             std::string part2 = expresion.substr(indiceNegativo + 2);
-            part1 = part1 + "1)" + "n";
+            part1 = part1 + c + ")" + "n";
             expresion = part1 + part2;
             continue;
         }
@@ -88,16 +91,20 @@ std::string ordenarExpresion(std::string expresion) {
         if (expresion[indiceNegativo - 1] == '(' && isdigit(expresion[indiceNegativo + 1]) && expresion[indiceNegativo + 2] == ')') {
             continue;
         }
-        
-        int n1 = expresion[indiceNegativo + 1] - '0';
-        int n2 = expresion[indiceNegativo + 3] - '0';
 
-        expresion[indiceNegativo] = n2 + '0';
-        expresion[indiceNegativo + 1] = '-';
-        expresion[indiceNegativo + 2] = n1 + '0';
-        expresion[indiceNegativo + 3] = ' ';
+		// si la antes del menos hay un parentesis de apertura y el siguiente es un numero y el siguiente al numero es un operador, entonces el numero negativo no es el primero
+		if (expresion[indiceNegativo - 1] == '(' && isdigit(expresion[indiceNegativo + 1]) && IngresoExpresiones::esOperador(expresion[indiceNegativo + 2])) {
+			int n1 = expresion[indiceNegativo + 1] - '0';
+			int n2 = expresion[indiceNegativo + 3] - '0';
 
-        expresion = borrarEspacios(expresion);
+			expresion[indiceNegativo] = n2 + '0';
+			expresion[indiceNegativo + 1] = '-';
+			expresion[indiceNegativo + 2] = n1 + '0';
+			expresion[indiceNegativo + 3] = ' ';
+
+			expresion = borrarEspacios(expresion);
+			continue;
+		}
     }
 
     return expresion;

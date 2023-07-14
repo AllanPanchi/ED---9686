@@ -178,8 +178,6 @@ double evaluarPrefija(const std::string& expresion) {
 double evaluarPostfija(const std::string& expresion) {
     std::stack<double> pila;
 
-    std::cout << expresion << std::endl;
-
     // Recorre la expresión de izquierda a derecha
     for (int i = 0; i < expresion.length(); i++) {
         char c = expresion[i];
