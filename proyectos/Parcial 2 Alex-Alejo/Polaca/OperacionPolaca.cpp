@@ -164,10 +164,9 @@ double evaluarPrefija(const std::string& expresion) {
             pila.push(numero);
         }
 
-        else if (std::isdigit(c) && expresion[i - 1] == '-' && expresion[i - 2] == '(') {
-            double numero = c - '0';
-            numero = numero * -1;
-            pila.push(numero);
+        else if (c == 'p'){
+            pila.push(3.141592653589793238463);
+
         }
     }
 
@@ -179,6 +178,8 @@ double evaluarPrefija(const std::string& expresion) {
 double evaluarPostfija(const std::string& expresion) {
     std::stack<double> pila;
 
+    std::cout << expresion << std::endl;
+
     // Recorre la expresión de izquierda a derecha
     for (int i = 0; i < expresion.length(); i++) {
         char c = expresion[i];
@@ -186,9 +187,14 @@ double evaluarPostfija(const std::string& expresion) {
         if (esOperador(c)) {
             double op1, op2;
 
-            if(c == 'n'){
+            if(c == 'n' && isdigit(expresion[i-2])){
                 double num = expresion[i-2] - '0';
                 num = num * -1;
+                pila.push(realizarOperacion(num, 0, expresion[i-1]));
+            }
+
+            else if (c == 'n' && expresion[i-2] == 'p'){
+                double num = -3.141592653589793238463;
                 pila.push(realizarOperacion(num, 0, expresion[i-1]));
             }
 
@@ -208,6 +214,11 @@ double evaluarPostfija(const std::string& expresion) {
         else if (std::isdigit(c)) {
             double numero = c - '0';
             pila.push(numero);
+        }
+
+        else if (c == 'p'){
+            pila.push(3.141592653589793238463);
+
         }
     }
 

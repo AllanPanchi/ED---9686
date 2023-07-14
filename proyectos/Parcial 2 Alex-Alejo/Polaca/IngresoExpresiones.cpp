@@ -58,6 +58,19 @@ std::string ordenarExpresion(std::string expresion) {
             continue;
         }
 
+		// Si el caracter anterior es un paréntesis de apertura y el anterior al paraéntesis es "s" o "t", entonces el número negativo no es el primero
+        if (expresion[indiceNegativo - 1] == '(' && (expresion[indiceNegativo - 2] == 's' || expresion[indiceNegativo - 2] == 't' && expresion[indiceNegativo + 1] == 'p')) {
+            int n = expresion[indiceNegativo + 1] - '0';
+            expresion[indiceNegativo] = n + '0';
+            expresion[indiceNegativo + 1] = ' ';
+            expresion = borrarEspacios(expresion);
+            std::string part1 = expresion.substr(0, indiceNegativo);
+            std::string part2 = expresion.substr(indiceNegativo + 2);
+            part1 = part1 + "p)" + "n";
+            expresion = part1 + part2;
+            continue;
+        }
+
         // Si el caracter anterior es un paréntesis de apertura y el anterior al paraéntesis es "s" o "t", entonces el número negativo no es el primero
         if (expresion[indiceNegativo - 1] == '(' && (expresion[indiceNegativo - 2] == 's' || expresion[indiceNegativo - 2] == 't')) {
             int n = expresion[indiceNegativo + 1] - '0';
@@ -233,16 +246,15 @@ std::string IngresoExpresiones::ingresoExpresion(void) {
 	entradaString = std::regex_replace(entradaString, std::regex("sen"), "s");
 	entradaString = std::regex_replace(entradaString, std::regex("cos"), "c");
 	entradaString = std::regex_replace(entradaString, std::regex("tan"), "t");
+	entradaString = std::regex_replace(entradaString, std::regex("pi"), "p");
 
 	std::string entradaCorrecta;
 	if (entradaString[0] == '-' || entradaString[0] == '+') {
-        entradaCorrecta += "0 ";
+        entradaCorrecta += "0";
     }
     entradaCorrecta += entradaString;
 
 	entradaCorrecta = ordenarExpresion(entradaCorrecta);
-
-	std::cout << "\nla expresion es: " << entradaCorrecta << std::endl;
 	
 	return entradaCorrecta;
 }
