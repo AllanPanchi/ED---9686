@@ -13,10 +13,9 @@ int main()
     std::cout<<"Ingrese la Expresion en Notacion Infija: "<<std::endl;
 	std::string expresion;
 
-    operacion = validador.validarEntradaOperacion();
+    std::cin >> expresion;
 
-    OperacionPolaca::operacionPolacaPostfija(expresion);
-    OperacionPolaca::operacionPolacaPrefija(expresion);
+    OperacionPolaca::funcion(expresion);
 
     //expresion = IngresoExpresiones::ingresoExpresion();
 
@@ -32,6 +31,10 @@ int main()
     
     // std::cout << "La expresion es valida y esta balanceada." << std::endl;
 
+    //operacion = validador.validarEntradaOperacion();
+
+    // OperacionPolaca::operacionPolacaPostfija(expresion);
+    // OperacionPolaca::operacionPolacaPrefija(expresion);
 
     return 0;
 
