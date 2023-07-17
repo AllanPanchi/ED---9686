@@ -21,6 +21,8 @@ class Validacion : public ValidacionDatos
 {
 public:
 
+    /// @brief Valida la entrada de la operacion
+    /// @return std::string
     std::string validarEntradaOperacion() override
     {
         std::string entradaCorrecta;
@@ -64,6 +66,9 @@ public:
 
     }
 
+    /// @brief Verifica si la cantidad de parentesis es correcta
+    /// @param expresion 
+    /// @return bool
     bool esParentesisEquilibrado(const std::string& expresion) override
     {
          std::stack<char> pila;
@@ -83,13 +88,17 @@ public:
         
     }
 
-    
+    /// @brief Verifica si el caracter es valido
+    /// @param c 
+    /// @return bool
     bool esCaracterValido(char c) override{
         return isdigit(c) || c == '+' || c == '-' || c == '*' || c == '/' || c == '^' || c == ' ' || c == '(' || c == ')' || c == 's' || c == 'c' || c == 't' || c == 'r';
         
     }
 
-
+    /// @brief Verifica si la expresion es valida
+    /// @param expresion 
+    /// @return std::string
     bool esExpresionValida(const std::string& expresion) override{
     std::string expresionModificada;
 
@@ -197,6 +206,9 @@ public:
        
     }
     
+    /// @brief Verifica si la expresion es balanceada
+    /// @param expresion 
+    /// @return bool
     bool esExpresionBalanceada(const std::string& expresion) override{
 
         std::stack<char> pila;

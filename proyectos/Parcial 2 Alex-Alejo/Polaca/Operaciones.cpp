@@ -13,31 +13,42 @@ Proyecto sobre Calculadora polaca infija, posfija y prefija
 #include <iostream>
 #include "Operaciones.h"
 
+/// @brief Constructor por defecto de la clase Operaciones
 Operaciones::Operaciones()
 {
     // TODO : implement
 }
 
+/// @brief Destructor de la clase Operaciones
 Operaciones::~Operaciones()
 {
     // TODO : implement
 }
 
+/// @brief Retorna el valor de PI
+/// @return double
 double Operaciones::getPI()
 {
     return PI;
 }
 
+/// @brief Retorna el valor de EPSILON
+/// @return double
 double Operaciones::getEPSILON()
 {
     return EPSILON;
 }
 
+/// @brief Verificar si el valor cumple las propiedades de un NaN
+/// @return double
 bool Operaciones::isNaN(double valor) {
     // Verificar si el valor cumple las propiedades de un NaN
     return valor != valor;
 }
 
+/// @brief Obtenemos el valor absoluto de un numero
+/// @param valor 
+/// @return double
 double Operaciones::abs(double valor)
 {
     if (valor < 0.0)
@@ -47,6 +58,9 @@ double Operaciones::abs(double valor)
     return valor;
 }
 
+/// @brief Normaliza el valor de un radian
+/// @param radian 
+/// @return double
 double Operaciones::normalizaRadian(double radian){
 	while (radian <= -2 * PI) {
         radian += 2 * PI;
@@ -59,6 +73,9 @@ double Operaciones::normalizaRadian(double radian){
     return radian;
 }
 
+/// @brief Redondea un numero
+/// @param numero 
+/// @return int
 int Operaciones::redondear(double numero)
 {
     int numeroEntero = (int)numero;
@@ -78,6 +95,9 @@ int Operaciones::redondear(double numero)
     }
 }
 
+/// @brief Calcula el seno de un numero
+/// @param operando 
+/// @return double
 double Operaciones::seno(double operando)
 {
 	operando = normalizaRadian(operando);
@@ -100,6 +120,9 @@ double Operaciones::seno(double operando)
     return resultado;
 }
 
+/// @brief Calcula el coseno de un numero
+/// @param operando 
+/// @return double
 double Operaciones::coseno(double operando)
 {
 	operando = normalizaRadian(operando);
@@ -122,12 +145,18 @@ double Operaciones::coseno(double operando)
     return resultado;
 }
 
+/// @brief Calcula la tangente de un numero
+/// @param operando 
+/// @return double
 double Operaciones::tangente(double operando)
 {
 	operando = normalizaRadian(operando);
     return seno(operando) / coseno(operando);
 }
 
+/// @brief Calcula el logaritmo natural de un numero
+/// @param operando 
+/// @return double
 double Operaciones::log(double operando) {
 	if (operando <= 0) {
         // Manejo de casos especiales: logaritmo indefinido o no válido        
@@ -150,6 +179,10 @@ double Operaciones::log(double operando) {
     return 2 * resultado;
 }
 
+/// @brief Calcula la raiz de un numero
+/// @param base 
+/// @param exponente 
+/// @return double
 double Operaciones::potencia(double base, double exponente)
 {
 	if (exponente == 0) {

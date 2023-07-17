@@ -29,21 +29,6 @@ int main()
     OperacionPolaca::operacionPolacaPostfija(expresion);
     OperacionPolaca::operacionPolacaPrefija(expresion);
 
-    //expresion = IngresoExpresiones::ingresoExpresion();
-
-    // if (!validador.esExpresionValida(expresion)) {
-    //     std::cout << "La expresion contiene caracteres no validos." << std::endl;
-    //     return 0;
-    // }
-    
-    // if (!validador.esParentesisEquilibrado(expresion)) {
-    //     std::cout << "La expresion tiene desequilibrio de parentesis." << std::endl;
-    //     return 0;
-    // }
-    
-    // std::cout << "La expresion es valida y esta balanceada." << std::endl;
-
-
     return 0;
 
 }

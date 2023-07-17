@@ -12,30 +12,42 @@ Proyecto sobre Calculadora polaca infija, posfija y prefija
 */
 #include "Lista.h"
 
+/// @brief Guarda el primer nodo de la lista
+/// @tparam T 
+/// @param primero Nodo<T>* primero
 template <typename T>
 void Lista<T>::setPrimero(Nodo<T>* primero)
 {
     this->primero = primero;
 }
 
+/// @brief Guarda el ultimo nodo de la lista
+/// @tparam T 
+/// @param ultimo 
 template <typename T>
 void Lista<T>::setUltimo(Nodo<T>* ultimo)
 {
     this->ultimo = ultimo;
 }
 
+/// @brief Retorna el primer nodo de la lista
+/// @return Nodo<T>*
 template <typename T>
 Nodo<T>* Lista<T>::getPrimero()
 {
     return this->primero;
 }
 
+/// @brief Retorna el ultimo nodo de la lista
+/// @return Nodo<T>*
 template <typename T>
 Nodo<T>* Lista<T>::getUltimo()
 {
     return this->ultimo;
 }
 
+/// @brief Retorna el tamaño de la lista
+/// @return int
 template <typename T>
 int Lista<T>::size()
 {
@@ -49,6 +61,9 @@ int Lista<T>::size()
     return contador;
 }
 
+/// @brief Inserta un nodo al final de la lista
+/// @tparam T
+/// @param dato
 template <typename T>
 void Lista<T>::insertar(T dato)
 {
@@ -65,6 +80,9 @@ void Lista<T>::insertar(T dato)
     }
 }
 
+/// @brief Elimina el nodo que contiene el dato
+/// @tparam T
+/// @param dato
 template <typename T>
 void Lista<T>::eliminar(T dato)
 {
@@ -99,6 +117,10 @@ void Lista<T>::eliminar(T dato)
     }
 }
 
+/// @brief Retorna el nodo que contiene el dato
+/// @tparam T
+/// @param dato
+/// @return Nodo<T>*
 template <typename T>
 Nodo<T>* Lista<T>::buscar(T dato)
 {
@@ -114,6 +136,8 @@ Nodo<T>* Lista<T>::buscar(T dato)
     return nullptr;
 }
 
+/// @brief Retorna true si la lista esta vacia
+/// @return bool
 template <typename T>
 bool Lista<T>::estaVacia()
 {
@@ -124,6 +148,10 @@ bool Lista<T>::estaVacia()
     return false;
 }
 
+/// @brief Si el dato esta en la lista, retorna true
+/// @tparam T
+/// @param dato
+/// @return bool
 template <typename T>
 bool Lista<T>::buscarDatos(T dato)
 {
@@ -140,6 +168,7 @@ bool Lista<T>::buscarDatos(T dato)
     return false;
 }
 
+/// @brief Imprime los datos de la lista
 template <typename T>
 void Lista<T>::imprimir()
 {

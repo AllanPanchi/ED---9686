@@ -262,10 +262,6 @@ void OperacionPolaca::funcion(const std::string& entrada)
     int op1, op2;
     std::string resultado;
     int contador1 = 2, contador2 = 4;
-    int s1 = 0, s2 = 0;
-    int ca1 = 0, ca2 = 0;
-    int ca = 0;
-    int j = 0;
 
     for(int i = 0; contador2 < entrada.length(); i++){
         
@@ -301,19 +297,6 @@ void OperacionPolaca::funcion(const std::string& entrada)
                 continue;
             }
 
-            // if((i + 1) == contador1 || (i + 1) == contador2 || (i + 1) == entrada.length() - 1){
-            //     if((i+1) != ca1 && (i+1) != ca2){
-            //         j++;
-            //         c++;
-            //     }
-            //     if (r == 0 && (i + 2) >= entrada.length() - 1){
-            //         resultado = resultado + " " + std::to_string(op1);
-            //     } else {
-            //         resultado = resultado + " " + std::to_string(r);
-            //     }
-            // } else {
-            //     continue;
-            // }
             op1 = 0;
             op2 = 0;
         }
@@ -331,10 +314,6 @@ void OperacionPolaca::funcion(const std::string& entrada)
             }
             pila.push(op1);
             pila.push(op2);
-            // contador1 = 2 + j*8;
-            // contador2 = 4 + j*8;
-            // ca1 = 1 + ca*4;
-            // ca2 = 2 + ca*4;
             
         } else {
             op1 = 0;

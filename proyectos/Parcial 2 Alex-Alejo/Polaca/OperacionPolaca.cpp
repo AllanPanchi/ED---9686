@@ -19,12 +19,16 @@ Proyecto sobre Calculadora polaca infija, posfija y prefija
 #include <vector>
 #include <sstream>
 
-// Verifica si un carácter es un operador válido
+/// @brief Verifica si un carácter es un operador
+/// @param c 
+/// @return bool
 bool esOperador(char c) {
     return (c == 'n' || c == '+' || c == '-' || c == '*' || c == '/' || c == '^' || c == 's' || c == 'c' || c == 't');
 }
 
-// Determina la precedencia de un operador
+/// @brief Obtiene la precedencia de un operador(Orden de operaciones)
+/// @param operador 
+/// @return int
 int obtenerPrecedencia(char operador) {
     if (operador == '+' || operador == '-')
         return 1;
@@ -37,7 +41,11 @@ int obtenerPrecedencia(char operador) {
     return 0;
 }
 
-// Realiza la operación aritmética dada dos operandos y un operador
+///@brief Realiza la operación aritmética dada dos operandos y un operador
+///@param op1
+///@param op2
+///@param operador
+///@return double
 double realizarOperacion(double op1, double op2, char operador) {
     Operaciones operaciones = Operaciones();
     if (operador == '+')
@@ -62,6 +70,9 @@ double realizarOperacion(double op1, double op2, char operador) {
     return 0.0;
 }
 
+/// @brief Convierte una expresión algebraica en notación polaca prefija
+/// @param expresion 
+/// @return std::string
 std::string aPrefija(std::string expresion) {
     std::stack<char> pilaOperadores;
     std::string resultado;
@@ -100,7 +111,9 @@ std::string aPrefija(std::string expresion) {
     return resultado;
 }
 
-// Convierte una expresión algebraica en notación polaca postfija
+/// @brief Convierte una expresión algebraica en notación polaca postfija
+/// @param expresion 
+/// @return std::string
 std::string aPostfija(const std::string& expresion) {
     std::string postfija;
     std::stack<char> pila;
@@ -143,9 +156,9 @@ std::string aPostfija(const std::string& expresion) {
     return postfija;
 }
 
-// separar digitos hasta encontrar un operador y operador hasta encontrar un digito
-
-// Evalúa una expresión en notación polaca prefija y devuelve el resultado
+/// @brief Evalúa una expresión en notación polaca prefija y devuelve el resultado
+/// @param expresion 
+/// @return 
 double evaluarPrefija(const std::string& expresion) {
     std::stack<double> pila;
 
@@ -185,7 +198,9 @@ double evaluarPrefija(const std::string& expresion) {
     return pila.top();
 }
 
-// Evalúa una expresión en notación polaca postfija y devuelve el resultado
+/// @brief Evalúa una expresión en notación polaca postfija y devuelve el resultado
+/// @param expresion 
+/// @return double
 double evaluarPostfija(const std::string& expresion) {
     std::stack<double> pila;
 
@@ -235,6 +250,8 @@ double evaluarPostfija(const std::string& expresion) {
     return pila.top();
 }
 
+/// @brief Realiza la operacion polaca prefija
+/// @param operacion 
 void OperacionPolaca::operacionPolacaPrefija(std::string operacion)
 {
 
@@ -254,6 +271,8 @@ void OperacionPolaca::operacionPolacaPrefija(std::string operacion)
     std::cout << "Resultado: " << resultado << std::endl;
 }
 
+/// @brief Realiza la operacion polaca postfija
+/// @param operacion 
 void OperacionPolaca::operacionPolacaPostfija(std::string operacion)
 {
     std::string operacionPostfija;
