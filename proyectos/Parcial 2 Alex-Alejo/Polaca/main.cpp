@@ -23,8 +23,8 @@ int main()
 
     std::cout<<"Ingrese la Expresion en Notacion Infija: "<<std::endl;
 	std::string expresion;
-
-    operacion = validador.validarEntradaOperacion();
+    
+    expresion = IngresoExpresiones::ingresoExpresion();
 
     OperacionPolaca::operacionPolacaPostfija(expresion);
     OperacionPolaca::operacionPolacaPrefija(expresion);
