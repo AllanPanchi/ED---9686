@@ -42,7 +42,6 @@ double Operaciones::getEPSILON()
 /// @brief Verificar si el valor cumple las propiedades de un NaN
 /// @return double
 bool Operaciones::isNaN(double valor) {
-    // Verificar si el valor cumple las propiedades de un NaN
     return valor != valor;
 }
 

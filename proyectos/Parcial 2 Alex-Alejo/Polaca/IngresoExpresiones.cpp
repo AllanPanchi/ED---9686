@@ -32,7 +32,7 @@ bool IngresoExpresiones::esParentesis(char c){
 /// @param c 
 /// @return 
 bool IngresoExpresiones::esEspecial(char c){
-	return(c == 'c' || c == 's' ||c == 'r'  || c == 't');
+	return(c == 'c' || c == 's' || c == 't');
 }
 
 /// @brief Función para verificar si un caracter es un operador

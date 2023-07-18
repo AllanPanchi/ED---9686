@@ -58,14 +58,12 @@ double realizarOperacion(double op1, double op2, char operador) {
         return op1 / op2;
     else if (operador == '^')
         return operaciones.potencia(op1, op2);
-    else if (operador == 's'){
+    else if (operador == 's')
         return operaciones.seno(op1);
-    }
     else if (operador == 'c')
         return operaciones.coseno(op1);
-    else if (operador == 't'){
+    else if (operador == 't')
         return operaciones.tangente(op1);
-    }
     
     return 0.0;
 }

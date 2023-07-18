@@ -27,7 +27,7 @@ int main()
     expresion = IngresoExpresiones::ingresoExpresion();
 
     OperacionPolaca::operacionPolacaPostfija(expresion);
-    OperacionPolaca::operacionPolacaPrefija(expresion);
+    OperacionPolaca::operacionPolacaPrefija(expresion); 
 
     return 0;
 
