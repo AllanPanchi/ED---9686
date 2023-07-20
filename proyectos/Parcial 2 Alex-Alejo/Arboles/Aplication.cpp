@@ -22,9 +22,8 @@ void Aplication::registroNuevoEmpleado()
 {
 	Empleado persona;
 	ValidarDatos validar;
-	Lista<Persona> lista;
+	Lista<Empleado> lista;
 	float sueldo;
-
 	std::string cedula, nombre, apellido;
 	Fecha fechaNacimiento;
 
@@ -36,32 +35,42 @@ void Aplication::registroNuevoEmpleado()
 
 	std::cout << "\nIngrese la cedula: ";
 	cedula = validar.ingresarCedulaValida();
-	
-	std::cout << "Ingrese el nombre: ";
-	nombre= validar.validarNombreYApellido(nombre);
-	
-	std::cout << "Ingrese el apellido: ";
-	apellido= validar.validarNombreYApellido(apellido);
-	
-	std::cout << "Ingrese el sueldo: ";
-	sueldo=validar.validarFloat();
-	
-	std::cout << "__Fecha de nacimiento__"<< std::endl;
-	fechaNacimiento.validarFecha(fechaNacimiento);
-	
-	
 
-	persona.setSueldo(sueldo);
-	persona.setCedula(cedula);
-	persona.setNombre(nombre);
-	persona.setApellido(apellido);
-	persona.setFechaNacimiento(fechaNacimiento);
+	if(!lista.buscar(cedula)){
+		
+		std::cout << "Ingrese el nombre: ";
+		nombre= validar.validarNombreYApellido(nombre);
+		
+		std::cout << "Ingrese el apellido: ";
+		apellido= validar.validarNombreYApellido(apellido);
+		
+		std::cout << "Ingrese el sueldo: ";
+		sueldo=validar.validarFloat();
+		
+		std::cout << "__Fecha de nacimiento__"<< std::endl;
+		fechaNacimiento.validarFecha(fechaNacimiento);
+		
+		
 
-	lista.insertar(persona);
+		persona.setSueldo(sueldo);
+		persona.setCedula(cedula);
+		persona.setNombre(nombre);
+		persona.setApellido(apellido);
+		persona.setFechaNacimiento(fechaNacimiento);
 
-	ManejoArchivos::guardarPersonas("personas.txt", lista);
+		lista.insertar(persona);
 
-	std::cout << "Persona guardada con exito." << std::endl;
+		ManejoArchivos::guardarPersonas("personas.txt", lista);
+
+		std::cout << "Persona guardada con exito." << std::endl;
+		
+
+	}else{
+		std::cout << " Ya se  encuentra registrado!!" << std::endl;
+	}
+	
+	
+	
 
 }
 
@@ -148,7 +157,7 @@ void Aplication::registrarEntrada(){
 
 void Aplication::mostrarPersonasRegistradas()
 {
-	Lista<Persona> lista;
+	Lista<Empleado> lista;
 	ManejoArchivos::cargarPersonas("personas.txt", lista);
 	if (lista.listaVacia()){
 		std::cout << "No hay personas registradas." << std::endl;
@@ -240,9 +249,9 @@ void Aplication::mostrarRegistrosPorCedula()
 
 void Aplication::mostrarRegistrosPorSueldo()
 {
-	const auto ordenarPorSueldo = [](Lista<Persona>& lista) -> Lista<Persona> {
+	const auto ordenarPorSueldo = [](Lista<Empleado>& lista) -> Lista<Empleado> {
 		float sueldo;
-		Nodo<Persona>* tmp = lista.getPrimero();
+		Nodo<Empleado>* tmp = lista.getPrimero();
 		int size = lista.size();
 		std::vector<float> arr(size);
 		int cont = 0;
@@ -256,8 +265,8 @@ void Aplication::mostrarRegistrosPorSueldo()
 		quicksort(arr, 0, size - 1);
 		arr2 = arr;
 
-		Lista<Persona> listaOrdenada;
-		Nodo<Persona>* tmp2 = lista.getPrimero();
+		Lista<Empleado> listaOrdenada;
+		Nodo<Empleado>* tmp2 = lista.getPrimero();
 		for (int i = 0; i < size; i++)
         {
             tmp2 = lista.buscarPorSueldo(arr2[i]);
@@ -274,13 +283,13 @@ void Aplication::mostrarRegistrosPorSueldo()
 
 	};
 
-	Lista<Persona> lista;
+	Lista<Empleado> lista;
 	ManejoArchivos::cargarPersonas("personas.txt", lista);
 	if (lista.listaVacia()){
 		std::cout << "No hay personas registradas." << std::endl;
 	}
 
-	Lista<Persona> listaOrdenada = ordenarPorSueldo(lista);
+	Lista<Empleado> listaOrdenada = ordenarPorSueldo(lista);
 	//listaOrdenada.mostrar();
 }
 
