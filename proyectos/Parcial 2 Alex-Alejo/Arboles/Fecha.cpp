@@ -118,20 +118,26 @@ bool Fecha::esAnioBisiesto(int anio) {
 
 Fecha Fecha::validarFecha(Fecha &fecha) {
         // Validar año
-        int anioNuevo, mesNuevo, diaNuevo;
-        
+        int anio, mes, dia;
+        std::cout << "Ingrese el anio: ";
+        fecha.setAnio(ValidarDatos::validarEntero());
         while (fecha.getAnio()<1956 || fecha.getAnio() > 2005) {
             std::cout << "Anio invalido. \n Ingrese de nuevo el anio:\t";
             fecha.setAnio(ValidarDatos::validarEntero());
             
         }
+        std::cout << "Ingrese el mes: ";
+        fecha.setMes(ValidarDatos::validarEntero());
         
         // Validar mes
         while (fecha.getMes() < 1  || fecha.getMes() > 12) {
             std::cout << "Mes invalido. \n Ingrese de nuevo el mes:\t";
             fecha.setMes(ValidarDatos::validarEntero());
         }
-
+        
+        std::cout << "Ingrese el dia: ";
+        fecha.setDia(ValidarDatos::validarEntero());
+                
         // Validar día
         int diasEnMes = 0;
         if (fecha.getMes() == 2) {

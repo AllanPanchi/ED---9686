@@ -23,6 +23,7 @@ void Aplication::registroNuevoEmpleado()
 	Persona persona;
 	ValidarDatos validar;
 	Lista<Persona> lista;
+	float sueldo;
 
 	std::string cedula, nombre, apellido;
 	Fecha fechaNacimiento;
@@ -33,23 +34,22 @@ void Aplication::registroNuevoEmpleado()
 
 	std::cout << "Registro de nuevo empleado." << std::endl;
 
-	std::cout << "Ingrese el sueldo: ";
-	float sueldo;
-	std::cin >> sueldo;
-
 	std::cout << "\nIngrese la cedula: ";
-	//std::cin >> cedula;
 	cedula = validar.ingresarCedulaValida();
+	
 	std::cout << "Ingrese el nombre: ";
-	//std::cin >> nombre ;
 	nombre= validar.validarNombreYApellido(nombre);
+	
 	std::cout << "Ingrese el apellido: ";
-	//std::cin >> apellido;
 	apellido= validar.validarNombreYApellido(apellido);
+	
+	std::cout << "Ingrese el sueldo: ";
+	sueldo=validar.validarFloat();
+	
 	std::cout << "__Fecha de nacimiento__"<< std::endl;
-	std::cin >> fechaNacimiento;
 	fechaNacimiento.validarFecha(fechaNacimiento);
-	std::cout << "Fechga:" << fechaNacimiento.getAnio()<<std::endl;
+	
+	
 
 	persona.setSueldo(sueldo);
 	persona.setCedula(cedula);
@@ -166,18 +166,6 @@ void Aplication::mostrarRegistros()
 	lista.mostrar();
 }
 
-void Aplication::mostrarRegistrosPorCedula()
-{
-	Lista<Registro> lista;
-	Lista<Registro> listaOrdenada;
-	ManejoArchivos::cargarRegistros("registros.txt", lista);
-	if (lista.listaVacia()){
-		std::cout << "No hay registros." << std::endl;
-	}
-	
-	lista.bucketSortCedula();
-}
-
 // Función de partición para el Quicksort
 int partition(std::vector<float>& arr, int low, int high) {
     float pivot = arr[high];
@@ -201,6 +189,54 @@ void quicksort(std::vector<float>& arr, int low, int high) {
         quicksort(arr, pi + 1, high);
     }
 }
+
+void Aplication::mostrarRegistrosPorCedula()
+{
+	const auto ordenarPorCedula = [](Lista<Registro>& lista) -> Lista<Registro> {
+		int cedula;
+		Nodo<Registro>* tmp = lista.getPrimero();
+		int size = lista.size();
+		std::vector<int> arr(size);
+		int cont = 0;
+		while (cont <= size) {
+			arr[cont] = std::atoi( tmp->getValor().getCedula().c_str());
+			cont++;
+			tmp = tmp->getSiguiente();
+		}
+
+		std::vector<int> arr2(size);
+		quicksort(arr, 0, size - 1);
+		arr2 = arr;
+
+		Lista<Registro> listaOrdenada;
+		Nodo<Registro>* tmp2 = lista.getPrimero();
+		for (int i = 0; i < size; i++)
+        {
+            tmp2 = lista.buscarPorCedula(arr2[i]);
+            if ( std::atoi (tmp2->getValor().getCedula().c_str()) == arr2[i])
+            {
+                listaOrdenada.insertar(tmp2->getValor());
+            }
+            
+        }
+		
+		listaOrdenada.mostrar();
+
+		return listaOrdenada;
+
+	};
+
+	Lista<Registro> lista;
+	ManejoArchivos::cargarRegistros("registros.txt", lista);
+	if (lista.listaVacia()){
+		std::cout << "No hay personas registradas." << std::endl;
+	}
+
+	Lista<Registro> listaOrdenada = ordenarPorCedula(lista);
+		
+		
+}
+
 
 void Aplication::mostrarRegistrosPorSueldo()
 {

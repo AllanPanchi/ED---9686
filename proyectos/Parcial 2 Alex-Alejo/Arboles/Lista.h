@@ -45,6 +45,8 @@ class Lista{
 
     Nodo<T>* buscarPorSueldo(float sueldo);
 
+    Nodo<T>* buscarPorCedula(int cedula);
+
     // Buscar el ultimo Nodo por su cedula
     Nodo<T>* buscarUltimo(std::string cedula);
 
