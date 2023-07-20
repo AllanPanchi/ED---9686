@@ -136,6 +136,19 @@ Ordenamiento de lista circular doblemente enlazadas
         return NULL;
     }
 
+    // Buscar un producto en la lista por medio del atrubuto codigo que es int y retornarlo
+    template <typename T>
+    Nodo<T>* Lista<T>::buscarPorCedula(int cedula){
+        Nodo<T> *tmp = this->primero;
+        while(tmp){
+            if(std::atoi(tmp->getValor().getCedula().c_str()) == cedula){
+                return tmp;
+            }
+            tmp = tmp->getSiguiente();
+        }
+        return NULL;
+    }
+
     template <typename T>
     Nodo<T>* Lista<T>::buscarUltimo(std::string cedula){
         Nodo<T> *tmp = this->primero->getAnterior();
@@ -210,83 +223,7 @@ Ordenamiento de lista circular doblemente enlazadas
         }
     }
 
-    template <typename T>
-    void Lista<T>::bucketSortCedula(){
-        int cedula;
-        int j = 0;
-        Nodo<T> *tmp = this->primero;
-        int n = this->size();
-        int b[n];
-
-        std::atoi(tmp->getValor().getCedula().c_str());
-
-        if (tmp->getValor().getCedula() == std::to_string(b[j])){
-
-        }
-
-        while(tmp != this->actual){
-            cedula = std::stoi(tmp->getValor().getCedula());
-            b[j] = cedula;
-            j++;
-            tmp = tmp->getSiguiente();
-            if (tmp == this->actual)
-            {
-                b[j] = std::stoi(tmp->getValor().getCedula());
-            }
-        }
-        int size = sizeof(b) / sizeof(b[0]);
-        int numBuckets = n - 1;
-
-        int maxVal = b[0];
-        int minVal = b[0];
-        for (int i = 1; i < size; i++) {
-            if (b[i] > maxVal) {
-                maxVal = b[i];
-            }
-            if (b[i] < minVal) {
-                minVal = b[i];
-            }
-        }
-
-        // Calcular el tamaño de cada balde
-        float range = (maxVal - minVal + 1) / static_cast<float>(numBuckets);
-
-        // Crear los baldes (buckets)
-        std::vector<std::vector<int>> buckets(numBuckets);
-
-        // Colocar los elementos en los baldes correspondientes
-        for (int i = 0; i < size; i++) {
-            int bucketIndex = static_cast<int>((b[i] - minVal) / range);
-            buckets[bucketIndex].push_back(b[i]);
-        }
-
-        // Ordenar cada balde utilizando Quicksort
-        for (int i = 0; i < numBuckets; i++) {
-            quicksort(buckets[i], 0, buckets[i].size() - 1);
-        }
-
-        // Concatenar los baldes ordenados en el arreglo original
-        int index = 0;
-        for (int i = 0; i < numBuckets; i++) {
-            for (int j = 0; j < buckets[i].size(); j++) {
-                b[index++] = buckets[i][j];
-            }
-        }
-
-        Lista<T> listaOrdenada;
-        Nodo<T> *tmp2 = this->primero;
-        for (int i = 0; i < n; i++)
-        {
-            tmp2 = this->buscar(std::to_string(b[i]));
-            if ( tmp2->getValor().getCedula() == std::to_string(b[i]))
-            {
-                listaOrdenada.insertar(tmp2->getValor());
-            }
-            
-        }
-
-        listaOrdenada.mostrar();
-        
-    }
+ 
+    
 
     

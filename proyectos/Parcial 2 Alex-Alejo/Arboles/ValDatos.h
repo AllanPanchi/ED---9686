@@ -22,20 +22,7 @@ class ValidarDatos
 {
     public:
 
-        static int validarFecha(int fecha)
-        {
-            fecha = ValidarDatos::validarEntero();
-            while (fecha <1956  || fecha > 2006)
-            {
-                std::cout << "Ingrese un anio valido: ";
-                fecha = ValidarDatos::validarEntero();
-            }
-
-            return fecha;
-        }
-
-
-        
+       
         bool validarCedula(const std::string& cedula) {
             if (cedula.length() == 10) {
             
