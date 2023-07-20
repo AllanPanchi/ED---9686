@@ -62,5 +62,7 @@ class Lista{
 
     void vaciarLista();
 
+    bool cedulaEnLista(std::string cedula);
+
     void bucketSortCedula();
 };

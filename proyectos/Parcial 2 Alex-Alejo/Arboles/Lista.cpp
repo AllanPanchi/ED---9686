@@ -114,11 +114,13 @@ Ordenamiento de lista circular doblemente enlazadas
     template <typename T>
     Nodo<T>* Lista<T>::buscar(std::string cedula){
         Nodo<T> *tmp = this->primero;
-        while(tmp){
+        int cont = 0;
+        while(cont <= this->size()){
             if(tmp->getValor().getCedula() == cedula){
                 return tmp;
             }
             tmp = tmp->getSiguiente();
+            cont++;
         }
         return NULL;
     }
@@ -127,11 +129,13 @@ Ordenamiento de lista circular doblemente enlazadas
     template <typename T>
     Nodo<T>* Lista<T>::buscarPorSueldo(float sueldo){
         Nodo<T> *tmp = this->primero;
-        while(tmp){
+        int cont = 0;
+        while(cont <= this->size()){
             if(tmp->getValor().getSueldo() == sueldo){
                 return tmp;
             }
             tmp = tmp->getSiguiente();
+            cont++;
         }
         return NULL;
     }
@@ -140,11 +144,13 @@ Ordenamiento de lista circular doblemente enlazadas
     template <typename T>
     Nodo<T>* Lista<T>::buscarPorCedula(int cedula){
         Nodo<T> *tmp = this->primero;
-        while(tmp){
+        int cont = 0;
+        while(cont <= this->size()){
             if(std::atoi(tmp->getValor().getCedula().c_str()) == cedula){
                 return tmp;
             }
             tmp = tmp->getSiguiente();
+            cont++;
         }
         return NULL;
     }
@@ -223,7 +229,17 @@ Ordenamiento de lista circular doblemente enlazadas
         }
     }
 
- 
-    
-
+    template <typename T>
+    bool Lista<T>::cedulaEnLista(std::string cedula){
+        Nodo<T> *tmp = this->primero;
+        int cont = 0;
+        while(cont <= this->size()){
+            if(tmp->getValor().getCedula() == cedula){
+                return true;
+            }
+            tmp = tmp->getSiguiente();
+            cont++;
+        }
+        return false;
+    }    
     

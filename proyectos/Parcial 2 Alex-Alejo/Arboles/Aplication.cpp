@@ -36,7 +36,7 @@ void Aplication::registroNuevoEmpleado()
 	std::cout << "\nIngrese la cedula: ";
 	cedula = validar.ingresarCedulaValida();
 
-	if(!lista.buscar(cedula)){
+	if(!lista.cedulaEnLista(cedula)){
 		
 		std::cout << "Ingrese el nombre: ";
 		nombre= validar.validarNombreYApellido(nombre);
@@ -50,8 +50,6 @@ void Aplication::registroNuevoEmpleado()
 		std::cout << "__Fecha de nacimiento__"<< std::endl;
 		fechaNacimiento.validarFecha(fechaNacimiento);
 		
-		
-
 		persona.setSueldo(sueldo);
 		persona.setCedula(cedula);
 		persona.setNombre(nombre);
