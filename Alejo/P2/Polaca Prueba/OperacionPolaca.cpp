@@ -285,7 +285,7 @@ void OperacionPolaca::funcion(const std::string& entrada)
             }
             pila.pop();
             pila.pop();
-
+            
             if(lista2.buscar(i+1)){
                 
                 if (r == 0 && (i + 2) >= entrada.length() - 1){

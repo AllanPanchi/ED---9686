@@ -14,7 +14,7 @@ Ordenamiento de lista circular doblemente enlazadas
 
 #pragma once
 #include <iostream>
-#include "Persona.cpp"
+#include "Empleado.cpp"
 
 class Registro
 {
