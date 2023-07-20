@@ -22,13 +22,8 @@ void Aplication::registroNuevoEmpleado()
 {
 	Empleado persona;
 	ValidarDatos validar;
-<<<<<<< HEAD
 	Lista<Empleado> lista;
-=======
-	Lista<Persona> lista;
 	float sueldo;
->>>>>>> 3dbd9e342cc96005b64edc74fad231a849022985
-
 	std::string cedula, nombre, apellido;
 	Fecha fechaNacimiento;
 
@@ -162,7 +157,7 @@ void Aplication::registrarEntrada(){
 
 void Aplication::mostrarPersonasRegistradas()
 {
-	Lista<Persona> lista;
+	Lista<Empleado> lista;
 	ManejoArchivos::cargarPersonas("personas.txt", lista);
 	if (lista.listaVacia()){
 		std::cout << "No hay personas registradas." << std::endl;
@@ -254,9 +249,9 @@ void Aplication::mostrarRegistrosPorCedula()
 
 void Aplication::mostrarRegistrosPorSueldo()
 {
-	const auto ordenarPorSueldo = [](Lista<Persona>& lista) -> Lista<Persona> {
+	const auto ordenarPorSueldo = [](Lista<Empleado>& lista) -> Lista<Empleado> {
 		float sueldo;
-		Nodo<Persona>* tmp = lista.getPrimero();
+		Nodo<Empleado>* tmp = lista.getPrimero();
 		int size = lista.size();
 		std::vector<float> arr(size);
 		int cont = 0;
@@ -270,8 +265,8 @@ void Aplication::mostrarRegistrosPorSueldo()
 		quicksort(arr, 0, size - 1);
 		arr2 = arr;
 
-		Lista<Persona> listaOrdenada;
-		Nodo<Persona>* tmp2 = lista.getPrimero();
+		Lista<Empleado> listaOrdenada;
+		Nodo<Empleado>* tmp2 = lista.getPrimero();
 		for (int i = 0; i < size; i++)
         {
             tmp2 = lista.buscarPorSueldo(arr2[i]);
@@ -288,13 +283,13 @@ void Aplication::mostrarRegistrosPorSueldo()
 
 	};
 
-	Lista<Persona> lista;
+	Lista<Empleado> lista;
 	ManejoArchivos::cargarPersonas("personas.txt", lista);
 	if (lista.listaVacia()){
 		std::cout << "No hay personas registradas." << std::endl;
 	}
 
-	Lista<Persona> listaOrdenada = ordenarPorSueldo(lista);
+	Lista<Empleado> listaOrdenada = ordenarPorSueldo(lista);
 	//listaOrdenada.mostrar();
 }
 
