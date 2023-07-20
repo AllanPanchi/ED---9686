@@ -36,32 +36,42 @@ void Aplication::registroNuevoEmpleado()
 
 	std::cout << "\nIngrese la cedula: ";
 	cedula = validar.ingresarCedulaValida();
-	
-	std::cout << "Ingrese el nombre: ";
-	nombre= validar.validarNombreYApellido(nombre);
-	
-	std::cout << "Ingrese el apellido: ";
-	apellido= validar.validarNombreYApellido(apellido);
-	
-	std::cout << "Ingrese el sueldo: ";
-	sueldo=validar.validarFloat();
-	
-	std::cout << "__Fecha de nacimiento__"<< std::endl;
-	fechaNacimiento.validarFecha(fechaNacimiento);
-	
-	
 
-	persona.setSueldo(sueldo);
-	persona.setCedula(cedula);
-	persona.setNombre(nombre);
-	persona.setApellido(apellido);
-	persona.setFechaNacimiento(fechaNacimiento);
+	if(!lista.buscar(cedula)){
+		
+		std::cout << "Ingrese el nombre: ";
+		nombre= validar.validarNombreYApellido(nombre);
+		
+		std::cout << "Ingrese el apellido: ";
+		apellido= validar.validarNombreYApellido(apellido);
+		
+		std::cout << "Ingrese el sueldo: ";
+		sueldo=validar.validarFloat();
+		
+		std::cout << "__Fecha de nacimiento__"<< std::endl;
+		fechaNacimiento.validarFecha(fechaNacimiento);
+		
+		
 
-	lista.insertar(persona);
+		persona.setSueldo(sueldo);
+		persona.setCedula(cedula);
+		persona.setNombre(nombre);
+		persona.setApellido(apellido);
+		persona.setFechaNacimiento(fechaNacimiento);
 
-	ManejoArchivos::guardarPersonas("personas.txt", lista);
+		lista.insertar(persona);
 
-	std::cout << "Persona guardada con exito." << std::endl;
+		ManejoArchivos::guardarPersonas("personas.txt", lista);
+
+		std::cout << "Persona guardada con exito." << std::endl;
+		
+
+	}else{
+		std::cout << " Ya se  encuentra registrado!!" << std::endl;
+	}
+	
+	
+	
 
 }
 

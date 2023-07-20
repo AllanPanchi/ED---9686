@@ -110,7 +110,7 @@ Ordenamiento de lista circular doblemente enlazadas
 
     }
 
-    // Buscar un producto en la lista por medio del atrubuto codigo que es int y retornarlo
+    // Buscar un producto en la lista por medio del atributo codigo que es int y retornarlo
     template <typename T>
     Nodo<T>* Lista<T>::buscar(std::string cedula){
         Nodo<T> *tmp = this->primero;
