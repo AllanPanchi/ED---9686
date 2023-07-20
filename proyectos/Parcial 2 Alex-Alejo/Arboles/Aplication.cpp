@@ -20,9 +20,9 @@ void Aplication::run()
 
 void Aplication::registroNuevoEmpleado()
 {
-	Persona persona;
+	Empleado persona;
 	ValidarDatos validar;
-	Lista<Persona> lista;
+	Lista<Empleado> lista;
 
 	std::string cedula, nombre, apellido;
 	Fecha fechaNacimiento;

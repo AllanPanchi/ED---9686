@@ -218,10 +218,6 @@ Ordenamiento de lista circular doblemente enlazadas
         int n = this->size();
         int b[n];
 
-        if (tmp->getValor().getCedula() == std::to_string(b[j])){
-
-        }
-
         while(tmp != this->actual){
             cedula = std::stoi(tmp->getValor().getCedula());
             b[j] = cedula;
@@ -232,6 +228,7 @@ Ordenamiento de lista circular doblemente enlazadas
                 b[j] = std::stoi(tmp->getValor().getCedula());
             }
         }
+        
         int size = sizeof(b) / sizeof(b[0]);
         int numBuckets = n - 1;
 

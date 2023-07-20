@@ -1,13 +1,15 @@
 #include <fstream>
 #include "ManejoArchivos.h"
 
-    void ManejoArchivos::guardarPersonas(const std::string& nombreArchivo, Lista<Persona>& lista) {
+    void ManejoArchivos::guardarPersonas(const std::string& nombreArchivo, Lista<Empleado>& lista) {
         std::ofstream archivo(nombreArchivo);
 
         if (archivo.is_open()) {
-            Nodo<Persona>* temp = lista.getPrimero();
+            Nodo<Empleado>* temp = lista.getPrimero();
             do {
-                archivo << temp->getValor().getSueldo() << " " << temp->getValor().getCedula() << " " << temp->getValor().getNombre() << " " << temp->getValor().getApellido()
+                archivo << temp->getValor().getCedula() << " " << temp->getValor().getNombre() 
+                << " " << temp->getValor().getApellido()
+                << " " << temp->getValor().getSueldo()
                 << " " << temp->getValor().getFechaNacimiento() << std::endl;
                 temp = temp->getSiguiente();
             } while (temp != lista.getPrimero());
@@ -19,16 +21,16 @@
         }
     }
 
-    void ManejoArchivos::cargarPersonas(const std::string& nombreArchivo, Lista<Persona>& lista) {
+    void ManejoArchivos::cargarPersonas(const std::string& nombreArchivo, Lista<Empleado>& lista) {
         std::ifstream archivo(nombreArchivo);
 
         if (archivo.is_open()) {
             float sueldo;
             std::string cedula, nombre, apellido;
             int dia, mes, anio, hora, minuto, segundo;
-            while (archivo >> sueldo >> cedula >> nombre >> apellido >> dia >> mes >> anio >> hora >> minuto >> segundo) {
+            while (archivo >> cedula >> nombre >> apellido >> sueldo >> dia >> mes >> anio >> hora >> minuto >> segundo) {
                 Fecha fechaNacimiento(dia, mes, anio, hora, minuto, segundo);
-                Persona persona(sueldo, cedula, nombre, apellido, fechaNacimiento);
+                Empleado persona(cedula, nombre, apellido, fechaNacimiento, sueldo);
                 lista.insertar(persona);
             }
             archivo.close();

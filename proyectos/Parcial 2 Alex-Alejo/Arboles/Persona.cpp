@@ -15,16 +15,6 @@ Ordenamiento de lista circular doblemente enlazadas
 
 #include "Persona.h"
 
-void Persona::setSueldo(float newSueldo)
-{
-   sueldo = newSueldo;
-}
-
-float Persona::getSueldo(void)
-{
-   return this->sueldo;
-}
-
 ////////////////////////////////////////////////////////////////////////
 // Name:       Persona::getCedula()
 // Purpose:    Implementation of Persona::getCedula()
@@ -115,9 +105,8 @@ void Persona::setFechaNacimiento(Fecha newFechaNacimiento)
    fechaNacimiento = newFechaNacimiento;
 }
 
-Persona::Persona(float sueldo, std::string cedula, std::string nombre, std::string apellido, Fecha fechaNacimiento)
+Persona::Persona(std::string cedula, std::string nombre, std::string apellido, Fecha fechaNacimiento)
 {
-   this->sueldo = sueldo;
    this->cedula = cedula;
    this->nombre = nombre;
    this->apellido = apellido;
@@ -126,7 +115,6 @@ Persona::Persona(float sueldo, std::string cedula, std::string nombre, std::stri
 
 Persona::Persona()
 {
-   this->sueldo = 0;
    this->cedula = "";
    this->nombre = "";
    this->apellido = "";
@@ -151,7 +139,6 @@ Persona::~Persona()
 
 void Persona::toString(void)
 {
-   std::cout << "Sueldo: " << this->sueldo << std::endl;
    std::cout << "Cedula: " << cedula << std::endl;
    std::cout << "Nombre: " << nombre << std::endl;
    std::cout << "Apellido: " << apellido << std::endl;

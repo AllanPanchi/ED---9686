@@ -218,6 +218,8 @@ Ordenamiento de lista circular doblemente enlazadas
         int n = this->size();
         int b[n];
 
+        std::atoi(tmp->getValor().getCedula().c_str());
+
         if (tmp->getValor().getCedula() == std::to_string(b[j])){
 
         }
