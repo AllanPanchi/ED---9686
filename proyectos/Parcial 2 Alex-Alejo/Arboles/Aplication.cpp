@@ -16,6 +16,7 @@ void Aplication::run()
 	menu.add(MenuItem("Mostrar personas ordenadas por sueldo", std::bind(&Aplication::mostrarEmpleadosPorSueldo, this)));
 	menu.add(MenuItem("Buscar registros por fecha", std::bind(&Aplication::buscarRegistroPorFecha, this)));
 	menu.add(MenuItem("Buscar registros por cedula", std::bind(&Aplication::buscarRegistrosPorCedula, this)));
+	menu.add(MenuItem("Extras", std::bind(&Aplication::extras, this)));
 	menu.add(MenuItem("Salir", std::bind(&Aplication::salir,this)));
 	menu.run();
 
@@ -384,6 +385,25 @@ void Aplication::buscarRegistrosPorCedula(){
 	} else {
 		std::cout << "No se encontro registro para " << cedula << std::endl;
 	}
+}
+
+void Aplication::extras(){
+	Menu menu("Extras");
+	menu.add(MenuItem("Regresar",std::bind(&Aplication::volver,this)));
+	menu.add(MenuItem("Imprimir imagen en consola",std::bind(&Aplication::imprimirEnConsola,this)));
+	menu.add(MenuItem("Salir", std::bind(&Aplication::salir,this)));
+	menu.run();
+}
+
+void Aplication::volver(){
+	system("cls");
+	run();
+}
+
+void Aplication::imprimirEnConsola(){
+	system("cls");
+	Imagen imagen("image.bmp");
+	imagen.imprimirImagenEnConsola();
 }
 
 void Aplication::salir()

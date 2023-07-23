@@ -102,13 +102,13 @@ void Registro::toString(void)
    std::cout << "Cedula: " << cedula << std::endl;
    std::cout << "Hora de entrada: " << entrada.getHora() 
                                  << ":" << entrada.getMinuto()
-             << " \nDia/Mes/Anio: " 
+             << " \nDia/Mes/A\xA4o: " 
                                  << entrada.getDia()
                                  << "/" << entrada.getMes()
                                  << "/" << entrada.getAnio() << std::endl;
    std::cout << "Hora de salida: " << salida.getHora()
                                  << ":" << salida.getMinuto()
-             << " \nDia/Mes/Anio: " 
+             << " \nDia/Mes/A\xA4o: " 
                                  << salida.getDia()
                                  << "/" << salida.getMes()
                                  << "/" << salida.getAnio() << std::endl;

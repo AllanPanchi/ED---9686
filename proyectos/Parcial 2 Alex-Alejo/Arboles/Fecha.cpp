@@ -118,10 +118,10 @@ bool Fecha::esAnioBisiesto(int anio) {
 
 Fecha Fecha::validarFecha(Fecha& fecha){
     int anio, mes, dia;
-        std::cout << "Ingrese el anio: ";
+        std::cout << "Ingrese el a\xA4o: ";
         fecha.setAnio(ValidarDatos::validarEntero());
         while (fecha.getAnio()<2023) {
-            std::cout << "Anio invalido. \n Ingrese de nuevo el anio:\t";
+            std::cout << "A\xA4o invalido. \n Ingrese de nuevo el a\xA4o:\t";
             fecha.setAnio(ValidarDatos::validarEntero());
             
         }
@@ -157,10 +157,10 @@ Fecha Fecha::validarFecha(Fecha& fecha){
 Fecha Fecha::validarFechaNacimiento(Fecha &fecha) {
         // Validar año
         int anio, mes, dia;
-        std::cout << "Ingrese el anio: ";
+        std::cout << "Ingrese el a\xA4o: ";
         fecha.setAnio(ValidarDatos::validarEntero());
         while (fecha.getAnio()<1956 || fecha.getAnio() > 2005) {
-            std::cout << "Anio invalido. \n Ingrese de nuevo el anio:\t";
+            std::cout << "A\xA4o invalido. \n Ingrese de nuevo el a\xA4o:\t";
             fecha.setAnio(ValidarDatos::validarEntero());
             
         }
@@ -400,7 +400,7 @@ std::istream& operator>>(std::istream& is, Fecha& fecha)
 {
    
       
-    std::cout << "Ingrese el anio: ";
+    std::cout << "Ingrese el a\xA4o: ";
     is >> fecha.anio;
     std::cout << "Ingrese el mes: ";
     is >> fecha.mes;
