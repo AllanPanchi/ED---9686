@@ -71,7 +71,8 @@ int main() {
                 }
             } while (rep);
             dato = atoi(b.c_str());
-            lista->Buscar(dato);
+            lista->recorrer(lista->getCabeza());
+            //lista->Buscar(dato);
             break;
         case 3:
             do {

@@ -116,7 +116,45 @@ bool Fecha::esAnioBisiesto(int anio) {
         return (anio % 4 == 0 && anio % 100 != 0) || (anio % 400 == 0);
 }
 
-Fecha Fecha::validarFecha(Fecha &fecha) {
+Fecha Fecha::validarFecha(Fecha& fecha){
+    int anio, mes, dia;
+        std::cout << "Ingrese el anio: ";
+        fecha.setAnio(ValidarDatos::validarEntero());
+        while (fecha.getAnio()<2023) {
+            std::cout << "Anio invalido. \n Ingrese de nuevo el anio:\t";
+            fecha.setAnio(ValidarDatos::validarEntero());
+            
+        }
+
+        std::cout << "Ingrese el mes: ";
+        fecha.setMes(ValidarDatos::validarEntero());
+
+        while (fecha.getMes() < 1  || fecha.getMes() > 12) {
+            std::cout << "Mes invalido. \n Ingrese de nuevo el mes:\t";
+            fecha.setMes(ValidarDatos::validarEntero());
+        }
+
+        std::cout << "Ingrese el dia: ";
+        fecha.setDia(ValidarDatos::validarEntero());
+
+        int diasEnMes = 0;
+        if (fecha.getMes() == 2) {
+            diasEnMes = esAnioBisiesto(fecha.getAnio()) ? 29 : 28;
+        } else if (fecha.getMes() == 4 || fecha.getMes() == 6 || fecha.getMes() == 9 || fecha.getMes() == 11) {
+            diasEnMes = 30;
+        } else {
+            diasEnMes = 31;
+        }
+
+        while (fecha.getDia() < 1 || fecha.getDia() > diasEnMes) {
+            std::cout << "Dia invalido. \n Ingrese de nuevo el dia:\t";
+            fecha.setDia(ValidarDatos::validarEntero());
+        }
+
+        return fecha;
+}
+
+Fecha Fecha::validarFechaNacimiento(Fecha &fecha) {
         // Validar año
         int anio, mes, dia;
         std::cout << "Ingrese el anio: ";
@@ -156,8 +194,6 @@ Fecha Fecha::validarFecha(Fecha &fecha) {
         return fecha;
 }
 
-   
-
 bool Fecha::operator<(Fecha fecha)
 {
     if (this->anio < fecha.anio)
@@ -176,27 +212,27 @@ bool Fecha::operator<(Fecha fecha)
             {
                 return true;
             }
-            else if (this->dia == fecha.dia)
-            {
-                if (this->hora < fecha.hora)
-                {
-                    return true;
-                }
-                else if (this->hora == fecha.hora)
-                {
-                    if (this->minuto < fecha.minuto)
-                    {
-                        return true;
-                    }
-                    else if (this->minuto == fecha.minuto)
-                    {
-                        if (this->segundo < fecha.segundo)
-                        {
-                            return true;
-                        }
-                    }
-                }
-            }
+            // else if (this->dia == fecha.dia)
+            // {
+            //     if (this->hora < fecha.hora)
+            //     {
+            //         return true;
+            //     }
+            //     else if (this->hora == fecha.hora)
+            //     {
+            //         if (this->minuto < fecha.minuto)
+            //         {
+            //             return true;
+            //         }
+            //         else if (this->minuto == fecha.minuto)
+            //         {
+            //             if (this->segundo < fecha.segundo)
+            //             {
+            //                 return true;
+            //             }
+            //         }
+            //     }
+            // }
         }
     }
     return false;
@@ -220,27 +256,27 @@ bool Fecha::operator>(Fecha fecha)
             {
                 return true;
             }
-            else if (this->dia == fecha.dia)
-            {
-                if (this->hora > fecha.hora)
-                {
-                    return true;
-                }
-                else if (this->hora == fecha.hora)
-                {
-                    if (this->minuto > fecha.minuto)
-                    {
-                        return true;
-                    }
-                    else if (this->minuto == fecha.minuto)
-                    {
-                        if (this->segundo > fecha.segundo)
-                        {
-                            return true;
-                        }
-                    }
-                }
-            }
+            // else if (this->dia == fecha.dia)
+            // {
+            //     if (this->hora > fecha.hora)
+            //     {
+            //         return true;
+            //     }
+            //     else if (this->hora == fecha.hora)
+            //     {
+            //         if (this->minuto > fecha.minuto)
+            //         {
+            //             return true;
+            //         }
+            //         else if (this->minuto == fecha.minuto)
+            //         {
+            //             if (this->segundo > fecha.segundo)
+            //             {
+            //                 return true;
+            //             }
+            //         }
+            //     }
+            // }
         }
     }
     return false;
@@ -248,7 +284,9 @@ bool Fecha::operator>(Fecha fecha)
 
 bool Fecha::operator==(Fecha fecha)
 {
-    if (this->anio == fecha.anio && this->mes == fecha.mes && this->dia == fecha.dia && this->hora == fecha.hora && this->minuto == fecha.minuto && this->segundo == fecha.segundo)
+    if (this->anio == fecha.anio && this->mes == fecha.mes && this->dia == fecha.dia 
+    //&& this->hora == fecha.hora && this->minuto == fecha.minuto && this->segundo == fecha.segundo
+    )
     {
         return true;
     }

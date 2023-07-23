@@ -11,11 +11,10 @@ public:
 	void mostrarPersonasRegistradas();
 	void mostrarRegistros();
 	void mostrarRegistrosPorCedula();
-	void mostrarRegistrosPorSueldo();
+	void mostrarEmpleadosPorSueldo();
+	void buscarRegistroPorFecha();
+	void buscarRegistrosPorCedula();
 	void salir();
 
-private:
-	Persona persona;
-	Registro registro;
 };
 

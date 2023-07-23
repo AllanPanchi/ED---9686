@@ -30,6 +30,7 @@ public:
     void setSegundo(int segundo);
     bool esAnioBisiesto(int anio);
     Fecha validarFecha(Fecha &fecha);
+    Fecha validarFechaNacimiento(Fecha &fecha);
 
     static Fecha getFechaActual(Fecha fecha);
 

@@ -2,6 +2,7 @@
 #include <iostream>
 #include "Menu.h"
 #include "ValDatos.h"
+#include "ArbolBinario.cpp"
 
 
 void Aplication::run()
@@ -12,7 +13,9 @@ void Aplication::run()
 	menu.add(MenuItem("Mostrar personas registradas", std::bind(&Aplication::mostrarPersonasRegistradas,this)));
 	menu.add(MenuItem("Mostrar todos los registros", std::bind(&Aplication::mostrarRegistros,this)));
 	menu.add(MenuItem("Mostrar registros ordenados por cedula", std::bind(&Aplication::mostrarRegistrosPorCedula, this)));
-	menu.add(MenuItem("Mostrar personas ordenadas por sueldo", std::bind(&Aplication::mostrarRegistrosPorSueldo, this)));
+	menu.add(MenuItem("Mostrar personas ordenadas por sueldo", std::bind(&Aplication::mostrarEmpleadosPorSueldo, this)));
+	menu.add(MenuItem("Buscar registros por fecha", std::bind(&Aplication::buscarRegistroPorFecha, this)));
+	menu.add(MenuItem("Buscar registros por cedula", std::bind(&Aplication::buscarRegistrosPorCedula, this)));
 	menu.add(MenuItem("Salir", std::bind(&Aplication::salir,this)));
 	menu.run();
 
@@ -26,6 +29,7 @@ void Aplication::registroNuevoEmpleado()
 	float sueldo;
 	std::string cedula, nombre, apellido;
 	Fecha fechaNacimiento;
+	ArbolBinario<float> arbol;
 
 	ManejoArchivos::cargarPersonas("personas.txt", lista);
 
@@ -46,9 +50,10 @@ void Aplication::registroNuevoEmpleado()
 		
 		std::cout << "Ingrese el sueldo: ";
 		sueldo=validar.validarFloat();
+		arbol.insertarNodo(sueldo);
 		
 		std::cout << "__Fecha de nacimiento__"<< std::endl;
-		fechaNacimiento.validarFecha(fechaNacimiento);
+		fechaNacimiento.validarFechaNacimiento(fechaNacimiento);
 		
 		persona.setSueldo(sueldo);
 		persona.setCedula(cedula);
@@ -61,15 +66,11 @@ void Aplication::registroNuevoEmpleado()
 		ManejoArchivos::guardarPersonas("personas.txt", lista);
 
 		std::cout << "Persona guardada con exito." << std::endl;
-		
 
 	}else{
 		std::cout << " Ya se  encuentra registrado!!" << std::endl;
 	}
 	
-	
-	
-
 }
 
 void Aplication::registrarEntrada(){
@@ -157,10 +158,19 @@ void Aplication::mostrarPersonasRegistradas()
 {
 	Lista<Empleado> lista;
 	ManejoArchivos::cargarPersonas("personas.txt", lista);
+	ArbolBinario<float> arbol;
+
+	Nodo<Empleado> *tmp = lista.getPrimero();
+	for(int i = 0; i < lista.size(); i++){
+		arbol.insertarNodo(tmp->getValor().getSueldo());
+		tmp = tmp->getSiguiente();
+	}
+
 	if (lista.listaVacia()){
 		std::cout << "No hay personas registradas." << std::endl;
 	}
 	lista.mostrar();
+	arbol.mostrarArbol();
 }
 
 void Aplication::mostrarRegistros()
@@ -244,8 +254,7 @@ void Aplication::mostrarRegistrosPorCedula()
 		
 }
 
-
-void Aplication::mostrarRegistrosPorSueldo()
+void Aplication::mostrarEmpleadosPorSueldo()
 {
 	const auto ordenarPorSueldo = [](Lista<Empleado>& lista) -> Lista<Empleado> {
 		float sueldo;
@@ -274,9 +283,7 @@ void Aplication::mostrarRegistrosPorSueldo()
             }
             
         }
-		
-		listaOrdenada.mostrar();
-
+	
 		return listaOrdenada;
 
 	};
@@ -288,7 +295,95 @@ void Aplication::mostrarRegistrosPorSueldo()
 	}
 
 	Lista<Empleado> listaOrdenada = ordenarPorSueldo(lista);
-	//listaOrdenada.mostrar();
+	listaOrdenada.mostrar();
+}
+
+void Aplication::buscarRegistroPorFecha()
+{
+	Lista<Registro> lista;
+	ValidarDatos validar;
+	ArbolBinario<Fecha> arbol;
+	Fecha fecha;
+
+	ManejoArchivos::cargarRegistros("registros.txt", lista);
+	system("cls");
+
+	Nodo<Registro> *tmp = lista.getPrimero();
+	for(int i = 0; i < lista.size(); i++){
+		if (tmp->getValor().getEstado() == "Salida")
+		{
+			arbol.insertarNodo(tmp->getValor().getSalida());
+		}
+		
+		tmp = tmp->getSiguiente();
+	}
+
+	std::cout << "Ingrese una fecha: " << std::endl;
+	fecha.validarFecha(fecha);
+
+	system("cls");
+
+	NodoArbol<Fecha> *fechaA = arbol.buscarNodo(fecha);
+
+	if (fechaA)
+	{
+		Nodo<Registro> *tmp = lista.getPrimero();
+		std::cout << "Los registros del " << fecha.getDia() << 
+					"/" << fecha.getMes() <<
+					"/" << fecha.getAnio() << " son: " << std::endl;
+		for(int i = 0; i < lista.size(); i++){
+			if (fechaA->getDato() == tmp->getValor().getSalida())
+			{
+				tmp->getValor().toString();
+			}
+			tmp = tmp->getSiguiente();
+		}
+		
+	} else {
+		std::cout << "No se encontro registro para " << fecha.getDia() << 
+					"/" << fecha.getMes() <<
+					"/" << fecha.getAnio() << std::endl;
+	}
+
+}
+
+void Aplication::buscarRegistrosPorCedula(){
+	Lista<Registro> lista;
+	ValidarDatos validar;
+	std::string cedula;
+	ArbolBinario<int> arbol;
+
+	ManejoArchivos::cargarRegistros("registros.txt", lista);
+	system("cls");
+
+	Nodo<Registro> *tmp = lista.getPrimero();
+	for(int i = 0; i < lista.size(); i++){
+		arbol.insertarNodo(std::atoi(tmp->getValor().getCedula().c_str()));
+		tmp = tmp->getSiguiente();
+	}
+
+	std::cout << "Ingrese una cedula: " << std::endl;
+	cedula = validar.ingresarCedulaValida();
+
+	system("cls");
+
+	NodoArbol<int> *cedA = arbol.buscarNodo(std::atoi(cedula.c_str()));
+
+	if (cedA)
+	{
+		Nodo<Registro> *tmp = lista.getPrimero();
+		std::cout << "Los registros de " << tmp->getValor().getCedula() << " son:" << std::endl;
+		for(int i = 0; i < lista.size(); i++){
+			if (cedA->getDato() == std::atoi(tmp->getValor().getCedula().c_str()))
+			{
+				tmp->getValor().toString();
+			}
+			tmp = tmp->getSiguiente();
+		}
+		
+	} else {
+		std::cout << "No se encontro registro para " << cedula << std::endl;
+	}
 }
 
 void Aplication::salir()

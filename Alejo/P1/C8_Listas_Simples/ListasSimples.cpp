@@ -3,7 +3,7 @@
  * ALUMNOS:  Leonardo Obando, William Leon
  * FECHA CREACION: Miercoles, 21 de noviembre de 2022
  * FECHA MODIFICACION: Miercoles, 23 de noviembre de 2022
- * Enunciado del problema: Crear los métodos Insertar, Buscar
+ * Enunciado del problema: Crear los mï¿½todos Insertar, Buscar
  y Eliminar elementos de una lista Simple, Doble y Circular
  * Nivel: TERCERO     NRC: 7999
  *************************/
@@ -13,6 +13,14 @@ using namespace std;
 
 inline ListaSimples::ListaSimples() {
     cabeza = NULL;
+}
+
+inline void ListaSimples::setCebeza(Nodo* _cabeza) {
+    cabeza = _cabeza;
+}
+
+inline Nodo* ListaSimples::getCabeza() {
+    return cabeza;
 }
 
 inline void ListaSimples::Insertar(int _dato) {
@@ -29,9 +37,19 @@ inline void ListaSimples::Insertar(int _dato) {
     }
 }
 
+void ListaSimples::recorrer(Nodo* tmp) {
+    if(!tmp) {
+        std::cout << "NULL" << std::endl;
+    }
+    else {
+        cout << tmp->getDato() << " -> ";
+        recorrer(tmp->getSiguiente());
+    }
+}
+
 inline void ListaSimples::Buscar(int _dato) {
-    Nodo* aux = cabeza;
-    while (aux != NULL) {
+    Nodo* aux = this->cabeza;
+    while (aux) {
         if (aux->getDato() == _dato) {
             cout << "El dato " << _dato << " si se encuentra en la lista" << endl;
             return;
