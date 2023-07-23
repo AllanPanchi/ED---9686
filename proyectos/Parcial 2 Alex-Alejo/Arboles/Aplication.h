@@ -1,5 +1,6 @@
 #pragma once
 #include "ManejoArchivos.cpp"
+#include ".\Ext\Backup.cpp"
 #include ".\Ext\Imagen.cpp"
 
 class Aplication
@@ -18,6 +19,7 @@ public:
 	void extras();
 
 	void volver();
+	void generarBackup();
 	void imprimirEnConsola();
 
 	void salir();

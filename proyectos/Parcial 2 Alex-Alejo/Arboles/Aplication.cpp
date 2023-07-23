@@ -3,7 +3,8 @@
 #include "Menu.h"
 #include "ValDatos.h"
 #include "ArbolBinario.cpp"
-
+#include <fstream>
+#include <filesystem>
 
 void Aplication::run()
 {
@@ -65,6 +66,7 @@ void Aplication::registroNuevoEmpleado()
 		lista.insertar(persona);
 
 		ManejoArchivos::guardarPersonas("personas.txt", lista);
+
 
 		std::cout << "Persona guardada con exito." << std::endl;
 
@@ -391,6 +393,7 @@ void Aplication::extras(){
 	Menu menu("Extras");
 	menu.add(MenuItem("Regresar",std::bind(&Aplication::volver,this)));
 	menu.add(MenuItem("Imprimir imagen en consola",std::bind(&Aplication::imprimirEnConsola,this)));
+	menu.add(MenuItem("Generar backup", std::bind(&Aplication::generarBackup,this)));
 	menu.add(MenuItem("Salir", std::bind(&Aplication::salir,this)));
 	menu.run();
 }
@@ -398,6 +401,33 @@ void Aplication::extras(){
 void Aplication::volver(){
 	system("cls");
 	run();
+}
+
+void Aplication::generarBackup(){
+	system("cls");
+
+	Fecha fechaActual = Fecha::getFechaActual(fechaActual);
+	std::string fa = std::to_string(fechaActual.getAnio())
+					.append(std::to_string(fechaActual.getMes()))
+					.append(std::to_string(fechaActual.getDia()))
+					.append(std::to_string(fechaActual.getHora()))
+					.append(std::to_string(fechaActual.getMinuto()))
+					.append(std::to_string(fechaActual.getSegundo()));
+
+	std::string carpeta = ".\\backups\\";
+	std::string directorioP = carpeta + fa;
+	std::string directorioR = carpeta + fa;
+
+    if (!std::filesystem::exists(directorioP)) {
+        if (!std::filesystem::create_directories(directorioP)) {
+            std::cerr << "Error al crear la carpeta de destino: " << directorioP << std::endl;
+            return;
+        }
+    }
+
+	Backup::copiarArchivo("personas.txt", directorioP + "\\personas.txt");
+	Backup::copiarArchivo("registros.txt", directorioR + "\\registros.txt");
+
 }
 
 void Aplication::imprimirEnConsola(){
