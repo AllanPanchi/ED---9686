@@ -1,0 +1,219 @@
+\doxysection{C\+:/\+Users/\+Alex\+\_\+22/\+Desktop/\+Semestre III/\+Estructura\+DD/\+New\+Repositorio/\+ED-\/-\/-\/9686/proyectos/\+Parcial 2 Alex-\/\+Alejo/\+Arboles/\+Arbol\+Binario.cpp}
+\hypertarget{_arbol_binario_8cpp_source}{}\label{_arbol_binario_8cpp_source}\mbox{\hyperlink{_arbol_binario_8cpp}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_arbol_binario_8h}{ArbolBinario.h}}"{}}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <functional>}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00007\ \textcolor{comment}{//\ Name:\ ArbolBinario<T>::\string~ArbolBinario}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ Purpose:\ Destruye\ le\ objeto}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ Return:\ }}
+\DoxyCodeLine{00011\ \textcolor{comment}{}}
+\DoxyCodeLine{00017\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00018\ \mbox{\hyperlink{class_arbol_binario_af1f1594a37b45c20b4fcbab88613d52d}{ArbolBinario<T>::\string~ArbolBinario}}()\ \{}
+\DoxyCodeLine{00019\ \ \ \ \ }
+\DoxyCodeLine{00020\ \}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00023\ \textcolor{comment}{//\ Name:\ ArbolBinario<T>::getRaiz}}
+\DoxyCodeLine{00024\ \textcolor{comment}{//\ Purpose:\ Obtiene\ el\ valor\ de\ la\ raiz}}
+\DoxyCodeLine{00025\ \textcolor{comment}{//\ Return:\ NodoArbol<T>*}}
+\DoxyCodeLine{00027\ \textcolor{comment}{}}
+\DoxyCodeLine{00034\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00035\ \mbox{\hyperlink{class_nodo_arbol}{NodoArbol<T>}}*\ \mbox{\hyperlink{class_arbol_binario_a78de30e575ae785d3c6a03eaf283efdb}{ArbolBinario<T>::getRaiz}}()\ \{}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordflow}{return}\ raiz;}
+\DoxyCodeLine{00037\ \}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00040\ \textcolor{comment}{//\ Name:\ ArbolBinario<T>::setRaiz}}
+\DoxyCodeLine{00041\ \textcolor{comment}{//\ Purpose:\ Establece\ el\ valor\ de\ la\ raiz}}
+\DoxyCodeLine{00042\ \textcolor{comment}{//\ Parameters:}}
+\DoxyCodeLine{00043\ \textcolor{comment}{//\ -\/\ raiz:\ Valor\ a\ asignar\ a\ la\ raiz}}
+\DoxyCodeLine{00044\ \textcolor{comment}{//\ Return:\ void}}
+\DoxyCodeLine{00046\ \textcolor{comment}{}}
+\DoxyCodeLine{00053\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00054\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_arbol_binario_ad458066a9c9799317d30c31b9f6df6be}{ArbolBinario<T>::setRaiz}}(\mbox{\hyperlink{class_nodo_arbol}{NodoArbol<T>}}*\ raiz)\ \{}
+\DoxyCodeLine{00055\ \ \ \ \ this-\/>raiz\ =\ raiz;}
+\DoxyCodeLine{00056\ \}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00059\ \textcolor{comment}{//\ Name:\ ArbolBinario<T>::ArbolBinario}}
+\DoxyCodeLine{00060\ \textcolor{comment}{//\ Purpose:\ Constructor\ de\ la\ clase\ ArbolBinario}}
+\DoxyCodeLine{00061\ \textcolor{comment}{//\ Return:\ }}
+\DoxyCodeLine{00063\ \textcolor{comment}{}}
+\DoxyCodeLine{00069\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00070\ \mbox{\hyperlink{class_arbol_binario_a1bad900ff9a1a811446c5e729e92fc5e}{ArbolBinario<T>::ArbolBinario}}()\ :\ raiz(nullptr)\ \{}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \}}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00075\ \textcolor{comment}{//\ Name:\ ArbolBinario<T>::encontrarNodoMinimo}}
+\DoxyCodeLine{00076\ \textcolor{comment}{//\ Purpose:\ Encuentra\ el\ nodo\ con\ el\ valor\ mínimo\ en\ el\ árbol}}
+\DoxyCodeLine{00077\ \textcolor{comment}{//\ Parameters:}}
+\DoxyCodeLine{00078\ \textcolor{comment}{//\ -\/\ nodo:\ Puntero\ al\ nodo\ desde\ el\ cual\ se\ inicia\ la\ búsqueda}}
+\DoxyCodeLine{00079\ \textcolor{comment}{//\ Return:\ Puntero\ al\ nodo\ con\ el\ valor\ mínimo\ encontrado}}
+\DoxyCodeLine{00081\ \textcolor{comment}{}}
+\DoxyCodeLine{00089\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00090\ \mbox{\hyperlink{class_nodo_arbol}{NodoArbol<T>}}*\ \mbox{\hyperlink{class_arbol_binario}{ArbolBinario<T>::encontrarNodoMinimo}}(\mbox{\hyperlink{class_nodo_arbol}{NodoArbol<T>}}*\ nodo)\ \{}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordflow}{while}\ (nodo-\/>\mbox{\hyperlink{class_nodo_arbol_a1bff071e8bad11ef7b4e2d482a8ce709}{getIzquierdo}}()\ !=\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ nodo\ =\ nodo-\/>\mbox{\hyperlink{class_nodo_arbol_a1bff071e8bad11ef7b4e2d482a8ce709}{getIzquierdo}}();}
+\DoxyCodeLine{00093\ \ \ \ \ \}}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordflow}{return}\ nodo;}
+\DoxyCodeLine{00095\ \}}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00098\ \textcolor{comment}{//\ Name:\ ArbolBinario<T>::insertarNodo}}
+\DoxyCodeLine{00099\ \textcolor{comment}{//\ Purpose:\ Inserta\ un\ nuevo\ nodo\ con\ el\ valor\ dado\ en\ el\ árbol}}
+\DoxyCodeLine{00100\ \textcolor{comment}{//\ Parameters:}}
+\DoxyCodeLine{00101\ \textcolor{comment}{//\ -\/\ valor:\ Valor\ a\ insertar\ en\ el\ nuevo\ nodo}}
+\DoxyCodeLine{00102\ \textcolor{comment}{//\ Return:\ void}}
+\DoxyCodeLine{00104\ \textcolor{comment}{}}
+\DoxyCodeLine{00111\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00112\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_arbol_binario_a3d373194fd3ded22f9fa938b857cc1b2}{ArbolBinario<T>::insertarNodo}}(T\ valor)\ \{}
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{comment}{//\ función\ lambda\ recursiva\ para\ insertar\ el\ nodo}}
+\DoxyCodeLine{00114\ \ \ \ \ std::function<NodoArbol<T>*(\mbox{\hyperlink{class_nodo_arbol}{NodoArbol<T>}}*,\ T)>\ insertarNodoRecursivo\ =\ [\&](\mbox{\hyperlink{class_nodo_arbol}{NodoArbol<T>}}*\ nodo,\ T\ valor)\ -\/>\ \mbox{\hyperlink{class_nodo_arbol}{NodoArbol<T>}}*\ \{}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (nodo\ ==\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ nodo\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_nodo_arbol}{NodoArbol<T>}}(valor);}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (valor\ <\ nodo-\/>getDato())\ \{}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nodo-\/>\mbox{\hyperlink{class_nodo_arbol_af83e99192e86eff82849e65d1130e8d7}{setIzquierdo}}(insertarNodoRecursivo(nodo-\/>\mbox{\hyperlink{class_nodo_arbol_a1bff071e8bad11ef7b4e2d482a8ce709}{getIzquierdo}}(),\ valor));}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (valor\ >\ nodo-\/>\mbox{\hyperlink{class_nodo_arbol_a2ee6edd95acdf5eb16cff69347211c1b}{getDato}}())\ \{}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nodo-\/>\mbox{\hyperlink{class_nodo_arbol_a3086a5acf6e23db721e9db9743136f01}{setDerecho}}(insertarNodoRecursivo(nodo-\/>\mbox{\hyperlink{class_nodo_arbol_a05447396a71e22cba3df58290ca9ce39}{getDerecho}}(),\ valor));}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (valor\ ==\ nodo-\/>\mbox{\hyperlink{class_nodo_arbol_a2ee6edd95acdf5eb16cff69347211c1b}{getDato}}())\ \{}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nodo-\/>\mbox{\hyperlink{class_nodo_arbol_a3086a5acf6e23db721e9db9743136f01}{setDerecho}}(insertarNodoRecursivo(nodo-\/>\mbox{\hyperlink{class_nodo_arbol_a05447396a71e22cba3df58290ca9ce39}{getDerecho}}(),\ valor));}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ nodo;}
+\DoxyCodeLine{00127\ \ \ \ \ \};}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \ \ \ \ raiz\ =\ insertarNodoRecursivo(raiz,\ valor);}
+\DoxyCodeLine{00130\ \}}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00133\ \textcolor{comment}{//\ Name:\ ArbolBinario<T>::buscarNodo}}
+\DoxyCodeLine{00134\ \textcolor{comment}{//\ Purpose:\ Busca\ un\ nodo\ con\ el\ valor\ dado\ en\ el\ árbol}}
+\DoxyCodeLine{00135\ \textcolor{comment}{//\ Parameters:}}
+\DoxyCodeLine{00136\ \textcolor{comment}{//\ -\/\ valor:\ Valor\ a\ buscar\ en\ el\ árbol}}
+\DoxyCodeLine{00137\ \textcolor{comment}{//\ Return:\ retorna\ el\ nodo\ o\ nullptr\ si\ no\ lo\ encontro}}
+\DoxyCodeLine{00139\ \textcolor{comment}{}}
+\DoxyCodeLine{00147\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00148\ \mbox{\hyperlink{class_nodo_arbol}{NodoArbol<T>}}*\ \mbox{\hyperlink{class_arbol_binario_a9f6ed9607a63ba7881a37061a33b0a3b}{ArbolBinario<T>::buscarNodo}}(T\ valor)\ \{}
+\DoxyCodeLine{00149\ \ \ \ \ std::function<NodoArbol<T>*(\mbox{\hyperlink{class_nodo_arbol}{NodoArbol<T>}}*,\ T)>\ buscarNodoRecursivo\ =\ [\&](\mbox{\hyperlink{class_nodo_arbol}{NodoArbol<T>}}*\ nodo,\ T\ valor)\ \{}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (nodo\ ==\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ nodo;}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (valor\ ==\ nodo-\/>\mbox{\hyperlink{class_nodo_arbol_a2ee6edd95acdf5eb16cff69347211c1b}{getDato}}())\ \{}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ nodo;}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (valor\ <\ nodo-\/>getDato())\ \{}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ buscarNodoRecursivo(nodo-\/>\mbox{\hyperlink{class_nodo_arbol_a1bff071e8bad11ef7b4e2d482a8ce709}{getIzquierdo}}(),\ valor);}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ buscarNodoRecursivo(nodo-\/>\mbox{\hyperlink{class_nodo_arbol_a05447396a71e22cba3df58290ca9ce39}{getDerecho}}(),\ valor);}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00159\ \ \ \ \ \};}
+\DoxyCodeLine{00160\ \ \ \ \ \textcolor{keywordflow}{return}\ buscarNodoRecursivo(raiz,\ valor);}
+\DoxyCodeLine{00161\ \}}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00164\ \textcolor{comment}{//\ Name:\ ArbolBinario<T>::eliminarNodo}}
+\DoxyCodeLine{00165\ \textcolor{comment}{//\ Purpose:\ Elimina\ un\ nodo\ con\ el\ valor\ dado\ del\ árbol}}
+\DoxyCodeLine{00166\ \textcolor{comment}{//\ Parameters:}}
+\DoxyCodeLine{00167\ \textcolor{comment}{//\ -\/\ valor:\ Valor\ del\ nodo\ a\ eliminar}}
+\DoxyCodeLine{00168\ \textcolor{comment}{//\ Return:\ void}}
+\DoxyCodeLine{00170\ \textcolor{comment}{}}
+\DoxyCodeLine{00177\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00178\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_arbol_binario_a8b8d135924fb9b52902c704c2aeb1f55}{ArbolBinario<T>::eliminarNodo}}(T\ valor)\ \{}
+\DoxyCodeLine{00179\ \ \ \ \ \textcolor{comment}{//Función\ lambda\ para\ eliminar\ un\ nodo\ recursivamente}}
+\DoxyCodeLine{00180\ \ \ \ \ std::function<NodoArbol<T>*(\mbox{\hyperlink{class_nodo_arbol}{NodoArbol<T>}}*,\ T)>\ eliminarNodoRecursivo\ =\ [\&](\mbox{\hyperlink{class_nodo_arbol}{NodoArbol<T>}}*\ nodo,\ T\ valor)\ \{}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (nodo\ ==\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ nodo;}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (valor\ <\ nodo-\/>getDato())\ \{}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \ \ \ \ nodo-\/>\mbox{\hyperlink{class_nodo_arbol_af83e99192e86eff82849e65d1130e8d7}{setIzquierdo}}(eliminarNodoRecursivo(nodo-\/>\mbox{\hyperlink{class_nodo_arbol_a1bff071e8bad11ef7b4e2d482a8ce709}{getIzquierdo}}(),\ valor));}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (valor\ >\ nodo-\/>\mbox{\hyperlink{class_nodo_arbol_a2ee6edd95acdf5eb16cff69347211c1b}{getDato}}())\ \{}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \ \ \ \ nodo-\/>\mbox{\hyperlink{class_nodo_arbol_a3086a5acf6e23db721e9db9743136f01}{setDerecho}}(eliminarNodoRecursivo(nodo-\/>\mbox{\hyperlink{class_nodo_arbol_a05447396a71e22cba3df58290ca9ce39}{getDerecho}}(),\ valor));}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (nodo-\/>\mbox{\hyperlink{class_nodo_arbol_a1bff071e8bad11ef7b4e2d482a8ce709}{getIzquierdo}}()\ ==\ \textcolor{keyword}{nullptr}\ \&\&\ nodo-\/>\mbox{\hyperlink{class_nodo_arbol_a05447396a71e22cba3df58290ca9ce39}{getDerecho}}()\ ==\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ nodo;}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nodo\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (nodo-\/>\mbox{\hyperlink{class_nodo_arbol_a1bff071e8bad11ef7b4e2d482a8ce709}{getIzquierdo}}()\ ==\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_nodo_arbol}{NodoArbol<T>}}*\ temp\ =\ nodo;}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nodo\ =\ temp-\/>\mbox{\hyperlink{class_nodo_arbol_a05447396a71e22cba3df58290ca9ce39}{getDerecho}}();}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ temp;}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (nodo-\/>\mbox{\hyperlink{class_nodo_arbol_a05447396a71e22cba3df58290ca9ce39}{getDerecho}}()\ ==\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_nodo_arbol}{NodoArbol<T>}}*\ temp\ =\ nodo;}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nodo\ =\ temp-\/>\mbox{\hyperlink{class_nodo_arbol_a1bff071e8bad11ef7b4e2d482a8ce709}{getIzquierdo}}();}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ temp;}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_nodo_arbol}{NodoArbol<T>}}*\ temp\ =\ encontrarNodoMinimo(nodo-\/>\mbox{\hyperlink{class_nodo_arbol_a05447396a71e22cba3df58290ca9ce39}{getDerecho}}());}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nodo-\/>\mbox{\hyperlink{class_nodo_arbol_adfb518dcd2f618471f09e1c91044b596}{setDato}}(temp-\/>\mbox{\hyperlink{class_nodo_arbol_a2ee6edd95acdf5eb16cff69347211c1b}{getDato}}());}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nodo-\/>\mbox{\hyperlink{class_nodo_arbol_a3086a5acf6e23db721e9db9743136f01}{setDerecho}}(eliminarNodoRecursivo(nodo-\/>\mbox{\hyperlink{class_nodo_arbol_a05447396a71e22cba3df58290ca9ce39}{getDerecho}}(),\ temp-\/>\mbox{\hyperlink{class_nodo_arbol_a2ee6edd95acdf5eb16cff69347211c1b}{getDato}}()));}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ nodo;}
+\DoxyCodeLine{00206\ \ \ \ \ \};}
+\DoxyCodeLine{00207\ \ \ \ \ raiz\ =\ eliminarNodoRecursivo(raiz,\ valor);}
+\DoxyCodeLine{00208\ \}}
+\DoxyCodeLine{00209\ }
+\DoxyCodeLine{00211\ \textcolor{comment}{//\ Name:\ ArbolBinario<T>::mostrarArbol}}
+\DoxyCodeLine{00212\ \textcolor{comment}{//\ Purpose:\ Muestra\ el\ árbol\ en\ forma\ horizontal}}
+\DoxyCodeLine{00213\ \textcolor{comment}{//\ Return:\ void}}
+\DoxyCodeLine{00215\ \textcolor{comment}{}}
+\DoxyCodeLine{00221\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00222\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_arbol_binario_ae87eecc2f7409a2472c05a3f5fb7401e}{ArbolBinario<T>::mostrarArbol}}()\ \{}
+\DoxyCodeLine{00223\ \ \ \ \ \textcolor{comment}{//Funcion\ lambda\ para\ imprimir\ el\ árbol\ recursivamente}}
+\DoxyCodeLine{00224\ \ \ \ \ std::function<void(\mbox{\hyperlink{class_nodo_arbol}{NodoArbol<T>}}*,\ \textcolor{keywordtype}{int})>\ mostrarArbolRecursivo\ =\ [\&](\mbox{\hyperlink{class_nodo_arbol}{NodoArbol<T>}}*\ nodo,\ \textcolor{keywordtype}{int}\ nivel)\ \{}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (nodo\ ==\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ mostrarArbolRecursivo(nodo-\/>\mbox{\hyperlink{class_nodo_arbol_a05447396a71e22cba3df58290ca9ce39}{getDerecho}}(),\ nivel\ +\ 1);}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ nivel;\ i++)\ \{}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ "{}};}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}|-\/-\/"{}}\ <<\ nodo-\/>\mbox{\hyperlink{class_nodo_arbol_a2ee6edd95acdf5eb16cff69347211c1b}{getDato}}()\ <<\ std::endl;}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ mostrarArbolRecursivo(nodo-\/>\mbox{\hyperlink{class_nodo_arbol_a1bff071e8bad11ef7b4e2d482a8ce709}{getIzquierdo}}(),\ nivel\ +\ 1);}
+\DoxyCodeLine{00238\ \ \ \ \ \};}
+\DoxyCodeLine{00239\ \ \ \ \ }
+\DoxyCodeLine{00240\ \ \ \ \ std::cout<<\textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ ARBOL\ BINARIO\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}}<<std::endl;}
+\DoxyCodeLine{00241\ \ \ \ \ mostrarArbolRecursivo(raiz,\ 0);}
+\DoxyCodeLine{00242\ \ \ \ \ std::cout<<\textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}}<<std::endl;}
+\DoxyCodeLine{00243\ \}}
+\DoxyCodeLine{00244\ }
+\DoxyCodeLine{00246\ \textcolor{comment}{//\ Name:\ ArbolBinario<T>::mostrarRepetidos}}
+\DoxyCodeLine{00247\ \textcolor{comment}{//\ Purpose:\ Muestra\ todos\ los\ datos\ repetidos\ en\ el\ arbol\ segun\ el\ argumento}}
+\DoxyCodeLine{00248\ \textcolor{comment}{//\ Return:\ void}}
+\DoxyCodeLine{00250\ \textcolor{comment}{}}
+\DoxyCodeLine{00257\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00258\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_arbol_binario_a0a72c0586b5cccb9e4b1efa64633e998}{ArbolBinario<T>::mostrarRepetidos}}(T\ valor)\ \{}
+\DoxyCodeLine{00259\ \ \ \ \ }
+\DoxyCodeLine{00260\ \ \ \ \ std::function<void(\mbox{\hyperlink{class_nodo_arbol}{NodoArbol<T>}}*,\ T)>\ buscarNodoRecursivo\ =\ [\&](\mbox{\hyperlink{class_nodo_arbol}{NodoArbol<T>}}*\ nodo,\ T\ valor)\ \{}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (nodo\ ==\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (valor\ ==\ nodo-\/>\mbox{\hyperlink{class_nodo_arbol_a2ee6edd95acdf5eb16cff69347211c1b}{getDato}}())\ \{}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ nodo-\/>\mbox{\hyperlink{class_nodo_arbol_a2ee6edd95acdf5eb16cff69347211c1b}{getDato}}()\ <<\ std::endl;}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \ \ \ \ buscarNodoRecursivo(nodo-\/>\mbox{\hyperlink{class_nodo_arbol_a05447396a71e22cba3df58290ca9ce39}{getDerecho}}(),\ valor);}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (valor\ <\ nodo-\/>getDato())\ \{}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \ \ \ \ buscarNodoRecursivo(nodo-\/>\mbox{\hyperlink{class_nodo_arbol_a1bff071e8bad11ef7b4e2d482a8ce709}{getIzquierdo}}(),\ valor);}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \ \ \ \ buscarNodoRecursivo(nodo-\/>\mbox{\hyperlink{class_nodo_arbol_a05447396a71e22cba3df58290ca9ce39}{getDerecho}}(),\ valor);}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00271\ \ \ \ \ \};}
+\DoxyCodeLine{00272\ \ \ \ \ buscarNodoRecursivo(raiz,\ valor);}
+\DoxyCodeLine{00273\ \ \ \ \ }
+\DoxyCodeLine{00274\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00275\ \textcolor{comment}{\ \ \ \ //Funcion\ lambda\ para\ imprimir\ el\ árbol\ recursivamente}}
+\DoxyCodeLine{00276\ \textcolor{comment}{\ \ \ \ std::function<void(NodoArbol<T>*,\ int)>\ mostrarRepetidosRecursivo\ =\ [\&](NodoArbol<T>*\ nodo)\ \{}}
+\DoxyCodeLine{00277\ \textcolor{comment}{\ \ \ \ \ \ \ \ if\ (nodo\ ==\ nullptr)\ \{}}
+\DoxyCodeLine{00278\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ return;}}
+\DoxyCodeLine{00279\ \textcolor{comment}{\ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{00280\ \textcolor{comment}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00281\ \textcolor{comment}{\ \ \ \ \ \ \ \ mostrarRepetidosRecursivo(nodo-\/>getDerecho(),\ nivel\ +\ 1);}}
+\DoxyCodeLine{00282\ \textcolor{comment}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00283\ \textcolor{comment}{\ \ \ \ \ \ \ \ if\ (valor\ ==\ nodo-\/>getDato())\ \{}}
+\DoxyCodeLine{00284\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ nodo-\/>getDato()\ <<\ std::endl;\ \ }}
+\DoxyCodeLine{00285\ \textcolor{comment}{\ \ \ \ \ \ \ \ \}\ \ \ \ \ \ \ }}
+\DoxyCodeLine{00286\ \textcolor{comment}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00287\ \textcolor{comment}{\ \ \ \ \ \ \ \ mostrarRepetidosRecursivo(nodo-\/>getIzquierdo(),\ nivel\ +\ 1);}}
+\DoxyCodeLine{00288\ \textcolor{comment}{\ \ \ \ \};}}
+\DoxyCodeLine{00289\ \textcolor{comment}{\ \ \ \ }}
+\DoxyCodeLine{00290\ \textcolor{comment}{\ \ \ \ std::cout<<"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ Registros\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}<<std::endl;}}
+\DoxyCodeLine{00291\ \textcolor{comment}{\ \ \ \ mostrarRepetidosRecursivo(raiz,\ 0);}}
+\DoxyCodeLine{00292\ \textcolor{comment}{\ \ \ \ std::cout<<"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}<<std::endl;*/}}
+\DoxyCodeLine{00293\ \}}
+
+\end{DoxyCode}

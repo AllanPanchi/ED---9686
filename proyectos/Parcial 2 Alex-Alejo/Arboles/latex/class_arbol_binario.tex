@@ -1,0 +1,252 @@
+\doxysection{Referencia de la plantilla de la clase Arbol\+Binario\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>}}
+\hypertarget{class_arbol_binario}{}\label{class_arbol_binario}\index{ArbolBinario$<$ T $>$@{ArbolBinario$<$ T $>$}}
+
+
+{\ttfamily \#include $<$Arbol\+Binario.\+h$>$}
+
+Diagrama de herencia de Arbol\+Binario\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>}\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_arbol_binario}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_arbol_binario_a1bad900ff9a1a811446c5e729e92fc5e}{Arbol\+Binario}} ()
+\begin{DoxyCompactList}\small\item\em Construct a new Arbol Binario$<$ T$>$\+:: Arbol Binario object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_arbol_binario_af1f1594a37b45c20b4fcbab88613d52d}{\texorpdfstring{$\sim$}{\string~}\+Arbol\+Binario}} ()
+\begin{DoxyCompactList}\small\item\em Destructor de Arbol Binario$<$ T$>$\+:: Arbol Binario object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_nodo_arbol}{Nodo\+Arbol}}$<$ T $>$ \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_arbol_binario_a78de30e575ae785d3c6a03eaf283efdb}{get\+Raiz}} ()
+\begin{DoxyCompactList}\small\item\em Get the Raiz object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_arbol_binario_ad458066a9c9799317d30c31b9f6df6be}{set\+Raiz}} (\mbox{\hyperlink{class_nodo_arbol}{Nodo\+Arbol}}$<$ T $>$ \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em Set the Raiz object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_arbol_binario_a3d373194fd3ded22f9fa938b857cc1b2}{insertar\+Nodo}} (T) override
+\begin{DoxyCompactList}\small\item\em Inserta un nuevo nodo con el valor dado en el árbol. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_nodo_arbol}{Nodo\+Arbol}}$<$ T $>$ \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_arbol_binario_a9f6ed9607a63ba7881a37061a33b0a3b}{buscar\+Nodo}} (T) override
+\begin{DoxyCompactList}\small\item\em Busca un nodo con el valor dado en el árbol. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_arbol_binario_a8b8d135924fb9b52902c704c2aeb1f55}{eliminar\+Nodo}} (T) override
+\begin{DoxyCompactList}\small\item\em Elimina un nodo con el valor dado del árbol. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_arbol_binario_ae87eecc2f7409a2472c05a3f5fb7401e}{mostrar\+Arbol}} () override
+\begin{DoxyCompactList}\small\item\em Muestra el árbol en forma horizontal. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_arbol_binario_a0a72c0586b5cccb9e4b1efa64633e998}{mostrar\+Repetidos}} (T) override
+\begin{DoxyCompactList}\small\item\em Muestra todos los datos repetidos en el arbol segun el argumento. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_operacion_arboles_a65a737a4cffd3ee0ee51167d8c603b4e}{insertar\+Nodo}} (T)=0
+\item 
+virtual \mbox{\hyperlink{class_nodo_arbol}{Nodo\+Arbol}}$<$ T $>$ \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_operacion_arboles_a50f5b1faf68c0a99b5f5ec8979fdbf57}{buscar\+Nodo}} (T)=0
+\item 
+virtual void \mbox{\hyperlink{class_operacion_arboles_a6eb0c0cb76a2b7cd16b0d1100d3e8dc0}{eliminar\+Nodo}} (T)=0
+\item 
+virtual void \mbox{\hyperlink{class_operacion_arboles_a5e5377920c700828e17fd7ff52df0acf}{mostrar\+Arbol}} ()=0
+\item 
+virtual void \mbox{\hyperlink{class_operacion_arboles_ae1ab72203b7767c36c0b1ea7b4d1fcbf}{mostrar\+Repetidos}} (T)=0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentación de constructores y destructores}
+\Hypertarget{class_arbol_binario_a1bad900ff9a1a811446c5e729e92fc5e}\label{class_arbol_binario_a1bad900ff9a1a811446c5e729e92fc5e} 
+\index{ArbolBinario$<$ T $>$@{ArbolBinario$<$ T $>$}!ArbolBinario@{ArbolBinario}}
+\index{ArbolBinario@{ArbolBinario}!ArbolBinario$<$ T $>$@{ArbolBinario$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{ArbolBinario()}{ArbolBinario()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{class_arbol_binario}{Arbol\+Binario}}$<$ T $>$\mbox{\hyperlink{class_arbol_binario}{\+::\+Arbol\+Binario}}}
+
+
+
+Construct a new Arbol Binario$<$ T$>$\+:: Arbol Binario object. 
+
+
+\begin{DoxyTemplParams}{Parámetros de plantilla}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+\Hypertarget{class_arbol_binario_af1f1594a37b45c20b4fcbab88613d52d}\label{class_arbol_binario_af1f1594a37b45c20b4fcbab88613d52d} 
+\index{ArbolBinario$<$ T $>$@{ArbolBinario$<$ T $>$}!````~ArbolBinario@{\texorpdfstring{$\sim$}{\string~}ArbolBinario}}
+\index{````~ArbolBinario@{\texorpdfstring{$\sim$}{\string~}ArbolBinario}!ArbolBinario$<$ T $>$@{ArbolBinario$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}ArbolBinario()}{\string~ArbolBinario()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{class_arbol_binario}{Arbol\+Binario}}$<$ T $>$\+::\texorpdfstring{$\sim$}{\string~}\mbox{\hyperlink{class_arbol_binario}{Arbol\+Binario}}}
+
+
+
+Destructor de Arbol Binario$<$ T$>$\+:: Arbol Binario object. 
+
+
+\begin{DoxyTemplParams}{Parámetros de plantilla}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{Documentación de funciones miembro}
+\Hypertarget{class_arbol_binario_a9f6ed9607a63ba7881a37061a33b0a3b}\label{class_arbol_binario_a9f6ed9607a63ba7881a37061a33b0a3b} 
+\index{ArbolBinario$<$ T $>$@{ArbolBinario$<$ T $>$}!buscarNodo@{buscarNodo}}
+\index{buscarNodo@{buscarNodo}!ArbolBinario$<$ T $>$@{ArbolBinario$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{buscarNodo()}{buscarNodo()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{class_nodo_arbol}{Nodo\+Arbol}}$<$ T $>$ \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_arbol_binario}{Arbol\+Binario}}$<$ T $>$\+::buscar\+Nodo (\begin{DoxyParamCaption}\item[{T}]{valor }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Busca un nodo con el valor dado en el árbol. 
+
+
+\begin{DoxyTemplParams}{Parámetros de plantilla}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parámetros}
+{\em valor} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nodo\+Arbol$<$\+T$>$\texorpdfstring{$\ast$}{*} 
+\end{DoxyReturn}
+
+
+Implementa \mbox{\hyperlink{class_operacion_arboles_a50f5b1faf68c0a99b5f5ec8979fdbf57}{Operacion\+Arboles$<$ T $>$}}.
+
+\Hypertarget{class_arbol_binario_a8b8d135924fb9b52902c704c2aeb1f55}\label{class_arbol_binario_a8b8d135924fb9b52902c704c2aeb1f55} 
+\index{ArbolBinario$<$ T $>$@{ArbolBinario$<$ T $>$}!eliminarNodo@{eliminarNodo}}
+\index{eliminarNodo@{eliminarNodo}!ArbolBinario$<$ T $>$@{ArbolBinario$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{eliminarNodo()}{eliminarNodo()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{class_arbol_binario}{Arbol\+Binario}}$<$ T $>$\+::eliminar\+Nodo (\begin{DoxyParamCaption}\item[{T}]{valor }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Elimina un nodo con el valor dado del árbol. 
+
+
+\begin{DoxyTemplParams}{Parámetros de plantilla}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parámetros}
+{\em valor} & \\
+\hline
+\end{DoxyParams}
+
+
+Implementa \mbox{\hyperlink{class_operacion_arboles_a6eb0c0cb76a2b7cd16b0d1100d3e8dc0}{Operacion\+Arboles$<$ T $>$}}.
+
+\Hypertarget{class_arbol_binario_a78de30e575ae785d3c6a03eaf283efdb}\label{class_arbol_binario_a78de30e575ae785d3c6a03eaf283efdb} 
+\index{ArbolBinario$<$ T $>$@{ArbolBinario$<$ T $>$}!getRaiz@{getRaiz}}
+\index{getRaiz@{getRaiz}!ArbolBinario$<$ T $>$@{ArbolBinario$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getRaiz()}{getRaiz()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{class_nodo_arbol}{Nodo\+Arbol}}$<$ T $>$ \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_arbol_binario}{Arbol\+Binario}}$<$ T $>$\+::get\+Raiz}
+
+
+
+Get the Raiz object. 
+
+
+\begin{DoxyTemplParams}{Parámetros de plantilla}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Devuelve}
+Nodo\+Arbol$<$\+T$>$\texorpdfstring{$\ast$}{*} 
+\end{DoxyReturn}
+\Hypertarget{class_arbol_binario_a3d373194fd3ded22f9fa938b857cc1b2}\label{class_arbol_binario_a3d373194fd3ded22f9fa938b857cc1b2} 
+\index{ArbolBinario$<$ T $>$@{ArbolBinario$<$ T $>$}!insertarNodo@{insertarNodo}}
+\index{insertarNodo@{insertarNodo}!ArbolBinario$<$ T $>$@{ArbolBinario$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{insertarNodo()}{insertarNodo()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{class_arbol_binario}{Arbol\+Binario}}$<$ T $>$\+::insertar\+Nodo (\begin{DoxyParamCaption}\item[{T}]{valor }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Inserta un nuevo nodo con el valor dado en el árbol. 
+
+
+\begin{DoxyTemplParams}{Parámetros de plantilla}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parámetros}
+{\em valor} & \\
+\hline
+\end{DoxyParams}
+
+
+Implementa \mbox{\hyperlink{class_operacion_arboles_a65a737a4cffd3ee0ee51167d8c603b4e}{Operacion\+Arboles$<$ T $>$}}.
+
+\Hypertarget{class_arbol_binario_ae87eecc2f7409a2472c05a3f5fb7401e}\label{class_arbol_binario_ae87eecc2f7409a2472c05a3f5fb7401e} 
+\index{ArbolBinario$<$ T $>$@{ArbolBinario$<$ T $>$}!mostrarArbol@{mostrarArbol}}
+\index{mostrarArbol@{mostrarArbol}!ArbolBinario$<$ T $>$@{ArbolBinario$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{mostrarArbol()}{mostrarArbol()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{class_arbol_binario}{Arbol\+Binario}}$<$ T $>$\+::mostrar\+Arbol\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Muestra el árbol en forma horizontal. 
+
+
+\begin{DoxyTemplParams}{Parámetros de plantilla}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+
+Implementa \mbox{\hyperlink{class_operacion_arboles_a5e5377920c700828e17fd7ff52df0acf}{Operacion\+Arboles$<$ T $>$}}.
+
+\Hypertarget{class_arbol_binario_a0a72c0586b5cccb9e4b1efa64633e998}\label{class_arbol_binario_a0a72c0586b5cccb9e4b1efa64633e998} 
+\index{ArbolBinario$<$ T $>$@{ArbolBinario$<$ T $>$}!mostrarRepetidos@{mostrarRepetidos}}
+\index{mostrarRepetidos@{mostrarRepetidos}!ArbolBinario$<$ T $>$@{ArbolBinario$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{mostrarRepetidos()}{mostrarRepetidos()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{class_arbol_binario}{Arbol\+Binario}}$<$ T $>$\+::mostrar\+Repetidos (\begin{DoxyParamCaption}\item[{T}]{valor }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Muestra todos los datos repetidos en el arbol segun el argumento. 
+
+
+\begin{DoxyTemplParams}{Parámetros de plantilla}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parámetros}
+{\em valor} & \\
+\hline
+\end{DoxyParams}
+
+
+Implementa \mbox{\hyperlink{class_operacion_arboles_ae1ab72203b7767c36c0b1ea7b4d1fcbf}{Operacion\+Arboles$<$ T $>$}}.
+
+\Hypertarget{class_arbol_binario_ad458066a9c9799317d30c31b9f6df6be}\label{class_arbol_binario_ad458066a9c9799317d30c31b9f6df6be} 
+\index{ArbolBinario$<$ T $>$@{ArbolBinario$<$ T $>$}!setRaiz@{setRaiz}}
+\index{setRaiz@{setRaiz}!ArbolBinario$<$ T $>$@{ArbolBinario$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{setRaiz()}{setRaiz()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{class_arbol_binario}{Arbol\+Binario}}$<$ T $>$\+::set\+Raiz (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_nodo_arbol}{Nodo\+Arbol}}$<$ T $>$ \texorpdfstring{$\ast$}{*}}]{raiz }\end{DoxyParamCaption})}
+
+
+
+Set the Raiz object. 
+
+
+\begin{DoxyTemplParams}{Parámetros de plantilla}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parámetros}
+{\em raiz} & \\
+\hline
+\end{DoxyParams}
+
+
+La documentación de esta clase está generada de los siguientes archivos\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Alex\+\_\+22/\+Desktop/\+Semestre III/\+Estructura\+DD/\+New\+Repositorio/\+ED-\/-\/-\/9686/proyectos/\+Parcial 2 Alex-\/\+Alejo/\+Arboles/\mbox{\hyperlink{_arbol_binario_8h}{Arbol\+Binario.\+h}}\item 
+C\+:/\+Users/\+Alex\+\_\+22/\+Desktop/\+Semestre III/\+Estructura\+DD/\+New\+Repositorio/\+ED-\/-\/-\/9686/proyectos/\+Parcial 2 Alex-\/\+Alejo/\+Arboles/\mbox{\hyperlink{_arbol_binario_8cpp}{Arbol\+Binario.\+cpp}}\end{DoxyCompactItemize}

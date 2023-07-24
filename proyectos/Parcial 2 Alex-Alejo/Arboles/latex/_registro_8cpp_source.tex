@@ -1,0 +1,154 @@
+\doxysection{C\+:/\+Users/\+Alex\+\_\+22/\+Desktop/\+Semestre III/\+Estructura\+DD/\+New\+Repositorio/\+ED-\/-\/-\/9686/proyectos/\+Parcial 2 Alex-\/\+Alejo/\+Arboles/\+Registro.cpp}
+\hypertarget{_registro_8cpp_source}{}\label{_registro_8cpp_source}\mbox{\hyperlink{_registro_8cpp}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{UNIVERSIDAD\ DE\ LAS\ FUERZAS\ ARMADAS\ ESPE}}
+\DoxyCodeLine{00003\ \textcolor{comment}{Materia:\ Estructura\ de\ Datos}}
+\DoxyCodeLine{00004\ \textcolor{comment}{NRC:\ 9686}}
+\DoxyCodeLine{00005\ \textcolor{comment}{Integrantes:\ \ \ \ Alejandro\ Andrade}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Allan\ Panchi}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Alex\ Trejo\ }}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Sebastian\ Verdugo}}
+\DoxyCodeLine{00009\ \textcolor{comment}{Fecha\ de\ inicio:\ 15/06/2023}}
+\DoxyCodeLine{00010\ \textcolor{comment}{Fecha\ de\ modificación:\ 15/06/2023}}
+\DoxyCodeLine{00011\ \textcolor{comment}{}}
+\DoxyCodeLine{00012\ \textcolor{comment}{Ordenamiento\ de\ lista\ circular\ doblemente\ enlazadas}}
+\DoxyCodeLine{00013\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_registro_8h}{Registro.h}}"{}}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00018\ \textcolor{comment}{//\ Name:\ \ \ \ \ \ \ Registro::getPersona()}}
+\DoxyCodeLine{00019\ \textcolor{comment}{//\ Purpose:\ \ \ \ Implementation\ of\ Registro::getPersona()}}
+\DoxyCodeLine{00020\ \textcolor{comment}{//\ Return:\ \ \ \ \ Persona}}
+\DoxyCodeLine{00022\ \textcolor{comment}{}}
+\DoxyCodeLine{00027\ std::string\ \mbox{\hyperlink{class_registro_ae6d028f49829b1705ae62fa7102225cb}{Registro::getCedula}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00028\ \{}
+\DoxyCodeLine{00029\ \ \ \ \textcolor{keywordflow}{return}\ cedula;}
+\DoxyCodeLine{00030\ \}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00033\ \textcolor{comment}{//\ Name:\ \ \ \ \ \ \ Registro::setPersona(Persona\ newPersona)}}
+\DoxyCodeLine{00034\ \textcolor{comment}{//\ Purpose:\ \ \ \ Implementation\ of\ Registro::setPersona()}}
+\DoxyCodeLine{00035\ \textcolor{comment}{//\ Parameters:}}
+\DoxyCodeLine{00036\ \textcolor{comment}{//\ -\/\ newPersona}}
+\DoxyCodeLine{00037\ \textcolor{comment}{//\ Return:\ \ \ \ \ void}}
+\DoxyCodeLine{00039\ \textcolor{comment}{}}
+\DoxyCodeLine{00044\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_registro_a3a3da21498661a9edd62232a87c03e28}{Registro::setCedula}}(std::string\ newCedula)}
+\DoxyCodeLine{00045\ \{}
+\DoxyCodeLine{00046\ \ \ \ cedula\ =\ newCedula;}
+\DoxyCodeLine{00047\ \}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00050\ \textcolor{comment}{//\ Name:\ \ \ \ \ \ \ Registro::getEstado()}}
+\DoxyCodeLine{00051\ \textcolor{comment}{//\ Purpose:\ \ \ \ Implementation\ of\ Registro::getEstado()}}
+\DoxyCodeLine{00052\ \textcolor{comment}{//\ Return:\ \ \ \ \ std::string}}
+\DoxyCodeLine{00054\ \textcolor{comment}{}}
+\DoxyCodeLine{00059\ std::string\ \mbox{\hyperlink{class_registro_a61b54bdf02273bc2875862496111eafa}{Registro::getEstado}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00060\ \{}
+\DoxyCodeLine{00061\ \ \ \ \textcolor{keywordflow}{return}\ estado;}
+\DoxyCodeLine{00062\ \}}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00065\ \textcolor{comment}{//\ Name:\ \ \ \ \ \ \ Registro::setEstado(std::string\ newEstado)}}
+\DoxyCodeLine{00066\ \textcolor{comment}{//\ Purpose:\ \ \ \ Implementation\ of\ Registro::setEstado()}}
+\DoxyCodeLine{00067\ \textcolor{comment}{//\ Parameters:}}
+\DoxyCodeLine{00068\ \textcolor{comment}{//\ -\/\ newEstado}}
+\DoxyCodeLine{00069\ \textcolor{comment}{//\ Return:\ \ \ \ \ void}}
+\DoxyCodeLine{00071\ \textcolor{comment}{}}
+\DoxyCodeLine{00076\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_registro_afec8ea07efc85a5892042ff817354134}{Registro::setEstado}}(std::string\ newEstado)}
+\DoxyCodeLine{00077\ \{}
+\DoxyCodeLine{00078\ \ \ \ estado\ =\ newEstado;}
+\DoxyCodeLine{00079\ \}}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00082\ \textcolor{comment}{//\ Name:\ \ \ \ \ \ \ Registro::getEntrada()}}
+\DoxyCodeLine{00083\ \textcolor{comment}{//\ Purpose:\ \ \ \ Implementation\ of\ Registro::getEntrada()}}
+\DoxyCodeLine{00084\ \textcolor{comment}{//\ Return:\ \ \ \ \ std::string}}
+\DoxyCodeLine{00086\ \textcolor{comment}{}}
+\DoxyCodeLine{00091\ \mbox{\hyperlink{class_fecha}{Fecha}}\ \mbox{\hyperlink{class_registro_aaf9325271986fb49a91d1303feeaefd0}{Registro::getEntrada}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00092\ \{}
+\DoxyCodeLine{00093\ \ \ \ \textcolor{keywordflow}{return}\ entrada;}
+\DoxyCodeLine{00094\ \}}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00097\ \textcolor{comment}{//\ Name:\ \ \ \ \ \ \ Registro::setEntrada(std::string\ newEntrada)}}
+\DoxyCodeLine{00098\ \textcolor{comment}{//\ Purpose:\ \ \ \ Implementation\ of\ Registro::setEntrada()}}
+\DoxyCodeLine{00099\ \textcolor{comment}{//\ Parameters:}}
+\DoxyCodeLine{00100\ \textcolor{comment}{//\ -\/\ newEntrada}}
+\DoxyCodeLine{00101\ \textcolor{comment}{//\ Return:\ \ \ \ \ void}}
+\DoxyCodeLine{00103\ \textcolor{comment}{}}
+\DoxyCodeLine{00108\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_registro_ad89309a80198a4d050c91c272f16c2dd}{Registro::setEntrada}}(\mbox{\hyperlink{class_fecha}{Fecha}}\ newEntrada)}
+\DoxyCodeLine{00109\ \{}
+\DoxyCodeLine{00110\ \ \ \ entrada\ =\ newEntrada;}
+\DoxyCodeLine{00111\ \}}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00114\ \textcolor{comment}{//\ Name:\ \ \ \ \ \ \ Registro::getSalida()}}
+\DoxyCodeLine{00115\ \textcolor{comment}{//\ Purpose:\ \ \ \ Implementation\ of\ Registro::getSalida()}}
+\DoxyCodeLine{00116\ \textcolor{comment}{//\ Return:\ \ \ \ \ std::string}}
+\DoxyCodeLine{00118\ \textcolor{comment}{}}
+\DoxyCodeLine{00123\ \mbox{\hyperlink{class_fecha}{Fecha}}\ \mbox{\hyperlink{class_registro_aa10ddc858ed8c0ba409613d1b10ad731}{Registro::getSalida}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00124\ \{}
+\DoxyCodeLine{00125\ \ \ \ \textcolor{keywordflow}{return}\ salida;}
+\DoxyCodeLine{00126\ \}}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00129\ \textcolor{comment}{//\ Name:\ \ \ \ \ \ \ Registro::setSalida(std::string\ newSalida)}}
+\DoxyCodeLine{00130\ \textcolor{comment}{//\ Purpose:\ \ \ \ Implementation\ of\ Registro::setSalida()}}
+\DoxyCodeLine{00131\ \textcolor{comment}{//\ Parameters:}}
+\DoxyCodeLine{00132\ \textcolor{comment}{//\ -\/\ newSalida}}
+\DoxyCodeLine{00133\ \textcolor{comment}{//\ Return:\ \ \ \ \ void}}
+\DoxyCodeLine{00135\ \textcolor{comment}{}}
+\DoxyCodeLine{00140\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_registro_acf5ee6da02fa4fe024ea70c5881828f3}{Registro::setSalida}}(\mbox{\hyperlink{class_fecha}{Fecha}}\ newSalida)}
+\DoxyCodeLine{00141\ \{}
+\DoxyCodeLine{00142\ \ \ \ salida\ =\ newSalida;}
+\DoxyCodeLine{00143\ \}}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00146\ \textcolor{comment}{//\ Name:\ \ \ \ \ \ \ Registro::toString()}}
+\DoxyCodeLine{00147\ \textcolor{comment}{//\ Purpose:\ \ \ \ Implementation\ of\ Registro::toString()}}
+\DoxyCodeLine{00148\ \textcolor{comment}{//\ Return:\ \ \ \ \ void}}
+\DoxyCodeLine{00150\ \textcolor{comment}{}}
+\DoxyCodeLine{00155\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_registro_a2b88c18ceb3ff11e434b7dcb58328e22}{Registro::toString}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00156\ \{}
+\DoxyCodeLine{00157\ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ "{}}\ <<\ std::endl;}
+\DoxyCodeLine{00158\ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Cedula:\ "{}}\ <<\ cedula\ <<\ std::endl;}
+\DoxyCodeLine{00159\ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Hora\ de\ entrada:\ "{}}\ <<\ entrada.\mbox{\hyperlink{class_fecha_a7a128345105e12fba2241760f71facb2}{getHora}}()\ }
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}:"{}}\ <<\ entrada.\mbox{\hyperlink{class_fecha_a73fe73683b83448ca47e31c20f217556}{getMinuto}}()}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ \(\backslash\)nDia/Mes/A\(\backslash\)xA4o:\ "{}}\ }
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ entrada.\mbox{\hyperlink{class_fecha_a9f8e09d5e11a3bf9e4c234e8cd2c004a}{getDia}}()}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}/"{}}\ <<\ entrada.\mbox{\hyperlink{class_fecha_aa501ddd9a46effadac3f08c89140d9ac}{getMes}}()}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}/"{}}\ <<\ entrada.\mbox{\hyperlink{class_fecha_a89ebafe74bc6e5f53ad688dce1d3fc26}{getAnio}}()\ <<\ std::endl;}
+\DoxyCodeLine{00165\ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Hora\ de\ salida:\ "{}}\ <<\ salida.\mbox{\hyperlink{class_fecha_a7a128345105e12fba2241760f71facb2}{getHora}}()}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}:"{}}\ <<\ salida.\mbox{\hyperlink{class_fecha_a73fe73683b83448ca47e31c20f217556}{getMinuto}}()}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ \(\backslash\)nDia/Mes/A\(\backslash\)xA4o:\ "{}}\ }
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ salida.\mbox{\hyperlink{class_fecha_a9f8e09d5e11a3bf9e4c234e8cd2c004a}{getDia}}()}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}/"{}}\ <<\ salida.\mbox{\hyperlink{class_fecha_aa501ddd9a46effadac3f08c89140d9ac}{getMes}}()}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}/"{}}\ <<\ salida.\mbox{\hyperlink{class_fecha_a89ebafe74bc6e5f53ad688dce1d3fc26}{getAnio}}()\ <<\ std::endl;}
+\DoxyCodeLine{00171\ \}}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00174\ \textcolor{comment}{//\ Name:\ \ \ \ \ \ \ Registro::Registro()}}
+\DoxyCodeLine{00175\ \textcolor{comment}{//\ Purpose:\ \ \ \ Implementation\ of\ Registro::Registro()}}
+\DoxyCodeLine{00176\ \textcolor{comment}{//\ Return:\ \ \ \ \ }}
+\DoxyCodeLine{00178\ \textcolor{comment}{}}
+\DoxyCodeLine{00186\ \mbox{\hyperlink{class_registro_a681141e98b185e198e765b355916f302}{Registro::Registro}}(std::string\ cedula,\ \mbox{\hyperlink{class_fecha}{Fecha}}\ entrada,\ \mbox{\hyperlink{class_fecha}{Fecha}}\ salida,\ std::string\ estado)}
+\DoxyCodeLine{00187\ \{}
+\DoxyCodeLine{00188\ \ \ \ this-\/>cedula\ =\ cedula;}
+\DoxyCodeLine{00189\ \ \ \ this-\/>entrada\ =\ entrada;}
+\DoxyCodeLine{00190\ \ \ \ this-\/>salida\ =\ salida;}
+\DoxyCodeLine{00191\ \ \ \ this-\/>estado\ =\ estado;}
+\DoxyCodeLine{00192\ \}}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00195\ \textcolor{comment}{//\ Name:\ \ \ \ \ \ \ Registro::Registro()}}
+\DoxyCodeLine{00196\ \textcolor{comment}{//\ Purpose:\ \ \ \ Implementation\ of\ Registro::Registro()}}
+\DoxyCodeLine{00197\ \textcolor{comment}{//\ Return:}}
+\DoxyCodeLine{00199\ \textcolor{comment}{}}
+\DoxyCodeLine{00203\ \mbox{\hyperlink{class_registro_a681141e98b185e198e765b355916f302}{Registro::Registro}}()}
+\DoxyCodeLine{00204\ \{}
+\DoxyCodeLine{00205\ \ \ }
+\DoxyCodeLine{00206\ }
+\DoxyCodeLine{00207\ }
+\DoxyCodeLine{00208\ \}}
+\DoxyCodeLine{00209\ }
+\DoxyCodeLine{00211\ \textcolor{comment}{//\ Name:\ \ \ \ \ \ \ Registro::\string~Registro()}}
+\DoxyCodeLine{00212\ \textcolor{comment}{//\ Purpose:\ \ \ \ Implementation\ of\ Registro::\string~Registro()}}
+\DoxyCodeLine{00213\ \textcolor{comment}{//\ Return:\ \ \ \ \ }}
+\DoxyCodeLine{00215\ \textcolor{comment}{}}
+\DoxyCodeLine{00219\ \mbox{\hyperlink{class_registro_a10783a2dd3ca4252513c56eea1697153}{Registro::\string~Registro}}()}
+\DoxyCodeLine{00220\ \{}
+\DoxyCodeLine{00221\ \ \ \ \textcolor{comment}{//\ TODO\ :\ implement}}
+\DoxyCodeLine{00222\ \}}
+
+\end{DoxyCode}

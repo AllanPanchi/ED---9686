@@ -20,7 +20,11 @@ Ordenamiento de lista circular doblemente enlazadas
 // Purpose:    Implementation of Persona::getCedula()
 // Return:     std::string
 ////////////////////////////////////////////////////////////////////////
-
+/**
+ * @brief Get the Cedula object
+ * 
+ * @return std::string cedula 
+ */
 std::string Persona::getCedula(void)
 {
    return cedula;
@@ -34,6 +38,12 @@ std::string Persona::getCedula(void)
 // Return:     void
 ////////////////////////////////////////////////////////////////////////
 
+/**
+ * @brief Set the Cedula object
+ * 
+ * @param newCedula
+ * @return void 
+ */
 void Persona::setCedula(std::string newCedula)
 {
    cedula = newCedula;
@@ -45,6 +55,11 @@ void Persona::setCedula(std::string newCedula)
 // Return:     std::string
 ////////////////////////////////////////////////////////////////////////
 
+/**
+ * @brief Get the Nombre object
+ * 
+ * @return std::string 
+ */
 std::string Persona::getNombre(void)
 {
    return nombre;
@@ -57,7 +72,12 @@ std::string Persona::getNombre(void)
 // - newNombre
 // Return:     void
 ////////////////////////////////////////////////////////////////////////
-
+/**
+ * @brief Set the Nombre object
+ * 
+ * @param newNombre 
+ * @return void 
+ */
 void Persona::setNombre(std::string newNombre)
 {
    nombre = newNombre;
@@ -68,7 +88,11 @@ void Persona::setNombre(std::string newNombre)
 // Purpose:    Implementation of Persona::getApellido()
 // Return:     std::string
 ////////////////////////////////////////////////////////////////////////
-
+/**
+ * @brief Get the Apellido object
+ * 
+ * @return std::string 
+ */
 std::string Persona::getApellido(void)
 {
    return apellido;
@@ -81,7 +105,12 @@ std::string Persona::getApellido(void)
 // - newApellido
 // Return:     void
 ////////////////////////////////////////////////////////////////////////
-
+/**
+ * @brief Set the Apellido object
+ * 
+ * @param newApellido 
+ * @return void 
+ */
 void Persona::setApellido(std::string newApellido)
 {
    apellido = newApellido;
@@ -92,19 +121,44 @@ void Persona::setApellido(std::string newApellido)
 // Purpose:    Implementation of Persona::Persona()
 // Return:     
 ////////////////////////////////////////////////////////////////////////
-
+/**
+ * @brief Construct a new Persona:: Persona object
+ * 
+ * @param cedula 
+ * @param nombre 
+ * @param apellido 
+ * @param fechaNacimiento 
+ */
 Fecha Persona::getFechaNacimiento(void)
 {
    return fechaNacimiento;
 }
 
 ////////////////////////////////////////////////////////////////////////
-
+/**
+ * @brief Set the Fecha Nacimiento object
+ * 
+ * @param newFechaNacimiento 
+ * @return void
+ */
 void Persona::setFechaNacimiento(Fecha newFechaNacimiento)
 {
    fechaNacimiento = newFechaNacimiento;
 }
 
+////////////////////////////////////////////////////////////////////////
+// Name:       Persona::Persona()
+// Purpose:    Implementation of Persona::Persona()
+// Return:
+////////////////////////////////////////////////////////////////////////
+/**
+ * @brief Construct a new Persona:: Persona object
+ * 
+ * @param cedula 
+ * @param nombre 
+ * @param apellido 
+ * @param fechaNacimiento 
+ */
 Persona::Persona(std::string cedula, std::string nombre, std::string apellido, Fecha fechaNacimiento)
 {
    this->cedula = cedula;
@@ -113,6 +167,19 @@ Persona::Persona(std::string cedula, std::string nombre, std::string apellido, F
    this->fechaNacimiento = fechaNacimiento;
 }
 
+////////////////////////////////////////////////////////////////////////
+// Name:       Persona::Persona()
+// Purpose:    Implementation of Persona::Persona()
+// Return:
+////////////////////////////////////////////////////////////////////////
+/**
+ * @brief Construct a new Persona:: Persona object
+ * 
+ * @param cedula 
+ * @param nombre 
+ * @param apellido 
+ * @return  
+ */
 Persona::Persona()
 {
    this->cedula = "";
@@ -125,7 +192,10 @@ Persona::Persona()
 // Purpose:    Implementation of Persona::~Persona()
 // Return:     
 ////////////////////////////////////////////////////////////////////////
-
+/**
+ * @brief Destroy the Persona:: Persona object
+ * 
+ */
 Persona::~Persona()
 {
    // TODO : implement
@@ -136,7 +206,12 @@ Persona::~Persona()
 // Purpose:    Implementation of Persona::toString()
 // Return:     void
 ////////////////////////////////////////////////////////////////////////
-
+/**
+ * @brief  Imprime los datos de la persona
+ * 
+ * @return void 
+ * 
+ */
 void Persona::toString(void)
 {
    std::cout << "Cedula: " << cedula << std::endl;

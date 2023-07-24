@@ -1,6 +1,13 @@
 #include <fstream>
 #include "ManejoArchivos.h"
 
+    // Guardar personas en un archivo de texto 
+    /**
+     * @brief Guarda las personas en un archivo de texto
+     * 
+     * @param nombreArchivo 
+     * @param lista 
+     */
     void ManejoArchivos::guardarPersonas(const std::string& nombreArchivo, Lista<Empleado>& lista) {
         std::ofstream archivo(nombreArchivo);
 
@@ -21,6 +28,13 @@
         }
     }
 
+    //cargar registros en un archivo de texto
+    /**
+     * @brief Carga los registros en un archivo de texto
+     * 
+     * @param nombreArchivo 
+     * @param lista 
+     */ 
     void ManejoArchivos::cargarPersonas(const std::string& nombreArchivo, Lista<Empleado>& lista) {
         std::ifstream archivo(nombreArchivo);
 
@@ -39,6 +53,13 @@
         }
     }
 
+    // Guardar registros en un archivo de texto
+    /**
+     * @brief Guarda los registros en un archivo de texto
+     * 
+     * @param nombreArchivo 
+     * @param lista 
+     */
     void ManejoArchivos::guardarRegistros(const std::string& nombreArchivo, Lista<Registro>& lista) {
         std::ofstream archivo(nombreArchivo);
 
@@ -60,6 +81,13 @@
         }
     }
 
+    //cargar registros en un archivo de texto
+    /**
+     * @brief Carga los registros en un archivo de texto
+     * 
+     * @param nombreArchivo 
+     * @param lista 
+     */
     void ManejoArchivos::cargarRegistros(const std::string& nombreArchivo, Lista<Registro>& lista) {
         std::ifstream archivo(nombreArchivo);
 

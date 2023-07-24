@@ -14,26 +14,57 @@ Ordenamiento de lista circular doblemente enlazadas
 
 #include "Lista.h"
 
+    // Getter y Setter
+    /**
+     * @brief Get the Primero object
+     * 
+     * @tparam T 
+     * @return Nodo<T>* 
+     */
     template <typename T>
     Nodo<T>* Lista<T>::getPrimero(){
         return this->primero;
     }
 
+    /**
+     * @brief Get the Actual object
+     * 
+     * @tparam T 
+     * @return Nodo<T>* 
+     */
     template <typename T>
     Nodo<T>* Lista<T>::getActual(){
         return this->actual;
     }
 
+    /**
+     * @brief Set the Primero object
+     * 
+     * @tparam T 
+     * @param primero 
+     */
     template <typename T>
     void Lista<T>::setPrimero(Nodo<T> *primero){
         this->primero=primero;
     }
 
+    /**
+     * @brief Set the Actual object
+     * 
+     * @tparam T 
+     * @param actual 
+     */
     template <typename T>
     void Lista<T>::setActual(Nodo<T> *actual){
         this->actual=actual;
     }
 
+    /**
+     * @brief Get the Size object
+     * 
+     * @tparam T 
+     * @return int 
+     */
     template <typename T>
     int Lista<T>::size(){
         int cont=1;
@@ -45,17 +76,37 @@ Ordenamiento de lista circular doblemente enlazadas
         return cont;
     }
 
+
+    /**
+     * @brief Get the Size object
+     * 
+     * @tparam T 
+     * @return int 
+     */
     template <typename T>
     bool Lista<T>::listaVacia(){
         return (this->actual==NULL);
     }
 
+
+    /**
+     * @brief Construct a new Lista< T>:: Lista object
+     * 
+     * @tparam T 
+     */
     template <typename T>
     Lista<T>::Lista(){
         this->primero=NULL;
         this->actual=NULL;
     }
 
+
+    /**
+     * @brief Insertar un registro en la lista
+     * 
+     * @tparam T 
+     * @param registro 
+     */
     template <typename T>
     void Lista<T>::insertar(T registro){
         Nodo<T>* nuevo = new Nodo(registro);
@@ -78,6 +129,13 @@ Ordenamiento de lista circular doblemente enlazadas
 	}
     }
 
+
+    /**
+     * @brief Eliminar un registro de la lista por medio de la cedula
+     * 
+     * @tparam T 
+     * @param cedula 
+     */
     template <typename T>    
     void Lista<T>::eliminar(std::string cedula){
         if (this->primero != nullptr)
@@ -110,7 +168,15 @@ Ordenamiento de lista circular doblemente enlazadas
 
     }
 
+
     // Buscar un producto en la lista por medio del atributo codigo que es int y retornarlo
+    /**
+     * @brief Buscar un registro en la lista por medio del atributo cedula que es string y retornarlo
+     * 
+     * @tparam T 
+     * @param cedula 
+     * @return Nodo<T>* 
+     */
     template <typename T>
     Nodo<T>* Lista<T>::buscar(std::string cedula){
         Nodo<T> *tmp = this->primero;
@@ -125,7 +191,15 @@ Ordenamiento de lista circular doblemente enlazadas
         return NULL;
     }
 
+
     // Buscar un producto en la lista por medio del atrubuto codigo que es int y retornarlo
+    /**
+     * @brief Buscar un registro en la lista por medio del atributo sueldo que es float y retornarlo
+     * 
+     * @tparam T 
+     * @param sueldo 
+     * @return Nodo<T>* 
+     */
     template <typename T>
     Nodo<T>* Lista<T>::buscarPorSueldo(float sueldo){
         Nodo<T> *tmp = this->primero;
@@ -141,6 +215,13 @@ Ordenamiento de lista circular doblemente enlazadas
     }
 
     // Buscar un producto en la lista por medio del atrubuto codigo que es int y retornarlo
+    /**
+     * @brief Buscar un registro en la lista por medio del atributo nombre que es string y retornarlo
+     * 
+     * @tparam T 
+     * @param nombre 
+     * @return Nodo<T>* 
+     */
     template <typename T>
     Nodo<T>* Lista<T>::buscarPorCedula(int cedula){
         Nodo<T> *tmp = this->primero;
@@ -155,6 +236,14 @@ Ordenamiento de lista circular doblemente enlazadas
         return NULL;
     }
 
+    // Buscar un producto en la lista por medio del atrubuto codigo que es int y retornarlo
+    /**
+     * @brief Buscar un registro en la lista por medio del atributo nombre que es string y retornarlo
+     * 
+     * @tparam T 
+     * @param nombre 
+     * @return Nodo<T>* 
+     */
     template <typename T>
     Nodo<T>* Lista<T>::buscarUltimo(std::string cedula){
         Nodo<T> *tmp = this->primero->getAnterior();
@@ -172,6 +261,13 @@ Ordenamiento de lista circular doblemente enlazadas
     }
 
     // Actualizar el estado de un registro la lista
+    /**
+     * @brief Actualizar el estado de un registro la lista
+     * 
+     * @tparam T 
+     * @param actual 
+     * @param valor 
+     */
     template <typename T>
     void Lista<T>::actualizarEstado(Nodo<T> *actual, T valor){
         actual->setValor(valor);
@@ -179,6 +275,11 @@ Ordenamiento de lista circular doblemente enlazadas
     }
 
     //Mostrar todos los productos de la lista
+    /**
+     * @brief Mostrar todos los registros de la lista
+     * 
+     * @tparam T 
+     */
     template <typename T>
     void Lista<T>::mostrar(){
         if (this->primero != nullptr)
@@ -193,6 +294,12 @@ Ordenamiento de lista circular doblemente enlazadas
 	    }
     }
 
+    //Vaciar la lista
+    /**
+     * @brief Vaciar la lista
+     * 
+     * @tparam T 
+     */
     template <typename T>
     void Lista<T>::vaciarLista() {
         Nodo<T>* nodoActual = this->primero;
@@ -206,6 +313,14 @@ Ordenamiento de lista circular doblemente enlazadas
     }
 
     // Función de partición para el Quicksort
+    /**
+     * @brief Función de partición para el Quicksort
+     * 
+     * @param arr 
+     * @param low 
+     * @param high 
+     * @return int 
+     */
     int partition(std::vector<int>& arr, int low, int high) {
         int pivot = arr[high];
         int i = low - 1;
@@ -221,6 +336,13 @@ Ordenamiento de lista circular doblemente enlazadas
     }
 
     // Implementación del algoritmo Quicksort
+    /**
+     * @brief Implementación del algoritmo Quicksort
+     * 
+     * @param arr 
+     * @param low 
+     * @param high 
+     */
     void quicksort(std::vector<int>& arr, int low, int high) {
         if (low < high) {
             int pi = partition(arr, low, high);
@@ -229,6 +351,12 @@ Ordenamiento de lista circular doblemente enlazadas
         }
     }
 
+    // Función para ordenar la lista por medio del atributo cedula
+    /**
+     * @brief Función para ordenar la lista por medio del atributo cedula
+     * 
+     * @tparam T 
+     */
     template <typename T>
     bool Lista<T>::cedulaEnLista(std::string cedula){
         Nodo<T> *tmp = this->primero;

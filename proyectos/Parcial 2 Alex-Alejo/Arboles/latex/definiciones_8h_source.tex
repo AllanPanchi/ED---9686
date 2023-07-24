@@ -1,0 +1,41 @@
+\doxysection{C\+:/\+Users/\+Alex\+\_\+22/\+Desktop/\+Semestre III/\+Estructura\+DD/\+New\+Repositorio/\+ED-\/-\/-\/9686/proyectos/\+Parcial 2 Alex-\/\+Alejo/\+Arboles/definiciones.h}
+\hypertarget{definiciones_8h_source}{}\label{definiciones_8h_source}\mbox{\hyperlink{definiciones_8h}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#ifndef\ \_MSC\_VER}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ \_getch(...)\ getch(\_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{definiciones_8h_a7e06bd7a182404fb1c05e68fee91e67b}{Tecla}}\ :\ \textcolor{keywordtype}{unsigned}\ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{definiciones_8h_a7e06bd7a182404fb1c05e68fee91e67ba4bac1cc21e74d49111d01ea2ccf5daaa}{Arriba}}\ =\ 72,}
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{definiciones_8h_a7e06bd7a182404fb1c05e68fee91e67bad6457f8d8f9db06fb26faabf61bd69df}{Abajo}}\ =\ 80,}
+\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{definiciones_8h_a7e06bd7a182404fb1c05e68fee91e67ba198293a19df89bb49ca936f85c5e1c19}{Izquierda}}\ =\ 77,}
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{definiciones_8h_a7e06bd7a182404fb1c05e68fee91e67ba3e8c21cf539a639b3fa7015a7ea2422d}{Derecha}}\ =\ 75,}
+\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{definiciones_8h_a7e06bd7a182404fb1c05e68fee91e67ba013ec032d3460d4be4431c6ab1f8f224}{Escape}}\ =\ 27,}
+\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{definiciones_8h_a7e06bd7a182404fb1c05e68fee91e67baf1851d5600eae616ee802a31ac74701b}{Enter}}\ =\ 13,}
+\DoxyCodeLine{00025\ \};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{unsigned}\ \mbox{\hyperlink{definiciones_8h_a6c47dcd9b4fe0a3930444055b6925f4d}{operator+}}(\mbox{\hyperlink{definiciones_8h_a7e06bd7a182404fb1c05e68fee91e67b}{Tecla}}\ \textcolor{keyword}{const}\ val)\ \{}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{unsigned}\textcolor{keyword}{>}(val);}
+\DoxyCodeLine{00029\ \}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{definiciones_8h_a977b2ad577ed0bfe75057cf2f88a85d5}{TipoMensaje}}\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \mbox{\hyperlink{definiciones_8h_a977b2ad577ed0bfe75057cf2f88a85d5a902b0d55fddef6f8d651fe1035b7d4bd}{Error}},}
+\DoxyCodeLine{00033\ \ \ \ \ \mbox{\hyperlink{definiciones_8h_a977b2ad577ed0bfe75057cf2f88a85d5ad216aaa1f5a3cbb76dd5075348ab6ef0}{Correcto}},}
+\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{definiciones_8h_a977b2ad577ed0bfe75057cf2f88a85d5a73ca78a41e878a98455914b13e6b314a}{Informativo}}}
+\DoxyCodeLine{00035\ \};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#define\ for\_indexed(...)\ for\_indexed\_v(i,\ \_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#define\ for\_indexed\_v(v,\ ...)\ \(\backslash\)}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\ \ \ \ if\ (std::size\_t\ v\ =\ -\/1)\ \ \ \(\backslash\)}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ for\ (\_\_VA\_ARGS\_\_)\ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ if\ ((++v,\ true))}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#define\ DOMINIO\_EMAIL\ "{}espe.edu.ec"{}}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#define\ ALUMNO\_ID\_PREFIJO\ "{}L00"{}}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#define\ INTUIR\_PROVINCIA\_POR\_CEDULA\ 0}}
+\DoxyCodeLine{00046\ }
+
+\end{DoxyCode}

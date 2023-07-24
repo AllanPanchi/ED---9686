@@ -1,5 +1,14 @@
 #include "Backup.h"
 
+//Copiar un archivo
+/**
+ * @brief Copia un archivo de origen a un archivo de destino
+ * 
+ * @param origen 
+ * @param destino 
+ * @return true 
+ * @return false 
+ */
 bool Backup::copiarArchivo(const std::string& origen,const std::string& destino)
 {
     std::ifstream archivoEntrada(origen.c_str(),std::ios::binary);

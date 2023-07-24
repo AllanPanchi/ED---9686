@@ -1,0 +1,246 @@
+\doxysection{Referencia de la clase Menu\+Item}
+\hypertarget{class_menu_item}{}\label{class_menu_item}\index{MenuItem@{MenuItem}}
+
+
+{\ttfamily \#include $<$Menu.\+h$>$}
+
+\doxysubsubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_menu_item_a2fa54a2c8e7bbc9ba530fb168f9b8340}{Menu\+Item}} ()=default
+\item 
+\mbox{\hyperlink{class_menu_item_ad743c7d66f8b45dcdd4837f7d55e470d}{Menu\+Item}} (std\+::string \mbox{\hyperlink{class_menu_item_af6f32904049ccf5d7e60ec5886ea189e}{label}}, std\+::function$<$ void()$>$ \mbox{\hyperlink{class_menu_item_a55b069894b10a11603aaeb602dd40e40}{action}}=\mbox{[}$\,$\mbox{]} \{\}, bool \mbox{\hyperlink{class_menu_item_a5f55bf1afbd5b51e70a818a13039aeda}{must\+\_\+wait}}=true, bool \mbox{\hyperlink{class_menu_item_a2090f68a9873698f8ae01f1f40fcbac1}{is\+\_\+enabled}}=true)
+\begin{DoxyCompactList}\small\item\em Construct a new \doxylink{class_menu}{Menu} Item\+:\+: \doxylink{class_menu}{Menu} Item object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_menu_item_a6d29d0d5011d06e6451590043c21f609}{Menu\+Item}} (std\+::function$<$ std\+::string()$>$ \mbox{\hyperlink{class_menu_item_af6f32904049ccf5d7e60ec5886ea189e}{label}}, std\+::function$<$ void()$>$ \mbox{\hyperlink{class_menu_item_a55b069894b10a11603aaeb602dd40e40}{action}}=\mbox{[}$\,$\mbox{]} \{\}, bool \mbox{\hyperlink{class_menu_item_a5f55bf1afbd5b51e70a818a13039aeda}{must\+\_\+wait}}=true, bool \mbox{\hyperlink{class_menu_item_a2090f68a9873698f8ae01f1f40fcbac1}{is\+\_\+enabled}}=true)
+\begin{DoxyCompactList}\small\item\em Construct a new \doxylink{class_menu}{Menu} Item\+:\+: \doxylink{class_menu}{Menu} Item object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_menu_item}{Menu\+Item}} \& \mbox{\hyperlink{class_menu_item_ab23cfb1dd4d1467112cf7b03719df570}{enabled}} (bool value)
+\begin{DoxyCompactList}\small\item\em Construstor de la clase \doxylink{class_menu_item}{Menu\+Item} de enable. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_menu_item}{Menu\+Item}} \& \mbox{\hyperlink{class_menu_item_a41f2000fb673b7734de815b75d11184f}{enabled}} (std\+::function$<$ bool()$>$ callable)
+\begin{DoxyCompactList}\small\item\em Construstor de la clase \doxylink{class_menu_item}{Menu\+Item} de enable. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_menu_item}{Menu\+Item}} \& \mbox{\hyperlink{class_menu_item_a4c8e0fe77697bd18abbc9d99ac403780}{wait}} (bool value)
+\begin{DoxyCompactList}\small\item\em Construstor de la clase \doxylink{class_menu_item}{Menu\+Item} de wait. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_menu_item}{Menu\+Item}} \& \mbox{\hyperlink{class_menu_item_a64a6193f7d486aaeef8fb511470a7911}{wait}} (std\+::function$<$ bool()$>$ callable)
+\begin{DoxyCompactList}\small\item\em Construstor de la clase \doxylink{class_menu_item}{Menu\+Item} de wait. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_menu_item}{Menu\+Item}} \& \mbox{\hyperlink{class_menu_item_a55b069894b10a11603aaeb602dd40e40}{action}} (std\+::function$<$ void()$>$ callback)
+\begin{DoxyCompactList}\small\item\em Construstor de la clase \doxylink{class_menu_item}{Menu\+Item} de action. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_menu_item_af6f32904049ccf5d7e60ec5886ea189e}{label}} (std\+::string label)
+\begin{DoxyCompactList}\small\item\em Construstor de la clase \doxylink{class_menu_item}{Menu\+Item} de label. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_menu_item_aacac38cc406e4eeae6e50e0e95825e11}{label}} ()
+\begin{DoxyCompactList}\small\item\em Construstor de la clase \doxylink{class_menu_item}{Menu\+Item} de label. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_menu_item_a2090f68a9873698f8ae01f1f40fcbac1}{is\+\_\+enabled}} ()
+\begin{DoxyCompactList}\small\item\em Construstor de la clase \doxylink{class_menu_item}{Menu\+Item} de enabled. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_menu_item_a5f55bf1afbd5b51e70a818a13039aeda}{must\+\_\+wait}} ()
+\begin{DoxyCompactList}\small\item\em Construstor de la clase \doxylink{class_menu_item}{Menu\+Item} de must\+\_\+\+Wait. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_menu_item_a79009355b6318c4dac70d105878af4ed}{exec}} ()
+\begin{DoxyCompactList}\small\item\em Construstor de la clase \doxylink{class_menu_item}{Menu\+Item} de exec. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentación de constructores y destructores}
+\Hypertarget{class_menu_item_a2fa54a2c8e7bbc9ba530fb168f9b8340}\label{class_menu_item_a2fa54a2c8e7bbc9ba530fb168f9b8340} 
+\index{MenuItem@{MenuItem}!MenuItem@{MenuItem}}
+\index{MenuItem@{MenuItem}!MenuItem@{MenuItem}}
+\doxysubsubsection{\texorpdfstring{MenuItem()}{MenuItem()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily Menu\+Item\+::\+Menu\+Item (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\Hypertarget{class_menu_item_ad743c7d66f8b45dcdd4837f7d55e470d}\label{class_menu_item_ad743c7d66f8b45dcdd4837f7d55e470d} 
+\index{MenuItem@{MenuItem}!MenuItem@{MenuItem}}
+\index{MenuItem@{MenuItem}!MenuItem@{MenuItem}}
+\doxysubsubsection{\texorpdfstring{MenuItem()}{MenuItem()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Menu\+Item\+::\+Menu\+Item (\begin{DoxyParamCaption}\item[{std\+::string}]{label,  }\item[{std\+::function$<$ void()$>$}]{callable = {\ttfamily \mbox{[}\mbox{]}~\{\}},  }\item[{bool}]{must\+\_\+wait = {\ttfamily true},  }\item[{bool}]{is\+\_\+enabled = {\ttfamily true} }\end{DoxyParamCaption})}
+
+
+
+Construct a new \doxylink{class_menu}{Menu} Item\+:\+: \doxylink{class_menu}{Menu} Item object. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em label} & \\
+\hline
+{\em callable} & \\
+\hline
+{\em must\+\_\+wait} & \\
+\hline
+{\em is\+\_\+enabled} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_menu_item_a6d29d0d5011d06e6451590043c21f609}\label{class_menu_item_a6d29d0d5011d06e6451590043c21f609} 
+\index{MenuItem@{MenuItem}!MenuItem@{MenuItem}}
+\index{MenuItem@{MenuItem}!MenuItem@{MenuItem}}
+\doxysubsubsection{\texorpdfstring{MenuItem()}{MenuItem()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily Menu\+Item\+::\+Menu\+Item (\begin{DoxyParamCaption}\item[{std\+::function$<$ std\+::string()$>$}]{label,  }\item[{std\+::function$<$ void()$>$}]{callable = {\ttfamily \mbox{[}\mbox{]}~\{\}},  }\item[{bool}]{must\+\_\+wait = {\ttfamily true},  }\item[{bool}]{is\+\_\+enabled = {\ttfamily true} }\end{DoxyParamCaption})}
+
+
+
+Construct a new \doxylink{class_menu}{Menu} Item\+:\+: \doxylink{class_menu}{Menu} Item object. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em label} & \\
+\hline
+{\em callable} & \\
+\hline
+{\em must\+\_\+wait} & \\
+\hline
+{\em is\+\_\+enabled} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Documentación de funciones miembro}
+\Hypertarget{class_menu_item_a55b069894b10a11603aaeb602dd40e40}\label{class_menu_item_a55b069894b10a11603aaeb602dd40e40} 
+\index{MenuItem@{MenuItem}!action@{action}}
+\index{action@{action}!MenuItem@{MenuItem}}
+\doxysubsubsection{\texorpdfstring{action()}{action()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_menu_item}{Menu\+Item}} \& Menu\+Item\+::action (\begin{DoxyParamCaption}\item[{std\+::function$<$ void()$>$}]{callback }\end{DoxyParamCaption})}
+
+
+
+Construstor de la clase \doxylink{class_menu_item}{Menu\+Item} de action. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em callback} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_menu_item_ab23cfb1dd4d1467112cf7b03719df570}\label{class_menu_item_ab23cfb1dd4d1467112cf7b03719df570} 
+\index{MenuItem@{MenuItem}!enabled@{enabled}}
+\index{enabled@{enabled}!MenuItem@{MenuItem}}
+\doxysubsubsection{\texorpdfstring{enabled()}{enabled()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_menu_item}{Menu\+Item}} \& Menu\+Item\+::enabled (\begin{DoxyParamCaption}\item[{bool}]{value }\end{DoxyParamCaption})}
+
+
+
+Construstor de la clase \doxylink{class_menu_item}{Menu\+Item} de enable. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em label} & \\
+\hline
+{\em callable} & \\
+\hline
+{\em must\+\_\+wait} & \\
+\hline
+{\em is\+\_\+enabled} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_menu_item_a41f2000fb673b7734de815b75d11184f}\label{class_menu_item_a41f2000fb673b7734de815b75d11184f} 
+\index{MenuItem@{MenuItem}!enabled@{enabled}}
+\index{enabled@{enabled}!MenuItem@{MenuItem}}
+\doxysubsubsection{\texorpdfstring{enabled()}{enabled()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_menu_item}{Menu\+Item}} \& Menu\+Item\+::enabled (\begin{DoxyParamCaption}\item[{std\+::function$<$ bool()$>$}]{callable }\end{DoxyParamCaption})}
+
+
+
+Construstor de la clase \doxylink{class_menu_item}{Menu\+Item} de enable. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em label} & \\
+\hline
+{\em callable} & \\
+\hline
+{\em must\+\_\+wait} & \\
+\hline
+{\em is\+\_\+enabled} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_menu_item_a79009355b6318c4dac70d105878af4ed}\label{class_menu_item_a79009355b6318c4dac70d105878af4ed} 
+\index{MenuItem@{MenuItem}!exec@{exec}}
+\index{exec@{exec}!MenuItem@{MenuItem}}
+\doxysubsubsection{\texorpdfstring{exec()}{exec()}}
+{\footnotesize\ttfamily void Menu\+Item\+::exec (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Construstor de la clase \doxylink{class_menu_item}{Menu\+Item} de exec. 
+
+\Hypertarget{class_menu_item_a2090f68a9873698f8ae01f1f40fcbac1}\label{class_menu_item_a2090f68a9873698f8ae01f1f40fcbac1} 
+\index{MenuItem@{MenuItem}!is\_enabled@{is\_enabled}}
+\index{is\_enabled@{is\_enabled}!MenuItem@{MenuItem}}
+\doxysubsubsection{\texorpdfstring{is\_enabled()}{is\_enabled()}}
+{\footnotesize\ttfamily bool Menu\+Item\+::is\+\_\+enabled (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Construstor de la clase \doxylink{class_menu_item}{Menu\+Item} de enabled. 
+
+\begin{DoxyReturn}{Devuelve}
+bool 
+\end{DoxyReturn}
+\Hypertarget{class_menu_item_aacac38cc406e4eeae6e50e0e95825e11}\label{class_menu_item_aacac38cc406e4eeae6e50e0e95825e11} 
+\index{MenuItem@{MenuItem}!label@{label}}
+\index{label@{label}!MenuItem@{MenuItem}}
+\doxysubsubsection{\texorpdfstring{label()}{label()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::string Menu\+Item\+::label (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Construstor de la clase \doxylink{class_menu_item}{Menu\+Item} de label. 
+
+\begin{DoxyReturn}{Devuelve}
+std\+::string 
+\end{DoxyReturn}
+\Hypertarget{class_menu_item_af6f32904049ccf5d7e60ec5886ea189e}\label{class_menu_item_af6f32904049ccf5d7e60ec5886ea189e} 
+\index{MenuItem@{MenuItem}!label@{label}}
+\index{label@{label}!MenuItem@{MenuItem}}
+\doxysubsubsection{\texorpdfstring{label()}{label()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Menu\+Item\+::label (\begin{DoxyParamCaption}\item[{std\+::string}]{label }\end{DoxyParamCaption})}
+
+
+
+Construstor de la clase \doxylink{class_menu_item}{Menu\+Item} de label. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em label} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_menu_item_a5f55bf1afbd5b51e70a818a13039aeda}\label{class_menu_item_a5f55bf1afbd5b51e70a818a13039aeda} 
+\index{MenuItem@{MenuItem}!must\_wait@{must\_wait}}
+\index{must\_wait@{must\_wait}!MenuItem@{MenuItem}}
+\doxysubsubsection{\texorpdfstring{must\_wait()}{must\_wait()}}
+{\footnotesize\ttfamily bool Menu\+Item\+::must\+\_\+wait (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Construstor de la clase \doxylink{class_menu_item}{Menu\+Item} de must\+\_\+\+Wait. 
+
+\begin{DoxyReturn}{Devuelve}
+bool 
+\end{DoxyReturn}
+\Hypertarget{class_menu_item_a4c8e0fe77697bd18abbc9d99ac403780}\label{class_menu_item_a4c8e0fe77697bd18abbc9d99ac403780} 
+\index{MenuItem@{MenuItem}!wait@{wait}}
+\index{wait@{wait}!MenuItem@{MenuItem}}
+\doxysubsubsection{\texorpdfstring{wait()}{wait()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_menu_item}{Menu\+Item}} \& Menu\+Item\+::wait (\begin{DoxyParamCaption}\item[{bool}]{value }\end{DoxyParamCaption})}
+
+
+
+Construstor de la clase \doxylink{class_menu_item}{Menu\+Item} de wait. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em value} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_menu_item_a64a6193f7d486aaeef8fb511470a7911}\label{class_menu_item_a64a6193f7d486aaeef8fb511470a7911} 
+\index{MenuItem@{MenuItem}!wait@{wait}}
+\index{wait@{wait}!MenuItem@{MenuItem}}
+\doxysubsubsection{\texorpdfstring{wait()}{wait()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_menu_item}{Menu\+Item}} \& Menu\+Item\+::wait (\begin{DoxyParamCaption}\item[{std\+::function$<$ bool()$>$}]{callable }\end{DoxyParamCaption})}
+
+
+
+Construstor de la clase \doxylink{class_menu_item}{Menu\+Item} de wait. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em callable} & \\
+\hline
+\end{DoxyParams}
+
+
+La documentación de esta clase está generada de los siguientes archivos\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Alex\+\_\+22/\+Desktop/\+Semestre III/\+Estructura\+DD/\+New\+Repositorio/\+ED-\/-\/-\/9686/proyectos/\+Parcial 2 Alex-\/\+Alejo/\+Arboles/\mbox{\hyperlink{_menu_8h}{Menu.\+h}}\item 
+C\+:/\+Users/\+Alex\+\_\+22/\+Desktop/\+Semestre III/\+Estructura\+DD/\+New\+Repositorio/\+ED-\/-\/-\/9686/proyectos/\+Parcial 2 Alex-\/\+Alejo/\+Arboles/\mbox{\hyperlink{menu_8cpp}{menu.\+cpp}}\end{DoxyCompactItemize}

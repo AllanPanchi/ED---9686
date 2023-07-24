@@ -6,6 +6,10 @@
 #include <fstream>
 #include <filesystem>
 
+/**
+*@brief Función de ejecución del programa principal 
+*/
+  
 void Aplication::run()
 {
 	Menu menu("Menu Principal");
@@ -23,6 +27,9 @@ void Aplication::run()
 
 }
 
+/**
+*@brief Función de registro de nuevo empleado
+*/
 void Aplication::registroNuevoEmpleado()
 {
 	Empleado persona;
@@ -76,6 +83,9 @@ void Aplication::registroNuevoEmpleado()
 	
 }
 
+/**
+*@brief Función de registro de entrada y salida de un empleado
+*/
 void Aplication::registrarEntrada(){
 	
 	Registro registro;
@@ -157,6 +167,9 @@ void Aplication::registrarEntrada(){
 
 }
 
+/**
+*@brief Función de mostrar personas registradas
+*/
 void Aplication::mostrarPersonasRegistradas()
 {
 	Lista<Empleado> lista;
@@ -178,6 +191,9 @@ void Aplication::mostrarPersonasRegistradas()
 	lista.mostrar();
 }
 
+/**
+*@brief Función de mostrar todos los registros
+*/
 void Aplication::mostrarRegistros()
 {
 	Lista<Registro> lista;
@@ -188,6 +204,13 @@ void Aplication::mostrarRegistros()
 	lista.mostrar();
 }
 
+/**
+* @brief Función de partición para el Quicksort
+* @param arr Vector de flotantes
+* @param low Valor entero
+* @param high Valor entero
+* @return Valor entero
+*/
 // Función de partición para el Quicksort
 int partition(std::vector<float>& arr, int low, int high) {
     float pivot = arr[high];
@@ -203,6 +226,12 @@ int partition(std::vector<float>& arr, int low, int high) {
     return i + 1;
 }
 
+/**
+*@brief Función de ordenamiento Quicksort
+*@param arr Vector de flotantes
+*@param low Valor entero
+*@param high Valor entero
+*/
 // Implementación del algoritmo Quicksort
 void quicksort(std::vector<float>& arr, int low, int high) {
     if (low < high) {
@@ -212,6 +241,10 @@ void quicksort(std::vector<float>& arr, int low, int high) {
     }
 }
 
+
+/**
+*@brief Función de mostrar registros ordenados por cedula
+*/
 void Aplication::mostrarRegistrosPorCedula()
 {
 	const auto ordenarPorCedula = [](Lista<Registro>& lista) -> Lista<Registro> {
@@ -259,6 +292,10 @@ void Aplication::mostrarRegistrosPorCedula()
 		
 }
 
+
+/**
+*@brief Función de mostrar personas ordenadas por sueldo
+*/
 void Aplication::mostrarEmpleadosPorSueldo()
 {
 	const auto ordenarPorSueldo = [](Lista<Empleado>& lista) -> Lista<Empleado> {
@@ -303,6 +340,9 @@ void Aplication::mostrarEmpleadosPorSueldo()
 	listaOrdenada.mostrar();
 }
 
+/**
+*@brief Función de buscar registros por fecha
+*/
 void Aplication::buscarRegistroPorFecha()
 {
 	Lista<Registro> lista;
@@ -352,6 +392,9 @@ void Aplication::buscarRegistroPorFecha()
 
 }
 
+/**
+*@brief Función de buscar registros por cedula
+*/
 void Aplication::buscarRegistrosPorCedula(){
 	Lista<Registro> lista;
 	ValidarDatos validar;
@@ -391,20 +434,44 @@ void Aplication::buscarRegistrosPorCedula(){
 	}
 }
 
+/**
+*@brief Función de menú de extras 
+*/
 void Aplication::extras(){
 	Menu menu("Extras");
 	menu.add(MenuItem("Regresar",std::bind(&Aplication::mainMenu,this)));
 	menu.add(MenuItem("BACKUP", std::bind(&Aplication::backup,this)));
 	menu.add(MenuItem("Imprimir imagen en consola",std::bind(&Aplication::imprimirEnConsola,this)));
+	menu.add(MenuItem("Ayuda", std::bind(&Aplication::ayuda,this)));
 	menu.add(MenuItem("Salir", std::bind(&Aplication::salir,this)));
 	menu.run();
 }
 
+
+void Aplication::ayuda(){
+	system("cls");
+	Menu menu("Extras");
+	menu.add(MenuItem("Regresar",std::bind(&Aplication::mainMenu,this)));
+	menu.add(MenuItem("BACKUP", std::bind(&Aplication::backup,this)));
+	menu.add(MenuItem("Imprimir imagen en consola",std::bind(&Aplication::imprimirEnConsola,this)));
+	menu.add(MenuItem("Ayuda", std::bind(&Aplication::ayuda,this)));
+	menu.add(MenuItem("Salir", std::bind(&Aplication::salir,this)));
+	
+	system(".\\html\\index.html");
+	menu.run();	
+}
+
+/**
+*@brief Función de menú principal
+*/
 void Aplication::mainMenu(){
 	system("cls");
 	run();
 }
 
+/**
+*@brief Función de menú de backup
+*/
 void Aplication::backup(){
 	Menu menu("Backup");
 	menu.add(MenuItem("Regresar",std::bind(&Aplication::extras,this)));
@@ -414,6 +481,9 @@ void Aplication::backup(){
 	menu.run();
 }
 
+/**
+*@brief Función de restaurar backup
+*/
 void Aplication::restaurarBackup(){
 	system("cls");
 	
@@ -444,6 +514,9 @@ void Aplication::restaurarBackup(){
 
 }
 
+/**
+*@brief Función de generar backup
+*/
 void Aplication::generarBackup(){
 	system("cls");
 
@@ -471,12 +544,18 @@ void Aplication::generarBackup(){
 
 }
 
+/**
+*@brief Función de imprimir imagen en consola
+*/
 void Aplication::imprimirEnConsola(){
 	system("cls");
 	Imagen imagen("image.bmp");
 	imagen.imprimirImagenEnConsola();
 }
 
+/**
+*@brief  Función de salir del programa
+*/
 void Aplication::salir()
 {
 	system("cls");

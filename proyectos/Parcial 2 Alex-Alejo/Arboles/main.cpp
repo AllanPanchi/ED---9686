@@ -18,6 +18,13 @@ Ordenamiento de lista circular doblemente enlazadas
 #include "Menu.h"
 #include <iostream>
 
+/**
+ * @brief   Funcion principal del programa 
+ * 
+ * @param argc 
+ * @param argv 
+ * @return int 
+ */
 int main(int argc, char **argv) {
 
     Aplication aplication;

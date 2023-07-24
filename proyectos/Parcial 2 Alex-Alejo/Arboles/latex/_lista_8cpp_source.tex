@@ -1,0 +1,260 @@
+\doxysection{C\+:/\+Users/\+Alex\+\_\+22/\+Desktop/\+Semestre III/\+Estructura\+DD/\+New\+Repositorio/\+ED-\/-\/-\/9686/proyectos/\+Parcial 2 Alex-\/\+Alejo/\+Arboles/\+Lista.cpp}
+\hypertarget{_lista_8cpp_source}{}\label{_lista_8cpp_source}\mbox{\hyperlink{_lista_8cpp}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{UNIVERSIDAD\ DE\ LAS\ FUERZAS\ ARMADAS\ ESPE}}
+\DoxyCodeLine{00003\ \textcolor{comment}{Materia:\ Estructura\ de\ Datos}}
+\DoxyCodeLine{00004\ \textcolor{comment}{NRC:\ 9686}}
+\DoxyCodeLine{00005\ \textcolor{comment}{Integrantes:\ \ \ \ Alejandro\ Andrade}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Allan\ Panchi}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Alex\ Trejo\ }}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Sebastian\ Verdugo}}
+\DoxyCodeLine{00009\ \textcolor{comment}{Fecha\ de\ inicio:\ 15/06/2023}}
+\DoxyCodeLine{00010\ \textcolor{comment}{Fecha\ de\ modificación:\ 15/06/2023}}
+\DoxyCodeLine{00011\ \textcolor{comment}{}}
+\DoxyCodeLine{00012\ \textcolor{comment}{Ordenamiento\ de\ lista\ circular\ doblemente\ enlazadas}}
+\DoxyCodeLine{00013\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_lista_8h}{Lista.h}}"{}}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{comment}{//\ Getter\ y\ Setter}}
+\DoxyCodeLine{00024\ \textcolor{comment}{}\ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{class_nodo}{Nodo<T>}}*\ \mbox{\hyperlink{class_lista_aedc01eb857298c94c25c17676f1fef93}{Lista<T>::getPrimero}}()\{}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>primero;}
+\DoxyCodeLine{00027\ \ \ \ \ \}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{class_nodo}{Nodo<T>}}*\ \mbox{\hyperlink{class_lista_a0d8dc8c81b0bf5c1241f158c428edacd}{Lista<T>::getActual}}()\{}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>actual;}
+\DoxyCodeLine{00038\ \ \ \ \ \}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_lista_afb7bdcb2a2dd1afea8de86adeda5d63d}{Lista<T>::setPrimero}}(\mbox{\hyperlink{class_nodo}{Nodo<T>}}\ *primero)\{}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ this-\/>primero=primero;}
+\DoxyCodeLine{00049\ \ \ \ \ \}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_lista_a5204422532b51048c8e6c4f146be8a18}{Lista<T>::setActual}}(\mbox{\hyperlink{class_nodo}{Nodo<T>}}\ *actual)\{}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ this-\/>actual=actual;}
+\DoxyCodeLine{00060\ \ \ \ \ \}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_lista_a38a8d54e10ed9bbef62aefefc9d81365}{Lista<T>::size}}()\{}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ cont=1;}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_nodo}{Nodo<T>}}\ *tmp=this-\/>primero;}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(tmp\ !=\ this-\/>actual)\{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ cont++;}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ tmp=tmp-\/>\mbox{\hyperlink{class_nodo_ad3c9f0b404f3c0f585133bf91db7279d}{getSiguiente}}();}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ cont;}
+\DoxyCodeLine{00077\ \ \ \ \ \}}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_lista_aef3dc6d88979bd574846c62b364045b0}{Lista<T>::listaVacia}}()\{}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (this-\/>actual==NULL);}
+\DoxyCodeLine{00089\ \ \ \ \ \}}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00098\ \ \ \ \ \mbox{\hyperlink{class_lista_adce924e21607848663132290be1a959d}{Lista<T>::Lista}}()\{}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ this-\/>primero=NULL;}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ this-\/>actual=NULL;}
+\DoxyCodeLine{00101\ \ \ \ \ \}}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_lista_ac36b9a2f52024fd668b65fd5a3ac691b}{Lista<T>::insertar}}(T\ registro)\{}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_nodo}{Nodo<T>}}*\ nuevo\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_nodo}{Nodo}}(registro);}
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>primero\ ==\ \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{00114\ \ \ \ \ \{}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ this-\/>primero\ =\ nuevo;}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ this-\/>actual\ =\ nuevo;}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ this-\/>primero-\/>\mbox{\hyperlink{class_nodo_a5e10d9aed02add4c792f91518c0f702e}{setSiguiente}}(this-\/>actual);}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ this-\/>primero-\/>setAnterior(this-\/>actual);}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ this-\/>actual-\/>setSiguiente(this-\/>primero);}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ this-\/>actual-\/>setAnterior(this-\/>primero);}
+\DoxyCodeLine{00121\ \ \ \ \ \}}
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00123\ \ \ \ \ \{}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ this-\/>actual-\/>setSiguiente(nuevo);}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ nuevo-\/>\mbox{\hyperlink{class_nodo_a596cbee7c70a885978be00e40a7e7b61}{setAnterior}}(this-\/>actual);}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ nuevo-\/>\mbox{\hyperlink{class_nodo_a5e10d9aed02add4c792f91518c0f702e}{setSiguiente}}(this-\/>primero);}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ this-\/>primero-\/>setAnterior(nuevo);}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ this-\/>actual\ =\ nuevo;}
+\DoxyCodeLine{00129\ \ \ \ \ \}}
+\DoxyCodeLine{00130\ \ \ \ \ \}}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>\ \ \ \ }
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_lista_a7cadfe439c6a77bf2d4e78385f226d49}{Lista<T>::eliminar}}(std::string\ cedula)\{}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>primero\ !=\ \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{00142\ \ \ \ \ \{}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>primero-\/>getValor().getPersona().getCedula()\ ==\ cedula)}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_nodo}{Nodo<Registro>}}*\ aux\ =\ this-\/>primero;}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>primero\ =\ this-\/>primero-\/>\mbox{\hyperlink{class_nodo_ad3c9f0b404f3c0f585133bf91db7279d}{getSiguiente}}();}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>primero-\/>setAnterior(this-\/>actual);}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>actual-\/>setSiguiente(this-\/>primero);}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ aux;}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_nodo}{Nodo<T>}}*\ aux\ =\ this-\/>primero;}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (aux-\/>\mbox{\hyperlink{class_nodo_ad3c9f0b404f3c0f585133bf91db7279d}{getSiguiente}}()\ !=\ this-\/>primero)}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (aux-\/>\mbox{\hyperlink{class_nodo_ad3c9f0b404f3c0f585133bf91db7279d}{getSiguiente}}()-\/>getValor().getCedula()\ ==\ cedula)}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_nodo}{Nodo<Registro>}}*\ aux2\ =\ aux-\/>\mbox{\hyperlink{class_nodo_ad3c9f0b404f3c0f585133bf91db7279d}{getSiguiente}}();}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ aux-\/>\mbox{\hyperlink{class_nodo_a5e10d9aed02add4c792f91518c0f702e}{setSiguiente}}(aux2-\/>\mbox{\hyperlink{class_nodo_ad3c9f0b404f3c0f585133bf91db7279d}{getSiguiente}}());}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ aux2-\/>\mbox{\hyperlink{class_nodo_ad3c9f0b404f3c0f585133bf91db7279d}{getSiguiente}}()-\/>setAnterior(aux);}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ aux2;}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ aux\ =\ aux-\/>\mbox{\hyperlink{class_nodo_ad3c9f0b404f3c0f585133bf91db7279d}{getSiguiente}}();}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00167\ \ \ \ \ \}}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \ \ \ \ \}}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ \ \ \ \ \textcolor{comment}{//\ Buscar\ un\ producto\ en\ la\ lista\ por\ medio\ del\ atributo\ codigo\ que\ es\ int\ y\ retornarlo}}
+\DoxyCodeLine{00180\ \textcolor{comment}{}\ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00181\ \ \ \ \ \mbox{\hyperlink{class_nodo}{Nodo<T>}}*\ \mbox{\hyperlink{class_lista_ac258b9bc0d6ebfe58ad98bc50329dd2d}{Lista<T>::buscar}}(std::string\ cedula)\{}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_nodo}{Nodo<T>}}\ *tmp\ =\ this-\/>primero;}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ cont\ =\ 0;}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(cont\ <=\ this-\/>size())\{}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(tmp-\/>\mbox{\hyperlink{class_nodo_a754c21bd149591475694a12dcb031655}{getValor}}().getCedula()\ ==\ cedula)\{}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ tmp;}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \ \ \ \ tmp\ =\ tmp-\/>\mbox{\hyperlink{class_nodo_ad3c9f0b404f3c0f585133bf91db7279d}{getSiguiente}}();}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \ \ \ \ cont++;}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ NULL;}
+\DoxyCodeLine{00192\ \ \ \ \ \}}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00194\ }
+\DoxyCodeLine{00195\ \ \ \ \ \textcolor{comment}{//\ Buscar\ un\ producto\ en\ la\ lista\ por\ medio\ del\ atrubuto\ codigo\ que\ es\ int\ y\ retornarlo}}
+\DoxyCodeLine{00203\ \textcolor{comment}{}\ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00204\ \ \ \ \ \mbox{\hyperlink{class_nodo}{Nodo<T>}}*\ \mbox{\hyperlink{class_lista_a28fdde5737ef87d184356327865621a8}{Lista<T>::buscarPorSueldo}}(\textcolor{keywordtype}{float}\ sueldo)\{}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_nodo}{Nodo<T>}}\ *tmp\ =\ this-\/>primero;}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ cont\ =\ 0;}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(cont\ <=\ this-\/>size())\{}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(tmp-\/>\mbox{\hyperlink{class_nodo_a754c21bd149591475694a12dcb031655}{getValor}}().getSueldo()\ ==\ sueldo)\{}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ tmp;}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \ \ \ \ tmp\ =\ tmp-\/>\mbox{\hyperlink{class_nodo_ad3c9f0b404f3c0f585133bf91db7279d}{getSiguiente}}();}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \ \ \ \ cont++;}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ NULL;}
+\DoxyCodeLine{00215\ \ \ \ \ \}}
+\DoxyCodeLine{00216\ }
+\DoxyCodeLine{00217\ \ \ \ \ \textcolor{comment}{//\ Buscar\ un\ producto\ en\ la\ lista\ por\ medio\ del\ atrubuto\ codigo\ que\ es\ int\ y\ retornarlo}}
+\DoxyCodeLine{00225\ \textcolor{comment}{}\ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00226\ \ \ \ \ \mbox{\hyperlink{class_nodo}{Nodo<T>}}*\ \mbox{\hyperlink{class_lista_a7fa6a50fcef16438b730ccbe26dec98f}{Lista<T>::buscarPorCedula}}(\textcolor{keywordtype}{int}\ cedula)\{}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_nodo}{Nodo<T>}}\ *tmp\ =\ this-\/>primero;}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ cont\ =\ 0;}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(cont\ <=\ this-\/>size())\{}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(std::atoi(tmp-\/>\mbox{\hyperlink{class_nodo_a754c21bd149591475694a12dcb031655}{getValor}}().getCedula().c\_str())\ ==\ cedula)\{}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ tmp;}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \ \ \ \ tmp\ =\ tmp-\/>\mbox{\hyperlink{class_nodo_ad3c9f0b404f3c0f585133bf91db7279d}{getSiguiente}}();}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \ \ \ \ cont++;}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ NULL;}
+\DoxyCodeLine{00237\ \ \ \ \ \}}
+\DoxyCodeLine{00238\ }
+\DoxyCodeLine{00239\ \ \ \ \ \textcolor{comment}{//\ Buscar\ un\ producto\ en\ la\ lista\ por\ medio\ del\ atrubuto\ codigo\ que\ es\ int\ y\ retornarlo}}
+\DoxyCodeLine{00247\ \textcolor{comment}{}\ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00248\ \ \ \ \ \mbox{\hyperlink{class_nodo}{Nodo<T>}}*\ \mbox{\hyperlink{class_lista_ae43f00963373ea579f25f9c425216e0e}{Lista<T>::buscarUltimo}}(std::string\ cedula)\{}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_nodo}{Nodo<T>}}\ *tmp\ =\ this-\/>primero-\/>\mbox{\hyperlink{class_nodo_ad268f34508035962cc56309a32938b07}{getAnterior}}();}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(tmp\ !=\ this-\/>primero)\{}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(tmp-\/>\mbox{\hyperlink{class_nodo_a754c21bd149591475694a12dcb031655}{getValor}}().getCedula()\ ==\ cedula)\{}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ tmp;}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \ \ \ \ tmp\ =\ tmp-\/>\mbox{\hyperlink{class_nodo_ad268f34508035962cc56309a32938b07}{getAnterior}}();}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (tmp-\/>\mbox{\hyperlink{class_nodo_a754c21bd149591475694a12dcb031655}{getValor}}().getCedula()\ ==\ cedula)}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ tmp;}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ NULL;}
+\DoxyCodeLine{00261\ \ \ \ \ \}}
+\DoxyCodeLine{00262\ }
+\DoxyCodeLine{00263\ \ \ \ \ \textcolor{comment}{//\ Actualizar\ el\ estado\ de\ un\ registro\ la\ lista}}
+\DoxyCodeLine{00271\ \textcolor{comment}{}\ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00272\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_lista_ab2c8ceb393b77fe8ecf53f1a3e1ad189}{Lista<T>::actualizarEstado}}(\mbox{\hyperlink{class_nodo}{Nodo<T>}}\ *actual,\ T\ valor)\{}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ actual-\/>\mbox{\hyperlink{class_nodo_a4e670eeb888eb0429b78c626cddf4ecf}{setValor}}(valor);}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ actual-\/>\mbox{\hyperlink{class_nodo_a754c21bd149591475694a12dcb031655}{getValor}}().toString();}
+\DoxyCodeLine{00275\ \ \ \ \ \}}
+\DoxyCodeLine{00276\ }
+\DoxyCodeLine{00277\ \ \ \ \ \textcolor{comment}{//Mostrar\ todos\ los\ productos\ de\ la\ lista}}
+\DoxyCodeLine{00283\ \textcolor{comment}{}\ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00284\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_lista_ab0eaab29492253b79757b25308f1b489}{Lista<T>::mostrar}}()\{}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>primero\ !=\ \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_nodo}{Nodo<T>}}*\ aux\ =\ this-\/>primero;}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{do}}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ aux-\/>\mbox{\hyperlink{class_nodo_a754c21bd149591475694a12dcb031655}{getValor}}().toString();}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ aux\ =\ aux-\/>\mbox{\hyperlink{class_nodo_ad3c9f0b404f3c0f585133bf91db7279d}{getSiguiente}}();}
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (aux\ !=\ this-\/>primero);}
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ std::endl;}
+\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00295\ \ \ \ \ \}}
+\DoxyCodeLine{00296\ }
+\DoxyCodeLine{00297\ \ \ \ \ \textcolor{comment}{//Vaciar\ la\ lista}}
+\DoxyCodeLine{00303\ \textcolor{comment}{}\ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00304\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_lista_ab9c5510653eb1deb7bbafaced024faf5}{Lista<T>::vaciarLista}}()\ \{}
+\DoxyCodeLine{00305\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_nodo}{Nodo<T>}}*\ nodoActual\ =\ this-\/>primero;}
+\DoxyCodeLine{00306\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (nodoActual\ !=\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_nodo}{Nodo<T>}}*\ nodoSiguiente\ =\ nodoActual-\/>\mbox{\hyperlink{class_nodo_ad268f34508035962cc56309a32938b07}{getAnterior}}();}
+\DoxyCodeLine{00308\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ nodoActual;}
+\DoxyCodeLine{00309\ \ \ \ \ \ \ \ \ \ \ \ \ nodoActual\ =\ nodoSiguiente;}
+\DoxyCodeLine{00310\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00311\ \ \ \ \ \ \ \ \ this-\/>primero\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00312\ \ \ \ \ \ \ \ \ this-\/>actual\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00313\ \ \ \ \ \}}
+\DoxyCodeLine{00314\ }
+\DoxyCodeLine{00315\ \ \ \ \ \textcolor{comment}{//\ Función\ de\ partición\ para\ el\ Quicksort}}
+\DoxyCodeLine{00324\ \textcolor{comment}{}\ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_lista_8cpp_a3f534774f2be51ee0e4a11bf235294f8}{partition}}(std::vector<int>\&\ arr,\ \textcolor{keywordtype}{int}\ low,\ \textcolor{keywordtype}{int}\ high)\ \{}
+\DoxyCodeLine{00325\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ pivot\ =\ arr[high];}
+\DoxyCodeLine{00326\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ low\ -\/\ 1;}
+\DoxyCodeLine{00327\ }
+\DoxyCodeLine{00328\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ low;\ j\ <=\ high\ -\/\ 1;\ j++)\ \{}
+\DoxyCodeLine{00329\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (arr[j]\ <=\ pivot)\ \{}
+\DoxyCodeLine{00330\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ i++;}
+\DoxyCodeLine{00331\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::swap(arr[i],\ arr[j]);}
+\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00334\ \ \ \ \ \ \ \ \ std::swap(arr[i\ +\ 1],\ arr[high]);}
+\DoxyCodeLine{00335\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ i\ +\ 1;}
+\DoxyCodeLine{00336\ \ \ \ \ \}}
+\DoxyCodeLine{00337\ }
+\DoxyCodeLine{00338\ \ \ \ \ \textcolor{comment}{//\ Implementación\ del\ algoritmo\ Quicksort}}
+\DoxyCodeLine{00346\ \textcolor{comment}{}\ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_lista_8cpp_a08a1b514234106879da4f47a2e200425}{quicksort}}(std::vector<int>\&\ arr,\ \textcolor{keywordtype}{int}\ low,\ \textcolor{keywordtype}{int}\ high)\ \{}
+\DoxyCodeLine{00347\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (low\ <\ high)\ \{}
+\DoxyCodeLine{00348\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ pi\ =\ \mbox{\hyperlink{_lista_8cpp_a3f534774f2be51ee0e4a11bf235294f8}{partition}}(arr,\ low,\ high);}
+\DoxyCodeLine{00349\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_lista_8cpp_a08a1b514234106879da4f47a2e200425}{quicksort}}(arr,\ low,\ pi\ -\/\ 1);}
+\DoxyCodeLine{00350\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_lista_8cpp_a08a1b514234106879da4f47a2e200425}{quicksort}}(arr,\ pi\ +\ 1,\ high);}
+\DoxyCodeLine{00351\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00352\ \ \ \ \ \}}
+\DoxyCodeLine{00353\ }
+\DoxyCodeLine{00354\ \ \ \ \ \textcolor{comment}{//\ Función\ para\ ordenar\ la\ lista\ por\ medio\ del\ atributo\ cedula}}
+\DoxyCodeLine{00360\ \textcolor{comment}{}\ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00361\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_lista_a1a6e7bbb08f2a2125b0d2fdd05324acd}{Lista<T>::cedulaEnLista}}(std::string\ cedula)\{}
+\DoxyCodeLine{00362\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_nodo}{Nodo<T>}}\ *tmp\ =\ this-\/>primero;}
+\DoxyCodeLine{00363\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ cont\ =\ 0;}
+\DoxyCodeLine{00364\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(cont\ <=\ this-\/>size())\{}
+\DoxyCodeLine{00365\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(tmp-\/>\mbox{\hyperlink{class_nodo_a754c21bd149591475694a12dcb031655}{getValor}}().getCedula()\ ==\ cedula)\{}
+\DoxyCodeLine{00366\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00367\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00368\ \ \ \ \ \ \ \ \ \ \ \ \ tmp\ =\ tmp-\/>\mbox{\hyperlink{class_nodo_ad3c9f0b404f3c0f585133bf91db7279d}{getSiguiente}}();}
+\DoxyCodeLine{00369\ \ \ \ \ \ \ \ \ \ \ \ \ cont++;}
+\DoxyCodeLine{00370\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00371\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00372\ \ \ \ \ \}\ \ \ \ }
+\DoxyCodeLine{00373\ \ \ \ \ }
+
+\end{DoxyCode}

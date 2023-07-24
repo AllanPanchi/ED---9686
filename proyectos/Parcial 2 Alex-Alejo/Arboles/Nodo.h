@@ -12,6 +12,16 @@ Fecha de modificación: 15/06/2023
 Ordenamiento de lista circular doblemente enlazadas
 */
 
+/**
+ * @file Nodo.h
+ * @author Alejandro Andrade - Alex Trejo
+ * @version 1.0
+ * @date 15/06/2023
+ * @title Nodo
+ * @brief Clase Nodo
+ */
+
+
 #include "Registro.cpp"
 
 template <typename T>

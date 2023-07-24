@@ -1,0 +1,63 @@
+\doxysection{C\+:/\+Users/\+Alex\+\_\+22/\+Desktop/\+Semestre III/\+Estructura\+DD/\+New\+Repositorio/\+ED-\/-\/-\/9686/proyectos/\+Parcial 2 Alex-\/\+Alejo/\+Arboles/\+Nodo.cpp}
+\hypertarget{_nodo_8cpp_source}{}\label{_nodo_8cpp_source}\mbox{\hyperlink{_nodo_8cpp}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{UNIVERSIDAD\ DE\ LAS\ FUERZAS\ ARMADAS\ ESPE}}
+\DoxyCodeLine{00003\ \textcolor{comment}{Materia:\ Estructura\ de\ Datos}}
+\DoxyCodeLine{00004\ \textcolor{comment}{NRC:\ 9686}}
+\DoxyCodeLine{00005\ \textcolor{comment}{Integrantes:\ \ \ \ Alejandro\ Andrade}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Allan\ Panchi}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Alex\ Trejo\ }}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Sebastian\ Verdugo}}
+\DoxyCodeLine{00009\ \textcolor{comment}{Fecha\ de\ inicio:\ 15/06/2023}}
+\DoxyCodeLine{00010\ \textcolor{comment}{Fecha\ de\ modificación:\ 15/06/2023}}
+\DoxyCodeLine{00011\ \textcolor{comment}{}}
+\DoxyCodeLine{00012\ \textcolor{comment}{Ordenamiento\ de\ lista\ circular\ doblemente\ enlazadas}}
+\DoxyCodeLine{00013\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_nodo_8h}{Nodo.h}}"{}}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{comment}{//\ Constructor\ de\ la\ clase\ Nodo}}
+\DoxyCodeLine{00025\ \textcolor{comment}{}\textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00026\ \mbox{\hyperlink{class_nodo_a1c304fb7023d0815ca0b10f596c4cfc2}{Nodo<T>::Nodo}}(T\ registro,\ \mbox{\hyperlink{class_nodo}{Nodo<T>}}\ *sig,\ \mbox{\hyperlink{class_nodo}{Nodo<T>}}\ *ant)\{}
+\DoxyCodeLine{00027\ \ \ \ \ this-\/>valor\ =\ registro;}
+\DoxyCodeLine{00028\ \ \ \ \ this-\/>siguiente\ =\ sig;}
+\DoxyCodeLine{00029\ \ \ \ \ this-\/>anterior\ =\ ant;}
+\DoxyCodeLine{00030\ \}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{comment}{//\ Sett\ de\ valor}}
+\DoxyCodeLine{00039\ \textcolor{comment}{}\textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00040\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_nodo_a4e670eeb888eb0429b78c626cddf4ecf}{Nodo<T>::setValor}}(T\ registro)\{}
+\DoxyCodeLine{00041\ \ \ \ \ this-\/>valor\ =\ registro;}
+\DoxyCodeLine{00042\ \}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{comment}{//\ Get\ de\ valor}}
+\DoxyCodeLine{00051\ \textcolor{comment}{}\textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00052\ T\ \mbox{\hyperlink{class_nodo_a754c21bd149591475694a12dcb031655}{Nodo<T>::getValor}}()\{}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>valor;}
+\DoxyCodeLine{00054\ \}}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \textcolor{comment}{//\ Sett\ de\ siguiente}}
+\DoxyCodeLine{00063\ \textcolor{comment}{}\textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00064\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_nodo_a5e10d9aed02add4c792f91518c0f702e}{Nodo<T>::setSiguiente}}(\mbox{\hyperlink{class_nodo}{Nodo<T>}}\ *sig)\{}
+\DoxyCodeLine{00065\ \ \ \ \ this-\/>siguiente=sig;}
+\DoxyCodeLine{00066\ \}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \textcolor{comment}{//\ Get\ de\ siguiente}}
+\DoxyCodeLine{00075\ \textcolor{comment}{}\textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00076\ \mbox{\hyperlink{class_nodo}{Nodo<T>}}*\ \mbox{\hyperlink{class_nodo_ad3c9f0b404f3c0f585133bf91db7279d}{Nodo<T>::getSiguiente}}()\{}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>siguiente;}
+\DoxyCodeLine{00078\ \}}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \textcolor{comment}{//\ Sett\ de\ anterior}}
+\DoxyCodeLine{00087\ \textcolor{comment}{}\textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00088\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_nodo_a596cbee7c70a885978be00e40a7e7b61}{Nodo<T>::setAnterior}}(\mbox{\hyperlink{class_nodo}{Nodo<T>}}\ *ant)\{}
+\DoxyCodeLine{00089\ \ \ \ \ this-\/>anterior=ant;}
+\DoxyCodeLine{00090\ \}}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \textcolor{comment}{//\ Get\ de\ anterior}}
+\DoxyCodeLine{00099\ \textcolor{comment}{}\textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00100\ \mbox{\hyperlink{class_nodo}{Nodo<T>}}*\ \mbox{\hyperlink{class_nodo_ad268f34508035962cc56309a32938b07}{Nodo<T>::getAnterior}}()\{}
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>anterior;}
+\DoxyCodeLine{00102\ \}}
+
+\end{DoxyCode}

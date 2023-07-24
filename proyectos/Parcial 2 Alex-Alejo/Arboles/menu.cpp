@@ -8,6 +8,15 @@
 #include <cmath>
 #include <conio.h>
 
+// Menu Item
+/**
+ * @brief Construct a new Menu Item:: Menu Item object
+ * 
+ * @param label 
+ * @param callable 
+ * @param must_wait 
+ * @param is_enabled 
+ */
 MenuItem::MenuItem(
 	std::string label, std::function<void()> callable, bool must_wait, bool is_enabled) {
 	label_ = [label] { return label; };
@@ -16,6 +25,14 @@ MenuItem::MenuItem(
 	enabled(is_enabled);
 }
 
+/**
+ * @brief Construct a new Menu Item:: Menu Item object
+ * 
+ * @param label 
+ * @param callable 
+ * @param must_wait 
+ * @param is_enabled 
+ */
 MenuItem::MenuItem(
 	std::function<std::string()> label, std::function<void()> callable, bool must_wait, bool is_enabled) {
 	label_ = label;
@@ -24,47 +41,110 @@ MenuItem::MenuItem(
 	enabled(is_enabled);
 }
 
+/**
+ * @brief Construstor de la clase MenuItem de enable 
+ * 
+ * @param label 
+ * @param callable 
+ * @param must_wait 
+ * @param is_enabled 
+ */
 MenuItem& MenuItem::enabled(bool value) {
 	is_enabled_ = [value] { return value; };
 	return *this;
 }
 
+/**
+ * @brief Construstor de la clase MenuItem de enable 
+ * 
+ * @param label 
+ * @param callable 
+ * @param must_wait 
+ * @param is_enabled 
+ */
 MenuItem& MenuItem::enabled(std::function<bool()> callable) {
 	is_enabled_ = callable;
 	return *this;
 }
 
+// Menu Item - Action
+/**
+ * @brief Construstor de la clase MenuItem de action 
+ * 
+ * @param callback
+ */
 MenuItem& MenuItem::action(std::function<void()> callback) {
 	action_ = callback;
 	return *this;
 }
 
+// Menu Item - Wait
+/**
+ * @brief Construstor de la clase MenuItem de wait 
+ * 
+ * @param value 
+ */
 MenuItem& MenuItem::wait(bool value) {
 	must_wait_ = [value] { return value; };
 	return *this;
 }
 
+// Menu Item - Wait 
+/**
+ * @brief Construstor de la clase MenuItem de wait 
+ * 
+ * @param callable 
+ */
 MenuItem& MenuItem::wait(std::function<bool()> callable) {
 	action_ = callable;
 	return *this;
 }
 
+// Menu Item - Label
+/**
+ * @brief Construstor de la clase MenuItem de label 
+ * 
+ * @param label 
+ */
 void MenuItem::label(std::string label) {
 	label_ = [label] { return label; };
 }
 
+// Menu Item - Label
+/**
+ * @brief Construstor de la clase MenuItem de label 
+ * @return std::string 
+ */
 std::string MenuItem::label() {
 	return label_();
 }
 
+// Menu Item - Enabled
+/**
+ * @brief Construstor de la clase MenuItem de enabled 
+ * 
+ * @return bool 
+ */
 bool MenuItem::is_enabled() {
 	return is_enabled_();
 }
+
+// Menu Item - must_Wait
+/**
+ * @brief Construstor de la clase MenuItem de must_Wait 
+ * 
+ * @return bool 
+ */
 
 bool MenuItem::must_wait() {
 	return must_wait_();
 }
 
+// Menu Item - Exec
+/**
+ * @brief Construstor de la clase MenuItem de exec 
+ * 
+ */
 void MenuItem::exec() {
 	if (action_ != nullptr) {
 		action_();
@@ -72,15 +152,29 @@ void MenuItem::exec() {
 }
 
 //////////////////////////////////////////////////////////////////
-
+/**
+ * @brief Construct a new Menu:: Menu object
+ * 
+ * @param title 
+ */
 Menu::Menu(std::string title) {
 	title_ = title;
 }
 
+/**
+ * @brief Construct a new Menu:: Menu object
+ * 
+ * @param option 
+ */
 void Menu::add(MenuItem option) {
 	items_.push_back(option);
 }
 
+// Menu - Run
+/**
+ * @brief Construstor de la clase Menu de run 
+ * 
+ */
 void Menu::run() {
 	int selected = 0;
 
@@ -166,12 +260,24 @@ void Menu::run() {
 	}
 }
 
+// Menu - Exit Item
+/**
+ * @brief Construstor de la clase Menu de exit_item 
+ * 
+ * @param label 
+ * @return MenuItem 
+ */
 MenuItem Menu::exit_item(std::string label) {
 	return MenuItem(label)
 		.action(std::bind(&Menu::stop, this))
 		.wait(false);
 }
 
+//Menu - stop
+/**
+ * @brief Construstor de la clase Menu de stop 
+ * 
+ */
 void Menu::stop() {
 	running_ = false;
 }

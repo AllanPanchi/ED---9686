@@ -1,0 +1,165 @@
+\doxysection{Referencia del archivo C\+:/\+Users/\+Alex\+\_\+22/\+Desktop/\+Semestre III/\+Estructura\+DD/\+New\+Repositorio/\+ED-\/-\/-\/9686/proyectos/\+Parcial 2 Alex-\/\+Alejo/\+Arboles/definiciones.h}
+\hypertarget{definiciones_8h}{}\label{definiciones_8h}\index{C:/Users/Alex\_22/Desktop/Semestre III/EstructuraDD/NewRepositorio/ED-\/-\/-\/9686/proyectos/Parcial 2 Alex-\/Alejo/Arboles/definiciones.h@{C:/Users/Alex\_22/Desktop/Semestre III/EstructuraDD/NewRepositorio/ED-\/-\/-\/9686/proyectos/Parcial 2 Alex-\/Alejo/Arboles/definiciones.h}}
+\doxysubsubsection*{defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{definiciones_8h_aca6129b1dfd156986306d81cddfb0bfe}{\+\_\+getch}}(...)~getch(\+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{definiciones_8h_a956173fc5e5748a77ad7303117871528}{for\+\_\+indexed}}(...)~\mbox{\hyperlink{definiciones_8h_ac06f7b4fbd4350284a0a4d1afcf9f752}{for\+\_\+indexed\+\_\+v}}(i, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{definiciones_8h_ac06f7b4fbd4350284a0a4d1afcf9f752}{for\+\_\+indexed\+\_\+v}}(v, ...)
+\item 
+\#define \mbox{\hyperlink{definiciones_8h_a58c553bdd120a6b7593af65f634f1b4e}{DOMINIO\+\_\+\+EMAIL}}~\"{}espe.\+edu.\+ec\"{}
+\item 
+\#define \mbox{\hyperlink{definiciones_8h_a8f518275b5fd368c56de992a2570f8b4}{ALUMNO\+\_\+\+ID\+\_\+\+PREFIJO}}~\"{}L00\"{}
+\item 
+\#define \mbox{\hyperlink{definiciones_8h_afaf1aa5ecfca4703aa09fdfc361f14ac}{INTUIR\+\_\+\+PROVINCIA\+\_\+\+POR\+\_\+\+CEDULA}}~0
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumeraciones}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{definiciones_8h_a7e06bd7a182404fb1c05e68fee91e67b}{Tecla}} \+: unsigned \{ \newline
+\mbox{\hyperlink{definiciones_8h_a7e06bd7a182404fb1c05e68fee91e67ba4bac1cc21e74d49111d01ea2ccf5daaa}{Arriba}} = 72
+, \mbox{\hyperlink{definiciones_8h_a7e06bd7a182404fb1c05e68fee91e67bad6457f8d8f9db06fb26faabf61bd69df}{Abajo}} = 80
+, \mbox{\hyperlink{definiciones_8h_a7e06bd7a182404fb1c05e68fee91e67ba198293a19df89bb49ca936f85c5e1c19}{Izquierda}} = 77
+, \mbox{\hyperlink{definiciones_8h_a7e06bd7a182404fb1c05e68fee91e67ba3e8c21cf539a639b3fa7015a7ea2422d}{Derecha}} = 75
+, \newline
+\mbox{\hyperlink{definiciones_8h_a7e06bd7a182404fb1c05e68fee91e67ba013ec032d3460d4be4431c6ab1f8f224}{Escape}} = 27
+, \mbox{\hyperlink{definiciones_8h_a7e06bd7a182404fb1c05e68fee91e67baf1851d5600eae616ee802a31ac74701b}{Enter}} = 13
+ \}
+\item 
+enum class \mbox{\hyperlink{definiciones_8h_a977b2ad577ed0bfe75057cf2f88a85d5}{Tipo\+Mensaje}} \{ \mbox{\hyperlink{definiciones_8h_a977b2ad577ed0bfe75057cf2f88a85d5a902b0d55fddef6f8d651fe1035b7d4bd}{Error}}
+, \mbox{\hyperlink{definiciones_8h_a977b2ad577ed0bfe75057cf2f88a85d5ad216aaa1f5a3cbb76dd5075348ab6ef0}{Correcto}}
+, \mbox{\hyperlink{definiciones_8h_a977b2ad577ed0bfe75057cf2f88a85d5a73ca78a41e878a98455914b13e6b314a}{Informativo}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+constexpr unsigned \mbox{\hyperlink{definiciones_8h_a6c47dcd9b4fe0a3930444055b6925f4d}{operator+}} (\mbox{\hyperlink{definiciones_8h_a7e06bd7a182404fb1c05e68fee91e67b}{Tecla}} const val)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+\begin{DoxyAuthor}{Autor}
+Alejandro Andrade -\/ Alex Trejo 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Versión}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Fecha}
+2023-\/07-\/23
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2023 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Documentación de «define»}
+\Hypertarget{definiciones_8h_aca6129b1dfd156986306d81cddfb0bfe}\label{definiciones_8h_aca6129b1dfd156986306d81cddfb0bfe} 
+\index{definiciones.h@{definiciones.h}!\_getch@{\_getch}}
+\index{\_getch@{\_getch}!definiciones.h@{definiciones.h}}
+\doxysubsubsection{\texorpdfstring{\_getch}{\_getch}}
+{\footnotesize\ttfamily \#define \+\_\+getch(\begin{DoxyParamCaption}\item[{}]{... }\end{DoxyParamCaption})~getch(\+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)}
+
+\Hypertarget{definiciones_8h_a8f518275b5fd368c56de992a2570f8b4}\label{definiciones_8h_a8f518275b5fd368c56de992a2570f8b4} 
+\index{definiciones.h@{definiciones.h}!ALUMNO\_ID\_PREFIJO@{ALUMNO\_ID\_PREFIJO}}
+\index{ALUMNO\_ID\_PREFIJO@{ALUMNO\_ID\_PREFIJO}!definiciones.h@{definiciones.h}}
+\doxysubsubsection{\texorpdfstring{ALUMNO\_ID\_PREFIJO}{ALUMNO\_ID\_PREFIJO}}
+{\footnotesize\ttfamily \#define ALUMNO\+\_\+\+ID\+\_\+\+PREFIJO~\"{}L00\"{}}
+
+\Hypertarget{definiciones_8h_a58c553bdd120a6b7593af65f634f1b4e}\label{definiciones_8h_a58c553bdd120a6b7593af65f634f1b4e} 
+\index{definiciones.h@{definiciones.h}!DOMINIO\_EMAIL@{DOMINIO\_EMAIL}}
+\index{DOMINIO\_EMAIL@{DOMINIO\_EMAIL}!definiciones.h@{definiciones.h}}
+\doxysubsubsection{\texorpdfstring{DOMINIO\_EMAIL}{DOMINIO\_EMAIL}}
+{\footnotesize\ttfamily \#define DOMINIO\+\_\+\+EMAIL~\"{}espe.\+edu.\+ec\"{}}
+
+\Hypertarget{definiciones_8h_a956173fc5e5748a77ad7303117871528}\label{definiciones_8h_a956173fc5e5748a77ad7303117871528} 
+\index{definiciones.h@{definiciones.h}!for\_indexed@{for\_indexed}}
+\index{for\_indexed@{for\_indexed}!definiciones.h@{definiciones.h}}
+\doxysubsubsection{\texorpdfstring{for\_indexed}{for\_indexed}}
+{\footnotesize\ttfamily \#define for\+\_\+indexed(\begin{DoxyParamCaption}\item[{}]{... }\end{DoxyParamCaption})~\mbox{\hyperlink{definiciones_8h_ac06f7b4fbd4350284a0a4d1afcf9f752}{for\+\_\+indexed\+\_\+v}}(i, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)}
+
+\Hypertarget{definiciones_8h_ac06f7b4fbd4350284a0a4d1afcf9f752}\label{definiciones_8h_ac06f7b4fbd4350284a0a4d1afcf9f752} 
+\index{definiciones.h@{definiciones.h}!for\_indexed\_v@{for\_indexed\_v}}
+\index{for\_indexed\_v@{for\_indexed\_v}!definiciones.h@{definiciones.h}}
+\doxysubsubsection{\texorpdfstring{for\_indexed\_v}{for\_indexed\_v}}
+{\footnotesize\ttfamily \#define for\+\_\+indexed\+\_\+v(\begin{DoxyParamCaption}\item[{}]{v,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+{\bfseries Valor\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (std::size\_t\ v\ =\ -\/1)\ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ for\ (\_\_VA\_ARGS\_\_)\ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ if\ ((++v,\ \textcolor{keyword}{true}))}
+
+\end{DoxyCode}
+\Hypertarget{definiciones_8h_afaf1aa5ecfca4703aa09fdfc361f14ac}\label{definiciones_8h_afaf1aa5ecfca4703aa09fdfc361f14ac} 
+\index{definiciones.h@{definiciones.h}!INTUIR\_PROVINCIA\_POR\_CEDULA@{INTUIR\_PROVINCIA\_POR\_CEDULA}}
+\index{INTUIR\_PROVINCIA\_POR\_CEDULA@{INTUIR\_PROVINCIA\_POR\_CEDULA}!definiciones.h@{definiciones.h}}
+\doxysubsubsection{\texorpdfstring{INTUIR\_PROVINCIA\_POR\_CEDULA}{INTUIR\_PROVINCIA\_POR\_CEDULA}}
+{\footnotesize\ttfamily \#define INTUIR\+\_\+\+PROVINCIA\+\_\+\+POR\+\_\+\+CEDULA~0}
+
+
+
+\doxysubsection{Documentación de enumeraciones}
+\Hypertarget{definiciones_8h_a7e06bd7a182404fb1c05e68fee91e67b}\label{definiciones_8h_a7e06bd7a182404fb1c05e68fee91e67b} 
+\index{definiciones.h@{definiciones.h}!Tecla@{Tecla}}
+\index{Tecla@{Tecla}!definiciones.h@{definiciones.h}}
+\doxysubsubsection{\texorpdfstring{Tecla}{Tecla}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{definiciones_8h_a7e06bd7a182404fb1c05e68fee91e67b}{Tecla}} \+: unsigned\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Valores de enumeraciones}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Arriba@{Arriba}!definiciones.h@{definiciones.h}}\index{definiciones.h@{definiciones.h}!Arriba@{Arriba}}}\Hypertarget{definiciones_8h_a7e06bd7a182404fb1c05e68fee91e67ba4bac1cc21e74d49111d01ea2ccf5daaa}\label{definiciones_8h_a7e06bd7a182404fb1c05e68fee91e67ba4bac1cc21e74d49111d01ea2ccf5daaa} 
+Arriba&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Abajo@{Abajo}!definiciones.h@{definiciones.h}}\index{definiciones.h@{definiciones.h}!Abajo@{Abajo}}}\Hypertarget{definiciones_8h_a7e06bd7a182404fb1c05e68fee91e67bad6457f8d8f9db06fb26faabf61bd69df}\label{definiciones_8h_a7e06bd7a182404fb1c05e68fee91e67bad6457f8d8f9db06fb26faabf61bd69df} 
+Abajo&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Izquierda@{Izquierda}!definiciones.h@{definiciones.h}}\index{definiciones.h@{definiciones.h}!Izquierda@{Izquierda}}}\Hypertarget{definiciones_8h_a7e06bd7a182404fb1c05e68fee91e67ba198293a19df89bb49ca936f85c5e1c19}\label{definiciones_8h_a7e06bd7a182404fb1c05e68fee91e67ba198293a19df89bb49ca936f85c5e1c19} 
+Izquierda&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Derecha@{Derecha}!definiciones.h@{definiciones.h}}\index{definiciones.h@{definiciones.h}!Derecha@{Derecha}}}\Hypertarget{definiciones_8h_a7e06bd7a182404fb1c05e68fee91e67ba3e8c21cf539a639b3fa7015a7ea2422d}\label{definiciones_8h_a7e06bd7a182404fb1c05e68fee91e67ba3e8c21cf539a639b3fa7015a7ea2422d} 
+Derecha&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Escape@{Escape}!definiciones.h@{definiciones.h}}\index{definiciones.h@{definiciones.h}!Escape@{Escape}}}\Hypertarget{definiciones_8h_a7e06bd7a182404fb1c05e68fee91e67ba013ec032d3460d4be4431c6ab1f8f224}\label{definiciones_8h_a7e06bd7a182404fb1c05e68fee91e67ba013ec032d3460d4be4431c6ab1f8f224} 
+Escape&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Enter@{Enter}!definiciones.h@{definiciones.h}}\index{definiciones.h@{definiciones.h}!Enter@{Enter}}}\Hypertarget{definiciones_8h_a7e06bd7a182404fb1c05e68fee91e67baf1851d5600eae616ee802a31ac74701b}\label{definiciones_8h_a7e06bd7a182404fb1c05e68fee91e67baf1851d5600eae616ee802a31ac74701b} 
+Enter&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{definiciones_8h_a977b2ad577ed0bfe75057cf2f88a85d5}\label{definiciones_8h_a977b2ad577ed0bfe75057cf2f88a85d5} 
+\index{definiciones.h@{definiciones.h}!TipoMensaje@{TipoMensaje}}
+\index{TipoMensaje@{TipoMensaje}!definiciones.h@{definiciones.h}}
+\doxysubsubsection{\texorpdfstring{TipoMensaje}{TipoMensaje}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{definiciones_8h_a977b2ad577ed0bfe75057cf2f88a85d5}{Tipo\+Mensaje}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Valores de enumeraciones}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Error@{Error}!definiciones.h@{definiciones.h}}\index{definiciones.h@{definiciones.h}!Error@{Error}}}\Hypertarget{definiciones_8h_a977b2ad577ed0bfe75057cf2f88a85d5a902b0d55fddef6f8d651fe1035b7d4bd}\label{definiciones_8h_a977b2ad577ed0bfe75057cf2f88a85d5a902b0d55fddef6f8d651fe1035b7d4bd} 
+Error&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Correcto@{Correcto}!definiciones.h@{definiciones.h}}\index{definiciones.h@{definiciones.h}!Correcto@{Correcto}}}\Hypertarget{definiciones_8h_a977b2ad577ed0bfe75057cf2f88a85d5ad216aaa1f5a3cbb76dd5075348ab6ef0}\label{definiciones_8h_a977b2ad577ed0bfe75057cf2f88a85d5ad216aaa1f5a3cbb76dd5075348ab6ef0} 
+Correcto&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Informativo@{Informativo}!definiciones.h@{definiciones.h}}\index{definiciones.h@{definiciones.h}!Informativo@{Informativo}}}\Hypertarget{definiciones_8h_a977b2ad577ed0bfe75057cf2f88a85d5a73ca78a41e878a98455914b13e6b314a}\label{definiciones_8h_a977b2ad577ed0bfe75057cf2f88a85d5a73ca78a41e878a98455914b13e6b314a} 
+Informativo&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Documentación de funciones}
+\Hypertarget{definiciones_8h_a6c47dcd9b4fe0a3930444055b6925f4d}\label{definiciones_8h_a6c47dcd9b4fe0a3930444055b6925f4d} 
+\index{definiciones.h@{definiciones.h}!operator+@{operator+}}
+\index{operator+@{operator+}!definiciones.h@{definiciones.h}}
+\doxysubsubsection{\texorpdfstring{operator+()}{operator+()}}
+{\footnotesize\ttfamily constexpr unsigned operator+ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{definiciones_8h_a7e06bd7a182404fb1c05e68fee91e67b}{Tecla}} const}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+

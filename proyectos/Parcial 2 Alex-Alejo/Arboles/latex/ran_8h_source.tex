@@ -1,0 +1,508 @@
+\doxysection{C\+:/\+Users/\+Alex\+\_\+22/\+Desktop/\+Semestre III/\+Estructura\+DD/\+New\+Repositorio/\+ED-\/-\/-\/9686/proyectos/\+Parcial 2 Alex-\/\+Alejo/\+Arboles/ran.h}
+\hypertarget{ran_8h_source}{}\label{ran_8h_source}\mbox{\hyperlink{ran_8h}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#ifndef\ RANG\_DOT\_HPP}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ RANG\_DOT\_HPP}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#if\ defined(\_\_unix\_\_)\ ||\ defined(\_\_unix)\ ||\ defined(\_\_linux\_\_)}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ OS\_LINUX}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#elif\ defined(WIN32)\ ||\ defined(\_WIN32)\ ||\ defined(\_WIN64)}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ OS\_WIN}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#elif\ defined(\_\_APPLE\_\_)\ ||\ defined(\_\_MACH\_\_)}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#define\ OS\_MAC}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#error\ Unknown\ Platform}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#if\ defined(OS\_LINUX)\ ||\ defined(OS\_MAC)}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ <unistd.h>}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#elif\ defined(OS\_WIN)}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#if\ defined(\_WIN32\_WINNT)\ \&\&\ (\_WIN32\_WINNT\ <\ 0x0600)}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#error\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\ \ "{}Please\ include\ rang.hpp\ before\ any\ windows\ system\ headers\ or\ set\ \_WIN32\_WINNT\ at\ least\ to\ \_WIN32\_WINNT\_VISTA"{}}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#elif\ !defined(\_WIN32\_WINNT)}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#define\ \_WIN32\_WINNT\ \_WIN32\_WINNT\_VISTA}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#include\ <windows.h>}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#include\ <io.h>}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{comment}{//\ Only\ defined\ in\ windows\ 10\ onwards,\ redefining\ in\ lower\ windows\ since\ it}}
+\DoxyCodeLine{00040\ \textcolor{comment}{//\ doesn't\ gets\ used\ in\ lower\ versions}}
+\DoxyCodeLine{00041\ \textcolor{comment}{//\ https://docs.microsoft.com/en-\/us/windows/console/getconsolemode}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#ifndef\ ENABLE\_VIRTUAL\_TERMINAL\_PROCESSING}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#define\ ENABLE\_VIRTUAL\_TERMINAL\_PROCESSING\ 0x0004}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#include\ <atomic>}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#include\ <cstdlib>}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#include\ <cstring>}}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacerang}{rang}}\ \{}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \textcolor{comment}{/*\ For\ better\ compability\ with\ most\ of\ terminals\ do\ not\ use\ any\ style\ settings}}
+\DoxyCodeLine{00057\ \textcolor{comment}{\ *\ except\ of\ reset,\ bold\ and\ reversed.}}
+\DoxyCodeLine{00058\ \textcolor{comment}{\ *\ Note\ that\ on\ Windows\ terminals\ bold\ style\ is\ same\ as\ fgB\ color.}}
+\DoxyCodeLine{00059\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00060\ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{namespacerang_add4e682fec2856474978ff76efcc8b4e}{style}}\ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \mbox{\hyperlink{namespacerang_add4e682fec2856474978ff76efcc8b4ea86266ee937d97f812a8e57d22b62ee29}{reset}}\ \ \ \ \ =\ 0,}
+\DoxyCodeLine{00062\ \ \ \ \ \mbox{\hyperlink{namespacerang_add4e682fec2856474978ff76efcc8b4ea69dcab4a73aeec2113f69b61e6263da8}{bold}}\ \ \ \ \ \ =\ 1,}
+\DoxyCodeLine{00063\ \ \ \ \ \mbox{\hyperlink{namespacerang_add4e682fec2856474978ff76efcc8b4ea563728df0fdd90631ac1e51258e2857d}{dim}}\ \ \ \ \ \ \ =\ 2,}
+\DoxyCodeLine{00064\ \ \ \ \ \mbox{\hyperlink{namespacerang_add4e682fec2856474978ff76efcc8b4ea030c5b6d1e5715105943ac111d9671bf}{italic}}\ \ \ \ =\ 3,}
+\DoxyCodeLine{00065\ \ \ \ \ \mbox{\hyperlink{namespacerang_add4e682fec2856474978ff76efcc8b4ea6dc7b4483f8c2c701a48e42db552806d}{underline}}\ =\ 4,}
+\DoxyCodeLine{00066\ \ \ \ \ \mbox{\hyperlink{namespacerang_add4e682fec2856474978ff76efcc8b4ea40652ee9ae143f1c1c830f01a5449ecb}{blink}}\ \ \ \ \ =\ 5,}
+\DoxyCodeLine{00067\ \ \ \ \ \mbox{\hyperlink{namespacerang_add4e682fec2856474978ff76efcc8b4ea32667a345a6024368c82454639c9830c}{rblink}}\ \ \ \ =\ 6,}
+\DoxyCodeLine{00068\ \ \ \ \ \mbox{\hyperlink{namespacerang_add4e682fec2856474978ff76efcc8b4ea943c52935ea927b80f63243a41a3980b}{reversed}}\ \ =\ 7,}
+\DoxyCodeLine{00069\ \ \ \ \ \mbox{\hyperlink{namespacerang_add4e682fec2856474978ff76efcc8b4eaa27efeecfcdb7794476cafb0b362835e}{conceal}}\ \ \ =\ 8,}
+\DoxyCodeLine{00070\ \ \ \ \ \mbox{\hyperlink{namespacerang_add4e682fec2856474978ff76efcc8b4eafade7e5041fdebd013b445486161c31c}{crossed}}\ \ \ =\ 9}
+\DoxyCodeLine{00071\ \};}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{namespacerang_a41a68f6ed991b29fa720fcfbcd319ef9}{fg}}\ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \mbox{\hyperlink{namespacerang_a41a68f6ed991b29fa720fcfbcd319ef9a1ffd9e753c8054cc61456ac7fac1ac89}{black}}\ \ \ =\ 30,}
+\DoxyCodeLine{00075\ \ \ \ \ \mbox{\hyperlink{namespacerang_a41a68f6ed991b29fa720fcfbcd319ef9abda9643ac6601722a28f238714274da4}{red}}\ \ \ \ \ =\ 31,}
+\DoxyCodeLine{00076\ \ \ \ \ \mbox{\hyperlink{namespacerang_a41a68f6ed991b29fa720fcfbcd319ef9a9f27410725ab8cc8854a2769c7a516b8}{green}}\ \ \ =\ 32,}
+\DoxyCodeLine{00077\ \ \ \ \ \mbox{\hyperlink{namespacerang_a41a68f6ed991b29fa720fcfbcd319ef9ad487dd0b55dfcacdd920ccbdaeafa351}{yellow}}\ \ =\ 33,}
+\DoxyCodeLine{00078\ \ \ \ \ \mbox{\hyperlink{namespacerang_a41a68f6ed991b29fa720fcfbcd319ef9a48d6215903dff56238e52e8891380c8f}{blue}}\ \ \ \ =\ 34,}
+\DoxyCodeLine{00079\ \ \ \ \ \mbox{\hyperlink{namespacerang_a41a68f6ed991b29fa720fcfbcd319ef9a4c2a4a7078da0ac6733464eacfd00f86}{magenta}}\ =\ 35,}
+\DoxyCodeLine{00080\ \ \ \ \ \mbox{\hyperlink{namespacerang_a41a68f6ed991b29fa720fcfbcd319ef9a6411532ba4971f378391776a9db629d3}{cyan}}\ \ \ \ =\ 36,}
+\DoxyCodeLine{00081\ \ \ \ \ \mbox{\hyperlink{namespacerang_a41a68f6ed991b29fa720fcfbcd319ef9acda7a650c5856cf2f6738072447d7825}{gray}}\ \ \ \ =\ 37,}
+\DoxyCodeLine{00082\ \ \ \ \ \mbox{\hyperlink{namespacerang_add4e682fec2856474978ff76efcc8b4ea86266ee937d97f812a8e57d22b62ee29}{reset}}\ \ \ =\ 39}
+\DoxyCodeLine{00083\ \};}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{namespacerang_ad33ed681a0b63f07283bbb55d19da7d2}{bg}}\ \{}
+\DoxyCodeLine{00086\ \ \ \ \ \mbox{\hyperlink{namespacerang_a41a68f6ed991b29fa720fcfbcd319ef9a1ffd9e753c8054cc61456ac7fac1ac89}{black}}\ \ \ =\ 40,}
+\DoxyCodeLine{00087\ \ \ \ \ \mbox{\hyperlink{namespacerang_a41a68f6ed991b29fa720fcfbcd319ef9abda9643ac6601722a28f238714274da4}{red}}\ \ \ \ \ =\ 41,}
+\DoxyCodeLine{00088\ \ \ \ \ \mbox{\hyperlink{namespacerang_a41a68f6ed991b29fa720fcfbcd319ef9a9f27410725ab8cc8854a2769c7a516b8}{green}}\ \ \ =\ 42,}
+\DoxyCodeLine{00089\ \ \ \ \ \mbox{\hyperlink{namespacerang_a41a68f6ed991b29fa720fcfbcd319ef9ad487dd0b55dfcacdd920ccbdaeafa351}{yellow}}\ \ =\ 43,}
+\DoxyCodeLine{00090\ \ \ \ \ \mbox{\hyperlink{namespacerang_a41a68f6ed991b29fa720fcfbcd319ef9a48d6215903dff56238e52e8891380c8f}{blue}}\ \ \ \ =\ 44,}
+\DoxyCodeLine{00091\ \ \ \ \ \mbox{\hyperlink{namespacerang_a41a68f6ed991b29fa720fcfbcd319ef9a4c2a4a7078da0ac6733464eacfd00f86}{magenta}}\ =\ 45,}
+\DoxyCodeLine{00092\ \ \ \ \ \mbox{\hyperlink{namespacerang_a41a68f6ed991b29fa720fcfbcd319ef9a6411532ba4971f378391776a9db629d3}{cyan}}\ \ \ \ =\ 46,}
+\DoxyCodeLine{00093\ \ \ \ \ \mbox{\hyperlink{namespacerang_a41a68f6ed991b29fa720fcfbcd319ef9acda7a650c5856cf2f6738072447d7825}{gray}}\ \ \ \ =\ 47,}
+\DoxyCodeLine{00094\ \ \ \ \ \mbox{\hyperlink{namespacerang_add4e682fec2856474978ff76efcc8b4ea86266ee937d97f812a8e57d22b62ee29}{reset}}\ \ \ =\ 49}
+\DoxyCodeLine{00095\ \};}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{namespacerang_a3b83d0d73d49b5a75c3b92031f2c77ee}{fgB}}\ \{}
+\DoxyCodeLine{00098\ \ \ \ \ \mbox{\hyperlink{namespacerang_a41a68f6ed991b29fa720fcfbcd319ef9a1ffd9e753c8054cc61456ac7fac1ac89}{black}}\ \ \ =\ 90,}
+\DoxyCodeLine{00099\ \ \ \ \ \mbox{\hyperlink{namespacerang_a41a68f6ed991b29fa720fcfbcd319ef9abda9643ac6601722a28f238714274da4}{red}}\ \ \ \ \ =\ 91,}
+\DoxyCodeLine{00100\ \ \ \ \ \mbox{\hyperlink{namespacerang_a41a68f6ed991b29fa720fcfbcd319ef9a9f27410725ab8cc8854a2769c7a516b8}{green}}\ \ \ =\ 92,}
+\DoxyCodeLine{00101\ \ \ \ \ \mbox{\hyperlink{namespacerang_a41a68f6ed991b29fa720fcfbcd319ef9ad487dd0b55dfcacdd920ccbdaeafa351}{yellow}}\ \ =\ 93,}
+\DoxyCodeLine{00102\ \ \ \ \ \mbox{\hyperlink{namespacerang_a41a68f6ed991b29fa720fcfbcd319ef9a48d6215903dff56238e52e8891380c8f}{blue}}\ \ \ \ =\ 94,}
+\DoxyCodeLine{00103\ \ \ \ \ \mbox{\hyperlink{namespacerang_a41a68f6ed991b29fa720fcfbcd319ef9a4c2a4a7078da0ac6733464eacfd00f86}{magenta}}\ =\ 95,}
+\DoxyCodeLine{00104\ \ \ \ \ \mbox{\hyperlink{namespacerang_a41a68f6ed991b29fa720fcfbcd319ef9a6411532ba4971f378391776a9db629d3}{cyan}}\ \ \ \ =\ 96,}
+\DoxyCodeLine{00105\ \ \ \ \ \mbox{\hyperlink{namespacerang_a41a68f6ed991b29fa720fcfbcd319ef9acda7a650c5856cf2f6738072447d7825}{gray}}\ \ \ \ =\ 97}
+\DoxyCodeLine{00106\ \};}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{namespacerang_a42edf1c1b0d8e843ceb1208259177f08}{bgB}}\ \{}
+\DoxyCodeLine{00109\ \ \ \ \ \mbox{\hyperlink{namespacerang_a41a68f6ed991b29fa720fcfbcd319ef9a1ffd9e753c8054cc61456ac7fac1ac89}{black}}\ \ \ =\ 100,}
+\DoxyCodeLine{00110\ \ \ \ \ \mbox{\hyperlink{namespacerang_a41a68f6ed991b29fa720fcfbcd319ef9abda9643ac6601722a28f238714274da4}{red}}\ \ \ \ \ =\ 101,}
+\DoxyCodeLine{00111\ \ \ \ \ \mbox{\hyperlink{namespacerang_a41a68f6ed991b29fa720fcfbcd319ef9a9f27410725ab8cc8854a2769c7a516b8}{green}}\ \ \ =\ 102,}
+\DoxyCodeLine{00112\ \ \ \ \ \mbox{\hyperlink{namespacerang_a41a68f6ed991b29fa720fcfbcd319ef9ad487dd0b55dfcacdd920ccbdaeafa351}{yellow}}\ \ =\ 103,}
+\DoxyCodeLine{00113\ \ \ \ \ \mbox{\hyperlink{namespacerang_a41a68f6ed991b29fa720fcfbcd319ef9a48d6215903dff56238e52e8891380c8f}{blue}}\ \ \ \ =\ 104,}
+\DoxyCodeLine{00114\ \ \ \ \ \mbox{\hyperlink{namespacerang_a41a68f6ed991b29fa720fcfbcd319ef9a4c2a4a7078da0ac6733464eacfd00f86}{magenta}}\ =\ 105,}
+\DoxyCodeLine{00115\ \ \ \ \ \mbox{\hyperlink{namespacerang_a41a68f6ed991b29fa720fcfbcd319ef9a6411532ba4971f378391776a9db629d3}{cyan}}\ \ \ \ =\ 106,}
+\DoxyCodeLine{00116\ \ \ \ \ \mbox{\hyperlink{namespacerang_a41a68f6ed991b29fa720fcfbcd319ef9acda7a650c5856cf2f6738072447d7825}{gray}}\ \ \ \ =\ 107}
+\DoxyCodeLine{00117\ \};}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{namespacerang_a9a0ad8048ed47f032f5bdb687ba64164}{control}}\ \{\ \ \textcolor{comment}{//\ Behaviour\ of\ rang\ function\ calls}}
+\DoxyCodeLine{00120\ \ \ \ \ \mbox{\hyperlink{namespacerang_a9a0ad8048ed47f032f5bdb687ba64164ad15305d7a4e34e02489c74a5ef542f36}{Off}}\ \ \ =\ 0,\ \ \textcolor{comment}{//\ toggle\ off\ rang\ style/color\ calls}}
+\DoxyCodeLine{00121\ \ \ \ \ \mbox{\hyperlink{namespacerang_a9a0ad8048ed47f032f5bdb687ba64164a06b9281e396db002010bde1de57262eb}{Auto}}\ \ =\ 1,\ \ \textcolor{comment}{//\ (Default)\ autodect\ terminal\ and\ colorize\ if\ needed}}
+\DoxyCodeLine{00122\ \ \ \ \ \mbox{\hyperlink{namespacerang_a9a0ad8048ed47f032f5bdb687ba64164a9eb6b78a99cdb6ffd3d40d18621d9f80}{Force}}\ =\ 2\ \ \textcolor{comment}{//\ force\ ansi\ color\ output\ to\ non\ terminal\ streams}}
+\DoxyCodeLine{00123\ \};}
+\DoxyCodeLine{00124\ \textcolor{comment}{//\ Use\ rang::setControlMode\ to\ set\ rang\ control\ mode}}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{namespacerang_af70222b38ecff8fc5aef0958d052b433}{winTerm}}\ \{\ \ \textcolor{comment}{//\ Windows\ Terminal\ Mode}}
+\DoxyCodeLine{00127\ \ \ \ \ \mbox{\hyperlink{namespacerang_a9a0ad8048ed47f032f5bdb687ba64164a06b9281e396db002010bde1de57262eb}{Auto}}\ \ \ =\ 0,\ \ \textcolor{comment}{//\ (Default)\ automatically\ detects\ wheter\ Ansi\ or\ Native\ API}}
+\DoxyCodeLine{00128\ \ \ \ \ \mbox{\hyperlink{namespacerang_af70222b38ecff8fc5aef0958d052b433a0f94b628f89319fb787e49e325d8bac8}{Ansi}}\ \ \ =\ 1,\ \ \textcolor{comment}{//\ Force\ use\ Ansi\ API}}
+\DoxyCodeLine{00129\ \ \ \ \ \mbox{\hyperlink{namespacerang_af70222b38ecff8fc5aef0958d052b433a925641e0b76c28cc940e8f3ca178d826}{Native}}\ =\ 2\ \ \textcolor{comment}{//\ Force\ use\ Native\ API}}
+\DoxyCodeLine{00130\ \};}
+\DoxyCodeLine{00131\ \textcolor{comment}{//\ Use\ rang::setWinTermMode\ to\ explicitly\ set\ terminal\ API\ for\ Windows}}
+\DoxyCodeLine{00132\ \textcolor{comment}{//\ Calling\ rang::setWinTermMode\ have\ no\ effect\ on\ other\ OS}}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \textcolor{keyword}{namespace\ }rang\_implementation\ \{}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keyword}{inline}\ std::atomic<control>\ \&\mbox{\hyperlink{namespacerang_1_1rang__implementation_a55b24057ec0aee2a5570193ab9e38a50}{controlMode}}()\ noexcept}
+\DoxyCodeLine{00137\ \ \ \ \ \{}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::atomic<control>\ value(\mbox{\hyperlink{namespacerang_a9a0ad8048ed47f032f5bdb687ba64164a06b9281e396db002010bde1de57262eb}{control::Auto}});}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ value;}
+\DoxyCodeLine{00140\ \ \ \ \ \}}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \ \ \ \ \textcolor{keyword}{inline}\ std::atomic<winTerm>\ \&\mbox{\hyperlink{namespacerang_1_1rang__implementation_a0883547d97b7b5572aa6f4cb62d370c6}{winTermMode}}()\ noexcept}
+\DoxyCodeLine{00143\ \ \ \ \ \{}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::atomic<winTerm>\ termMode(\mbox{\hyperlink{namespacerang_af70222b38ecff8fc5aef0958d052b433a06b9281e396db002010bde1de57262eb}{winTerm::Auto}});}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ termMode;}
+\DoxyCodeLine{00146\ \ \ \ \ \}}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespacerang_1_1rang__implementation_a536a3edd1809b7bcda844161c1cb1a05}{supportsColor}}()\ noexcept}
+\DoxyCodeLine{00149\ \ \ \ \ \{}
+\DoxyCodeLine{00150\ \textcolor{preprocessor}{\#if\ defined(OS\_LINUX)\ ||\ defined(OS\_MAC)}}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ result\ =\ []\ \{}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *Terms[]}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ \{\ \textcolor{stringliteral}{"{}ansi"{}},\ \ \ \ \textcolor{stringliteral}{"{}color"{}},\ \ \textcolor{stringliteral}{"{}console"{}},\ \textcolor{stringliteral}{"{}cygwin"{}},\ \textcolor{stringliteral}{"{}gnome"{}},}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}konsole"{}},\ \textcolor{stringliteral}{"{}kterm"{}},\ \ \textcolor{stringliteral}{"{}linux"{}},\ \ \ \textcolor{stringliteral}{"{}msys"{}},\ \ \ \textcolor{stringliteral}{"{}putty"{}},}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}rxvt"{}},\ \ \ \ \textcolor{stringliteral}{"{}screen"{}},\ \textcolor{stringliteral}{"{}vt100"{}},\ \ \ \textcolor{stringliteral}{"{}xterm"{}}\ \};}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *env\_p\ =\ std::getenv(\textcolor{stringliteral}{"{}TERM"{}});}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (env\_p\ ==\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::any\_of(std::begin(Terms),\ std::end(Terms),}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ [\&](\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *term)\ \{}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::strstr(env\_p,\ term)\ !=\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \}();}
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00168\ \textcolor{preprocessor}{\#elif\ defined(OS\_WIN)}}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ All\ windows\ versions\ support\ colors\ through\ native\ console\ methods}}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{bool}\ result\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00171\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00173\ \ \ \ \ \}}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00175\ \textcolor{preprocessor}{\#ifdef\ OS\_WIN}}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00178\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ isMsysPty(\textcolor{keywordtype}{int}\ fd)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00179\ \ \ \ \ \{}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Dynamic\ load\ for\ binary\ compability\ with\ old\ Windows}}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ ptrGetFileInformationByHandleEx}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \ \ =\ \textcolor{keyword}{reinterpret\_cast<}decltype(\&GetFileInformationByHandleEx)\textcolor{keyword}{>}(}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \ \ \ \ GetProcAddress(GetModuleHandle(TEXT(\textcolor{stringliteral}{"{}kernel32.dll"{}})),}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}GetFileInformationByHandleEx"{}}));}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!ptrGetFileInformationByHandleEx)\ \{}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ HANDLE\ h\ =\ \textcolor{keyword}{reinterpret\_cast<}HANDLE\textcolor{keyword}{>}(\_get\_osfhandle(fd));}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (h\ ==\ INVALID\_HANDLE\_VALUE)\ \{}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Check\ that\ it's\ a\ pipe:}}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (GetFileType(h)\ !=\ FILE\_TYPE\_PIPE)\ \{}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00198\ }
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ POD\ type\ is\ binary\ compatible\ with\ FILE\_NAME\_INFO\ from\ WinBase.h}}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ It\ have\ the\ same\ alignment\ and\ used\ to\ avoid\ UB\ in\ caller\ code}}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }MY\_FILE\_NAME\_INFO\ \{}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \ \ \ \ DWORD\ FileNameLength;}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \ \ \ \ WCHAR\ FileName[MAX\_PATH];}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ pNameInfo\ =\ std::unique\_ptr<MY\_FILE\_NAME\_INFO>(}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{new}\ (std::nothrow)\ MY\_FILE\_NAME\_INFO());}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!pNameInfo)\ \{}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00211\ }
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Check\ pipe\ name\ is\ template\ of}}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \{"{}cygwin-\/"{},"{}msys-\/"{}\}XXXXXXXXXXXXXXX-\/ptyX-\/XX}}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!ptrGetFileInformationByHandleEx(h,\ FileNameInfo,\ pNameInfo.get(),}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{sizeof}(MY\_FILE\_NAME\_INFO)))\ \{}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ std::wstring\ name(pNameInfo-\/>FileName,\ pNameInfo-\/>FileNameLength\ /\ \textcolor{keyword}{sizeof}(WCHAR));}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((name.find(L\textcolor{stringliteral}{"{}msys-\/"{}})\ ==\ std::wstring::npos}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \ \ \ \ \ \&\&\ name.find(L\textcolor{stringliteral}{"{}cygwin-\/"{}})\ ==\ std::wstring::npos)}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \ \ \ \ ||\ name.find(L\textcolor{stringliteral}{"{}-\/pty"{}})\ ==\ std::wstring::npos)\ \{}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00224\ }
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00226\ \ \ \ \ \}}
+\DoxyCodeLine{00227\ }
+\DoxyCodeLine{00228\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00229\ }
+\DoxyCodeLine{00230\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespacerang_1_1rang__implementation_af195c8344db945b8027c500cdf835964}{isTerminal}}(\textcolor{keyword}{const}\ std::streambuf\ *osbuf)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00231\ \ \ \ \ \{}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }std::cerr;}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }std::clog;}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }std::cout;}
+\DoxyCodeLine{00235\ \textcolor{preprocessor}{\#if\ defined(OS\_LINUX)\ ||\ defined(OS\_MAC)}}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (osbuf\ ==\ cout.rdbuf())\ \{}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ cout\_term\ =\ isatty(fileno(stdout))\ !=\ 0;}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ cout\_term;}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (osbuf\ ==\ cerr.rdbuf()\ ||\ osbuf\ ==\ clog.rdbuf())\ \{}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ cerr\_term\ =\ isatty(fileno(stderr))\ !=\ 0;}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ cerr\_term;}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00243\ \textcolor{preprocessor}{\#elif\ defined(OS\_WIN)}}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (osbuf\ ==\ cout.rdbuf())\ \{}
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ cout\_term}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ (\_isatty(\_fileno(stdout))\ ||\ isMsysPty(\_fileno(stdout)));}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ cout\_term;}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (osbuf\ ==\ cerr.rdbuf()\ ||\ osbuf\ ==\ clog.rdbuf())\ \{}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ cerr\_term}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ (\_isatty(\_fileno(stderr))\ ||\ isMsysPty(\_fileno(stderr)));}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ cerr\_term;}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00253\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00255\ \ \ \ \ \}}
+\DoxyCodeLine{00256\ }
+\DoxyCodeLine{00257\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00258\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespacerang_1_1rang__implementation_a769f245caecc8bdf2d741f39a48052ac}{enableStd}}\ =\ \textcolor{keyword}{typename}\ std::enable\_if<}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ std::is\_same<T,\ rang::style>::value\ ||\ std::is\_same<T,\ rang::fg>::value}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ ||\ std::is\_same<T,\ rang::bg>::value\ ||\ std::is\_same<T,\ rang::fgB>::value}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ ||\ std::is\_same<T,\ rang::bgB>::value,}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ std::ostream\ \&>::type;}
+\DoxyCodeLine{00263\ }
+\DoxyCodeLine{00264\ }
+\DoxyCodeLine{00265\ \textcolor{preprocessor}{\#ifdef\ OS\_WIN}}
+\DoxyCodeLine{00266\ }
+\DoxyCodeLine{00267\ \ \ \ \ \textcolor{keyword}{struct\ }SGR\ \{\ \ \textcolor{comment}{//\ Select\ Graphic\ Rendition\ parameters\ for\ Windows\ console}}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ BYTE\ fgColor;\ \ \textcolor{comment}{//\ foreground\ color\ (0-\/15)\ lower\ 3\ rgb\ bits\ +\ intense\ bit}}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ BYTE\ bgColor;\ \ \textcolor{comment}{//\ background\ color\ (0-\/15)\ lower\ 3\ rgb\ bits\ +\ intense\ bit}}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ BYTE\ \mbox{\hyperlink{namespacerang_add4e682fec2856474978ff76efcc8b4ea69dcab4a73aeec2113f69b61e6263da8}{bold}};\ \ \textcolor{comment}{//\ emulated\ as\ FOREGROUND\_INTENSITY\ bit}}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ BYTE\ \mbox{\hyperlink{namespacerang_add4e682fec2856474978ff76efcc8b4ea6dc7b4483f8c2c701a48e42db552806d}{underline}};\ \ \textcolor{comment}{//\ emulated\ as\ BACKGROUND\_INTENSITY\ bit}}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ BOOLEAN\ inverse;\ \ \textcolor{comment}{//\ swap\ foreground/bold\ \&\ background/underline}}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ BOOLEAN\ \mbox{\hyperlink{namespacerang_add4e682fec2856474978ff76efcc8b4eaa27efeecfcdb7794476cafb0b362835e}{conceal}};\ \ \textcolor{comment}{//\ set\ foreground/bold\ to\ background/underline}}
+\DoxyCodeLine{00274\ \ \ \ \ \};}
+\DoxyCodeLine{00275\ }
+\DoxyCodeLine{00276\ \ \ \ \ \textcolor{keyword}{enum\ class}\ AttrColor\ :\ BYTE\ \{\ \ \textcolor{comment}{//\ Color\ attributes\ for\ console\ screen\ buffer}}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacerang_a41a68f6ed991b29fa720fcfbcd319ef9a1ffd9e753c8054cc61456ac7fac1ac89}{black}}\ \ \ =\ 0,}
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacerang_a41a68f6ed991b29fa720fcfbcd319ef9abda9643ac6601722a28f238714274da4}{red}}\ \ \ \ \ =\ 4,}
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacerang_a41a68f6ed991b29fa720fcfbcd319ef9a9f27410725ab8cc8854a2769c7a516b8}{green}}\ \ \ =\ 2,}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacerang_a41a68f6ed991b29fa720fcfbcd319ef9ad487dd0b55dfcacdd920ccbdaeafa351}{yellow}}\ \ =\ 6,}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacerang_a41a68f6ed991b29fa720fcfbcd319ef9a48d6215903dff56238e52e8891380c8f}{blue}}\ \ \ \ =\ 1,}
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacerang_a41a68f6ed991b29fa720fcfbcd319ef9a4c2a4a7078da0ac6733464eacfd00f86}{magenta}}\ =\ 5,}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacerang_a41a68f6ed991b29fa720fcfbcd319ef9a6411532ba4971f378391776a9db629d3}{cyan}}\ \ \ \ =\ 3,}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacerang_a41a68f6ed991b29fa720fcfbcd319ef9acda7a650c5856cf2f6738072447d7825}{gray}}\ \ \ \ =\ 7}
+\DoxyCodeLine{00285\ \ \ \ \ \};}
+\DoxyCodeLine{00286\ }
+\DoxyCodeLine{00287\ \ \ \ \ \textcolor{keyword}{inline}\ HANDLE\ getConsoleHandle(\textcolor{keyword}{const}\ std::streambuf\ *osbuf)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00288\ \ \ \ \ \{}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (osbuf\ ==\ std::cout.rdbuf())\ \{}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ HANDLE\ hStdout\ =\ GetStdHandle(STD\_OUTPUT\_HANDLE);}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ hStdout;}
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (osbuf\ ==\ std::cerr.rdbuf()\ ||\ osbuf\ ==\ std::clog.rdbuf())\ \{}
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ HANDLE\ hStderr\ =\ GetStdHandle(STD\_ERROR\_HANDLE);}
+\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ hStderr;}
+\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ INVALID\_HANDLE\_VALUE;}
+\DoxyCodeLine{00297\ \ \ \ \ \}}
+\DoxyCodeLine{00298\ }
+\DoxyCodeLine{00299\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ setWinTermAnsiColors(\textcolor{keyword}{const}\ std::streambuf\ *osbuf)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00300\ \ \ \ \ \{}
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ HANDLE\ h\ =\ getConsoleHandle(osbuf);}
+\DoxyCodeLine{00302\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (h\ ==\ INVALID\_HANDLE\_VALUE)\ \{}
+\DoxyCodeLine{00303\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00305\ \ \ \ \ \ \ \ \ DWORD\ dwMode\ =\ 0;}
+\DoxyCodeLine{00306\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!GetConsoleMode(h,\ \&dwMode))\ \{}
+\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00308\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00309\ \ \ \ \ \ \ \ \ dwMode\ |=\ ENABLE\_VIRTUAL\_TERMINAL\_PROCESSING;}
+\DoxyCodeLine{00310\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!SetConsoleMode(h,\ dwMode))\ \{}
+\DoxyCodeLine{00311\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00312\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00313\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00314\ \ \ \ \ \}}
+\DoxyCodeLine{00315\ }
+\DoxyCodeLine{00316\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ supportsAnsi(\textcolor{keyword}{const}\ std::streambuf\ *osbuf)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00317\ \ \ \ \ \{}
+\DoxyCodeLine{00318\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }std::cerr;}
+\DoxyCodeLine{00319\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }std::clog;}
+\DoxyCodeLine{00320\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }std::cout;}
+\DoxyCodeLine{00321\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (osbuf\ ==\ cout.rdbuf())\ \{}
+\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ cout\_ansi}
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ (isMsysPty(\_fileno(stdout))\ ||\ setWinTermAnsiColors(osbuf));}
+\DoxyCodeLine{00324\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ cout\_ansi;}
+\DoxyCodeLine{00325\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (osbuf\ ==\ cerr.rdbuf()\ ||\ osbuf\ ==\ clog.rdbuf())\ \{}
+\DoxyCodeLine{00326\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ cerr\_ansi}
+\DoxyCodeLine{00327\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ (isMsysPty(\_fileno(stderr))\ ||\ setWinTermAnsiColors(osbuf));}
+\DoxyCodeLine{00328\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ cerr\_ansi;}
+\DoxyCodeLine{00329\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00330\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00331\ \ \ \ \ \}}
+\DoxyCodeLine{00332\ }
+\DoxyCodeLine{00333\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ SGR\ \&defaultState()\ noexcept}
+\DoxyCodeLine{00334\ \ \ \ \ \{}
+\DoxyCodeLine{00335\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ SGR\ defaultSgr\ =\ []()\ -\/>\ SGR\ \{}
+\DoxyCodeLine{00336\ \ \ \ \ \ \ \ \ \ \ \ \ CONSOLE\_SCREEN\_BUFFER\_INFO\ info;}
+\DoxyCodeLine{00337\ \ \ \ \ \ \ \ \ \ \ \ \ WORD\ attrib\ =\ FOREGROUND\_RED\ |\ FOREGROUND\_GREEN\ |\ FOREGROUND\_BLUE;}
+\DoxyCodeLine{00338\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (GetConsoleScreenBufferInfo(GetStdHandle(STD\_OUTPUT\_HANDLE),}
+\DoxyCodeLine{00339\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&info)}
+\DoxyCodeLine{00340\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ||\ GetConsoleScreenBufferInfo(GetStdHandle(STD\_ERROR\_HANDLE),}
+\DoxyCodeLine{00341\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&info))\ \{}
+\DoxyCodeLine{00342\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ attrib\ =\ info.wAttributes;}
+\DoxyCodeLine{00343\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00344\ \ \ \ \ \ \ \ \ \ \ \ \ SGR\ sgr\ \ \ \ \ =\ \{\ 0,\ 0,\ 0,\ 0,\ FALSE,\ FALSE\ \};}
+\DoxyCodeLine{00345\ \ \ \ \ \ \ \ \ \ \ \ \ sgr.fgColor\ =\ attrib\ \&\ 0x0F;}
+\DoxyCodeLine{00346\ \ \ \ \ \ \ \ \ \ \ \ \ sgr.bgColor\ =\ (attrib\ \&\ 0xF0)\ >>\ 4;}
+\DoxyCodeLine{00347\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ sgr;}
+\DoxyCodeLine{00348\ \ \ \ \ \ \ \ \ \}();}
+\DoxyCodeLine{00349\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ defaultSgr;}
+\DoxyCodeLine{00350\ \ \ \ \ \}}
+\DoxyCodeLine{00351\ }
+\DoxyCodeLine{00352\ \ \ \ \ \textcolor{keyword}{inline}\ BYTE\ ansi2attr(BYTE\ rgb)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00353\ \ \ \ \ \{}
+\DoxyCodeLine{00354\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ AttrColor\ rev[8]}
+\DoxyCodeLine{00355\ \ \ \ \ \ \ \ \ \ \ =\ \{\ AttrColor::black,\ \ AttrColor::red,\ \ AttrColor::green,}
+\DoxyCodeLine{00356\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ AttrColor::yellow,\ AttrColor::blue,\ AttrColor::magenta,}
+\DoxyCodeLine{00357\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ AttrColor::cyan,\ \ \ AttrColor::gray\ \};}
+\DoxyCodeLine{00358\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{static\_cast<}BYTE\textcolor{keyword}{>}(rev[rgb]);}
+\DoxyCodeLine{00359\ \ \ \ \ \}}
+\DoxyCodeLine{00360\ }
+\DoxyCodeLine{00361\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setWinSGR(\mbox{\hyperlink{namespacerang_ad33ed681a0b63f07283bbb55d19da7d2}{rang::bg}}\ col,\ SGR\ \&state)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00362\ \ \ \ \ \{}
+\DoxyCodeLine{00363\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (col\ !=\ \mbox{\hyperlink{namespacerang_ad33ed681a0b63f07283bbb55d19da7d2a86266ee937d97f812a8e57d22b62ee29}{rang::bg::reset}})\ \{}
+\DoxyCodeLine{00364\ \ \ \ \ \ \ \ \ \ \ \ \ state.bgColor\ =\ ansi2attr(\textcolor{keyword}{static\_cast<}BYTE\textcolor{keyword}{>}(col)\ -\/\ 40);}
+\DoxyCodeLine{00365\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00366\ \ \ \ \ \ \ \ \ \ \ \ \ state.bgColor\ =\ defaultState().bgColor;}
+\DoxyCodeLine{00367\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00368\ \ \ \ \ \}}
+\DoxyCodeLine{00369\ }
+\DoxyCodeLine{00370\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setWinSGR(\mbox{\hyperlink{namespacerang_a41a68f6ed991b29fa720fcfbcd319ef9}{rang::fg}}\ col,\ SGR\ \&state)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00371\ \ \ \ \ \{}
+\DoxyCodeLine{00372\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (col\ !=\ \mbox{\hyperlink{namespacerang_a41a68f6ed991b29fa720fcfbcd319ef9a86266ee937d97f812a8e57d22b62ee29}{rang::fg::reset}})\ \{}
+\DoxyCodeLine{00373\ \ \ \ \ \ \ \ \ \ \ \ \ state.fgColor\ =\ ansi2attr(\textcolor{keyword}{static\_cast<}BYTE\textcolor{keyword}{>}(col)\ -\/\ 30);}
+\DoxyCodeLine{00374\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00375\ \ \ \ \ \ \ \ \ \ \ \ \ state.fgColor\ =\ defaultState().fgColor;}
+\DoxyCodeLine{00376\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00377\ \ \ \ \ \}}
+\DoxyCodeLine{00378\ }
+\DoxyCodeLine{00379\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setWinSGR(\mbox{\hyperlink{namespacerang_a42edf1c1b0d8e843ceb1208259177f08}{rang::bgB}}\ col,\ SGR\ \&state)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00380\ \ \ \ \ \{}
+\DoxyCodeLine{00381\ \ \ \ \ \ \ \ \ state.bgColor\ =\ (BACKGROUND\_INTENSITY\ >>\ 4)}
+\DoxyCodeLine{00382\ \ \ \ \ \ \ \ \ \ \ |\ ansi2attr(\textcolor{keyword}{static\_cast<}BYTE\textcolor{keyword}{>}(col)\ -\/\ 100);}
+\DoxyCodeLine{00383\ \ \ \ \ \}}
+\DoxyCodeLine{00384\ }
+\DoxyCodeLine{00385\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setWinSGR(\mbox{\hyperlink{namespacerang_a3b83d0d73d49b5a75c3b92031f2c77ee}{rang::fgB}}\ col,\ SGR\ \&state)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00386\ \ \ \ \ \{}
+\DoxyCodeLine{00387\ \ \ \ \ \ \ \ \ state.fgColor}
+\DoxyCodeLine{00388\ \ \ \ \ \ \ \ \ \ \ =\ FOREGROUND\_INTENSITY\ |\ ansi2attr(\textcolor{keyword}{static\_cast<}BYTE\textcolor{keyword}{>}(col)\ -\/\ 90);}
+\DoxyCodeLine{00389\ \ \ \ \ \}}
+\DoxyCodeLine{00390\ }
+\DoxyCodeLine{00391\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setWinSGR(\mbox{\hyperlink{namespacerang_add4e682fec2856474978ff76efcc8b4e}{rang::style}}\ \mbox{\hyperlink{namespacerang_add4e682fec2856474978ff76efcc8b4e}{style}},\ SGR\ \&state)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00392\ \ \ \ \ \{}
+\DoxyCodeLine{00393\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (\mbox{\hyperlink{namespacerang_add4e682fec2856474978ff76efcc8b4e}{style}})\ \{}
+\DoxyCodeLine{00394\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{namespacerang_add4e682fec2856474978ff76efcc8b4ea86266ee937d97f812a8e57d22b62ee29}{rang::style::reset}}:\ state\ =\ defaultState();\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00395\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{namespacerang_add4e682fec2856474978ff76efcc8b4ea69dcab4a73aeec2113f69b61e6263da8}{rang::style::bold}}:\ state.bold\ =\ FOREGROUND\_INTENSITY;\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00396\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{namespacerang_add4e682fec2856474978ff76efcc8b4ea6dc7b4483f8c2c701a48e42db552806d}{rang::style::underline}}:}
+\DoxyCodeLine{00397\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{namespacerang_add4e682fec2856474978ff76efcc8b4ea40652ee9ae143f1c1c830f01a5449ecb}{rang::style::blink}}:}
+\DoxyCodeLine{00398\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ state.underline\ =\ BACKGROUND\_INTENSITY;}
+\DoxyCodeLine{00399\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00400\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{namespacerang_add4e682fec2856474978ff76efcc8b4ea943c52935ea927b80f63243a41a3980b}{rang::style::reversed}}:\ state.inverse\ =\ TRUE;\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00401\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{namespacerang_add4e682fec2856474978ff76efcc8b4eaa27efeecfcdb7794476cafb0b362835e}{rang::style::conceal}}:\ state.conceal\ =\ TRUE;\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00402\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00403\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00404\ \ \ \ \ \}}
+\DoxyCodeLine{00405\ }
+\DoxyCodeLine{00406\ \ \ \ \ \textcolor{keyword}{inline}\ SGR\ \&current\_state()\ noexcept}
+\DoxyCodeLine{00407\ \ \ \ \ \{}
+\DoxyCodeLine{00408\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ SGR\ state\ =\ defaultState();}
+\DoxyCodeLine{00409\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ state;}
+\DoxyCodeLine{00410\ \ \ \ \ \}}
+\DoxyCodeLine{00411\ }
+\DoxyCodeLine{00412\ \ \ \ \ \textcolor{keyword}{inline}\ WORD\ SGR2Attr(\textcolor{keyword}{const}\ SGR\ \&state)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00413\ \ \ \ \ \{}
+\DoxyCodeLine{00414\ \ \ \ \ \ \ \ \ WORD\ attrib\ =\ 0;}
+\DoxyCodeLine{00415\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (state.conceal)\ \{}
+\DoxyCodeLine{00416\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (state.inverse)\ \{}
+\DoxyCodeLine{00417\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ attrib\ =\ (state.fgColor\ <<\ 4)\ |\ state.fgColor;}
+\DoxyCodeLine{00418\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (state.bold)}
+\DoxyCodeLine{00419\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ attrib\ |=\ FOREGROUND\_INTENSITY\ |\ BACKGROUND\_INTENSITY;}
+\DoxyCodeLine{00420\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00421\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ attrib\ =\ (state.bgColor\ <<\ 4)\ |\ state.bgColor;}
+\DoxyCodeLine{00422\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (state.underline)}
+\DoxyCodeLine{00423\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ attrib\ |=\ FOREGROUND\_INTENSITY\ |\ BACKGROUND\_INTENSITY;}
+\DoxyCodeLine{00424\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00425\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (state.inverse)\ \{}
+\DoxyCodeLine{00426\ \ \ \ \ \ \ \ \ \ \ \ \ attrib\ =\ (state.fgColor\ <<\ 4)\ |\ state.bgColor;}
+\DoxyCodeLine{00427\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (state.bold)\ attrib\ |=\ BACKGROUND\_INTENSITY;}
+\DoxyCodeLine{00428\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (state.underline)\ attrib\ |=\ FOREGROUND\_INTENSITY;}
+\DoxyCodeLine{00429\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00430\ \ \ \ \ \ \ \ \ \ \ \ \ attrib\ =\ state.fgColor\ |\ (state.bgColor\ <<\ 4)\ |\ state.bold}
+\DoxyCodeLine{00431\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ state.underline;}
+\DoxyCodeLine{00432\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00433\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ attrib;}
+\DoxyCodeLine{00434\ \ \ \ \ \}}
+\DoxyCodeLine{00435\ }
+\DoxyCodeLine{00436\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00437\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setWinColorAnsi(std::ostream\ \&os,\ T\ \textcolor{keyword}{const}\ value)}
+\DoxyCodeLine{00438\ \ \ \ \ \{}
+\DoxyCodeLine{00439\ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)033["{}}\ <<\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(value)\ <<\ \textcolor{stringliteral}{"{}m"{}};}
+\DoxyCodeLine{00440\ \ \ \ \ \}}
+\DoxyCodeLine{00441\ }
+\DoxyCodeLine{00442\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00443\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ setWinColorNative(std::ostream\ \&os,\ T\ \textcolor{keyword}{const}\ value)}
+\DoxyCodeLine{00444\ \ \ \ \ \{}
+\DoxyCodeLine{00445\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ HANDLE\ h\ =\ getConsoleHandle(os.rdbuf());}
+\DoxyCodeLine{00446\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (h\ !=\ INVALID\_HANDLE\_VALUE)\ \{}
+\DoxyCodeLine{00447\ \ \ \ \ \ \ \ \ \ \ \ \ setWinSGR(value,\ current\_state());}
+\DoxyCodeLine{00448\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Out\ all\ buffered\ text\ to\ console\ with\ previous\ settings:}}
+\DoxyCodeLine{00449\ \ \ \ \ \ \ \ \ \ \ \ \ os.flush();}
+\DoxyCodeLine{00450\ \ \ \ \ \ \ \ \ \ \ \ \ SetConsoleTextAttribute(h,\ SGR2Attr(current\_state()));}
+\DoxyCodeLine{00451\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00452\ \ \ \ \ \}}
+\DoxyCodeLine{00453\ }
+\DoxyCodeLine{00454\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00455\ \ \ \ \ \textcolor{keyword}{inline}\ enableStd<T>\ \mbox{\hyperlink{namespacerang_1_1rang__implementation_af1561ff8768eaa943f809d2e6d2a469d}{setColor}}(std::ostream\ \&os,\ T\ \textcolor{keyword}{const}\ value)}
+\DoxyCodeLine{00456\ \ \ \ \ \{}
+\DoxyCodeLine{00457\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{namespacerang_1_1rang__implementation_a0883547d97b7b5572aa6f4cb62d370c6}{winTermMode}}()\ ==\ \mbox{\hyperlink{namespacerang_af70222b38ecff8fc5aef0958d052b433a06b9281e396db002010bde1de57262eb}{winTerm::Auto}})\ \{}
+\DoxyCodeLine{00458\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (supportsAnsi(os.rdbuf()))\ \{}
+\DoxyCodeLine{00459\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ setWinColorAnsi(os,\ value);}
+\DoxyCodeLine{00460\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00461\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ setWinColorNative(os,\ value);}
+\DoxyCodeLine{00462\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00463\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{namespacerang_1_1rang__implementation_a0883547d97b7b5572aa6f4cb62d370c6}{winTermMode}}()\ ==\ \mbox{\hyperlink{namespacerang_af70222b38ecff8fc5aef0958d052b433a0f94b628f89319fb787e49e325d8bac8}{winTerm::Ansi}})\ \{}
+\DoxyCodeLine{00464\ \ \ \ \ \ \ \ \ \ \ \ \ setWinColorAnsi(os,\ value);}
+\DoxyCodeLine{00465\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00466\ \ \ \ \ \ \ \ \ \ \ \ \ setWinColorNative(os,\ value);}
+\DoxyCodeLine{00467\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00468\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ os;}
+\DoxyCodeLine{00469\ \ \ \ \ \}}
+\DoxyCodeLine{00470\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00471\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00472\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{namespacerang_1_1rang__implementation_a769f245caecc8bdf2d741f39a48052ac}{enableStd<T>}}\ \mbox{\hyperlink{namespacerang_1_1rang__implementation_af1561ff8768eaa943f809d2e6d2a469d}{setColor}}(std::ostream\ \&os,\ T\ \textcolor{keyword}{const}\ value)}
+\DoxyCodeLine{00473\ \ \ \ \ \{}
+\DoxyCodeLine{00474\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ os\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)033["{}}\ <<\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(value)\ <<\ \textcolor{stringliteral}{"{}m"{}};}
+\DoxyCodeLine{00475\ \ \ \ \ \}}
+\DoxyCodeLine{00476\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00477\ \}\ \ \textcolor{comment}{//\ namespace\ rang\_implementation}}
+\DoxyCodeLine{00478\ }
+\DoxyCodeLine{00479\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00480\ \textcolor{keyword}{inline}\ rang\_implementation::enableStd<T>\ \mbox{\hyperlink{namespacerang_ad3eebcb71dfbe77e4cacc00487525b4b}{operator<<}}(std::ostream\ \&os,}
+\DoxyCodeLine{00481\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ T\ value)}
+\DoxyCodeLine{00482\ \{}
+\DoxyCodeLine{00483\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespacerang_a9a0ad8048ed47f032f5bdb687ba64164}{control}}\ option\ =\ \mbox{\hyperlink{namespacerang_1_1rang__implementation_a55b24057ec0aee2a5570193ab9e38a50}{rang\_implementation::controlMode}}();}
+\DoxyCodeLine{00484\ \ \ \ \ \textcolor{keywordflow}{switch}\ (option)\ \{}
+\DoxyCodeLine{00485\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{namespacerang_a9a0ad8048ed47f032f5bdb687ba64164a06b9281e396db002010bde1de57262eb}{control::Auto}}:}
+\DoxyCodeLine{00486\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacerang_1_1rang__implementation_a536a3edd1809b7bcda844161c1cb1a05}{rang\_implementation::supportsColor}}()}
+\DoxyCodeLine{00487\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&\&\ \mbox{\hyperlink{namespacerang_1_1rang__implementation_af195c8344db945b8027c500cdf835964}{rang\_implementation::isTerminal}}(os.rdbuf())}
+\DoxyCodeLine{00488\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ?\ \mbox{\hyperlink{namespacerang_1_1rang__implementation_af1561ff8768eaa943f809d2e6d2a469d}{rang\_implementation::setColor}}(os,\ value)}
+\DoxyCodeLine{00489\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ os;}
+\DoxyCodeLine{00490\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{namespacerang_a9a0ad8048ed47f032f5bdb687ba64164a9eb6b78a99cdb6ffd3d40d18621d9f80}{control::Force}}:\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacerang_1_1rang__implementation_af1561ff8768eaa943f809d2e6d2a469d}{rang\_implementation::setColor}}(os,\ value);}
+\DoxyCodeLine{00491\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:\ \textcolor{keywordflow}{return}\ os;}
+\DoxyCodeLine{00492\ \ \ \ \ \}}
+\DoxyCodeLine{00493\ \}}
+\DoxyCodeLine{00494\ }
+\DoxyCodeLine{00495\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacerang_a34533a6f3dc063a47816a626f8f4d6c0}{setWinTermMode}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespacerang_af70222b38ecff8fc5aef0958d052b433}{rang::winTerm}}\ value)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00496\ \{}
+\DoxyCodeLine{00497\ \ \ \ \ \mbox{\hyperlink{namespacerang_1_1rang__implementation_a0883547d97b7b5572aa6f4cb62d370c6}{rang\_implementation::winTermMode}}()\ =\ value;}
+\DoxyCodeLine{00498\ \}}
+\DoxyCodeLine{00499\ }
+\DoxyCodeLine{00500\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacerang_ae72965d5fd9f42ddf3bc7101d3e2f423}{setControlMode}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespacerang_a9a0ad8048ed47f032f5bdb687ba64164}{control}}\ value)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00501\ \{}
+\DoxyCodeLine{00502\ \ \ \ \ \mbox{\hyperlink{namespacerang_1_1rang__implementation_a55b24057ec0aee2a5570193ab9e38a50}{rang\_implementation::controlMode}}()\ =\ value;}
+\DoxyCodeLine{00503\ \}}
+\DoxyCodeLine{00504\ }
+\DoxyCodeLine{00505\ \}\ \ \textcolor{comment}{//\ namespace\ rang}}
+\DoxyCodeLine{00506\ }
+\DoxyCodeLine{00507\ \textcolor{preprocessor}{\#undef\ OS\_LINUX}}
+\DoxyCodeLine{00508\ \textcolor{preprocessor}{\#undef\ OS\_WIN}}
+\DoxyCodeLine{00509\ \textcolor{preprocessor}{\#undef\ OS\_MAC}}
+\DoxyCodeLine{00510\ }
+\DoxyCodeLine{00511\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ ifndef\ RANG\_DOT\_HPP\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

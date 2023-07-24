@@ -1,0 +1,35 @@
+\doxysection{C\+:/\+Users/\+Alex\+\_\+22/\+Desktop/\+Semestre III/\+Estructura\+DD/\+New\+Repositorio/\+ED-\/-\/-\/9686/proyectos/\+Parcial 2 Alex-\/\+Alejo/\+Arboles/\+Arbol\+Binario.h}
+\hypertarget{_arbol_binario_8h_source}{}\label{_arbol_binario_8h_source}\mbox{\hyperlink{_arbol_binario_8h}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#ifndef\ ARBOLBINARIO\_H}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ ARBOLBINARIO\_H}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_operacion_arboles_8h}{OperacionArboles.h}}"{}}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00018\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_arbol_binario}{ArbolBinario}}:\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_operacion_arboles}{OperacionArboles}}<T>\{}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Constructor}}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_arbol_binario_a1bad900ff9a1a811446c5e729e92fc5e}{ArbolBinario}}();}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_arbol_binario_af1f1594a37b45c20b4fcbab88613d52d}{\string~ArbolBinario}}();}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Getter\ y\ Setter}}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_nodo_arbol}{NodoArbol<T>}}*\ \mbox{\hyperlink{class_arbol_binario_a78de30e575ae785d3c6a03eaf283efdb}{getRaiz}}();}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_arbol_binario_ad458066a9c9799317d30c31b9f6df6be}{setRaiz}}(\mbox{\hyperlink{class_nodo_arbol}{NodoArbol<T>}}*);}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Operaciones}}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_arbol_binario_a3d373194fd3ded22f9fa938b857cc1b2}{insertarNodo}}(T)\textcolor{keyword}{override};}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_nodo_arbol}{NodoArbol<T>}}*\ \mbox{\hyperlink{class_arbol_binario_a9f6ed9607a63ba7881a37061a33b0a3b}{buscarNodo}}(T)\textcolor{keyword}{override};}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_arbol_binario_a8b8d135924fb9b52902c704c2aeb1f55}{eliminarNodo}}(T)\textcolor{keyword}{override};}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_arbol_binario_ae87eecc2f7409a2472c05a3f5fb7401e}{mostrarArbol}}()\textcolor{keyword}{override};}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_arbol_binario_a0a72c0586b5cccb9e4b1efa64633e998}{mostrarRepetidos}}(T)\textcolor{keyword}{override};}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_nodo_arbol}{NodoArbol<T>}}*\ raiz;}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_nodo_arbol}{NodoArbol<T>}}*\ encontrarNodoMinimo(\mbox{\hyperlink{class_nodo_arbol}{NodoArbol<T>}}*);}
+\DoxyCodeLine{00038\ \ \ \ \ }
+\DoxyCodeLine{00039\ \};}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

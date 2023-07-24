@@ -1,3 +1,13 @@
+/**
+ * @file NodoArbol.h
+ * @author Alejandro Andrade - Alex Trejo
+ * @brief 
+ * @version 1.0
+ * @date 2023-07-23
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
 #ifndef NODOARBOL_H
 #define NODOARBOL_H
 

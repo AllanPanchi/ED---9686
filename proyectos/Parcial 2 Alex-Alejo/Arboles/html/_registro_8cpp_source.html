@@ -1,0 +1,249 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Help: Archivo de código fuente C:/Users/Alex_22/Desktop/Semestre III/EstructuraDD/NewRepositorio/ED---9686/proyectos/Parcial 2 Alex-Alejo/Arboles/Registro.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Help<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Ayuda de Sistema de Registro</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.9.7 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">C:/Users/Alex_22/Desktop/Semestre III/EstructuraDD/NewRepositorio/ED---9686/proyectos/Parcial 2 Alex-Alejo/Arboles/Registro.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_registro_8cpp.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">UNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">Materia: Estructura de Datos</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">NRC: 9686</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">Integrantes:    Alejandro Andrade</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">                Allan Panchi</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">                Alex Trejo </span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment">                Sebastian Verdugo</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">Fecha de inicio: 15/06/2023</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment">Fecha de modificación: 15/06/2023</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"></span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment">Ordenamiento de lista circular doblemente enlazadas</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment">*/</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="_registro_8h.html">Registro.h</a>&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment">// Name:       Registro::getPersona()</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment">// Purpose:    Implementation of Registro::getPersona()</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment">// Return:     Persona</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment"></span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="class_registro.html#ae6d028f49829b1705ae62fa7102225cb">   27</a></span>std::string <a class="code hl_function" href="class_registro.html#ae6d028f49829b1705ae62fa7102225cb">Registro::getCedula</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>{</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>   <span class="keywordflow">return</span> cedula;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>}</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment">// Name:       Registro::setPersona(Persona newPersona)</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment">// Purpose:    Implementation of Registro::setPersona()</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment">// Parameters:</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment">// - newPersona</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment">// Return:     void</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment"></span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="class_registro.html#a3a3da21498661a9edd62232a87c03e28">   44</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_registro.html#a3a3da21498661a9edd62232a87c03e28">Registro::setCedula</a>(std::string newCedula)</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>{</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>   cedula = newCedula;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>}</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment">// Name:       Registro::getEstado()</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment">// Purpose:    Implementation of Registro::getEstado()</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment">// Return:     std::string</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="comment"></span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="class_registro.html#a61b54bdf02273bc2875862496111eafa">   59</a></span>std::string <a class="code hl_function" href="class_registro.html#a61b54bdf02273bc2875862496111eafa">Registro::getEstado</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>{</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>   <span class="keywordflow">return</span> estado;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>}</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="comment">// Name:       Registro::setEstado(std::string newEstado)</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="comment">// Purpose:    Implementation of Registro::setEstado()</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="comment">// Parameters:</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="comment">// - newEstado</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="comment">// Return:     void</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="comment"></span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="class_registro.html#afec8ea07efc85a5892042ff817354134">   76</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_registro.html#afec8ea07efc85a5892042ff817354134">Registro::setEstado</a>(std::string newEstado)</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>{</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>   estado = newEstado;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>}</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="comment">// Name:       Registro::getEntrada()</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="comment">// Purpose:    Implementation of Registro::getEntrada()</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="comment">// Return:     std::string</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="comment"></span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno"><a class="line" href="class_registro.html#aaf9325271986fb49a91d1303feeaefd0">   91</a></span><a class="code hl_class" href="class_fecha.html">Fecha</a> <a class="code hl_function" href="class_registro.html#aaf9325271986fb49a91d1303feeaefd0">Registro::getEntrada</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>{</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>   <span class="keywordflow">return</span> entrada;</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>}</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="comment">// Name:       Registro::setEntrada(std::string newEntrada)</span></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="comment">// Purpose:    Implementation of Registro::setEntrada()</span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="comment">// Parameters:</span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="comment">// - newEntrada</span></div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="comment">// Return:     void</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="comment"></span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno"><a class="line" href="class_registro.html#ad89309a80198a4d050c91c272f16c2dd">  108</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_registro.html#ad89309a80198a4d050c91c272f16c2dd">Registro::setEntrada</a>(<a class="code hl_class" href="class_fecha.html">Fecha</a> newEntrada)</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>{</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>   entrada = newEntrada;</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>}</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span><span class="comment">// Name:       Registro::getSalida()</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><span class="comment">// Purpose:    Implementation of Registro::getSalida()</span></div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span><span class="comment">// Return:     std::string</span></div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span><span class="comment"></span> </div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno"><a class="line" href="class_registro.html#aa10ddc858ed8c0ba409613d1b10ad731">  123</a></span><a class="code hl_class" href="class_fecha.html">Fecha</a> <a class="code hl_function" href="class_registro.html#aa10ddc858ed8c0ba409613d1b10ad731">Registro::getSalida</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>{</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>   <span class="keywordflow">return</span> salida;</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>}</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span><span class="comment">// Name:       Registro::setSalida(std::string newSalida)</span></div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span><span class="comment">// Purpose:    Implementation of Registro::setSalida()</span></div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span><span class="comment">// Parameters:</span></div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span><span class="comment">// - newSalida</span></div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span><span class="comment">// Return:     void</span></div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span><span class="comment"></span> </div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno"><a class="line" href="class_registro.html#acf5ee6da02fa4fe024ea70c5881828f3">  140</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_registro.html#acf5ee6da02fa4fe024ea70c5881828f3">Registro::setSalida</a>(<a class="code hl_class" href="class_fecha.html">Fecha</a> newSalida)</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>{</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>   salida = newSalida;</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>}</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span> </div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span><span class="comment">// Name:       Registro::toString()</span></div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span><span class="comment">// Purpose:    Implementation of Registro::toString()</span></div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span><span class="comment">// Return:     void</span></div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span><span class="comment"></span> </div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno"><a class="line" href="class_registro.html#a2b88c18ceb3ff11e434b7dcb58328e22">  155</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_registro.html#a2b88c18ceb3ff11e434b7dcb58328e22">Registro::toString</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>{</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>   std::cout &lt;&lt; <span class="stringliteral">&quot;-------------------------------------------- &quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>   std::cout &lt;&lt; <span class="stringliteral">&quot;Cedula: &quot;</span> &lt;&lt; cedula &lt;&lt; std::endl;</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>   std::cout &lt;&lt; <span class="stringliteral">&quot;Hora de entrada: &quot;</span> &lt;&lt; entrada.<a class="code hl_function" href="class_fecha.html#a7a128345105e12fba2241760f71facb2">getHora</a>() </div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>                                 &lt;&lt; <span class="stringliteral">&quot;:&quot;</span> &lt;&lt; entrada.<a class="code hl_function" href="class_fecha.html#a73fe73683b83448ca47e31c20f217556">getMinuto</a>()</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>             &lt;&lt; <span class="stringliteral">&quot; \nDia/Mes/A\xA4o: &quot;</span> </div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>                                 &lt;&lt; entrada.<a class="code hl_function" href="class_fecha.html#a9f8e09d5e11a3bf9e4c234e8cd2c004a">getDia</a>()</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>                                 &lt;&lt; <span class="stringliteral">&quot;/&quot;</span> &lt;&lt; entrada.<a class="code hl_function" href="class_fecha.html#aa501ddd9a46effadac3f08c89140d9ac">getMes</a>()</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>                                 &lt;&lt; <span class="stringliteral">&quot;/&quot;</span> &lt;&lt; entrada.<a class="code hl_function" href="class_fecha.html#a89ebafe74bc6e5f53ad688dce1d3fc26">getAnio</a>() &lt;&lt; std::endl;</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>   std::cout &lt;&lt; <span class="stringliteral">&quot;Hora de salida: &quot;</span> &lt;&lt; salida.<a class="code hl_function" href="class_fecha.html#a7a128345105e12fba2241760f71facb2">getHora</a>()</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>                                 &lt;&lt; <span class="stringliteral">&quot;:&quot;</span> &lt;&lt; salida.<a class="code hl_function" href="class_fecha.html#a73fe73683b83448ca47e31c20f217556">getMinuto</a>()</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>             &lt;&lt; <span class="stringliteral">&quot; \nDia/Mes/A\xA4o: &quot;</span> </div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>                                 &lt;&lt; salida.<a class="code hl_function" href="class_fecha.html#a9f8e09d5e11a3bf9e4c234e8cd2c004a">getDia</a>()</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>                                 &lt;&lt; <span class="stringliteral">&quot;/&quot;</span> &lt;&lt; salida.<a class="code hl_function" href="class_fecha.html#aa501ddd9a46effadac3f08c89140d9ac">getMes</a>()</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>                                 &lt;&lt; <span class="stringliteral">&quot;/&quot;</span> &lt;&lt; salida.<a class="code hl_function" href="class_fecha.html#a89ebafe74bc6e5f53ad688dce1d3fc26">getAnio</a>() &lt;&lt; std::endl;</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>}</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span> </div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span><span class="comment">// Name:       Registro::Registro()</span></div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span><span class="comment">// Purpose:    Implementation of Registro::Registro()</span></div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span><span class="comment">// Return:     </span></div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span><span class="comment"></span> </div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno"><a class="line" href="class_registro.html#afebde5106e4fc3c5e795aa7f732662fb">  186</a></span><a class="code hl_function" href="class_registro.html#a681141e98b185e198e765b355916f302">Registro::Registro</a>(std::string cedula, <a class="code hl_class" href="class_fecha.html">Fecha</a> entrada, <a class="code hl_class" href="class_fecha.html">Fecha</a> salida, std::string estado)</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>{</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>   this-&gt;cedula = cedula;</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>   this-&gt;entrada = entrada;</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>   this-&gt;salida = salida;</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>   this-&gt;estado = estado;</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>}</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span> </div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span><span class="comment">// Name:       Registro::Registro()</span></div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span><span class="comment">// Purpose:    Implementation of Registro::Registro()</span></div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span><span class="comment">// Return:</span></div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span><span class="comment"></span> </div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno"><a class="line" href="class_registro.html#a681141e98b185e198e765b355916f302">  203</a></span><a class="code hl_function" href="class_registro.html#a681141e98b185e198e765b355916f302">Registro::Registro</a>()</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>{</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>  </div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span> </div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span> </div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>}</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span> </div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span><span class="comment">// Name:       Registro::~Registro()</span></div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span><span class="comment">// Purpose:    Implementation of Registro::~Registro()</span></div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span><span class="comment">// Return:     </span></div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span><span class="comment"></span> </div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno"><a class="line" href="class_registro.html#a10783a2dd3ca4252513c56eea1697153">  219</a></span><a class="code hl_function" href="class_registro.html#a10783a2dd3ca4252513c56eea1697153">Registro::~Registro</a>()</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>{</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>   <span class="comment">// TODO : implement</span></div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>}</div>
+<div class="ttc" id="a_registro_8h_html"><div class="ttname"><a href="_registro_8h.html">Registro.h</a></div></div>
+<div class="ttc" id="aclass_fecha_html"><div class="ttname"><a href="class_fecha.html">Fecha</a></div><div class="ttdef"><b>Definition</b> Fecha.h:18</div></div>
+<div class="ttc" id="aclass_fecha_html_a73fe73683b83448ca47e31c20f217556"><div class="ttname"><a href="class_fecha.html#a73fe73683b83448ca47e31c20f217556">Fecha::getMinuto</a></div><div class="ttdeci">int getMinuto()</div><div class="ttdoc">Get the Minuto object.</div><div class="ttdef"><b>Definition</b> Fecha.cpp:147</div></div>
+<div class="ttc" id="aclass_fecha_html_a7a128345105e12fba2241760f71facb2"><div class="ttname"><a href="class_fecha.html#a7a128345105e12fba2241760f71facb2">Fecha::getHora</a></div><div class="ttdeci">int getHora()</div><div class="ttdoc">Get the Hora object.</div><div class="ttdef"><b>Definition</b> Fecha.cpp:127</div></div>
+<div class="ttc" id="aclass_fecha_html_a89ebafe74bc6e5f53ad688dce1d3fc26"><div class="ttname"><a href="class_fecha.html#a89ebafe74bc6e5f53ad688dce1d3fc26">Fecha::getAnio</a></div><div class="ttdeci">int getAnio()</div><div class="ttdoc">Get the Anio object.</div><div class="ttdef"><b>Definition</b> Fecha.cpp:107</div></div>
+<div class="ttc" id="aclass_fecha_html_a9f8e09d5e11a3bf9e4c234e8cd2c004a"><div class="ttname"><a href="class_fecha.html#a9f8e09d5e11a3bf9e4c234e8cd2c004a">Fecha::getDia</a></div><div class="ttdeci">int getDia()</div><div class="ttdoc">Get the Dia object.</div><div class="ttdef"><b>Definition</b> Fecha.cpp:65</div></div>
+<div class="ttc" id="aclass_fecha_html_aa501ddd9a46effadac3f08c89140d9ac"><div class="ttname"><a href="class_fecha.html#aa501ddd9a46effadac3f08c89140d9ac">Fecha::getMes</a></div><div class="ttdeci">int getMes()</div><div class="ttdoc">Get the Mes object.</div><div class="ttdef"><b>Definition</b> Fecha.cpp:86</div></div>
+<div class="ttc" id="aclass_registro_html_a10783a2dd3ca4252513c56eea1697153"><div class="ttname"><a href="class_registro.html#a10783a2dd3ca4252513c56eea1697153">Registro::~Registro</a></div><div class="ttdeci">~Registro()</div><div class="ttdoc">Destroy the Registro:: Registro object.</div><div class="ttdef"><b>Definition</b> Registro.cpp:219</div></div>
+<div class="ttc" id="aclass_registro_html_a2b88c18ceb3ff11e434b7dcb58328e22"><div class="ttname"><a href="class_registro.html#a2b88c18ceb3ff11e434b7dcb58328e22">Registro::toString</a></div><div class="ttdeci">void toString(void)</div><div class="ttdef"><b>Definition</b> Registro.cpp:155</div></div>
+<div class="ttc" id="aclass_registro_html_a3a3da21498661a9edd62232a87c03e28"><div class="ttname"><a href="class_registro.html#a3a3da21498661a9edd62232a87c03e28">Registro::setCedula</a></div><div class="ttdeci">void setCedula(std::string newCedula)</div><div class="ttdoc">Set the Persona object.</div><div class="ttdef"><b>Definition</b> Registro.cpp:44</div></div>
+<div class="ttc" id="aclass_registro_html_a61b54bdf02273bc2875862496111eafa"><div class="ttname"><a href="class_registro.html#a61b54bdf02273bc2875862496111eafa">Registro::getEstado</a></div><div class="ttdeci">std::string getEstado(void)</div><div class="ttdoc">Get the Estado object.</div><div class="ttdef"><b>Definition</b> Registro.cpp:59</div></div>
+<div class="ttc" id="aclass_registro_html_a681141e98b185e198e765b355916f302"><div class="ttname"><a href="class_registro.html#a681141e98b185e198e765b355916f302">Registro::Registro</a></div><div class="ttdeci">Registro()</div><div class="ttdoc">Construct a new Registro:: Registro object.</div><div class="ttdef"><b>Definition</b> Registro.cpp:203</div></div>
+<div class="ttc" id="aclass_registro_html_aa10ddc858ed8c0ba409613d1b10ad731"><div class="ttname"><a href="class_registro.html#aa10ddc858ed8c0ba409613d1b10ad731">Registro::getSalida</a></div><div class="ttdeci">Fecha getSalida(void)</div><div class="ttdoc">Get the Salida object.</div><div class="ttdef"><b>Definition</b> Registro.cpp:123</div></div>
+<div class="ttc" id="aclass_registro_html_aaf9325271986fb49a91d1303feeaefd0"><div class="ttname"><a href="class_registro.html#aaf9325271986fb49a91d1303feeaefd0">Registro::getEntrada</a></div><div class="ttdeci">Fecha getEntrada(void)</div><div class="ttdoc">Get the Entrada object.</div><div class="ttdef"><b>Definition</b> Registro.cpp:91</div></div>
+<div class="ttc" id="aclass_registro_html_acf5ee6da02fa4fe024ea70c5881828f3"><div class="ttname"><a href="class_registro.html#acf5ee6da02fa4fe024ea70c5881828f3">Registro::setSalida</a></div><div class="ttdeci">void setSalida(Fecha newSalida)</div><div class="ttdoc">Set the Salida object.</div><div class="ttdef"><b>Definition</b> Registro.cpp:140</div></div>
+<div class="ttc" id="aclass_registro_html_ad89309a80198a4d050c91c272f16c2dd"><div class="ttname"><a href="class_registro.html#ad89309a80198a4d050c91c272f16c2dd">Registro::setEntrada</a></div><div class="ttdeci">void setEntrada(Fecha newEntrada)</div><div class="ttdoc">Set the Entrada object.</div><div class="ttdef"><b>Definition</b> Registro.cpp:108</div></div>
+<div class="ttc" id="aclass_registro_html_ae6d028f49829b1705ae62fa7102225cb"><div class="ttname"><a href="class_registro.html#ae6d028f49829b1705ae62fa7102225cb">Registro::getCedula</a></div><div class="ttdeci">std::string getCedula(void)</div><div class="ttdoc">Get the Persona object.</div><div class="ttdef"><b>Definition</b> Registro.cpp:27</div></div>
+<div class="ttc" id="aclass_registro_html_afec8ea07efc85a5892042ff817354134"><div class="ttname"><a href="class_registro.html#afec8ea07efc85a5892042ff817354134">Registro::setEstado</a></div><div class="ttdeci">void setEstado(std::string newEstado)</div><div class="ttdoc">Set the Estado object.</div><div class="ttdef"><b>Definition</b> Registro.cpp:76</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7
+</small></address>
+</body>
+</html>

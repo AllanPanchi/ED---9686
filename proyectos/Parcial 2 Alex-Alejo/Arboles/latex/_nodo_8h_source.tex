@@ -1,0 +1,43 @@
+\doxysection{C\+:/\+Users/\+Alex\+\_\+22/\+Desktop/\+Semestre III/\+Estructura\+DD/\+New\+Repositorio/\+ED-\/-\/-\/9686/proyectos/\+Parcial 2 Alex-\/\+Alejo/\+Arboles/\+Nodo.h}
+\hypertarget{_nodo_8h_source}{}\label{_nodo_8h_source}\mbox{\hyperlink{_nodo_8h}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{UNIVERSIDAD\ DE\ LAS\ FUERZAS\ ARMADAS\ ESPE}}
+\DoxyCodeLine{00003\ \textcolor{comment}{Materia:\ Estructura\ de\ Datos}}
+\DoxyCodeLine{00004\ \textcolor{comment}{NRC:\ 9686}}
+\DoxyCodeLine{00005\ \textcolor{comment}{Integrantes:\ \ \ \ Alejandro\ Andrade}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Allan\ Panchi}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Alex\ Trejo\ }}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Sebastian\ Verdugo}}
+\DoxyCodeLine{00009\ \textcolor{comment}{Fecha\ de\ inicio:\ 15/06/2023}}
+\DoxyCodeLine{00010\ \textcolor{comment}{Fecha\ de\ modificación:\ 15/06/2023}}
+\DoxyCodeLine{00011\ \textcolor{comment}{}}
+\DoxyCodeLine{00012\ \textcolor{comment}{Ordenamiento\ de\ lista\ circular\ doblemente\ enlazadas}}
+\DoxyCodeLine{00013\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_registro_8cpp}{Registro.cpp}}"{}}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00028\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_nodo}{Nodo}}\{}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ T\ valor;}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_nodo}{Nodo<T>}}\ *anterior;}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_nodo}{Nodo<T>}}\ *siguiente;}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00034\ \ \ \ \ }
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_nodo}{Nodo}}(T\ registro,\ \mbox{\hyperlink{class_nodo}{Nodo<T>}}\ *sig=NULL,\ \mbox{\hyperlink{class_nodo}{Nodo<T>}}\ *ant=NULL);}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_nodo_a4e670eeb888eb0429b78c626cddf4ecf}{setValor}}(T\ registro);}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ T\ \mbox{\hyperlink{class_nodo_a754c21bd149591475694a12dcb031655}{getValor}}();}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_nodo_a5e10d9aed02add4c792f91518c0f702e}{setSiguiente}}(\mbox{\hyperlink{class_nodo}{Nodo<T>}}\ *sig);}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_nodo}{Nodo<T>}}*\ \mbox{\hyperlink{class_nodo_ad3c9f0b404f3c0f585133bf91db7279d}{getSiguiente}}();}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_nodo_a596cbee7c70a885978be00e40a7e7b61}{setAnterior}}(\mbox{\hyperlink{class_nodo}{Nodo<T>}}\ *ant);}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_nodo}{Nodo<T>}}*\ \mbox{\hyperlink{class_nodo_ad268f34508035962cc56309a32938b07}{getAnterior}}();}
+\DoxyCodeLine{00048\ \};}
+
+\end{DoxyCode}

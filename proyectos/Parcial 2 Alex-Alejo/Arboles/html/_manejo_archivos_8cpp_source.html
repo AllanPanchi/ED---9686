@@ -1,0 +1,182 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Help: Archivo de código fuente C:/Users/Alex_22/Desktop/Semestre III/EstructuraDD/NewRepositorio/ED---9686/proyectos/Parcial 2 Alex-Alejo/Arboles/ManejoArchivos.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Help<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Ayuda de Sistema de Registro</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.9.7 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">C:/Users/Alex_22/Desktop/Semestre III/EstructuraDD/NewRepositorio/ED---9686/proyectos/Parcial 2 Alex-Alejo/Arboles/ManejoArchivos.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_manejo_archivos_8cpp.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &lt;fstream&gt;</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;<a class="code" href="_manejo_archivos_8h.html">ManejoArchivos.h</a>&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span>    <span class="comment">// Guardar personas en un archivo de texto </span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="class_manejo_archivos.html#a697ee24146ea695d0a89633838fc87c5">   11</a></span><span class="comment"></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_manejo_archivos.html#a697ee24146ea695d0a89633838fc87c5">ManejoArchivos::guardarPersonas</a>(<span class="keyword">const</span> std::string&amp; nombreArchivo, <a class="code hl_class" href="class_lista.html">Lista&lt;Empleado&gt;</a>&amp; lista) {</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>        std::ofstream archivo(nombreArchivo);</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>        <span class="keywordflow">if</span> (archivo.is_open()) {</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>            <a class="code hl_class" href="class_nodo.html">Nodo&lt;Empleado&gt;</a>* temp = lista.<a class="code hl_function" href="class_lista.html#aedc01eb857298c94c25c17676f1fef93">getPrimero</a>();</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>            <span class="keywordflow">do</span> {</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>                archivo &lt;&lt; temp-&gt;<a class="code hl_function" href="class_nodo.html#a754c21bd149591475694a12dcb031655">getValor</a>().getCedula() &lt;&lt; <span class="stringliteral">&quot; &quot;</span> &lt;&lt; temp-&gt;<a class="code hl_function" href="class_nodo.html#a754c21bd149591475694a12dcb031655">getValor</a>().getNombre() </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>                &lt;&lt; <span class="stringliteral">&quot; &quot;</span> &lt;&lt; temp-&gt;<a class="code hl_function" href="class_nodo.html#a754c21bd149591475694a12dcb031655">getValor</a>().getApellido()</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>                &lt;&lt; <span class="stringliteral">&quot; &quot;</span> &lt;&lt; temp-&gt;<a class="code hl_function" href="class_nodo.html#a754c21bd149591475694a12dcb031655">getValor</a>().getSueldo()</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>                &lt;&lt; <span class="stringliteral">&quot; &quot;</span> &lt;&lt; temp-&gt;<a class="code hl_function" href="class_nodo.html#a754c21bd149591475694a12dcb031655">getValor</a>().getFechaNacimiento() &lt;&lt; std::endl;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>                temp = temp-&gt;<a class="code hl_function" href="class_nodo.html#ad3c9f0b404f3c0f585133bf91db7279d">getSiguiente</a>();</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>            } <span class="keywordflow">while</span> (temp != lista.<a class="code hl_function" href="class_lista.html#aedc01eb857298c94c25c17676f1fef93">getPrimero</a>());</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>            archivo.close();</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>            std::cout &lt;&lt; <span class="stringliteral">&quot;Archivo sobrescrito exitosamente.&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>            std::cout &lt;&lt; <span class="stringliteral">&quot;No se pudo abrir el archivo para sobrescribir.&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        }</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    }</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="comment">//cargar registros en un archivo de texto</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="class_manejo_archivos.html#a45aebca41f4fc4b1618748336b8c6b61">   38</a></span><span class="comment"></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_manejo_archivos.html#a45aebca41f4fc4b1618748336b8c6b61">ManejoArchivos::cargarPersonas</a>(<span class="keyword">const</span> std::string&amp; nombreArchivo, <a class="code hl_class" href="class_lista.html">Lista&lt;Empleado&gt;</a>&amp; lista) {</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        std::ifstream archivo(nombreArchivo);</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        <span class="keywordflow">if</span> (archivo.is_open()) {</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>            <span class="keywordtype">float</span> sueldo;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>            std::string cedula, nombre, apellido;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>            <span class="keywordtype">int</span> dia, mes, anio, hora, minuto, segundo;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>            <span class="keywordflow">while</span> (archivo &gt;&gt; cedula &gt;&gt; nombre &gt;&gt; apellido &gt;&gt; sueldo &gt;&gt; dia &gt;&gt; mes &gt;&gt; anio &gt;&gt; hora &gt;&gt; minuto &gt;&gt; segundo) {</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>                <a class="code hl_class" href="class_fecha.html">Fecha</a> fechaNacimiento(dia, mes, anio, hora, minuto, segundo);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>                <a class="code hl_class" href="class_empleado.html">Empleado</a> persona(cedula, nombre, apellido, fechaNacimiento, sueldo);</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>                lista.<a class="code hl_function" href="class_lista.html#ac36b9a2f52024fd668b65fd5a3ac691b">insertar</a>(persona);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>            }</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>            archivo.close();</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>            std::cout &lt;&lt; <span class="stringliteral">&quot;No se pudo abrir el archivo.&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        }</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    }</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="comment">// Guardar registros en un archivo de texto</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="class_manejo_archivos.html#ae1109440487bd5a24bd33e844e1507fb">   63</a></span><span class="comment"></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_manejo_archivos.html#ae1109440487bd5a24bd33e844e1507fb">ManejoArchivos::guardarRegistros</a>(<span class="keyword">const</span> std::string&amp; nombreArchivo, <a class="code hl_class" href="class_lista.html">Lista&lt;Registro&gt;</a>&amp; lista) {</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        std::ofstream archivo(nombreArchivo);</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        <span class="keywordflow">if</span> (archivo.is_open()) {</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>            <a class="code hl_class" href="class_nodo.html">Nodo&lt;Registro&gt;</a>* temp = lista.<a class="code hl_function" href="class_lista.html#aedc01eb857298c94c25c17676f1fef93">getPrimero</a>();</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>            <span class="keywordflow">do</span> {</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>                archivo &lt;&lt; temp-&gt;<a class="code hl_function" href="class_nodo.html#a754c21bd149591475694a12dcb031655">getValor</a>().getCedula() </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>                &lt;&lt; <span class="stringliteral">&quot; &quot;</span> &lt;&lt; temp-&gt;<a class="code hl_function" href="class_nodo.html#a754c21bd149591475694a12dcb031655">getValor</a>().getEntrada() </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>                &lt;&lt; <span class="stringliteral">&quot; &quot;</span> &lt;&lt; temp-&gt;<a class="code hl_function" href="class_nodo.html#a754c21bd149591475694a12dcb031655">getValor</a>().getSalida()</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>                &lt;&lt; <span class="stringliteral">&quot; &quot;</span> &lt;&lt; temp-&gt;<a class="code hl_function" href="class_nodo.html#a754c21bd149591475694a12dcb031655">getValor</a>().getEstado()</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>                &lt;&lt; std::endl;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>                temp = temp-&gt;<a class="code hl_function" href="class_nodo.html#ad3c9f0b404f3c0f585133bf91db7279d">getSiguiente</a>();</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>            } <span class="keywordflow">while</span> (temp != lista.<a class="code hl_function" href="class_lista.html#aedc01eb857298c94c25c17676f1fef93">getPrimero</a>());</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>            archivo.close();</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>            std::cout &lt;&lt; <span class="stringliteral">&quot;Archivo sobrescrito exitosamente.&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>            std::cout &lt;&lt; <span class="stringliteral">&quot;No se pudo abrir el archivo para sobrescribir.&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        }</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    }</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="comment">//cargar registros en un archivo de texto</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno"><a class="line" href="class_manejo_archivos.html#a34534125d401880dbb63abc4c3af017f">   91</a></span><span class="comment"></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_manejo_archivos.html#a34534125d401880dbb63abc4c3af017f">ManejoArchivos::cargarRegistros</a>(<span class="keyword">const</span> std::string&amp; nombreArchivo, <a class="code hl_class" href="class_lista.html">Lista&lt;Registro&gt;</a>&amp; lista) {</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        std::ifstream archivo(nombreArchivo);</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        <span class="keywordflow">if</span> (archivo.is_open()) {</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>            std::string cedula, estado;</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>            <span class="keywordtype">int</span> dia, mes, anio, hora, minuto, segundo;</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>            <span class="keywordtype">int</span> dia2, mes2, anio2, hora2, minuto2, segundo2;</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>            <span class="keywordflow">while</span> (archivo &gt;&gt; cedula &gt;&gt; dia &gt;&gt; mes &gt;&gt; anio &gt;&gt; hora &gt;&gt; minuto &gt;&gt; segundo &gt;&gt; dia2 &gt;&gt; mes2 &gt;&gt; anio2 &gt;&gt; hora2 &gt;&gt; minuto2 &gt;&gt; segundo2 &gt;&gt; estado) {</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>                <a class="code hl_class" href="class_fecha.html">Fecha</a> entrada(dia, mes, anio, hora, minuto, segundo);</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>                <a class="code hl_class" href="class_fecha.html">Fecha</a> salida(dia2, mes2, anio2, hora2, minuto2, segundo2);</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>                <a class="code hl_class" href="class_registro.html">Registro</a> registro(cedula, entrada, salida, estado);</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>                lista.<a class="code hl_function" href="class_lista.html#ac36b9a2f52024fd668b65fd5a3ac691b">insertar</a>(registro);</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>            }</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>            archivo.close();</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>            std::cout &lt;&lt; <span class="stringliteral">&quot;No se pudo abrir el archivo.&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>        }</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    }</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="ttc" id="a_manejo_archivos_8h_html"><div class="ttname"><a href="_manejo_archivos_8h.html">ManejoArchivos.h</a></div></div>
+<div class="ttc" id="aclass_empleado_html"><div class="ttname"><a href="class_empleado.html">Empleado</a></div><div class="ttdef"><b>Definition</b> Empleado.h:17</div></div>
+<div class="ttc" id="aclass_fecha_html"><div class="ttname"><a href="class_fecha.html">Fecha</a></div><div class="ttdef"><b>Definition</b> Fecha.h:18</div></div>
+<div class="ttc" id="aclass_lista_html"><div class="ttname"><a href="class_lista.html">Lista</a></div><div class="ttdef"><b>Definition</b> Lista.h:29</div></div>
+<div class="ttc" id="aclass_lista_html_ac36b9a2f52024fd668b65fd5a3ac691b"><div class="ttname"><a href="class_lista.html#ac36b9a2f52024fd668b65fd5a3ac691b">Lista::insertar</a></div><div class="ttdeci">void insertar(T registro)</div><div class="ttdoc">Insertar un registro en la lista.</div><div class="ttdef"><b>Definition</b> Lista.cpp:111</div></div>
+<div class="ttc" id="aclass_lista_html_aedc01eb857298c94c25c17676f1fef93"><div class="ttname"><a href="class_lista.html#aedc01eb857298c94c25c17676f1fef93">Lista::getPrimero</a></div><div class="ttdeci">Nodo&lt; T &gt; * getPrimero()</div><div class="ttdoc">Get the Primero object.</div><div class="ttdef"><b>Definition</b> Lista.cpp:25</div></div>
+<div class="ttc" id="aclass_manejo_archivos_html_a34534125d401880dbb63abc4c3af017f"><div class="ttname"><a href="class_manejo_archivos.html#a34534125d401880dbb63abc4c3af017f">ManejoArchivos::cargarRegistros</a></div><div class="ttdeci">static void cargarRegistros(const std::string &amp;nombreArchivo, Lista&lt; Registro &gt; &amp;lista)</div><div class="ttdoc">Carga los registros en un archivo de texto.</div><div class="ttdef"><b>Definition</b> ManejoArchivos.cpp:91</div></div>
+<div class="ttc" id="aclass_manejo_archivos_html_a45aebca41f4fc4b1618748336b8c6b61"><div class="ttname"><a href="class_manejo_archivos.html#a45aebca41f4fc4b1618748336b8c6b61">ManejoArchivos::cargarPersonas</a></div><div class="ttdeci">static void cargarPersonas(const std::string &amp;nombreArchivo, Lista&lt; Empleado &gt; &amp;lista)</div><div class="ttdoc">Carga los registros en un archivo de texto.</div><div class="ttdef"><b>Definition</b> ManejoArchivos.cpp:38</div></div>
+<div class="ttc" id="aclass_manejo_archivos_html_a697ee24146ea695d0a89633838fc87c5"><div class="ttname"><a href="class_manejo_archivos.html#a697ee24146ea695d0a89633838fc87c5">ManejoArchivos::guardarPersonas</a></div><div class="ttdeci">static void guardarPersonas(const std::string &amp;nombreArchivo, Lista&lt; Empleado &gt; &amp;lista)</div><div class="ttdoc">Guarda las personas en un archivo de texto.</div><div class="ttdef"><b>Definition</b> ManejoArchivos.cpp:11</div></div>
+<div class="ttc" id="aclass_manejo_archivos_html_ae1109440487bd5a24bd33e844e1507fb"><div class="ttname"><a href="class_manejo_archivos.html#ae1109440487bd5a24bd33e844e1507fb">ManejoArchivos::guardarRegistros</a></div><div class="ttdeci">static void guardarRegistros(const std::string &amp;nombreArchivo, Lista&lt; Registro &gt; &amp;lista)</div><div class="ttdoc">Guarda los registros en un archivo de texto.</div><div class="ttdef"><b>Definition</b> ManejoArchivos.cpp:63</div></div>
+<div class="ttc" id="aclass_nodo_html"><div class="ttname"><a href="class_nodo.html">Nodo</a></div><div class="ttdef"><b>Definition</b> Nodo.h:28</div></div>
+<div class="ttc" id="aclass_nodo_html_a754c21bd149591475694a12dcb031655"><div class="ttname"><a href="class_nodo.html#a754c21bd149591475694a12dcb031655">Nodo::getValor</a></div><div class="ttdeci">T getValor()</div><div class="ttdoc">Get the Valor object.</div><div class="ttdef"><b>Definition</b> Nodo.cpp:52</div></div>
+<div class="ttc" id="aclass_nodo_html_ad3c9f0b404f3c0f585133bf91db7279d"><div class="ttname"><a href="class_nodo.html#ad3c9f0b404f3c0f585133bf91db7279d">Nodo::getSiguiente</a></div><div class="ttdeci">Nodo&lt; T &gt; * getSiguiente()</div><div class="ttdoc">Get the Siguiente object.</div><div class="ttdef"><b>Definition</b> Nodo.cpp:76</div></div>
+<div class="ttc" id="aclass_registro_html"><div class="ttname"><a href="class_registro.html">Registro</a></div><div class="ttdef"><b>Definition</b> Registro.h:31</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7
+</small></address>
+</body>
+</html>

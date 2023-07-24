@@ -1,0 +1,491 @@
+\doxysection{C\+:/\+Users/\+Alex\+\_\+22/\+Desktop/\+Semestre III/\+Estructura\+DD/\+New\+Repositorio/\+ED-\/-\/-\/9686/proyectos/\+Parcial 2 Alex-\/\+Alejo/\+Arboles/\+Aplication.cpp}
+\hypertarget{_aplication_8cpp_source}{}\label{_aplication_8cpp_source}\mbox{\hyperlink{_aplication_8cpp}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_aplication_8h}{Aplication.h}}"{}}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_menu_8h}{Menu.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_val_datos_8h}{ValDatos.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_arbol_binario_8cpp}{ArbolBinario.cpp}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <filesystem>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00013\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_aplication_ac87901cf60eb1959671f1f50a3cea806}{Aplication::run}}()}
+\DoxyCodeLine{00014\ \{}
+\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{class_menu}{Menu}}\ menu(\textcolor{stringliteral}{"{}Menu\ Principal"{}});}
+\DoxyCodeLine{00016\ \ \ \ \ menu.\mbox{\hyperlink{class_menu_a773798ff9db275743fd59f730110ec45}{add}}(\mbox{\hyperlink{class_menu_item}{MenuItem}}(\textcolor{stringliteral}{"{}Registro\ de\ Nuevo\ Empleado."{}},std::bind(\&\mbox{\hyperlink{class_aplication_a0cd11c4d095cc290adc1d62d96f76613}{Aplication::registroNuevoEmpleado}},\textcolor{keyword}{this})));}
+\DoxyCodeLine{00017\ \ \ \ \ menu.\mbox{\hyperlink{class_menu_a773798ff9db275743fd59f730110ec45}{add}}(\mbox{\hyperlink{class_menu_item}{MenuItem}}(\textcolor{stringliteral}{"{}Registro\ Entrada\ /\ Salida."{}},std::bind(\&\mbox{\hyperlink{class_aplication_a264174ed5b47908d48077a29030846be}{Aplication::registrarEntrada}},\textcolor{keyword}{this})));}
+\DoxyCodeLine{00018\ \ \ \ \ menu.\mbox{\hyperlink{class_menu_a773798ff9db275743fd59f730110ec45}{add}}(\mbox{\hyperlink{class_menu_item}{MenuItem}}(\textcolor{stringliteral}{"{}Mostrar\ personas\ registradas"{}},\ std::bind(\&\mbox{\hyperlink{class_aplication_ae426f746e03a2cd3eb67afcb563e7614}{Aplication::mostrarPersonasRegistradas}},\textcolor{keyword}{this})));}
+\DoxyCodeLine{00019\ \ \ \ \ menu.\mbox{\hyperlink{class_menu_a773798ff9db275743fd59f730110ec45}{add}}(\mbox{\hyperlink{class_menu_item}{MenuItem}}(\textcolor{stringliteral}{"{}Mostrar\ todos\ los\ registros"{}},\ std::bind(\&\mbox{\hyperlink{class_aplication_a01757533dd69db8101f585b15c46babc}{Aplication::mostrarRegistros}},\textcolor{keyword}{this})));}
+\DoxyCodeLine{00020\ \ \ \ \ menu.\mbox{\hyperlink{class_menu_a773798ff9db275743fd59f730110ec45}{add}}(\mbox{\hyperlink{class_menu_item}{MenuItem}}(\textcolor{stringliteral}{"{}Mostrar\ registros\ ordenados\ por\ cedula"{}},\ std::bind(\&\mbox{\hyperlink{class_aplication_a7b4dcd63d5184ca3156bcd0db5bfc4d6}{Aplication::mostrarRegistrosPorCedula}},\ \textcolor{keyword}{this})));}
+\DoxyCodeLine{00021\ \ \ \ \ menu.\mbox{\hyperlink{class_menu_a773798ff9db275743fd59f730110ec45}{add}}(\mbox{\hyperlink{class_menu_item}{MenuItem}}(\textcolor{stringliteral}{"{}Mostrar\ personas\ ordenadas\ por\ sueldo"{}},\ std::bind(\&\mbox{\hyperlink{class_aplication_aca14b67537581ffea53dcffe70968017}{Aplication::mostrarEmpleadosPorSueldo}},\ \textcolor{keyword}{this})));}
+\DoxyCodeLine{00022\ \ \ \ \ menu.\mbox{\hyperlink{class_menu_a773798ff9db275743fd59f730110ec45}{add}}(\mbox{\hyperlink{class_menu_item}{MenuItem}}(\textcolor{stringliteral}{"{}Buscar\ registros\ por\ fecha"{}},\ std::bind(\&\mbox{\hyperlink{class_aplication_ae552aea6cc05212d0d75acc810479cb4}{Aplication::buscarRegistroPorFecha}},\ \textcolor{keyword}{this})));}
+\DoxyCodeLine{00023\ \ \ \ \ menu.\mbox{\hyperlink{class_menu_a773798ff9db275743fd59f730110ec45}{add}}(\mbox{\hyperlink{class_menu_item}{MenuItem}}(\textcolor{stringliteral}{"{}Buscar\ registros\ por\ cedula"{}},\ std::bind(\&\mbox{\hyperlink{class_aplication_a72b4af1ddab007b7348d6dcc8cf002c3}{Aplication::buscarRegistrosPorCedula}},\ \textcolor{keyword}{this})));}
+\DoxyCodeLine{00024\ \ \ \ \ menu.\mbox{\hyperlink{class_menu_a773798ff9db275743fd59f730110ec45}{add}}(\mbox{\hyperlink{class_menu_item}{MenuItem}}(\textcolor{stringliteral}{"{}Extras"{}},\ std::bind(\&\mbox{\hyperlink{class_aplication_a73f5800322f502de27181f67bbb620c0}{Aplication::extras}},\ \textcolor{keyword}{this})));}
+\DoxyCodeLine{00025\ \ \ \ \ menu.\mbox{\hyperlink{class_menu_a773798ff9db275743fd59f730110ec45}{add}}(\mbox{\hyperlink{class_menu_item}{MenuItem}}(\textcolor{stringliteral}{"{}Salir"{}},\ std::bind(\&\mbox{\hyperlink{class_aplication_a7d24b6cea997ad5e2f50a68e4a54a6c6}{Aplication::salir}},\textcolor{keyword}{this})));}
+\DoxyCodeLine{00026\ \ \ \ \ menu.\mbox{\hyperlink{class_menu_a35656cd130e24d69383a5c9d0a73a38c}{run}}();}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00033\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_aplication_a0cd11c4d095cc290adc1d62d96f76613}{Aplication::registroNuevoEmpleado}}()}
+\DoxyCodeLine{00034\ \{}
+\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{class_empleado}{Empleado}}\ persona;}
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{class_validar_datos}{ValidarDatos}}\ validar;}
+\DoxyCodeLine{00037\ \ \ \ \ \mbox{\hyperlink{class_lista}{Lista<Empleado>}}\ lista;}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{float}\ sueldo;}
+\DoxyCodeLine{00039\ \ \ \ \ std::string\ cedula,\ nombre,\ apellido;}
+\DoxyCodeLine{00040\ \ \ \ \ \mbox{\hyperlink{class_fecha}{Fecha}}\ fechaNacimiento;}
+\DoxyCodeLine{00041\ \ \ \ \ \mbox{\hyperlink{class_arbol_binario}{ArbolBinario<float>}}\ arbol;}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{class_manejo_archivos_a45aebca41f4fc4b1618748336b8c6b61}{ManejoArchivos::cargarPersonas}}(\textcolor{stringliteral}{"{}personas.txt"{}},\ lista);}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ system(\textcolor{stringliteral}{"{}cls"{}});}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Registro\ de\ nuevo\ empleado."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nIngrese\ la\ cedula:\ "{}};}
+\DoxyCodeLine{00050\ \ \ \ \ cedula\ =\ validar.\mbox{\hyperlink{class_validar_datos_afaa19ef0398a6e4bba3c6ab3cd642609}{ingresarCedulaValida}}();}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordflow}{if}(!lista.\mbox{\hyperlink{class_lista_a1a6e7bbb08f2a2125b0d2fdd05324acd}{cedulaEnLista}}(cedula))\{}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Ingrese\ el\ nombre:\ "{}};}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ nombre=\ validar.\mbox{\hyperlink{class_validar_datos_aa0b4f800b266dd7fa3a53b2d03e741d7}{validarNombreYApellido}}(nombre);}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Ingrese\ el\ apellido:\ "{}};}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ apellido=\ validar.\mbox{\hyperlink{class_validar_datos_aa0b4f800b266dd7fa3a53b2d03e741d7}{validarNombreYApellido}}(apellido);}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Ingrese\ el\ sueldo:\ "{}};}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ sueldo=validar.\mbox{\hyperlink{class_validar_datos_a40c248a1b51e3885ffd90983b579866f}{validarFloat}}();}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ arbol.\mbox{\hyperlink{class_arbol_binario_a3d373194fd3ded22f9fa938b857cc1b2}{insertarNodo}}(sueldo);}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\_\_Fecha\ de\ nacimiento\_\_"{}}<<\ std::endl;}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ fechaNacimiento.\mbox{\hyperlink{class_fecha_a7c7c14b983f643aa1f9537e4085fe670}{validarFechaNacimiento}}(fechaNacimiento);}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ persona.\mbox{\hyperlink{class_empleado_a2bc0aaa57c32d7514e2892222bc7307d}{setSueldo}}(sueldo);}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ persona.\mbox{\hyperlink{class_persona_a648bee596e613fafe572233fcf056629}{setCedula}}(cedula);}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ persona.\mbox{\hyperlink{class_persona_ab4b331332fcf898454886d4ce2afbc6d}{setNombre}}(nombre);}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ persona.\mbox{\hyperlink{class_persona_a7a6550f0902d889ea95d713aafed9dd1}{setApellido}}(apellido);}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ persona.\mbox{\hyperlink{class_persona_aa062e5e7a5c9fc592493ee1bb04053ec}{setFechaNacimiento}}(fechaNacimiento);}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ lista.\mbox{\hyperlink{class_lista_ac36b9a2f52024fd668b65fd5a3ac691b}{insertar}}(persona);}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_manejo_archivos_a697ee24146ea695d0a89633838fc87c5}{ManejoArchivos::guardarPersonas}}(\textcolor{stringliteral}{"{}personas.txt"{}},\ lista);}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Persona\ guardada\ con\ exito."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\ Ya\ se\ \ encuentra\ registrado!!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00082\ \ \ \ \ \}}
+\DoxyCodeLine{00083\ \ \ \ \ }
+\DoxyCodeLine{00084\ \}}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00089\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_aplication_a264174ed5b47908d48077a29030846be}{Aplication::registrarEntrada}}()\{}
+\DoxyCodeLine{00090\ \ \ \ \ }
+\DoxyCodeLine{00091\ \ \ \ \ \mbox{\hyperlink{class_registro}{Registro}}\ registro;}
+\DoxyCodeLine{00092\ \ \ \ \ \mbox{\hyperlink{class_lista}{Lista<Registro>}}\ listaRegistro;}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \ \ \mbox{\hyperlink{class_validar_datos}{ValidarDatos}}\ validar;}
+\DoxyCodeLine{00095\ \ \ \ \ std::string\ cedula,\ estado;}
+\DoxyCodeLine{00096\ \ \ \ \ \mbox{\hyperlink{class_fecha}{Fecha}}\ entrada,\ salida,\ eTmp,\ sTmp;}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \ \ \ \ estado\ =\ \textcolor{stringliteral}{"{}Entrada"{}};}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \ \ \ \ \mbox{\hyperlink{class_manejo_archivos_a34534125d401880dbb63abc4c3af017f}{ManejoArchivos::cargarRegistros}}(\textcolor{stringliteral}{"{}registros.txt"{}},\ listaRegistro);}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \ \ \ \ system(\textcolor{stringliteral}{"{}cls"{}});}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)nIngrese\ la\ cedula:\ "{}};}
+\DoxyCodeLine{00105\ \ \ \ \ }
+\DoxyCodeLine{00106\ \ \ \ \ cedula\ =\ validar.\mbox{\hyperlink{class_validar_datos_afaa19ef0398a6e4bba3c6ab3cd642609}{ingresarCedulaValida}}();}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keywordflow}{if}\ (listaRegistro.\mbox{\hyperlink{class_lista_aef3dc6d88979bd574846c62b364045b0}{listaVacia}}())\ \{}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ estado\ =\ \textcolor{stringliteral}{"{}Entrada"{}};}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ entrada\ =\ \mbox{\hyperlink{class_fecha_a75a3568767c5b2edfe03300552a4a543}{Fecha::getFechaActual}}(entrada);}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ salida\ =\ \mbox{\hyperlink{class_fecha_a75a3568767c5b2edfe03300552a4a543}{Fecha::getFechaActual}}(salida);}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ registro.\mbox{\hyperlink{class_registro_a3a3da21498661a9edd62232a87c03e28}{setCedula}}(cedula);}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ registro.\mbox{\hyperlink{class_registro_ad89309a80198a4d050c91c272f16c2dd}{setEntrada}}(entrada);}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ registro.\mbox{\hyperlink{class_registro_acf5ee6da02fa4fe024ea70c5881828f3}{setSalida}}(salida);}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ registro.\mbox{\hyperlink{class_registro_afec8ea07efc85a5892042ff817354134}{setEstado}}(estado);}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ listaRegistro.\mbox{\hyperlink{class_lista_ac36b9a2f52024fd668b65fd5a3ac691b}{insertar}}(registro);}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_manejo_archivos_ae1109440487bd5a24bd33e844e1507fb}{ManejoArchivos::guardarRegistros}}(\textcolor{stringliteral}{"{}registros.txt"{}},\ listaRegistro);}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00119\ \ \ \ \ \}}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keywordflow}{if}\ (listaRegistro.\mbox{\hyperlink{class_lista_ae43f00963373ea579f25f9c425216e0e}{buscarUltimo}}(cedula)\ ==\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ estado\ =\ \textcolor{stringliteral}{"{}Entrada"{}};}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ entrada\ =\ \mbox{\hyperlink{class_fecha_a75a3568767c5b2edfe03300552a4a543}{Fecha::getFechaActual}}(entrada);}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ salida\ =\ \mbox{\hyperlink{class_fecha_a75a3568767c5b2edfe03300552a4a543}{Fecha::getFechaActual}}(salida);}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ registro.\mbox{\hyperlink{class_registro_a3a3da21498661a9edd62232a87c03e28}{setCedula}}(cedula);}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ registro.\mbox{\hyperlink{class_registro_ad89309a80198a4d050c91c272f16c2dd}{setEntrada}}(entrada);}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ registro.\mbox{\hyperlink{class_registro_acf5ee6da02fa4fe024ea70c5881828f3}{setSalida}}(salida);}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ registro.\mbox{\hyperlink{class_registro_afec8ea07efc85a5892042ff817354134}{setEstado}}(estado);}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ listaRegistro.\mbox{\hyperlink{class_lista_ac36b9a2f52024fd668b65fd5a3ac691b}{insertar}}(registro);}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_manejo_archivos_ae1109440487bd5a24bd33e844e1507fb}{ManejoArchivos::guardarRegistros}}(\textcolor{stringliteral}{"{}registros.txt"{}},\ listaRegistro);}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00132\ \ \ \ \ \}}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \ \ \ \ \mbox{\hyperlink{class_nodo}{Nodo<Registro>}}\ *tmp\ =\ listaRegistro.\mbox{\hyperlink{class_lista_ae43f00963373ea579f25f9c425216e0e}{buscarUltimo}}(cedula);\ }
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keywordflow}{if}(tmp)\{}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(tmp-\/>\mbox{\hyperlink{class_nodo_a754c21bd149591475694a12dcb031655}{getValor}}().getEstado()\ ==\ \textcolor{stringliteral}{"{}Entrada"{}})\{}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ estado\ =\ \textcolor{stringliteral}{"{}Salida"{}};}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00140\ \ \ \ \ \}}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \ \ \ \ eTmp\ =\ tmp-\/>\mbox{\hyperlink{class_nodo_a754c21bd149591475694a12dcb031655}{getValor}}().getEntrada();}
+\DoxyCodeLine{00143\ \ \ \ \ sTmp\ =\ tmp-\/>\mbox{\hyperlink{class_nodo_a754c21bd149591475694a12dcb031655}{getValor}}().getSalida();}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keywordflow}{if}(estado\ ==\ \textcolor{stringliteral}{"{}Salida"{}})\{}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ registro.\mbox{\hyperlink{class_registro_a3a3da21498661a9edd62232a87c03e28}{setCedula}}(cedula);}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ salida\ =\ \mbox{\hyperlink{class_fecha_a75a3568767c5b2edfe03300552a4a543}{Fecha::getFechaActual}}(salida);}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ registro.\mbox{\hyperlink{class_registro_acf5ee6da02fa4fe024ea70c5881828f3}{setSalida}}(salida);}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ registro.\mbox{\hyperlink{class_registro_ad89309a80198a4d050c91c272f16c2dd}{setEntrada}}(eTmp);}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ registro.\mbox{\hyperlink{class_registro_afec8ea07efc85a5892042ff817354134}{setEstado}}(estado);}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ tmp-\/>\mbox{\hyperlink{class_nodo_a4e670eeb888eb0429b78c626cddf4ecf}{setValor}}(registro);}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_manejo_archivos_ae1109440487bd5a24bd33e844e1507fb}{ManejoArchivos::guardarRegistros}}(\textcolor{stringliteral}{"{}registros.txt"{}},\ listaRegistro);}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00154\ \ \ \ \ \}}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{keywordflow}{if}(estado\ ==\ \textcolor{stringliteral}{"{}Entrada"{}})\{}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ registro.\mbox{\hyperlink{class_registro_a3a3da21498661a9edd62232a87c03e28}{setCedula}}(cedula);}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ entrada\ =\ \mbox{\hyperlink{class_fecha_a75a3568767c5b2edfe03300552a4a543}{Fecha::getFechaActual}}(entrada);}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ salida\ =\ \mbox{\hyperlink{class_fecha_a75a3568767c5b2edfe03300552a4a543}{Fecha::getFechaActual}}(salida);}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ registro.\mbox{\hyperlink{class_registro_ad89309a80198a4d050c91c272f16c2dd}{setEntrada}}(entrada);}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ registro.\mbox{\hyperlink{class_registro_acf5ee6da02fa4fe024ea70c5881828f3}{setSalida}}(salida);}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ registro.\mbox{\hyperlink{class_registro_afec8ea07efc85a5892042ff817354134}{setEstado}}(estado);}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ listaRegistro.\mbox{\hyperlink{class_lista_ac36b9a2f52024fd668b65fd5a3ac691b}{insertar}}(registro);}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_manejo_archivos_ae1109440487bd5a24bd33e844e1507fb}{ManejoArchivos::guardarRegistros}}(\textcolor{stringliteral}{"{}registros.txt"{}},\ listaRegistro);}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00166\ \ \ \ \ \}}
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00168\ \}}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00173\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_aplication_ae426f746e03a2cd3eb67afcb563e7614}{Aplication::mostrarPersonasRegistradas}}()}
+\DoxyCodeLine{00174\ \{}
+\DoxyCodeLine{00175\ \ \ \ \ \mbox{\hyperlink{class_lista}{Lista<Empleado>}}\ lista;}
+\DoxyCodeLine{00176\ \ \ \ \ \mbox{\hyperlink{class_manejo_archivos_a45aebca41f4fc4b1618748336b8c6b61}{ManejoArchivos::cargarPersonas}}(\textcolor{stringliteral}{"{}personas.txt"{}},\ lista);}
+\DoxyCodeLine{00177\ \ \ \ \ \mbox{\hyperlink{class_arbol_binario}{ArbolBinario<float>}}\ arbol;}
+\DoxyCodeLine{00178\ \ \ \ \ }
+\DoxyCodeLine{00179\ \ \ \ \ \textcolor{keywordflow}{if}\ (lista.\mbox{\hyperlink{class_lista_aef3dc6d88979bd574846c62b364045b0}{listaVacia}}())\{}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}No\ hay\ personas\ registradas."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00182\ \ \ \ \ \}}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00184\ \ \ \ \ \mbox{\hyperlink{class_nodo}{Nodo<Empleado>}}\ *tmp\ =\ lista.\mbox{\hyperlink{class_lista_aedc01eb857298c94c25c17676f1fef93}{getPrimero}}();}
+\DoxyCodeLine{00185\ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ lista.\mbox{\hyperlink{class_lista_a38a8d54e10ed9bbef62aefefc9d81365}{size}}();\ i++)\{}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ arbol.\mbox{\hyperlink{class_arbol_binario_a3d373194fd3ded22f9fa938b857cc1b2}{insertarNodo}}(tmp-\/>\mbox{\hyperlink{class_nodo_a754c21bd149591475694a12dcb031655}{getValor}}().getSueldo());}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ tmp\ =\ tmp-\/>\mbox{\hyperlink{class_nodo_ad3c9f0b404f3c0f585133bf91db7279d}{getSiguiente}}();}
+\DoxyCodeLine{00188\ \ \ \ \ \}}
+\DoxyCodeLine{00189\ }
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00191\ \ \ \ \ lista.\mbox{\hyperlink{class_lista_ab0eaab29492253b79757b25308f1b489}{mostrar}}();}
+\DoxyCodeLine{00192\ \}}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00197\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_aplication_a01757533dd69db8101f585b15c46babc}{Aplication::mostrarRegistros}}()}
+\DoxyCodeLine{00198\ \{}
+\DoxyCodeLine{00199\ \ \ \ \ \mbox{\hyperlink{class_lista}{Lista<Registro>}}\ lista;}
+\DoxyCodeLine{00200\ \ \ \ \ \mbox{\hyperlink{class_manejo_archivos_a34534125d401880dbb63abc4c3af017f}{ManejoArchivos::cargarRegistros}}(\textcolor{stringliteral}{"{}registros.txt"{}},\ lista);}
+\DoxyCodeLine{00201\ \ \ \ \ \textcolor{keywordflow}{if}\ (lista.\mbox{\hyperlink{class_lista_aef3dc6d88979bd574846c62b364045b0}{listaVacia}}())\{}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}No\ hay\ registros."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00203\ \ \ \ \ \}}
+\DoxyCodeLine{00204\ \ \ \ \ lista.\mbox{\hyperlink{class_lista_ab0eaab29492253b79757b25308f1b489}{mostrar}}();}
+\DoxyCodeLine{00205\ \}}
+\DoxyCodeLine{00206\ }
+\DoxyCodeLine{00214\ \textcolor{comment}{//\ Función\ de\ partición\ para\ el\ Quicksort}}
+\DoxyCodeLine{00215\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_aplication_8cpp_a8ad478b7f735f90cdafc2e65ed44e44b}{partition}}(std::vector<float>\&\ arr,\ \textcolor{keywordtype}{int}\ low,\ \textcolor{keywordtype}{int}\ high)\ \{}
+\DoxyCodeLine{00216\ \ \ \ \ \textcolor{keywordtype}{float}\ pivot\ =\ arr[high];}
+\DoxyCodeLine{00217\ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ low\ -\/\ 1;}
+\DoxyCodeLine{00218\ }
+\DoxyCodeLine{00219\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ low;\ j\ <=\ high\ -\/\ 1;\ j++)\ \{}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (arr[j]\ <=\ pivot)\ \{}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \ \ \ \ i++;}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \ \ \ \ std::swap(arr[i],\ arr[j]);}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00224\ \ \ \ \ \}}
+\DoxyCodeLine{00225\ \ \ \ \ std::swap(arr[i\ +\ 1],\ arr[high]);}
+\DoxyCodeLine{00226\ \ \ \ \ \textcolor{keywordflow}{return}\ i\ +\ 1;}
+\DoxyCodeLine{00227\ \}}
+\DoxyCodeLine{00228\ }
+\DoxyCodeLine{00235\ \textcolor{comment}{//\ Implementación\ del\ algoritmo\ Quicksort}}
+\DoxyCodeLine{00236\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_aplication_8cpp_adde30071bdaf4d0b0ab16fcc1b59a788}{quicksort}}(std::vector<float>\&\ arr,\ \textcolor{keywordtype}{int}\ low,\ \textcolor{keywordtype}{int}\ high)\ \{}
+\DoxyCodeLine{00237\ \ \ \ \ \textcolor{keywordflow}{if}\ (low\ <\ high)\ \{}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ pi\ =\ \mbox{\hyperlink{_aplication_8cpp_a8ad478b7f735f90cdafc2e65ed44e44b}{partition}}(arr,\ low,\ high);}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_aplication_8cpp_adde30071bdaf4d0b0ab16fcc1b59a788}{quicksort}}(arr,\ low,\ pi\ -\/\ 1);}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_aplication_8cpp_adde30071bdaf4d0b0ab16fcc1b59a788}{quicksort}}(arr,\ pi\ +\ 1,\ high);}
+\DoxyCodeLine{00241\ \ \ \ \ \}}
+\DoxyCodeLine{00242\ \}}
+\DoxyCodeLine{00243\ }
+\DoxyCodeLine{00244\ }
+\DoxyCodeLine{00248\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_aplication_a7b4dcd63d5184ca3156bcd0db5bfc4d6}{Aplication::mostrarRegistrosPorCedula}}()}
+\DoxyCodeLine{00249\ \{}
+\DoxyCodeLine{00250\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ ordenarPorCedula\ =\ [](\mbox{\hyperlink{class_lista}{Lista<Registro>}}\&\ lista)\ -\/>\ \mbox{\hyperlink{class_lista}{Lista<Registro>}}\ \{}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ cedula;}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_nodo}{Nodo<Registro>}}*\ tmp\ =\ lista.getPrimero();}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ size\ =\ lista.size();}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ std::vector<int>\ arr(size);}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ cont\ =\ 0;}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (cont\ <=\ size)\ \{}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \ \ \ \ arr[cont]\ =\ std::atoi(\ tmp-\/>\mbox{\hyperlink{class_nodo_a754c21bd149591475694a12dcb031655}{getValor}}().getCedula().c\_str());}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \ \ \ \ cont++;}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \ \ \ \ tmp\ =\ tmp-\/>\mbox{\hyperlink{class_nodo_ad3c9f0b404f3c0f585133bf91db7279d}{getSiguiente}}();}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00261\ }
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ std::vector<int>\ arr2(size);}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_aplication_8cpp_adde30071bdaf4d0b0ab16fcc1b59a788}{quicksort}}(arr,\ 0,\ size\ -\/\ 1);}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ arr2\ =\ arr;}
+\DoxyCodeLine{00265\ }
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_lista}{Lista<Registro>}}\ listaOrdenada;}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_nodo}{Nodo<Registro>}}*\ tmp2\ =\ lista.getPrimero();}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ size;\ i++)}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \ \ \ \ tmp2\ =\ lista.buscarPorCedula(arr2[i]);}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ std::atoi\ (tmp2-\/>\mbox{\hyperlink{class_nodo_a754c21bd149591475694a12dcb031655}{getValor}}().getCedula().c\_str())\ ==\ arr2[i])}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ listaOrdenada.\mbox{\hyperlink{class_lista_ac36b9a2f52024fd668b65fd5a3ac691b}{insertar}}(tmp2-\/>\mbox{\hyperlink{class_nodo_a754c21bd149591475694a12dcb031655}{getValor}}());}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ listaOrdenada.\mbox{\hyperlink{class_lista_ab0eaab29492253b79757b25308f1b489}{mostrar}}();}
+\DoxyCodeLine{00279\ }
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ listaOrdenada;}
+\DoxyCodeLine{00281\ }
+\DoxyCodeLine{00282\ \ \ \ \ \};}
+\DoxyCodeLine{00283\ }
+\DoxyCodeLine{00284\ \ \ \ \ \mbox{\hyperlink{class_lista}{Lista<Registro>}}\ lista;}
+\DoxyCodeLine{00285\ \ \ \ \ \mbox{\hyperlink{class_manejo_archivos_a34534125d401880dbb63abc4c3af017f}{ManejoArchivos::cargarRegistros}}(\textcolor{stringliteral}{"{}registros.txt"{}},\ lista);}
+\DoxyCodeLine{00286\ \ \ \ \ \textcolor{keywordflow}{if}\ (lista.\mbox{\hyperlink{class_lista_aef3dc6d88979bd574846c62b364045b0}{listaVacia}}())\{}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}No\ hay\ personas\ registradas."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00288\ \ \ \ \ \}}
+\DoxyCodeLine{00289\ }
+\DoxyCodeLine{00290\ \ \ \ \ \mbox{\hyperlink{class_lista}{Lista<Registro>}}\ listaOrdenada\ =\ ordenarPorCedula(lista);}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00293\ \}}
+\DoxyCodeLine{00294\ }
+\DoxyCodeLine{00295\ }
+\DoxyCodeLine{00299\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_aplication_aca14b67537581ffea53dcffe70968017}{Aplication::mostrarEmpleadosPorSueldo}}()}
+\DoxyCodeLine{00300\ \{}
+\DoxyCodeLine{00301\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ ordenarPorSueldo\ =\ [](\mbox{\hyperlink{class_lista}{Lista<Empleado>}}\&\ lista)\ -\/>\ \mbox{\hyperlink{class_lista}{Lista<Empleado>}}\ \{}
+\DoxyCodeLine{00302\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ sueldo;}
+\DoxyCodeLine{00303\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_nodo}{Nodo<Empleado>}}*\ tmp\ =\ lista.getPrimero();}
+\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ size\ =\ lista.size();}
+\DoxyCodeLine{00305\ \ \ \ \ \ \ \ \ std::vector<float>\ arr(size);}
+\DoxyCodeLine{00306\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ cont\ =\ 0;}
+\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (cont\ <=\ size)\ \{}
+\DoxyCodeLine{00308\ \ \ \ \ \ \ \ \ \ \ \ \ arr[cont]\ =\ tmp-\/>\mbox{\hyperlink{class_nodo_a754c21bd149591475694a12dcb031655}{getValor}}().getSueldo();}
+\DoxyCodeLine{00309\ \ \ \ \ \ \ \ \ \ \ \ \ cont++;}
+\DoxyCodeLine{00310\ \ \ \ \ \ \ \ \ \ \ \ \ tmp\ =\ tmp-\/>\mbox{\hyperlink{class_nodo_ad3c9f0b404f3c0f585133bf91db7279d}{getSiguiente}}();}
+\DoxyCodeLine{00311\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00312\ }
+\DoxyCodeLine{00313\ \ \ \ \ \ \ \ \ std::vector<float>\ arr2(size);}
+\DoxyCodeLine{00314\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_aplication_8cpp_adde30071bdaf4d0b0ab16fcc1b59a788}{quicksort}}(arr,\ 0,\ size\ -\/\ 1);}
+\DoxyCodeLine{00315\ \ \ \ \ \ \ \ \ arr2\ =\ arr;}
+\DoxyCodeLine{00316\ }
+\DoxyCodeLine{00317\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_lista}{Lista<Empleado>}}\ listaOrdenada;}
+\DoxyCodeLine{00318\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_nodo}{Nodo<Empleado>}}*\ tmp2\ =\ lista.getPrimero();}
+\DoxyCodeLine{00319\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ size;\ i++)}
+\DoxyCodeLine{00320\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00321\ \ \ \ \ \ \ \ \ \ \ \ \ tmp2\ =\ lista.buscarPorSueldo(arr2[i]);}
+\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ tmp2-\/>\mbox{\hyperlink{class_nodo_a754c21bd149591475694a12dcb031655}{getValor}}().getSueldo()\ ==\ arr2[i])}
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00324\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ listaOrdenada.\mbox{\hyperlink{class_lista_ac36b9a2f52024fd668b65fd5a3ac691b}{insertar}}(tmp2-\/>\mbox{\hyperlink{class_nodo_a754c21bd149591475694a12dcb031655}{getValor}}());}
+\DoxyCodeLine{00325\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00326\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00327\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00328\ \ \ \ \ }
+\DoxyCodeLine{00329\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ listaOrdenada;}
+\DoxyCodeLine{00330\ }
+\DoxyCodeLine{00331\ \ \ \ \ \};}
+\DoxyCodeLine{00332\ }
+\DoxyCodeLine{00333\ \ \ \ \ \mbox{\hyperlink{class_lista}{Lista<Empleado>}}\ lista;}
+\DoxyCodeLine{00334\ \ \ \ \ \mbox{\hyperlink{class_manejo_archivos_a45aebca41f4fc4b1618748336b8c6b61}{ManejoArchivos::cargarPersonas}}(\textcolor{stringliteral}{"{}personas.txt"{}},\ lista);}
+\DoxyCodeLine{00335\ \ \ \ \ \textcolor{keywordflow}{if}\ (lista.\mbox{\hyperlink{class_lista_aef3dc6d88979bd574846c62b364045b0}{listaVacia}}())\{}
+\DoxyCodeLine{00336\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}No\ hay\ personas\ registradas."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00337\ \ \ \ \ \}}
+\DoxyCodeLine{00338\ }
+\DoxyCodeLine{00339\ \ \ \ \ \mbox{\hyperlink{class_lista}{Lista<Empleado>}}\ listaOrdenada\ =\ ordenarPorSueldo(lista);}
+\DoxyCodeLine{00340\ \ \ \ \ listaOrdenada.\mbox{\hyperlink{class_lista_ab0eaab29492253b79757b25308f1b489}{mostrar}}();}
+\DoxyCodeLine{00341\ \}}
+\DoxyCodeLine{00342\ }
+\DoxyCodeLine{00346\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_aplication_ae552aea6cc05212d0d75acc810479cb4}{Aplication::buscarRegistroPorFecha}}()}
+\DoxyCodeLine{00347\ \{}
+\DoxyCodeLine{00348\ \ \ \ \ \mbox{\hyperlink{class_lista}{Lista<Registro>}}\ lista;}
+\DoxyCodeLine{00349\ \ \ \ \ \mbox{\hyperlink{class_validar_datos}{ValidarDatos}}\ validar;}
+\DoxyCodeLine{00350\ \ \ \ \ \mbox{\hyperlink{class_arbol_binario}{ArbolBinario<Fecha>}}\ arbol;}
+\DoxyCodeLine{00351\ \ \ \ \ \mbox{\hyperlink{class_fecha}{Fecha}}\ fecha;}
+\DoxyCodeLine{00352\ }
+\DoxyCodeLine{00353\ \ \ \ \ \mbox{\hyperlink{class_manejo_archivos_a34534125d401880dbb63abc4c3af017f}{ManejoArchivos::cargarRegistros}}(\textcolor{stringliteral}{"{}registros.txt"{}},\ lista);}
+\DoxyCodeLine{00354\ \ \ \ \ system(\textcolor{stringliteral}{"{}cls"{}});}
+\DoxyCodeLine{00355\ }
+\DoxyCodeLine{00356\ \ \ \ \ \mbox{\hyperlink{class_nodo}{Nodo<Registro>}}\ *tmp\ =\ lista.\mbox{\hyperlink{class_lista_aedc01eb857298c94c25c17676f1fef93}{getPrimero}}();}
+\DoxyCodeLine{00357\ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ lista.\mbox{\hyperlink{class_lista_a38a8d54e10ed9bbef62aefefc9d81365}{size}}();\ i++)\{}
+\DoxyCodeLine{00358\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (tmp-\/>\mbox{\hyperlink{class_nodo_a754c21bd149591475694a12dcb031655}{getValor}}().getEstado()\ ==\ \textcolor{stringliteral}{"{}Salida"{}})}
+\DoxyCodeLine{00359\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00360\ \ \ \ \ \ \ \ \ \ \ \ \ arbol.\mbox{\hyperlink{class_arbol_binario_a3d373194fd3ded22f9fa938b857cc1b2}{insertarNodo}}(tmp-\/>\mbox{\hyperlink{class_nodo_a754c21bd149591475694a12dcb031655}{getValor}}().getSalida());}
+\DoxyCodeLine{00361\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00362\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00363\ \ \ \ \ \ \ \ \ tmp\ =\ tmp-\/>\mbox{\hyperlink{class_nodo_ad3c9f0b404f3c0f585133bf91db7279d}{getSiguiente}}();}
+\DoxyCodeLine{00364\ \ \ \ \ \}}
+\DoxyCodeLine{00365\ }
+\DoxyCodeLine{00366\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Ingrese\ una\ fecha:\ "{}}\ <<\ std::endl;}
+\DoxyCodeLine{00367\ \ \ \ \ fecha.\mbox{\hyperlink{class_fecha_afdf4d56e344b200ec4caa2f4c0885b41}{validarFecha}}(fecha);}
+\DoxyCodeLine{00368\ }
+\DoxyCodeLine{00369\ \ \ \ \ system(\textcolor{stringliteral}{"{}cls"{}});}
+\DoxyCodeLine{00370\ }
+\DoxyCodeLine{00371\ \ \ \ \ \mbox{\hyperlink{class_nodo_arbol}{NodoArbol<Fecha>}}\ *fechaA\ =\ arbol.\mbox{\hyperlink{class_arbol_binario_a9f6ed9607a63ba7881a37061a33b0a3b}{buscarNodo}}(fecha);}
+\DoxyCodeLine{00372\ }
+\DoxyCodeLine{00373\ \ \ \ \ \textcolor{keywordflow}{if}\ (fechaA)}
+\DoxyCodeLine{00374\ \ \ \ \ \{}
+\DoxyCodeLine{00375\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_nodo}{Nodo<Registro>}}\ *tmp\ =\ lista.\mbox{\hyperlink{class_lista_aedc01eb857298c94c25c17676f1fef93}{getPrimero}}();}
+\DoxyCodeLine{00376\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Los\ registros\ del\ "{}}\ <<\ fecha.\mbox{\hyperlink{class_fecha_a9f8e09d5e11a3bf9e4c234e8cd2c004a}{getDia}}()\ <<\ }
+\DoxyCodeLine{00377\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}/"{}}\ <<\ fecha.\mbox{\hyperlink{class_fecha_aa501ddd9a46effadac3f08c89140d9ac}{getMes}}()\ <<}
+\DoxyCodeLine{00378\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}/"{}}\ <<\ fecha.\mbox{\hyperlink{class_fecha_a89ebafe74bc6e5f53ad688dce1d3fc26}{getAnio}}()\ <<\ \textcolor{stringliteral}{"{}\ son:\ "{}}\ <<\ std::endl;}
+\DoxyCodeLine{00379\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ lista.\mbox{\hyperlink{class_lista_a38a8d54e10ed9bbef62aefefc9d81365}{size}}();\ i++)\{}
+\DoxyCodeLine{00380\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (fechaA-\/>\mbox{\hyperlink{class_nodo_arbol_a2ee6edd95acdf5eb16cff69347211c1b}{getDato}}()\ ==\ tmp-\/>\mbox{\hyperlink{class_nodo_a754c21bd149591475694a12dcb031655}{getValor}}().getSalida())}
+\DoxyCodeLine{00381\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00382\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tmp-\/>\mbox{\hyperlink{class_nodo_a754c21bd149591475694a12dcb031655}{getValor}}().toString();}
+\DoxyCodeLine{00383\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00384\ \ \ \ \ \ \ \ \ \ \ \ \ tmp\ =\ tmp-\/>\mbox{\hyperlink{class_nodo_ad3c9f0b404f3c0f585133bf91db7279d}{getSiguiente}}();}
+\DoxyCodeLine{00385\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00386\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00387\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00388\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}No\ se\ encontro\ registro\ para\ "{}}\ <<\ fecha.\mbox{\hyperlink{class_fecha_a9f8e09d5e11a3bf9e4c234e8cd2c004a}{getDia}}()\ <<\ }
+\DoxyCodeLine{00389\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}/"{}}\ <<\ fecha.\mbox{\hyperlink{class_fecha_aa501ddd9a46effadac3f08c89140d9ac}{getMes}}()\ <<}
+\DoxyCodeLine{00390\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}/"{}}\ <<\ fecha.\mbox{\hyperlink{class_fecha_a89ebafe74bc6e5f53ad688dce1d3fc26}{getAnio}}()\ <<\ std::endl;}
+\DoxyCodeLine{00391\ \ \ \ \ \}}
+\DoxyCodeLine{00392\ }
+\DoxyCodeLine{00393\ \}}
+\DoxyCodeLine{00394\ }
+\DoxyCodeLine{00398\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_aplication_a72b4af1ddab007b7348d6dcc8cf002c3}{Aplication::buscarRegistrosPorCedula}}()\{}
+\DoxyCodeLine{00399\ \ \ \ \ \mbox{\hyperlink{class_lista}{Lista<Registro>}}\ lista;}
+\DoxyCodeLine{00400\ \ \ \ \ \mbox{\hyperlink{class_validar_datos}{ValidarDatos}}\ validar;}
+\DoxyCodeLine{00401\ \ \ \ \ std::string\ cedula;}
+\DoxyCodeLine{00402\ \ \ \ \ \mbox{\hyperlink{class_arbol_binario}{ArbolBinario<int>}}\ arbol;}
+\DoxyCodeLine{00403\ }
+\DoxyCodeLine{00404\ \ \ \ \ \mbox{\hyperlink{class_manejo_archivos_a34534125d401880dbb63abc4c3af017f}{ManejoArchivos::cargarRegistros}}(\textcolor{stringliteral}{"{}registros.txt"{}},\ lista);}
+\DoxyCodeLine{00405\ \ \ \ \ system(\textcolor{stringliteral}{"{}cls"{}});}
+\DoxyCodeLine{00406\ }
+\DoxyCodeLine{00407\ \ \ \ \ \mbox{\hyperlink{class_nodo}{Nodo<Registro>}}\ *tmp\ =\ lista.\mbox{\hyperlink{class_lista_aedc01eb857298c94c25c17676f1fef93}{getPrimero}}();}
+\DoxyCodeLine{00408\ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ lista.\mbox{\hyperlink{class_lista_a38a8d54e10ed9bbef62aefefc9d81365}{size}}();\ i++)\{}
+\DoxyCodeLine{00409\ \ \ \ \ \ \ \ \ arbol.\mbox{\hyperlink{class_arbol_binario_a3d373194fd3ded22f9fa938b857cc1b2}{insertarNodo}}(std::atoi(tmp-\/>\mbox{\hyperlink{class_nodo_a754c21bd149591475694a12dcb031655}{getValor}}().getCedula().c\_str()));}
+\DoxyCodeLine{00410\ \ \ \ \ \ \ \ \ tmp\ =\ tmp-\/>\mbox{\hyperlink{class_nodo_ad3c9f0b404f3c0f585133bf91db7279d}{getSiguiente}}();}
+\DoxyCodeLine{00411\ \ \ \ \ \}}
+\DoxyCodeLine{00412\ }
+\DoxyCodeLine{00413\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Ingrese\ una\ cedula:\ "{}}\ <<\ std::endl;}
+\DoxyCodeLine{00414\ \ \ \ \ cedula\ =\ validar.\mbox{\hyperlink{class_validar_datos_afaa19ef0398a6e4bba3c6ab3cd642609}{ingresarCedulaValida}}();}
+\DoxyCodeLine{00415\ }
+\DoxyCodeLine{00416\ \ \ \ \ system(\textcolor{stringliteral}{"{}cls"{}});}
+\DoxyCodeLine{00417\ }
+\DoxyCodeLine{00418\ \ \ \ \ \mbox{\hyperlink{class_nodo_arbol}{NodoArbol<int>}}\ *cedA\ =\ arbol.\mbox{\hyperlink{class_arbol_binario_a9f6ed9607a63ba7881a37061a33b0a3b}{buscarNodo}}(std::atoi(cedula.c\_str()));}
+\DoxyCodeLine{00419\ }
+\DoxyCodeLine{00420\ \ \ \ \ \textcolor{keywordflow}{if}\ (cedA)}
+\DoxyCodeLine{00421\ \ \ \ \ \{}
+\DoxyCodeLine{00422\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_nodo}{Nodo<Registro>}}\ *tmp\ =\ lista.\mbox{\hyperlink{class_lista_aedc01eb857298c94c25c17676f1fef93}{getPrimero}}();}
+\DoxyCodeLine{00423\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Los\ registros\ de\ "{}}\ <<\ tmp-\/>\mbox{\hyperlink{class_nodo_a754c21bd149591475694a12dcb031655}{getValor}}().getCedula()\ <<\ \textcolor{stringliteral}{"{}\ son:"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00424\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ lista.\mbox{\hyperlink{class_lista_a38a8d54e10ed9bbef62aefefc9d81365}{size}}();\ i++)\{}
+\DoxyCodeLine{00425\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (cedA-\/>\mbox{\hyperlink{class_nodo_arbol_a2ee6edd95acdf5eb16cff69347211c1b}{getDato}}()\ ==\ std::atoi(tmp-\/>\mbox{\hyperlink{class_nodo_a754c21bd149591475694a12dcb031655}{getValor}}().getCedula().c\_str()))}
+\DoxyCodeLine{00426\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00427\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tmp-\/>\mbox{\hyperlink{class_nodo_a754c21bd149591475694a12dcb031655}{getValor}}().toString();}
+\DoxyCodeLine{00428\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00429\ \ \ \ \ \ \ \ \ \ \ \ \ tmp\ =\ tmp-\/>\mbox{\hyperlink{class_nodo_ad3c9f0b404f3c0f585133bf91db7279d}{getSiguiente}}();}
+\DoxyCodeLine{00430\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00431\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00432\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00433\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}No\ se\ encontro\ registro\ para\ "{}}\ <<\ cedula\ <<\ std::endl;}
+\DoxyCodeLine{00434\ \ \ \ \ \}}
+\DoxyCodeLine{00435\ \}}
+\DoxyCodeLine{00436\ }
+\DoxyCodeLine{00440\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_aplication_a73f5800322f502de27181f67bbb620c0}{Aplication::extras}}()\{}
+\DoxyCodeLine{00441\ \ \ \ \ \mbox{\hyperlink{class_menu}{Menu}}\ menu(\textcolor{stringliteral}{"{}Extras"{}});}
+\DoxyCodeLine{00442\ \ \ \ \ menu.\mbox{\hyperlink{class_menu_a773798ff9db275743fd59f730110ec45}{add}}(\mbox{\hyperlink{class_menu_item}{MenuItem}}(\textcolor{stringliteral}{"{}Regresar"{}},std::bind(\&\mbox{\hyperlink{class_aplication_a3f857b17fdc7f7476b2b4c217abeeba6}{Aplication::mainMenu}},\textcolor{keyword}{this})));}
+\DoxyCodeLine{00443\ \ \ \ \ menu.\mbox{\hyperlink{class_menu_a773798ff9db275743fd59f730110ec45}{add}}(\mbox{\hyperlink{class_menu_item}{MenuItem}}(\textcolor{stringliteral}{"{}BACKUP"{}},\ std::bind(\&\mbox{\hyperlink{class_aplication_a75c78d20b4cceebefdc3cc2921e576ea}{Aplication::backup}},\textcolor{keyword}{this})));}
+\DoxyCodeLine{00444\ \ \ \ \ menu.\mbox{\hyperlink{class_menu_a773798ff9db275743fd59f730110ec45}{add}}(\mbox{\hyperlink{class_menu_item}{MenuItem}}(\textcolor{stringliteral}{"{}Imprimir\ imagen\ en\ consola"{}},std::bind(\&\mbox{\hyperlink{class_aplication_a3f7d365a4db72d3e7fc4bbdc65ef0e60}{Aplication::imprimirEnConsola}},\textcolor{keyword}{this})));}
+\DoxyCodeLine{00445\ \ \ \ \ menu.\mbox{\hyperlink{class_menu_a773798ff9db275743fd59f730110ec45}{add}}(\mbox{\hyperlink{class_menu_item}{MenuItem}}(\textcolor{stringliteral}{"{}Salir"{}},\ std::bind(\&\mbox{\hyperlink{class_aplication_a7d24b6cea997ad5e2f50a68e4a54a6c6}{Aplication::salir}},\textcolor{keyword}{this})));}
+\DoxyCodeLine{00446\ \ \ \ \ menu.\mbox{\hyperlink{class_menu_a35656cd130e24d69383a5c9d0a73a38c}{run}}();}
+\DoxyCodeLine{00447\ \}}
+\DoxyCodeLine{00448\ }
+\DoxyCodeLine{00452\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_aplication_a3f857b17fdc7f7476b2b4c217abeeba6}{Aplication::mainMenu}}()\{}
+\DoxyCodeLine{00453\ \ \ \ \ system(\textcolor{stringliteral}{"{}cls"{}});}
+\DoxyCodeLine{00454\ \ \ \ \ \mbox{\hyperlink{class_aplication_ac87901cf60eb1959671f1f50a3cea806}{run}}();}
+\DoxyCodeLine{00455\ \}}
+\DoxyCodeLine{00456\ }
+\DoxyCodeLine{00460\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_aplication_a75c78d20b4cceebefdc3cc2921e576ea}{Aplication::backup}}()\{}
+\DoxyCodeLine{00461\ \ \ \ \ \mbox{\hyperlink{class_menu}{Menu}}\ menu(\textcolor{stringliteral}{"{}Backup"{}});}
+\DoxyCodeLine{00462\ \ \ \ \ menu.\mbox{\hyperlink{class_menu_a773798ff9db275743fd59f730110ec45}{add}}(\mbox{\hyperlink{class_menu_item}{MenuItem}}(\textcolor{stringliteral}{"{}Regresar"{}},std::bind(\&\mbox{\hyperlink{class_aplication_a73f5800322f502de27181f67bbb620c0}{Aplication::extras}},\textcolor{keyword}{this})));}
+\DoxyCodeLine{00463\ \ \ \ \ menu.\mbox{\hyperlink{class_menu_a773798ff9db275743fd59f730110ec45}{add}}(\mbox{\hyperlink{class_menu_item}{MenuItem}}(\textcolor{stringliteral}{"{}Generar\ Backup"{}},\ std::bind(\&\mbox{\hyperlink{class_aplication_aba69547a8acdf371cd5882dc0fa1a294}{Aplication::generarBackup}},\textcolor{keyword}{this})));}
+\DoxyCodeLine{00464\ \ \ \ \ menu.\mbox{\hyperlink{class_menu_a773798ff9db275743fd59f730110ec45}{add}}(\mbox{\hyperlink{class_menu_item}{MenuItem}}(\textcolor{stringliteral}{"{}Restaurar\ Backup"{}},std::bind(\&\mbox{\hyperlink{class_aplication_ad1c491a89718e52b96ab56ffa33f80ae}{Aplication::restaurarBackup}},\textcolor{keyword}{this})));}
+\DoxyCodeLine{00465\ \ \ \ \ menu.\mbox{\hyperlink{class_menu_a773798ff9db275743fd59f730110ec45}{add}}(\mbox{\hyperlink{class_menu_item}{MenuItem}}(\textcolor{stringliteral}{"{}Salir"{}},\ std::bind(\&\mbox{\hyperlink{class_aplication_a7d24b6cea997ad5e2f50a68e4a54a6c6}{Aplication::salir}},\textcolor{keyword}{this})));}
+\DoxyCodeLine{00466\ \ \ \ \ menu.\mbox{\hyperlink{class_menu_a35656cd130e24d69383a5c9d0a73a38c}{run}}();}
+\DoxyCodeLine{00467\ \}}
+\DoxyCodeLine{00468\ }
+\DoxyCodeLine{00472\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_aplication_ad1c491a89718e52b96ab56ffa33f80ae}{Aplication::restaurarBackup}}()\{}
+\DoxyCodeLine{00473\ \ \ \ \ system(\textcolor{stringliteral}{"{}cls"{}});}
+\DoxyCodeLine{00474\ \ \ \ \ }
+\DoxyCodeLine{00475\ \ \ \ \ std::string\ directorio\ =\ \textcolor{stringliteral}{"{}.\(\backslash\)\(\backslash\)backups\(\backslash\)\(\backslash\)"{}};}
+\DoxyCodeLine{00476\ }
+\DoxyCodeLine{00477\ \ \ \ \ \textcolor{comment}{//\ Retorna\ void\ si\ el\ directorio\ no\ existe}}
+\DoxyCodeLine{00478\ \ \ \ \ \textcolor{keywordflow}{if}\ (!std::filesystem::exists(directorio))\ \{}
+\DoxyCodeLine{00479\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}El\ directorio\ no\ existe:\ "{}}\ <<\ directorio\ <<\ std::endl;}
+\DoxyCodeLine{00480\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00481\ \ \ \ \ \}}
+\DoxyCodeLine{00482\ }
+\DoxyCodeLine{00483\ \ \ \ \ \textcolor{comment}{//\ Mostrar\ todos\ los\ archivos\ en\ el\ directorio}}
+\DoxyCodeLine{00484\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Archivos\ en\ el\ directorio:\ "{}}\ <<\ std::endl;}
+\DoxyCodeLine{00485\ }
+\DoxyCodeLine{00486\ }
+\DoxyCodeLine{00487\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ entry\ :\ std::filesystem::directory\_iterator(directorio))}
+\DoxyCodeLine{00488\ \ \ \ \ \ \ \ \ std::cout\ <<\ entry.path()\ <<\ std::endl;}
+\DoxyCodeLine{00489\ }
+\DoxyCodeLine{00490\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Ingrese\ el\ nombre\ de\ la\ carpeta\ a\ restaurar:\ "{}}\ <<\ std::endl;}
+\DoxyCodeLine{00491\ \ \ \ \ std::string\ fecha;}
+\DoxyCodeLine{00492\ \ \ \ \ std::cin\ >>\ fecha;}
+\DoxyCodeLine{00493\ }
+\DoxyCodeLine{00494\ \ \ \ \ std::string\ directorioP\ =\ directorio\ +\ fecha\ +\ \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)personas.txt"{}};}
+\DoxyCodeLine{00495\ \ \ \ \ std::string\ directorioR\ =\ directorio\ +\ fecha\ +\ \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)registros.txt"{}};}
+\DoxyCodeLine{00496\ }
+\DoxyCodeLine{00497\ \ \ \ \ Backup::copiarArchivo(directorioP,\ \textcolor{stringliteral}{"{}personas.txt"{}});}
+\DoxyCodeLine{00498\ \ \ \ \ Backup::copiarArchivo(directorioR,\ \textcolor{stringliteral}{"{}registros.txt"{}});}
+\DoxyCodeLine{00499\ }
+\DoxyCodeLine{00500\ \}}
+\DoxyCodeLine{00501\ }
+\DoxyCodeLine{00505\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_aplication_aba69547a8acdf371cd5882dc0fa1a294}{Aplication::generarBackup}}()\{}
+\DoxyCodeLine{00506\ \ \ \ \ system(\textcolor{stringliteral}{"{}cls"{}});}
+\DoxyCodeLine{00507\ }
+\DoxyCodeLine{00508\ \ \ \ \ \mbox{\hyperlink{class_fecha}{Fecha}}\ fechaActual\ =\ \mbox{\hyperlink{class_fecha_a75a3568767c5b2edfe03300552a4a543}{Fecha::getFechaActual}}(fechaActual);}
+\DoxyCodeLine{00509\ \ \ \ \ std::string\ fa\ =\ std::to\_string(fechaActual.\mbox{\hyperlink{class_fecha_a89ebafe74bc6e5f53ad688dce1d3fc26}{getAnio}}())}
+\DoxyCodeLine{00510\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .append(std::to\_string(fechaActual.\mbox{\hyperlink{class_fecha_aa501ddd9a46effadac3f08c89140d9ac}{getMes}}()))}
+\DoxyCodeLine{00511\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .append(std::to\_string(fechaActual.\mbox{\hyperlink{class_fecha_a9f8e09d5e11a3bf9e4c234e8cd2c004a}{getDia}}()))}
+\DoxyCodeLine{00512\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .append(std::to\_string(fechaActual.\mbox{\hyperlink{class_fecha_a7a128345105e12fba2241760f71facb2}{getHora}}()))}
+\DoxyCodeLine{00513\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .append(std::to\_string(fechaActual.\mbox{\hyperlink{class_fecha_a73fe73683b83448ca47e31c20f217556}{getMinuto}}()))}
+\DoxyCodeLine{00514\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .append(std::to\_string(fechaActual.\mbox{\hyperlink{class_fecha_ab88e0a6149971c518acf94ed67afeace}{getSegundo}}()));}
+\DoxyCodeLine{00515\ }
+\DoxyCodeLine{00516\ \ \ \ \ std::string\ carpeta\ =\ \textcolor{stringliteral}{"{}.\(\backslash\)\(\backslash\)backups\(\backslash\)\(\backslash\)"{}};}
+\DoxyCodeLine{00517\ \ \ \ \ std::string\ directorioP\ =\ carpeta\ +\ fa;}
+\DoxyCodeLine{00518\ \ \ \ \ std::string\ directorioR\ =\ carpeta\ +\ fa;}
+\DoxyCodeLine{00519\ }
+\DoxyCodeLine{00520\ \ \ \ \ \textcolor{keywordflow}{if}\ (!std::filesystem::exists(directorioP))\ \{}
+\DoxyCodeLine{00521\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!std::filesystem::create\_directories(directorioP))\ \{}
+\DoxyCodeLine{00522\ \ \ \ \ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Error\ al\ crear\ la\ carpeta\ de\ destino:\ "{}}\ <<\ directorioP\ <<\ std::endl;}
+\DoxyCodeLine{00523\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00524\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00525\ \ \ \ \ \}}
+\DoxyCodeLine{00526\ }
+\DoxyCodeLine{00527\ \ \ \ \ Backup::copiarArchivo(\textcolor{stringliteral}{"{}personas.txt"{}},\ directorioP\ +\ \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)personas.txt"{}});}
+\DoxyCodeLine{00528\ \ \ \ \ Backup::copiarArchivo(\textcolor{stringliteral}{"{}registros.txt"{}},\ directorioR\ +\ \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)registros.txt"{}});}
+\DoxyCodeLine{00529\ }
+\DoxyCodeLine{00530\ \}}
+\DoxyCodeLine{00531\ }
+\DoxyCodeLine{00535\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_aplication_a3f7d365a4db72d3e7fc4bbdc65ef0e60}{Aplication::imprimirEnConsola}}()\{}
+\DoxyCodeLine{00536\ \ \ \ \ system(\textcolor{stringliteral}{"{}cls"{}});}
+\DoxyCodeLine{00537\ \ \ \ \ Imagen\ imagen(\textcolor{stringliteral}{"{}image.bmp"{}});}
+\DoxyCodeLine{00538\ \ \ \ \ imagen.imprimirImagenEnConsola();}
+\DoxyCodeLine{00539\ \}}
+\DoxyCodeLine{00540\ }
+\DoxyCodeLine{00544\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_aplication_a7d24b6cea997ad5e2f50a68e4a54a6c6}{Aplication::salir}}()}
+\DoxyCodeLine{00545\ \{}
+\DoxyCodeLine{00546\ \ \ \ \ system(\textcolor{stringliteral}{"{}cls"{}});}
+\DoxyCodeLine{00547\ \ \ \ \ exit(0);}
+\DoxyCodeLine{00548\ \}}
+
+\end{DoxyCode}

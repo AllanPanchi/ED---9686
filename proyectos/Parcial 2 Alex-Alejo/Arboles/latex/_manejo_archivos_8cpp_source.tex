@@ -1,0 +1,91 @@
+\doxysection{C\+:/\+Users/\+Alex\+\_\+22/\+Desktop/\+Semestre III/\+Estructura\+DD/\+New\+Repositorio/\+ED-\/-\/-\/9686/proyectos/\+Parcial 2 Alex-\/\+Alejo/\+Arboles/\+Manejo\+Archivos.cpp}
+\hypertarget{_manejo_archivos_8cpp_source}{}\label{_manejo_archivos_8cpp_source}\mbox{\hyperlink{_manejo_archivos_8cpp}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_manejo_archivos_8h}{ManejoArchivos.h}}"{}}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \ \ \ \ \textcolor{comment}{//\ Guardar\ personas\ en\ un\ archivo\ de\ texto\ }}
+\DoxyCodeLine{00011\ \textcolor{comment}{}\ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_manejo_archivos_a697ee24146ea695d0a89633838fc87c5}{ManejoArchivos::guardarPersonas}}(\textcolor{keyword}{const}\ std::string\&\ nombreArchivo,\ \mbox{\hyperlink{class_lista}{Lista<Empleado>}}\&\ lista)\ \{}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ std::ofstream\ archivo(nombreArchivo);}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (archivo.is\_open())\ \{}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_nodo}{Nodo<Empleado>}}*\ temp\ =\ lista.\mbox{\hyperlink{class_lista_aedc01eb857298c94c25c17676f1fef93}{getPrimero}}();}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ archivo\ <<\ temp-\/>\mbox{\hyperlink{class_nodo_a754c21bd149591475694a12dcb031655}{getValor}}().getCedula()\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ temp-\/>\mbox{\hyperlink{class_nodo_a754c21bd149591475694a12dcb031655}{getValor}}().getNombre()\ }
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ temp-\/>\mbox{\hyperlink{class_nodo_a754c21bd149591475694a12dcb031655}{getValor}}().getApellido()}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ temp-\/>\mbox{\hyperlink{class_nodo_a754c21bd149591475694a12dcb031655}{getValor}}().getSueldo()}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ temp-\/>\mbox{\hyperlink{class_nodo_a754c21bd149591475694a12dcb031655}{getValor}}().getFechaNacimiento()\ <<\ std::endl;}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ temp\ =\ temp-\/>\mbox{\hyperlink{class_nodo_ad3c9f0b404f3c0f585133bf91db7279d}{getSiguiente}}();}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (temp\ !=\ lista.\mbox{\hyperlink{class_lista_aedc01eb857298c94c25c17676f1fef93}{getPrimero}}());}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ archivo.close();}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Archivo\ sobrescrito\ exitosamente."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}No\ se\ pudo\ abrir\ el\ archivo\ para\ sobrescribir."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00029\ \ \ \ \ \}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{comment}{//cargar\ registros\ en\ un\ archivo\ de\ texto}}
+\DoxyCodeLine{00038\ \textcolor{comment}{}\ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_manejo_archivos_a45aebca41f4fc4b1618748336b8c6b61}{ManejoArchivos::cargarPersonas}}(\textcolor{keyword}{const}\ std::string\&\ nombreArchivo,\ \mbox{\hyperlink{class_lista}{Lista<Empleado>}}\&\ lista)\ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ std::ifstream\ archivo(nombreArchivo);}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (archivo.is\_open())\ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ sueldo;}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ cedula,\ nombre,\ apellido;}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ dia,\ mes,\ anio,\ hora,\ minuto,\ segundo;}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (archivo\ >>\ cedula\ >>\ nombre\ >>\ apellido\ >>\ sueldo\ >>\ dia\ >>\ mes\ >>\ anio\ >>\ hora\ >>\ minuto\ >>\ segundo)\ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fecha}{Fecha}}\ fechaNacimiento(dia,\ mes,\ anio,\ hora,\ minuto,\ segundo);}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_empleado}{Empleado}}\ persona(cedula,\ nombre,\ apellido,\ fechaNacimiento,\ sueldo);}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lista.\mbox{\hyperlink{class_lista_ac36b9a2f52024fd668b65fd5a3ac691b}{insertar}}(persona);}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ archivo.close();}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}No\ se\ pudo\ abrir\ el\ archivo."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00054\ \ \ \ \ \}}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{comment}{//\ Guardar\ registros\ en\ un\ archivo\ de\ texto}}
+\DoxyCodeLine{00063\ \textcolor{comment}{}\ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_manejo_archivos_ae1109440487bd5a24bd33e844e1507fb}{ManejoArchivos::guardarRegistros}}(\textcolor{keyword}{const}\ std::string\&\ nombreArchivo,\ \mbox{\hyperlink{class_lista}{Lista<Registro>}}\&\ lista)\ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ std::ofstream\ archivo(nombreArchivo);}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (archivo.is\_open())\ \{}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_nodo}{Nodo<Registro>}}*\ temp\ =\ lista.\mbox{\hyperlink{class_lista_aedc01eb857298c94c25c17676f1fef93}{getPrimero}}();}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ archivo\ <<\ temp-\/>\mbox{\hyperlink{class_nodo_a754c21bd149591475694a12dcb031655}{getValor}}().getCedula()\ }
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ temp-\/>\mbox{\hyperlink{class_nodo_a754c21bd149591475694a12dcb031655}{getValor}}().getEntrada()\ }
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ temp-\/>\mbox{\hyperlink{class_nodo_a754c21bd149591475694a12dcb031655}{getValor}}().getSalida()}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ temp-\/>\mbox{\hyperlink{class_nodo_a754c21bd149591475694a12dcb031655}{getValor}}().getEstado()}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ temp\ =\ temp-\/>\mbox{\hyperlink{class_nodo_ad3c9f0b404f3c0f585133bf91db7279d}{getSiguiente}}();}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (temp\ !=\ lista.\mbox{\hyperlink{class_lista_aedc01eb857298c94c25c17676f1fef93}{getPrimero}}());}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ archivo.close();}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Archivo\ sobrescrito\ exitosamente."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}No\ se\ pudo\ abrir\ el\ archivo\ para\ sobrescribir."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00082\ \ \ \ \ \}}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{comment}{//cargar\ registros\ en\ un\ archivo\ de\ texto}}
+\DoxyCodeLine{00091\ \textcolor{comment}{}\ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_manejo_archivos_a34534125d401880dbb63abc4c3af017f}{ManejoArchivos::cargarRegistros}}(\textcolor{keyword}{const}\ std::string\&\ nombreArchivo,\ \mbox{\hyperlink{class_lista}{Lista<Registro>}}\&\ lista)\ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ std::ifstream\ archivo(nombreArchivo);}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (archivo.is\_open())\ \{}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ cedula,\ estado;}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ dia,\ mes,\ anio,\ hora,\ minuto,\ segundo;}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ dia2,\ mes2,\ anio2,\ hora2,\ minuto2,\ segundo2;}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (archivo\ >>\ cedula\ >>\ dia\ >>\ mes\ >>\ anio\ >>\ hora\ >>\ minuto\ >>\ segundo\ >>\ dia2\ >>\ mes2\ >>\ anio2\ >>\ hora2\ >>\ minuto2\ >>\ segundo2\ >>\ estado)\ \{}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fecha}{Fecha}}\ entrada(dia,\ mes,\ anio,\ hora,\ minuto,\ segundo);}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fecha}{Fecha}}\ salida(dia2,\ mes2,\ anio2,\ hora2,\ minuto2,\ segundo2);}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_registro}{Registro}}\ registro(cedula,\ entrada,\ salida,\ estado);}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lista.\mbox{\hyperlink{class_lista_ac36b9a2f52024fd668b65fd5a3ac691b}{insertar}}(registro);}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ archivo.close();}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}No\ se\ pudo\ abrir\ el\ archivo."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00109\ \ \ \ \ \}}
+\DoxyCodeLine{00110\ }
+
+\end{DoxyCode}

@@ -1,0 +1,61 @@
+\doxysection{C\+:/\+Users/\+Alex\+\_\+22/\+Desktop/\+Semestre III/\+Estructura\+DD/\+New\+Repositorio/\+ED-\/-\/-\/9686/proyectos/\+Parcial 2 Alex-\/\+Alejo/\+Arboles/\+Menu.h}
+\hypertarget{_menu_8h_source}{}\label{_menu_8h_source}\mbox{\hyperlink{_menu_8h}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <functional>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_menu_item}{MenuItem}}\ \{}
+\DoxyCodeLine{00019\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{class_menu_item_a2fa54a2c8e7bbc9ba530fb168f9b8340}{MenuItem}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{class_menu_item_a2fa54a2c8e7bbc9ba530fb168f9b8340}{MenuItem}}(}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{class_menu_item_aacac38cc406e4eeae6e50e0e95825e11}{label}},}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ std::function<\textcolor{keywordtype}{void}()>\ \mbox{\hyperlink{class_menu_item_a55b069894b10a11603aaeb602dd40e40}{action}}\ =\ []\ \{\},}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_menu_item_a5f55bf1afbd5b51e70a818a13039aeda}{must\_wait}}\ =\ \textcolor{keyword}{true},}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_menu_item_a2090f68a9873698f8ae01f1f40fcbac1}{is\_enabled}}\ =\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{class_menu_item_a2fa54a2c8e7bbc9ba530fb168f9b8340}{MenuItem}}(}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ std::function<std::string()>\ \mbox{\hyperlink{class_menu_item_aacac38cc406e4eeae6e50e0e95825e11}{label}},}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ std::function<\textcolor{keywordtype}{void}()>\ \mbox{\hyperlink{class_menu_item_a55b069894b10a11603aaeb602dd40e40}{action}}\ =\ []\ \{\},}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_menu_item_a5f55bf1afbd5b51e70a818a13039aeda}{must\_wait}}\ =\ \textcolor{keyword}{true},}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_menu_item_a2090f68a9873698f8ae01f1f40fcbac1}{is\_enabled}}\ =\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \mbox{\hyperlink{class_menu_item}{MenuItem}}\&\ \mbox{\hyperlink{class_menu_item_ab23cfb1dd4d1467112cf7b03719df570}{enabled}}(\textcolor{keywordtype}{bool}\ value);}
+\DoxyCodeLine{00033\ \ \ \ \ \mbox{\hyperlink{class_menu_item}{MenuItem}}\&\ \mbox{\hyperlink{class_menu_item_ab23cfb1dd4d1467112cf7b03719df570}{enabled}}(std::function<\textcolor{keywordtype}{bool}()>\ callable);}
+\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{class_menu_item}{MenuItem}}\&\ \mbox{\hyperlink{class_menu_item_a4c8e0fe77697bd18abbc9d99ac403780}{wait}}(\textcolor{keywordtype}{bool}\ value);}
+\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{class_menu_item}{MenuItem}}\&\ \mbox{\hyperlink{class_menu_item_a4c8e0fe77697bd18abbc9d99ac403780}{wait}}(std::function<\textcolor{keywordtype}{bool}()>\ callable);}
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{class_menu_item}{MenuItem}}\&\ \mbox{\hyperlink{class_menu_item_a55b069894b10a11603aaeb602dd40e40}{action}}(std::function<\textcolor{keywordtype}{void}()>\ callback);}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_menu_item_aacac38cc406e4eeae6e50e0e95825e11}{label}}(std::string\ \mbox{\hyperlink{class_menu_item_aacac38cc406e4eeae6e50e0e95825e11}{label}});}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ std::string\ \mbox{\hyperlink{class_menu_item_aacac38cc406e4eeae6e50e0e95825e11}{label}}();}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_menu_item_a2090f68a9873698f8ae01f1f40fcbac1}{is\_enabled}}();}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_menu_item_a5f55bf1afbd5b51e70a818a13039aeda}{must\_wait}}();}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_menu_item_a79009355b6318c4dac70d105878af4ed}{exec}}();}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00046\ \ \ \ \ std::function<std::string()>\ label\_\ =\ []\ \{\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}[unamed]"{}};\ \};}
+\DoxyCodeLine{00047\ \ \ \ \ std::function<bool()>\ must\_wait\_\ =\ []\ \{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};\ \};}
+\DoxyCodeLine{00048\ \ \ \ \ std::function<bool()>\ is\_enabled\_\ =\ []\ \{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};\ \};}
+\DoxyCodeLine{00049\ \ \ \ \ std::function<void()>\ action\_\ =\ []\ \{\};}
+\DoxyCodeLine{00050\ \};}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_menu}{Menu}}\ \{}
+\DoxyCodeLine{00053\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00054\ \ \ \ \ \mbox{\hyperlink{class_menu}{Menu}}(std::string\ title\ =\ \textcolor{stringliteral}{"{}Menu"{}});}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_menu_a773798ff9db275743fd59f730110ec45}{add}}(\mbox{\hyperlink{class_menu_item}{MenuItem}}\ option);}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_menu_a35656cd130e24d69383a5c9d0a73a38c}{run}}();}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_menu_a14199ea81c4618e3cb599d58e0633db0}{stop}}();}
+\DoxyCodeLine{00058\ \ \ \ \ \mbox{\hyperlink{class_menu_item}{MenuItem}}\ \mbox{\hyperlink{class_menu_a368049381298ddba6652e2a608bd7551}{exit\_item}}(std::string\ label\ =\ \textcolor{stringliteral}{"{}Exit"{}});}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{bool}\ running\_\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00062\ \ \ \ \ std::string\ title\_;}
+\DoxyCodeLine{00063\ \ \ \ \ std::vector<MenuItem>\ items\_;}
+\DoxyCodeLine{00064\ \};}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ }
+
+\end{DoxyCode}

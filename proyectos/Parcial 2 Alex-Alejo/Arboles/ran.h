@@ -1,3 +1,12 @@
+/**
+ * @file ran.h
+ * @brief 
+ * @version 0.1
+ * @date 2023-07-23
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
 #ifndef RANG_DOT_HPP
 #define RANG_DOT_HPP
 

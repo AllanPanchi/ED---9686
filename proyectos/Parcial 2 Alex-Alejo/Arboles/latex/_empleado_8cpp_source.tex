@@ -1,0 +1,40 @@
+\doxysection{C\+:/\+Users/\+Alex\+\_\+22/\+Desktop/\+Semestre III/\+Estructura\+DD/\+New\+Repositorio/\+ED-\/-\/-\/9686/proyectos/\+Parcial 2 Alex-\/\+Alejo/\+Arboles/\+Empleado.cpp}
+\hypertarget{_empleado_8cpp_source}{}\label{_empleado_8cpp_source}\mbox{\hyperlink{_empleado_8cpp}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_empleado_8h}{Empleado.h}}"{}}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00013\ \mbox{\hyperlink{class_empleado_a22a7deac13138e72c2db2a9e68032835}{Empleado::Empleado}}(std::string\ cedula,\ std::string\ nombre,\ std::string\ apellido,\ \mbox{\hyperlink{class_fecha}{Fecha}}\ fechaNacimiento,\ \textcolor{keywordtype}{float}\ sueldo)\ :\ \mbox{\hyperlink{class_persona}{Persona}}(cedula,\ nombre,\ apellido,\ fechaNacimiento)}
+\DoxyCodeLine{00014\ \{}
+\DoxyCodeLine{00015\ \ \ \ \ this-\/>sueldo\ =\ sueldo;}
+\DoxyCodeLine{00016\ \}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00023\ \mbox{\hyperlink{class_empleado_a22a7deac13138e72c2db2a9e68032835}{Empleado::Empleado}}()}
+\DoxyCodeLine{00024\ \{}
+\DoxyCodeLine{00025\ \ \ \ \ this-\/>sueldo\ =\ 0;}
+\DoxyCodeLine{00026\ \}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00032\ \mbox{\hyperlink{class_empleado_a33d55f43bb25d867dba782c6d89cdc7d}{Empleado::\string~Empleado}}()}
+\DoxyCodeLine{00033\ \{}
+\DoxyCodeLine{00034\ \}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00041\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_empleado_a6813b4319735a2a326fb2e453668fbbf}{Empleado::getSueldo}}()\{}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>sueldo;}
+\DoxyCodeLine{00043\ \}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00050\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_empleado_a2bc0aaa57c32d7514e2892222bc7307d}{Empleado::setSueldo}}(\textcolor{keywordtype}{float}\ sueldo)\{}
+\DoxyCodeLine{00051\ \ \ \ \ this-\/>sueldo\ =\ sueldo;}
+\DoxyCodeLine{00052\ \}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00058\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_empleado_ab6e1684ff787d3318d191dfae9e107c0}{Empleado::toString}}()\{}
+\DoxyCodeLine{00059\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Cedula:\ "{}}\ <<\ this-\/>\mbox{\hyperlink{class_persona_a0259a425c8eb815a4b092f079bb9563b}{getCedula}}()\ <<\ std::endl;}
+\DoxyCodeLine{00060\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Nombre:\ "{}}\ <<\ this-\/>\mbox{\hyperlink{class_persona_a187ba880dc057e16c0e6d7263c16b412}{getNombre}}()\ <<\ std::endl;}
+\DoxyCodeLine{00061\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Apellido:\ "{}}\ <<\ this-\/>\mbox{\hyperlink{class_persona_a53525215b2095be68d36f69e2f7a2103}{getApellido}}()\ <<\ std::endl;}
+\DoxyCodeLine{00062\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Fecha\ de\ nacimiento:\ "{}}\ <<\ this-\/>\mbox{\hyperlink{class_persona_ab14641fbe1e093e67110b83fc53b5c96}{getFechaNacimiento}}().\mbox{\hyperlink{class_fecha_a9f8e09d5e11a3bf9e4c234e8cd2c004a}{getDia}}()\ }
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}/"{}}\ <<\ this-\/>\mbox{\hyperlink{class_persona_ab14641fbe1e093e67110b83fc53b5c96}{getFechaNacimiento}}().\mbox{\hyperlink{class_fecha_aa501ddd9a46effadac3f08c89140d9ac}{getMes}}()\ }
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}/"{}}\ <<\ this-\/>\mbox{\hyperlink{class_persona_ab14641fbe1e093e67110b83fc53b5c96}{getFechaNacimiento}}().\mbox{\hyperlink{class_fecha_a89ebafe74bc6e5f53ad688dce1d3fc26}{getAnio}}()}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{00066\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Sueldo:\ "{}}\ <<\ this-\/>sueldo\ <<\ std::endl;}
+\DoxyCodeLine{00067\ \}}
+
+\end{DoxyCode}

@@ -12,6 +12,17 @@ Fecha de modificación: 15/06/2023
 Ordenamiento de lista circular doblemente enlazadas
 */
 
+/**
+ * @file Persona.h
+ * @author Alejandro Andrade - Alex Trejo  
+ * @brief 
+ * @version 0.1
+ * @date 2023-07-23
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
+
 #include <iostream>
 #include "Fecha.cpp"
 

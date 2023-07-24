@@ -1,0 +1,425 @@
+\doxysection{Referencia de la plantilla de la clase Lista\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>}}
+\hypertarget{class_lista}{}\label{class_lista}\index{Lista$<$ T $>$@{Lista$<$ T $>$}}
+
+
+{\ttfamily \#include $<$Lista.\+h$>$}
+
+\doxysubsubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_nodo}{Nodo}}$<$ T $>$ \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_lista_aedc01eb857298c94c25c17676f1fef93}{get\+Primero}} ()
+\begin{DoxyCompactList}\small\item\em Get the Primero object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_nodo}{Nodo}}$<$ T $>$ \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_lista_a0d8dc8c81b0bf5c1241f158c428edacd}{get\+Actual}} ()
+\begin{DoxyCompactList}\small\item\em Get the Actual object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_lista_afb7bdcb2a2dd1afea8de86adeda5d63d}{set\+Primero}} (\mbox{\hyperlink{class_nodo}{Nodo}}$<$ T $>$ \texorpdfstring{$\ast$}{*}primero)
+\begin{DoxyCompactList}\small\item\em Set the Primero object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_lista_a5204422532b51048c8e6c4f146be8a18}{set\+Actual}} (\mbox{\hyperlink{class_nodo}{Nodo}}$<$ T $>$ \texorpdfstring{$\ast$}{*}actual)
+\begin{DoxyCompactList}\small\item\em Set the Actual object. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_lista_a38a8d54e10ed9bbef62aefefc9d81365}{size}} ()
+\begin{DoxyCompactList}\small\item\em Get the Size object. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_lista_aef3dc6d88979bd574846c62b364045b0}{lista\+Vacia}} ()
+\begin{DoxyCompactList}\small\item\em Get the Size object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_lista_adce924e21607848663132290be1a959d}{Lista}} ()
+\begin{DoxyCompactList}\small\item\em Construct a new Lista$<$ T$>$\+:: \doxylink{class_lista}{Lista} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_lista_ac36b9a2f52024fd668b65fd5a3ac691b}{insertar}} (T registro)
+\begin{DoxyCompactList}\small\item\em Insertar un registro en la lista. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_lista_a7cadfe439c6a77bf2d4e78385f226d49}{eliminar}} (std\+::string cedula)
+\begin{DoxyCompactList}\small\item\em Eliminar un registro de la lista por medio de la cedula. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_nodo}{Nodo}}$<$ T $>$ \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_lista_ac258b9bc0d6ebfe58ad98bc50329dd2d}{buscar}} (std\+::string cedula)
+\begin{DoxyCompactList}\small\item\em Buscar un registro en la lista por medio del atributo cedula que es string y retornarlo. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_nodo}{Nodo}}$<$ T $>$ \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_lista_a28fdde5737ef87d184356327865621a8}{buscar\+Por\+Sueldo}} (float sueldo)
+\begin{DoxyCompactList}\small\item\em Buscar un registro en la lista por medio del atributo sueldo que es float y retornarlo. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_nodo}{Nodo}}$<$ T $>$ \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_lista_a7fa6a50fcef16438b730ccbe26dec98f}{buscar\+Por\+Cedula}} (int cedula)
+\begin{DoxyCompactList}\small\item\em Buscar un registro en la lista por medio del atributo nombre que es string y retornarlo. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_nodo}{Nodo}}$<$ T $>$ \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_lista_ae43f00963373ea579f25f9c425216e0e}{buscar\+Ultimo}} (std\+::string cedula)
+\begin{DoxyCompactList}\small\item\em Buscar un registro en la lista por medio del atributo nombre que es string y retornarlo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_lista_ab2c8ceb393b77fe8ecf53f1a3e1ad189}{actualizar\+Estado}} (\mbox{\hyperlink{class_nodo}{Nodo}}$<$ T $>$ \texorpdfstring{$\ast$}{*}actual, T dato)
+\begin{DoxyCompactList}\small\item\em Actualizar el estado de un registro la lista. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_lista_ab0eaab29492253b79757b25308f1b489}{mostrar}} ()
+\begin{DoxyCompactList}\small\item\em Mostrar todos los registros de la lista. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_lista_aa0750b975ce1042ba9f1f37ef9e411ad}{sobreescribir\+Archivo}} (const std\+::string \&nombre\+Archivo, \mbox{\hyperlink{class_lista}{Lista}} \&lista)
+\item 
+void \mbox{\hyperlink{class_lista_a2c5d32701b853ca0b1c570914e0f2b50}{cargar\+Datos\+Desde\+Archivo}} (const std\+::string \&nombre\+Archivo, \mbox{\hyperlink{class_lista}{Lista}} \&lista)
+\item 
+void \mbox{\hyperlink{class_lista_ab9c5510653eb1deb7bbafaced024faf5}{vaciar\+Lista}} ()
+\begin{DoxyCompactList}\small\item\em Vaciar la lista. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_lista_a1a6e7bbb08f2a2125b0d2fdd05324acd}{cedula\+En\+Lista}} (std\+::string cedula)
+\begin{DoxyCompactList}\small\item\em Función para ordenar la lista por medio del atributo cedula. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_lista_a76ca3fa3dd819aa928b4cc9dcc25212a}{bucket\+Sort\+Cedula}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentación de constructores y destructores}
+\Hypertarget{class_lista_adce924e21607848663132290be1a959d}\label{class_lista_adce924e21607848663132290be1a959d} 
+\index{Lista$<$ T $>$@{Lista$<$ T $>$}!Lista@{Lista}}
+\index{Lista@{Lista}!Lista$<$ T $>$@{Lista$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Lista()}{Lista()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{class_lista}{Lista}}$<$ T $>$\mbox{\hyperlink{class_lista}{\+::\+Lista}}}
+
+
+
+Construct a new Lista$<$ T$>$\+:: \doxylink{class_lista}{Lista} object. 
+
+
+\begin{DoxyTemplParams}{Parámetros de plantilla}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{Documentación de funciones miembro}
+\Hypertarget{class_lista_ab2c8ceb393b77fe8ecf53f1a3e1ad189}\label{class_lista_ab2c8ceb393b77fe8ecf53f1a3e1ad189} 
+\index{Lista$<$ T $>$@{Lista$<$ T $>$}!actualizarEstado@{actualizarEstado}}
+\index{actualizarEstado@{actualizarEstado}!Lista$<$ T $>$@{Lista$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{actualizarEstado()}{actualizarEstado()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{class_lista}{Lista}}$<$ T $>$\+::actualizar\+Estado (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_nodo}{Nodo}}$<$ T $>$ \texorpdfstring{$\ast$}{*}}]{actual,  }\item[{T}]{valor }\end{DoxyParamCaption})}
+
+
+
+Actualizar el estado de un registro la lista. 
+
+
+\begin{DoxyTemplParams}{Parámetros de plantilla}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parámetros}
+{\em actual} & \\
+\hline
+{\em valor} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_lista_a76ca3fa3dd819aa928b4cc9dcc25212a}\label{class_lista_a76ca3fa3dd819aa928b4cc9dcc25212a} 
+\index{Lista$<$ T $>$@{Lista$<$ T $>$}!bucketSortCedula@{bucketSortCedula}}
+\index{bucketSortCedula@{bucketSortCedula}!Lista$<$ T $>$@{Lista$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{bucketSortCedula()}{bucketSortCedula()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{class_lista}{Lista}}$<$ T $>$\+::bucket\+Sort\+Cedula (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{class_lista_ac258b9bc0d6ebfe58ad98bc50329dd2d}\label{class_lista_ac258b9bc0d6ebfe58ad98bc50329dd2d} 
+\index{Lista$<$ T $>$@{Lista$<$ T $>$}!buscar@{buscar}}
+\index{buscar@{buscar}!Lista$<$ T $>$@{Lista$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{buscar()}{buscar()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{class_nodo}{Nodo}}$<$ T $>$ \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_lista}{Lista}}$<$ T $>$\+::buscar (\begin{DoxyParamCaption}\item[{std\+::string}]{cedula }\end{DoxyParamCaption})}
+
+
+
+Buscar un registro en la lista por medio del atributo cedula que es string y retornarlo. 
+
+
+\begin{DoxyTemplParams}{Parámetros de plantilla}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parámetros}
+{\em cedula} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nodo$<$\+T$>$\texorpdfstring{$\ast$}{*} 
+\end{DoxyReturn}
+\Hypertarget{class_lista_a7fa6a50fcef16438b730ccbe26dec98f}\label{class_lista_a7fa6a50fcef16438b730ccbe26dec98f} 
+\index{Lista$<$ T $>$@{Lista$<$ T $>$}!buscarPorCedula@{buscarPorCedula}}
+\index{buscarPorCedula@{buscarPorCedula}!Lista$<$ T $>$@{Lista$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{buscarPorCedula()}{buscarPorCedula()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{class_nodo}{Nodo}}$<$ T $>$ \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_lista}{Lista}}$<$ T $>$\+::buscar\+Por\+Cedula (\begin{DoxyParamCaption}\item[{int}]{cedula }\end{DoxyParamCaption})}
+
+
+
+Buscar un registro en la lista por medio del atributo nombre que es string y retornarlo. 
+
+
+\begin{DoxyTemplParams}{Parámetros de plantilla}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parámetros}
+{\em nombre} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nodo$<$\+T$>$\texorpdfstring{$\ast$}{*} 
+\end{DoxyReturn}
+\Hypertarget{class_lista_a28fdde5737ef87d184356327865621a8}\label{class_lista_a28fdde5737ef87d184356327865621a8} 
+\index{Lista$<$ T $>$@{Lista$<$ T $>$}!buscarPorSueldo@{buscarPorSueldo}}
+\index{buscarPorSueldo@{buscarPorSueldo}!Lista$<$ T $>$@{Lista$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{buscarPorSueldo()}{buscarPorSueldo()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{class_nodo}{Nodo}}$<$ T $>$ \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_lista}{Lista}}$<$ T $>$\+::buscar\+Por\+Sueldo (\begin{DoxyParamCaption}\item[{float}]{sueldo }\end{DoxyParamCaption})}
+
+
+
+Buscar un registro en la lista por medio del atributo sueldo que es float y retornarlo. 
+
+
+\begin{DoxyTemplParams}{Parámetros de plantilla}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parámetros}
+{\em sueldo} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nodo$<$\+T$>$\texorpdfstring{$\ast$}{*} 
+\end{DoxyReturn}
+\Hypertarget{class_lista_ae43f00963373ea579f25f9c425216e0e}\label{class_lista_ae43f00963373ea579f25f9c425216e0e} 
+\index{Lista$<$ T $>$@{Lista$<$ T $>$}!buscarUltimo@{buscarUltimo}}
+\index{buscarUltimo@{buscarUltimo}!Lista$<$ T $>$@{Lista$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{buscarUltimo()}{buscarUltimo()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{class_nodo}{Nodo}}$<$ T $>$ \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_lista}{Lista}}$<$ T $>$\+::buscar\+Ultimo (\begin{DoxyParamCaption}\item[{std\+::string}]{cedula }\end{DoxyParamCaption})}
+
+
+
+Buscar un registro en la lista por medio del atributo nombre que es string y retornarlo. 
+
+
+\begin{DoxyTemplParams}{Parámetros de plantilla}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parámetros}
+{\em nombre} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Nodo$<$\+T$>$\texorpdfstring{$\ast$}{*} 
+\end{DoxyReturn}
+\Hypertarget{class_lista_a2c5d32701b853ca0b1c570914e0f2b50}\label{class_lista_a2c5d32701b853ca0b1c570914e0f2b50} 
+\index{Lista$<$ T $>$@{Lista$<$ T $>$}!cargarDatosDesdeArchivo@{cargarDatosDesdeArchivo}}
+\index{cargarDatosDesdeArchivo@{cargarDatosDesdeArchivo}!Lista$<$ T $>$@{Lista$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{cargarDatosDesdeArchivo()}{cargarDatosDesdeArchivo()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{class_lista}{Lista}}$<$ T $>$\+::cargar\+Datos\+Desde\+Archivo (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{nombre\+Archivo,  }\item[{\mbox{\hyperlink{class_lista}{Lista}}$<$ T $>$ \&}]{lista }\end{DoxyParamCaption})}
+
+\Hypertarget{class_lista_a1a6e7bbb08f2a2125b0d2fdd05324acd}\label{class_lista_a1a6e7bbb08f2a2125b0d2fdd05324acd} 
+\index{Lista$<$ T $>$@{Lista$<$ T $>$}!cedulaEnLista@{cedulaEnLista}}
+\index{cedulaEnLista@{cedulaEnLista}!Lista$<$ T $>$@{Lista$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{cedulaEnLista()}{cedulaEnLista()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \mbox{\hyperlink{class_lista}{Lista}}$<$ T $>$\+::cedula\+En\+Lista (\begin{DoxyParamCaption}\item[{std\+::string}]{cedula }\end{DoxyParamCaption})}
+
+
+
+Función para ordenar la lista por medio del atributo cedula. 
+
+
+\begin{DoxyTemplParams}{Parámetros de plantilla}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+\Hypertarget{class_lista_a7cadfe439c6a77bf2d4e78385f226d49}\label{class_lista_a7cadfe439c6a77bf2d4e78385f226d49} 
+\index{Lista$<$ T $>$@{Lista$<$ T $>$}!eliminar@{eliminar}}
+\index{eliminar@{eliminar}!Lista$<$ T $>$@{Lista$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{eliminar()}{eliminar()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{class_lista}{Lista}}$<$ T $>$\+::eliminar (\begin{DoxyParamCaption}\item[{std\+::string}]{cedula }\end{DoxyParamCaption})}
+
+
+
+Eliminar un registro de la lista por medio de la cedula. 
+
+
+\begin{DoxyTemplParams}{Parámetros de plantilla}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parámetros}
+{\em cedula} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_lista_a0d8dc8c81b0bf5c1241f158c428edacd}\label{class_lista_a0d8dc8c81b0bf5c1241f158c428edacd} 
+\index{Lista$<$ T $>$@{Lista$<$ T $>$}!getActual@{getActual}}
+\index{getActual@{getActual}!Lista$<$ T $>$@{Lista$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getActual()}{getActual()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{class_nodo}{Nodo}}$<$ T $>$ \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_lista}{Lista}}$<$ T $>$\+::get\+Actual}
+
+
+
+Get the Actual object. 
+
+
+\begin{DoxyTemplParams}{Parámetros de plantilla}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Devuelve}
+Nodo$<$\+T$>$\texorpdfstring{$\ast$}{*} 
+\end{DoxyReturn}
+\Hypertarget{class_lista_aedc01eb857298c94c25c17676f1fef93}\label{class_lista_aedc01eb857298c94c25c17676f1fef93} 
+\index{Lista$<$ T $>$@{Lista$<$ T $>$}!getPrimero@{getPrimero}}
+\index{getPrimero@{getPrimero}!Lista$<$ T $>$@{Lista$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getPrimero()}{getPrimero()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{class_nodo}{Nodo}}$<$ T $>$ \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_lista}{Lista}}$<$ T $>$\+::get\+Primero}
+
+
+
+Get the Primero object. 
+
+
+\begin{DoxyTemplParams}{Parámetros de plantilla}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Devuelve}
+Nodo$<$\+T$>$\texorpdfstring{$\ast$}{*} 
+\end{DoxyReturn}
+\Hypertarget{class_lista_ac36b9a2f52024fd668b65fd5a3ac691b}\label{class_lista_ac36b9a2f52024fd668b65fd5a3ac691b} 
+\index{Lista$<$ T $>$@{Lista$<$ T $>$}!insertar@{insertar}}
+\index{insertar@{insertar}!Lista$<$ T $>$@{Lista$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{insertar()}{insertar()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{class_lista}{Lista}}$<$ T $>$\+::insertar (\begin{DoxyParamCaption}\item[{T}]{registro }\end{DoxyParamCaption})}
+
+
+
+Insertar un registro en la lista. 
+
+
+\begin{DoxyTemplParams}{Parámetros de plantilla}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parámetros}
+{\em registro} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_lista_aef3dc6d88979bd574846c62b364045b0}\label{class_lista_aef3dc6d88979bd574846c62b364045b0} 
+\index{Lista$<$ T $>$@{Lista$<$ T $>$}!listaVacia@{listaVacia}}
+\index{listaVacia@{listaVacia}!Lista$<$ T $>$@{Lista$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{listaVacia()}{listaVacia()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \mbox{\hyperlink{class_lista}{Lista}}$<$ T $>$\+::lista\+Vacia}
+
+
+
+Get the Size object. 
+
+
+\begin{DoxyTemplParams}{Parámetros de plantilla}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Devuelve}
+int 
+\end{DoxyReturn}
+\Hypertarget{class_lista_ab0eaab29492253b79757b25308f1b489}\label{class_lista_ab0eaab29492253b79757b25308f1b489} 
+\index{Lista$<$ T $>$@{Lista$<$ T $>$}!mostrar@{mostrar}}
+\index{mostrar@{mostrar}!Lista$<$ T $>$@{Lista$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{mostrar()}{mostrar()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{class_lista}{Lista}}$<$ T $>$\+::mostrar}
+
+
+
+Mostrar todos los registros de la lista. 
+
+
+\begin{DoxyTemplParams}{Parámetros de plantilla}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+\Hypertarget{class_lista_a5204422532b51048c8e6c4f146be8a18}\label{class_lista_a5204422532b51048c8e6c4f146be8a18} 
+\index{Lista$<$ T $>$@{Lista$<$ T $>$}!setActual@{setActual}}
+\index{setActual@{setActual}!Lista$<$ T $>$@{Lista$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{setActual()}{setActual()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{class_lista}{Lista}}$<$ T $>$\+::set\+Actual (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_nodo}{Nodo}}$<$ T $>$ \texorpdfstring{$\ast$}{*}}]{actual }\end{DoxyParamCaption})}
+
+
+
+Set the Actual object. 
+
+
+\begin{DoxyTemplParams}{Parámetros de plantilla}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parámetros}
+{\em actual} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_lista_afb7bdcb2a2dd1afea8de86adeda5d63d}\label{class_lista_afb7bdcb2a2dd1afea8de86adeda5d63d} 
+\index{Lista$<$ T $>$@{Lista$<$ T $>$}!setPrimero@{setPrimero}}
+\index{setPrimero@{setPrimero}!Lista$<$ T $>$@{Lista$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{setPrimero()}{setPrimero()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{class_lista}{Lista}}$<$ T $>$\+::set\+Primero (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_nodo}{Nodo}}$<$ T $>$ \texorpdfstring{$\ast$}{*}}]{primero }\end{DoxyParamCaption})}
+
+
+
+Set the Primero object. 
+
+
+\begin{DoxyTemplParams}{Parámetros de plantilla}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parámetros}
+{\em primero} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_lista_a38a8d54e10ed9bbef62aefefc9d81365}\label{class_lista_a38a8d54e10ed9bbef62aefefc9d81365} 
+\index{Lista$<$ T $>$@{Lista$<$ T $>$}!size@{size}}
+\index{size@{size}!Lista$<$ T $>$@{Lista$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+int \mbox{\hyperlink{class_lista}{Lista}}$<$ T $>$\+::size}
+
+
+
+Get the Size object. 
+
+
+\begin{DoxyTemplParams}{Parámetros de plantilla}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Devuelve}
+int 
+\end{DoxyReturn}
+\Hypertarget{class_lista_aa0750b975ce1042ba9f1f37ef9e411ad}\label{class_lista_aa0750b975ce1042ba9f1f37ef9e411ad} 
+\index{Lista$<$ T $>$@{Lista$<$ T $>$}!sobreescribirArchivo@{sobreescribirArchivo}}
+\index{sobreescribirArchivo@{sobreescribirArchivo}!Lista$<$ T $>$@{Lista$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{sobreescribirArchivo()}{sobreescribirArchivo()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{class_lista}{Lista}}$<$ T $>$\+::sobreescribir\+Archivo (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{nombre\+Archivo,  }\item[{\mbox{\hyperlink{class_lista}{Lista}}$<$ T $>$ \&}]{lista }\end{DoxyParamCaption})}
+
+\Hypertarget{class_lista_ab9c5510653eb1deb7bbafaced024faf5}\label{class_lista_ab9c5510653eb1deb7bbafaced024faf5} 
+\index{Lista$<$ T $>$@{Lista$<$ T $>$}!vaciarLista@{vaciarLista}}
+\index{vaciarLista@{vaciarLista}!Lista$<$ T $>$@{Lista$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{vaciarLista()}{vaciarLista()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{class_lista}{Lista}}$<$ T $>$\+::vaciar\+Lista}
+
+
+
+Vaciar la lista. 
+
+
+\begin{DoxyTemplParams}{Parámetros de plantilla}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+
+La documentación de esta clase está generada de los siguientes archivos\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Alex\+\_\+22/\+Desktop/\+Semestre III/\+Estructura\+DD/\+New\+Repositorio/\+ED-\/-\/-\/9686/proyectos/\+Parcial 2 Alex-\/\+Alejo/\+Arboles/\mbox{\hyperlink{_lista_8h}{Lista.\+h}}\item 
+C\+:/\+Users/\+Alex\+\_\+22/\+Desktop/\+Semestre III/\+Estructura\+DD/\+New\+Repositorio/\+ED-\/-\/-\/9686/proyectos/\+Parcial 2 Alex-\/\+Alejo/\+Arboles/\mbox{\hyperlink{_lista_8cpp}{Lista.\+cpp}}\end{DoxyCompactItemize}

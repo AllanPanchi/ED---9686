@@ -3,6 +3,10 @@
 #include <locale>
 #include "ValDatos.h"
 
+/**
+ * @brief Construct a new Fecha:: Fecha object
+ * 
+ */
 Fecha::Fecha()
 {
    	// Establece la configuración regional en español
@@ -23,10 +27,25 @@ Fecha::Fecha()
     this->segundo = tiempoLocal->tm_sec;
 }
 
+
+/**
+ * @brief Destroy the Fecha:: Fecha object
+ * 
+ */
 Fecha::~Fecha()
 {
 }
 
+/**
+ * @brief Construct a new Fecha:: Fecha object
+ * 
+ * @param dia 
+ * @param mes 
+ * @param anio 
+ * @param hora 
+ * @param minuto 
+ * @param segundo 
+ */
 Fecha::Fecha(int dia, int mes, int anio, int hora, int minuto, int segundo)
 {
     this->dia = dia;
@@ -37,66 +56,133 @@ Fecha::Fecha(int dia, int mes, int anio, int hora, int minuto, int segundo)
     this->segundo = segundo;
 }
 
+
+/**
+ * @brief Get the Dia object
+ * 
+ * @return int 
+ */
 int Fecha::getDia()
 {
     return this->dia;
 }
 
+/**
+ * @brief Set the Dia object
+ * 
+ * @param dia 
+ */
 void Fecha::setDia(int dia)
 {
     this->dia = dia;
 }
 
+
+/**
+ * @brief Get the Mes object
+ * 
+ * @return int
+ */
 int Fecha::getMes()
 {
     return this->mes;
 }
 
+
+/**
+ * @brief Set the Mes object
+ * 
+ * @param mes 
+ */
 void Fecha::setMes(int mes)
 {
     this->mes = mes;
 }
 
+/**
+ * @brief Get the Anio object
+ * 
+ * @return int 
+ */
 int Fecha::getAnio()
 {
     return this->anio;
 }
 
+/**
+ * @brief Set the Anio object
+ * 
+ * @param anio 
+ */
 void Fecha::setAnio(int anio)
 {
     this->anio = anio;
 }
 
+/**
+ * @brief Get the Hora object
+ * 
+ * @return int 
+ */
 int Fecha::getHora()
 {
     return this->hora;
 }
 
+/**
+ * @brief Set the Hora object
+ * 
+ * @param hora 
+ */
 void Fecha::setHora(int hora)
 {
     this->hora = hora;
 }
 
+/**
+ * @brief Get the Minuto object
+ * 
+ * @return int 
+ */
 int Fecha::getMinuto()
 {
     return this->minuto;
 }
 
+/**
+ * @brief Set the Minuto object
+ * 
+ * @param minuto 
+ */
 void Fecha::setMinuto(int minuto)
 {
     this->minuto = minuto;
 }
 
+/**
+ * @brief Get the Segundo object
+ * 
+ * @return int 
+ */
 int Fecha::getSegundo()
 {
     return this->segundo;
 }
 
+/**
+ * @brief Set the Segundo object
+ * 
+ * @param segundo 
+ */
 void Fecha::setSegundo(int segundo)
 {
     this->segundo = segundo;
 }
 
+/**
+ * @brief Muestra la fecha y hora actual
+ * 
+ */
 Fecha Fecha::getFechaActual(Fecha fecha){
     time_t tiempoActual = time(nullptr);
     tm* tiempoLocal = localtime(&tiempoActual);
@@ -112,10 +198,21 @@ Fecha Fecha::getFechaActual(Fecha fecha){
     return fecha;
 }
 
+/**
+ * @brief Verifica si el año es bisiesto
+ * @return true si el año es bisiesto, false en caso contrario
+ * 
+ */
 bool Fecha::esAnioBisiesto(int anio) {
         return (anio % 4 == 0 && anio % 100 != 0) || (anio % 400 == 0);
 }
 
+/**
+ * @brief Valida la fecha ingresada por el usuario
+ * 
+ * @param fecha 
+ * @return Fecha 
+ */
 Fecha Fecha::validarFecha(Fecha& fecha){
     int anio, mes, dia;
         std::cout << "Ingrese el a\xA4o: ";
@@ -154,6 +251,12 @@ Fecha Fecha::validarFecha(Fecha& fecha){
         return fecha;
 }
 
+/**
+ * @brief Valida la fecha de nacimiento ingresada por el usuario
+ * 
+ * @param fecha 
+ * @return Fecha 
+ */
 Fecha Fecha::validarFechaNacimiento(Fecha &fecha) {
         // Validar año
         int anio, mes, dia;
@@ -194,6 +297,13 @@ Fecha Fecha::validarFechaNacimiento(Fecha &fecha) {
         return fecha;
 }
 
+/**
+ * @brief Sobrecarga del operador <
+ * 
+ * @param fecha 
+ * @return true 
+ * @return false 
+ */
 bool Fecha::operator<(Fecha fecha)
 {
     if (this->anio < fecha.anio)
@@ -238,6 +348,13 @@ bool Fecha::operator<(Fecha fecha)
     return false;
 }
 
+/**
+ * @brief Sobrecarga del operador >
+ * 
+ * @param fecha 
+ * @return true 
+ * @return false 
+ */
 bool Fecha::operator>(Fecha fecha)
 {
     if (this->anio > fecha.anio)
@@ -282,6 +399,13 @@ bool Fecha::operator>(Fecha fecha)
     return false;
 }
 
+/**
+ * @brief Sobrecarga del operador ==
+ * 
+ * @param fecha 
+ * @return true 
+ * @return false 
+ */
 bool Fecha::operator==(Fecha fecha)
 {
     if (this->anio == fecha.anio && this->mes == fecha.mes && this->dia == fecha.dia 
@@ -293,6 +417,13 @@ bool Fecha::operator==(Fecha fecha)
     return false;
 }
 
+/**
+ * @brief Sobrecarga del operador !=
+ * 
+ * @param fecha 
+ * @return true 
+ * @return false 
+ */
 bool Fecha::operator!=(Fecha fecha)
 {
     if (this->anio != fecha.anio || this->mes != fecha.mes || this->dia != fecha.dia || this->hora != fecha.hora || this->minuto != fecha.minuto || this->segundo != fecha.segundo)
@@ -302,6 +433,13 @@ bool Fecha::operator!=(Fecha fecha)
     return false;
 }
 
+/**
+ * @brief Sobrecarga del operador <=
+ * 
+ * @param fecha 
+ * @return true 
+ * @return false 
+ */
 bool Fecha::operator<=(Fecha fecha)
 {
     if (this->anio < fecha.anio)
@@ -346,6 +484,13 @@ bool Fecha::operator<=(Fecha fecha)
     return false;
 }
 
+/**
+ * @brief Sobrecarga del operador >=
+ * 
+ * @param fecha 
+ * @return true 
+ * @return false 
+ */
 bool Fecha::operator>=(Fecha fecha)
 {
     if (this->anio > fecha.anio)
@@ -390,12 +535,26 @@ bool Fecha::operator>=(Fecha fecha)
     return false;
 }
 
+/**
+ * @brief Sobrecarga del operador <<
+ * 
+ * @param os 
+ * @param fecha 
+ * @return std::ostream& 
+ */
 std::ostream& operator<<(std::ostream& os, const Fecha& fecha)
 {
     os << fecha.dia << " " << fecha.mes << " " << fecha.anio << " " << fecha.hora << " " << fecha.minuto << " " << fecha.segundo;
     return os;
 }
 
+/**
+ * @brief Sobrecarga del operador >>
+ * 
+ * @param is 
+ * @param fecha 
+ * @return std::istream& 
+ */
 std::istream& operator>>(std::istream& is, Fecha& fecha)
 {
    

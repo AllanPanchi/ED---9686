@@ -1,0 +1,52 @@
+\doxysection{C\+:/\+Users/\+Alex\+\_\+22/\+Desktop/\+Semestre III/\+Estructura\+DD/\+New\+Repositorio/\+ED-\/-\/-\/9686/proyectos/\+Parcial 2 Alex-\/\+Alejo/\+Arboles/\+Fecha.h}
+\hypertarget{_fecha_8h_source}{}\label{_fecha_8h_source}\mbox{\hyperlink{_fecha_8h}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_val_datos_8h}{ValDatos.h}}"{}}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fecha}{Fecha}}}
+\DoxyCodeLine{00018\ \{}
+\DoxyCodeLine{00019\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{int}\ dia;}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{int}\ mes;}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{int}\ anio;}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{int}\ hora;}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{int}\ minuto;}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{int}\ segundo;}
+\DoxyCodeLine{00026\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{class_fecha_a5fbc6564d9c48e73cf8d27568a2a7fc5}{Fecha}}();}
+\DoxyCodeLine{00028\ \ \ \ \ \mbox{\hyperlink{class_fecha_ae34f2ebe1ac7f3a78eefb68e8d1c8b86}{\string~Fecha}}();}
+\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{class_fecha_a5fbc6564d9c48e73cf8d27568a2a7fc5}{Fecha}}(\textcolor{keywordtype}{int}\ dia,\ \textcolor{keywordtype}{int}\ mes,\ \textcolor{keywordtype}{int}\ anio,\ \textcolor{keywordtype}{int}\ hora,\ \textcolor{keywordtype}{int}\ minuto,\ \textcolor{keywordtype}{int}\ segundo);}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fecha_a9f8e09d5e11a3bf9e4c234e8cd2c004a}{getDia}}();}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fecha_a274c19166fdc6169ae02247b06372aa4}{setDia}}(\textcolor{keywordtype}{int}\ dia);}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fecha_aa501ddd9a46effadac3f08c89140d9ac}{getMes}}();}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fecha_a889235a87ea75cb02373e894d8e4c660}{setMes}}(\textcolor{keywordtype}{int}\ mes);}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fecha_a89ebafe74bc6e5f53ad688dce1d3fc26}{getAnio}}();}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fecha_a3cfbea8834e7a23023f11c3d069838f0}{setAnio}}(\textcolor{keywordtype}{int}\ anio);}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fecha_a7a128345105e12fba2241760f71facb2}{getHora}}();}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fecha_a7463eddcfbb8f2d5ff92ad3b68492200}{setHora}}(\textcolor{keywordtype}{int}\ hora);}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fecha_a73fe73683b83448ca47e31c20f217556}{getMinuto}}();}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fecha_af6cf206265727de1037a156254d62771}{setMinuto}}(\textcolor{keywordtype}{int}\ minuto);}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fecha_ab88e0a6149971c518acf94ed67afeace}{getSegundo}}();}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fecha_a699b288f9426bc0ea4848afa0e6c68a0}{setSegundo}}(\textcolor{keywordtype}{int}\ segundo);}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fecha_a4cf9774d291305be96b3e2a6fa3b3623}{esAnioBisiesto}}(\textcolor{keywordtype}{int}\ anio);}
+\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{class_fecha}{Fecha}}\ \mbox{\hyperlink{class_fecha_afdf4d56e344b200ec4caa2f4c0885b41}{validarFecha}}(\mbox{\hyperlink{class_fecha}{Fecha}}\ \&fecha);}
+\DoxyCodeLine{00044\ \ \ \ \ \mbox{\hyperlink{class_fecha}{Fecha}}\ \mbox{\hyperlink{class_fecha_a7c7c14b983f643aa1f9537e4085fe670}{validarFechaNacimiento}}(\mbox{\hyperlink{class_fecha}{Fecha}}\ \&fecha);}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_fecha}{Fecha}}\ \mbox{\hyperlink{class_fecha_a75a3568767c5b2edfe03300552a4a543}{getFechaActual}}(\mbox{\hyperlink{class_fecha}{Fecha}}\ fecha);}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fecha_ac8d2d46cf4b15126422ff67364add2a3}{operator<}}(\mbox{\hyperlink{class_fecha}{Fecha}}\ fecha);}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fecha_a9380ce9657127661e90df5eddc1f5df9}{operator>}}(\mbox{\hyperlink{class_fecha}{Fecha}}\ fecha);}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fecha_aafb98c88c5a0a87e58c7504573f4958a}{operator==}}(\mbox{\hyperlink{class_fecha}{Fecha}}\ fecha);}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fecha_ab0c805590b1c69da4d69bb84baf5fa8c}{operator!=}}(\mbox{\hyperlink{class_fecha}{Fecha}}\ fecha);}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fecha_a7d1c7cf97a56482694c522f78ca98552}{operator<=}}(\mbox{\hyperlink{class_fecha}{Fecha}}\ fecha);}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fecha_a954ee8804c684922ad809129b9b73163}{operator>=}}(\mbox{\hyperlink{class_fecha}{Fecha}}\ fecha);}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keyword}{friend}\ std::ostream\&\ \mbox{\hyperlink{class_fecha_a8bbe7d2a8e70d4d42d9e406b6aa617fe}{operator<<}}(std::ostream\&\ os,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fecha}{Fecha}}\&\ fecha);}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keyword}{friend}\ std::istream\&\ \mbox{\hyperlink{class_fecha_a443140e62287a8efbe3f7976c268b4ec}{operator>>}}(std::istream\&\ is,\ \mbox{\hyperlink{class_fecha}{Fecha}}\&\ fecha);}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \};}
+
+\end{DoxyCode}

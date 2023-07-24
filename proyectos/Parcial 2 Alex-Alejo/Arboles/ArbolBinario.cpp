@@ -8,6 +8,12 @@
 // Purpose: Destruye le objeto
 // Return: 
 //////////////////////////////////////////////////////////////////////
+
+/**
+ * @brief Destructor de Arbol Binario< T>:: Arbol Binario object
+ * 
+ * @tparam T 
+ */
 template<typename T>
 ArbolBinario<T>::~ArbolBinario() {
 	
@@ -19,6 +25,12 @@ ArbolBinario<T>::~ArbolBinario() {
 // Return: NodoArbol<T>*
 //////////////////////////////////////////////////////////////////////
 
+/**
+ * @brief Get the Raiz object
+ * 
+ * @tparam T 
+ * @return NodoArbol<T>* 
+ */
 template<typename T>
 NodoArbol<T>* ArbolBinario<T>::getRaiz() {
 	return raiz;
@@ -32,6 +44,12 @@ NodoArbol<T>* ArbolBinario<T>::getRaiz() {
 // Return: void
 //////////////////////////////////////////////////////////////////////
 
+/**
+ * @brief Set the Raiz object
+ * 
+ * @tparam T 
+ * @param raiz 
+ */
 template<typename T>
 void ArbolBinario<T>::setRaiz(NodoArbol<T>* raiz) {
 	this->raiz = raiz;
@@ -43,8 +61,15 @@ void ArbolBinario<T>::setRaiz(NodoArbol<T>* raiz) {
 // Return: 
 ////////////////////////////////////////////////////////////////////////
 
+/**
+ * @brief Construct a new Arbol Binario< T>:: Arbol Binario object
+ * 
+ * @tparam T 
+ */
 template<typename T>
-ArbolBinario<T>::ArbolBinario() : raiz(nullptr) {}
+ArbolBinario<T>::ArbolBinario() : raiz(nullptr) {
+
+}
 
 //////////////////////////////////////////////////////////////////////
 // Name: ArbolBinario<T>::encontrarNodoMinimo
@@ -54,6 +79,13 @@ ArbolBinario<T>::ArbolBinario() : raiz(nullptr) {}
 // Return: Puntero al nodo con el valor mínimo encontrado
 //////////////////////////////////////////////////////////////////////
 
+/**
+ * @brief Encuentra el nodo con el valor mínimo en el árbol
+ * 
+ * @tparam T  
+ * @param nodo  
+ * @return NodoArbol<T>* 
+ */
 template<typename T>
 NodoArbol<T>* ArbolBinario<T>::encontrarNodoMinimo(NodoArbol<T>* nodo) {
     while (nodo->getIzquierdo() != nullptr) {
@@ -70,6 +102,12 @@ NodoArbol<T>* ArbolBinario<T>::encontrarNodoMinimo(NodoArbol<T>* nodo) {
 // Return: void
 //////////////////////////////////////////////////////////////////////
 
+/**
+ * @brief Inserta un nuevo nodo con el valor dado en el árbol
+ * 
+ * @tparam T 
+ * @param valor 
+ */
 template<typename T>
 void ArbolBinario<T>::insertarNodo(T valor) {
 	// función lambda recursiva para insertar el nodo
@@ -99,6 +137,13 @@ void ArbolBinario<T>::insertarNodo(T valor) {
 // Return: retorna el nodo o nullptr si no lo encontro
 //////////////////////////////////////////////////////////////////////4
 
+/**
+ * @brief Busca un nodo con el valor dado en el árbol
+ * 
+ * @tparam T 
+ * @param valor 
+ * @return NodoArbol<T>* 
+ */
 template<typename T>
 NodoArbol<T>* ArbolBinario<T>::buscarNodo(T valor) {
 	std::function<NodoArbol<T>*(NodoArbol<T>*, T)> buscarNodoRecursivo = [&](NodoArbol<T>* nodo, T valor) {
@@ -123,6 +168,12 @@ NodoArbol<T>* ArbolBinario<T>::buscarNodo(T valor) {
 // Return: void
 //////////////////////////////////////////////////////////////////////
 
+/**
+ * @brief Elimina un nodo con el valor dado del árbol
+ * 
+ * @tparam T 
+ * @param valor 
+ */
 template<typename T>
 void ArbolBinario<T>::eliminarNodo(T valor) {
 	//Función lambda para eliminar un nodo recursivamente
@@ -162,6 +213,11 @@ void ArbolBinario<T>::eliminarNodo(T valor) {
 // Return: void
 //////////////////////////////////////////////////////////////////////
 
+/**
+ * @brief Muestra el árbol en forma horizontal
+ * 
+ * @tparam T 
+ */
 template<typename T>
 void ArbolBinario<T>::mostrarArbol() {
 	//Funcion lambda para imprimir el árbol recursivamente
@@ -192,6 +248,12 @@ void ArbolBinario<T>::mostrarArbol() {
 // Return: void
 //////////////////////////////////////////////////////////////////////
 
+/**
+ * @brief Muestra todos los datos repetidos en el arbol segun el argumento
+ * 
+ * @tparam T 
+ * @param valor 
+ */
 template<typename T>
 void ArbolBinario<T>::mostrarRepetidos(T valor) {
 	

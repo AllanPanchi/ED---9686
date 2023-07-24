@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.7"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Help: Archivo de código fuente C:/Users/Alex_22/Desktop/Semestre III/EstructuraDD/NewRepositorio/ED---9686/proyectos/Parcial 2 Alex-Alejo/Arboles/NodoArbol.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Help<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Ayuda de Sistema de Registro</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.9.7 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">C:/Users/Alex_22/Desktop/Semestre III/EstructuraDD/NewRepositorio/ED---9686/proyectos/Parcial 2 Alex-Alejo/Arboles/NodoArbol.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_nodo_arbol_8h.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#ifndef NODOARBOL_H</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#define NODOARBOL_H</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="class_nodo_arbol.html">   18</a></span><span class="keyword">class </span><a class="code hl_class" href="class_nodo_arbol.html">NodoArbol</a>{</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        <span class="comment">//Constructor</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        <a class="code hl_class" href="class_nodo_arbol.html">NodoArbol</a>(T);</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        <span class="comment">//Getters</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        T <a class="code hl_function" href="class_nodo_arbol.html#a2ee6edd95acdf5eb16cff69347211c1b">getDato</a>();</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        <a class="code hl_class" href="class_nodo_arbol.html">NodoArbol&lt;T&gt;</a>*&amp; <a class="code hl_function" href="class_nodo_arbol.html#a05447396a71e22cba3df58290ca9ce39">getDerecho</a>();</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        <a class="code hl_class" href="class_nodo_arbol.html">NodoArbol&lt;T&gt;</a>*&amp; <a class="code hl_function" href="class_nodo_arbol.html#a1bff071e8bad11ef7b4e2d482a8ce709">getIzquierdo</a>();</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        <span class="comment">//Setters</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="class_nodo_arbol.html#adfb518dcd2f618471f09e1c91044b596">setDato</a>(T);</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="class_nodo_arbol.html#a3086a5acf6e23db721e9db9743136f01">setDerecho</a>(<a class="code hl_class" href="class_nodo_arbol.html">NodoArbol&lt;T&gt;</a>*);</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="class_nodo_arbol.html#af83e99192e86eff82849e65d1130e8d7">setIzquierdo</a>(<a class="code hl_class" href="class_nodo_arbol.html">NodoArbol&lt;T&gt;</a>*);</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        T dato;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        <a class="code hl_class" href="class_nodo_arbol.html">NodoArbol&lt;T&gt;</a>* derecho;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        <a class="code hl_class" href="class_nodo_arbol.html">NodoArbol&lt;T&gt;</a>* izquierdo;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>};</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclass_nodo_arbol_html"><div class="ttname"><a href="class_nodo_arbol.html">NodoArbol</a></div><div class="ttdef"><b>Definition</b> NodoArbol.h:18</div></div>
+<div class="ttc" id="aclass_nodo_arbol_html_a05447396a71e22cba3df58290ca9ce39"><div class="ttname"><a href="class_nodo_arbol.html#a05447396a71e22cba3df58290ca9ce39">NodoArbol::getDerecho</a></div><div class="ttdeci">NodoArbol&lt; T &gt; *&amp; getDerecho()</div><div class="ttdoc">Get the Derecho object.</div><div class="ttdef"><b>Definition</b> NodoArbol.cpp:125</div></div>
+<div class="ttc" id="aclass_nodo_arbol_html_a1bff071e8bad11ef7b4e2d482a8ce709"><div class="ttname"><a href="class_nodo_arbol.html#a1bff071e8bad11ef7b4e2d482a8ce709">NodoArbol::getIzquierdo</a></div><div class="ttdeci">NodoArbol&lt; T &gt; *&amp; getIzquierdo()</div><div class="ttdoc">Get the Izquierdo object.</div><div class="ttdef"><b>Definition</b> NodoArbol.cpp:109</div></div>
+<div class="ttc" id="aclass_nodo_arbol_html_a2ee6edd95acdf5eb16cff69347211c1b"><div class="ttname"><a href="class_nodo_arbol.html#a2ee6edd95acdf5eb16cff69347211c1b">NodoArbol::getDato</a></div><div class="ttdeci">T getDato()</div><div class="ttdoc">Get the Dato object.</div><div class="ttdef"><b>Definition</b> NodoArbol.cpp:92</div></div>
+<div class="ttc" id="aclass_nodo_arbol_html_a3086a5acf6e23db721e9db9743136f01"><div class="ttname"><a href="class_nodo_arbol.html#a3086a5acf6e23db721e9db9743136f01">NodoArbol::setDerecho</a></div><div class="ttdeci">void setDerecho(NodoArbol&lt; T &gt; *)</div><div class="ttdoc">Set the Derecho object.</div><div class="ttdef"><b>Definition</b> NodoArbol.cpp:76</div></div>
+<div class="ttc" id="aclass_nodo_arbol_html_adfb518dcd2f618471f09e1c91044b596"><div class="ttname"><a href="class_nodo_arbol.html#adfb518dcd2f618471f09e1c91044b596">NodoArbol::setDato</a></div><div class="ttdeci">void setDato(T)</div><div class="ttdoc">Set the Dato object.</div><div class="ttdef"><b>Definition</b> NodoArbol.cpp:37</div></div>
+<div class="ttc" id="aclass_nodo_arbol_html_af83e99192e86eff82849e65d1130e8d7"><div class="ttname"><a href="class_nodo_arbol.html#af83e99192e86eff82849e65d1130e8d7">NodoArbol::setIzquierdo</a></div><div class="ttdeci">void setIzquierdo(NodoArbol&lt; T &gt; *)</div><div class="ttdoc">Set the Izquierdo object.</div><div class="ttdef"><b>Definition</b> NodoArbol.cpp:56</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7
+</small></address>
+</body>
+</html>

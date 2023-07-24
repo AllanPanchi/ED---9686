@@ -17,6 +17,25 @@
 * description: Various utilities.                *
 *                                                *
 *************************************************/
+// EasyBMP Cross-Platform Windows Bitmap Library
+// EasyBMP_VariousBMPutilities.h
+/**
+ * @brief  Clase para manejar archivos BMP
+ * 
+ * @file EasyBMP_VariousBMPutilities.h
+ * @version 1.06
+ * @date added 05-02-2005
+ * @date modified 12-01-2006
+ * @note License: BSD (revised/modified)
+ * @note 2005-6 by the EasyBMP Project
+ * @note http://easybmp.sourceforge.net
+ * @note email:macklin01@users.sourceforge.net 
+ * @note support: http://easybmp.sourceforge.net
+ * @note Author: Paul Macklin
+ * 
+ * 
+ */
+
 
 #ifndef _EasyBMP_VariousBMPutilities_h_
 #define _EasyBMP_VariousBMPutilities_h_

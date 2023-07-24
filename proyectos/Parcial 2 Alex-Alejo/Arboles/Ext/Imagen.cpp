@@ -1,18 +1,41 @@
 #include "Imagen.h" 
 #include <conio.h>
 
+/**
+ * @brief Constructor de la clase Imagen
+ * 
+ * @param archivo 
+ */
 Imagen::Imagen(std::string archivo) {
     this->archivo = archivo;
 }
 
+/**
+ * @brief Set archivo
+ * 
+ * @param newArchivo
+ * @return void
+ * 
+ */
 void Imagen::setArchivo(std::string newArchivo){
 	this->archivo = newArchivo;
 }
 
+/**
+ * @brief Get archivo
+ * 
+ * @return std::string
+ * 
+ */
 std::string Imagen::getArchivo(){
 	return this->archivo;
 }
 
+/**
+ * @brief Imprime la imagen en la consola
+ * 
+ * @return int 
+ */
 int Imagen::imprimirImagenEnConsola() {
     HWND console = GetConsoleWindow();
     HANDLE output = ::GetStdHandle(STD_OUTPUT_HANDLE);
@@ -46,6 +69,13 @@ int Imagen::imprimirImagenEnConsola() {
     return 0;
 }
 
+/**
+ * @brief Dibuja la imagen en la consola
+ * 
+ * @param imagePath 
+ * @param console
+ * @return void 
+ */
 void Imagen::dibujarImagen(std::string imagePath, HDC* console) {
     BMP image;
     image.ReadFromFile(imagePath.c_str());

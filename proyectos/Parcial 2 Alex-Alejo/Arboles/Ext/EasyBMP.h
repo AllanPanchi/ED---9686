@@ -18,6 +18,26 @@
 *                                                *
 *************************************************/
 
+
+// EasyBMP Cross-Platform Windows Bitmap Library
+// EasyBMP.h
+/**
+ * @brief  Clase para manejar archivos BMP
+ * 
+ * @file EasyBMP.h
+ * @version 1.06
+ * @date added 05-02-2005
+ * @date modified 12-01-2006
+ * @note License: BSD (revised/modified)
+ * @note 2005-6 by the EasyBMP Project
+ * @note http://easybmp.sourceforge.net
+ * @note email:
+ * @note support: http://easybmp.sourceforge.net
+ * @note Author: Paul Macklin
+ * 
+ * 
+ */
+
 #ifdef _MSC_VER 
 // MS Visual Studio gives warnings when using 
 // fopen. But fopen_s is not going to work well 

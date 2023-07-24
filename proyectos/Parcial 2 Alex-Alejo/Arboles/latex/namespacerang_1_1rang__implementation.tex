@@ -1,0 +1,64 @@
+\doxysection{Referencia del espacio de nombres rang\+::rang\+\_\+implementation}
+\hypertarget{namespacerang_1_1rang__implementation}{}\label{namespacerang_1_1rang__implementation}\index{rang::rang\_implementation@{rang::rang\_implementation}}
+\doxysubsubsection*{typedefs}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\using \mbox{\hyperlink{namespacerang_1_1rang__implementation_a769f245caecc8bdf2d741f39a48052ac}{enable\+Std}} = typename std\+::enable\+\_\+if$<$ std\+::is\+\_\+same$<$ T, \mbox{\hyperlink{namespacerang_add4e682fec2856474978ff76efcc8b4e}{rang\+::style}} $>$\+::value\texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}std\+::is\+\_\+same$<$ T, \mbox{\hyperlink{namespacerang_a41a68f6ed991b29fa720fcfbcd319ef9}{rang\+::fg}} $>$\+::value\texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}std\+::is\+\_\+same$<$ T, \mbox{\hyperlink{namespacerang_ad33ed681a0b63f07283bbb55d19da7d2}{rang\+::bg}} $>$\+::value\texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}std\+::is\+\_\+same$<$ T, \mbox{\hyperlink{namespacerang_a3b83d0d73d49b5a75c3b92031f2c77ee}{rang\+::fgB}} $>$\+::value\texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}std\+::is\+\_\+same$<$ T, \mbox{\hyperlink{namespacerang_a42edf1c1b0d8e843ceb1208259177f08}{rang\+::bgB}} $>$\+::value, std\+::ostream \& $>$\+::type
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+std\+::atomic$<$ \mbox{\hyperlink{namespacerang_a9a0ad8048ed47f032f5bdb687ba64164}{control}} $>$ \& \mbox{\hyperlink{namespacerang_1_1rang__implementation_a55b24057ec0aee2a5570193ab9e38a50}{control\+Mode}} () noexcept
+\item 
+std\+::atomic$<$ \mbox{\hyperlink{namespacerang_af70222b38ecff8fc5aef0958d052b433}{win\+Term}} $>$ \& \mbox{\hyperlink{namespacerang_1_1rang__implementation_a0883547d97b7b5572aa6f4cb62d370c6}{win\+Term\+Mode}} () noexcept
+\item 
+bool \mbox{\hyperlink{namespacerang_1_1rang__implementation_a536a3edd1809b7bcda844161c1cb1a05}{supports\+Color}} () noexcept
+\item 
+bool \mbox{\hyperlink{namespacerang_1_1rang__implementation_af195c8344db945b8027c500cdf835964}{is\+Terminal}} (const std\+::streambuf \texorpdfstring{$\ast$}{*}osbuf) noexcept
+\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{namespacerang_1_1rang__implementation_a769f245caecc8bdf2d741f39a48052ac}{enable\+Std}}$<$ T $>$ \mbox{\hyperlink{namespacerang_1_1rang__implementation_af1561ff8768eaa943f809d2e6d2a469d}{set\+Color}} (std\+::ostream \&os, T const value)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentación de «typedef»}
+\Hypertarget{namespacerang_1_1rang__implementation_a769f245caecc8bdf2d741f39a48052ac}\label{namespacerang_1_1rang__implementation_a769f245caecc8bdf2d741f39a48052ac} 
+\index{rang::rang\_implementation@{rang::rang\_implementation}!enableStd@{enableStd}}
+\index{enableStd@{enableStd}!rang::rang\_implementation@{rang::rang\_implementation}}
+\doxysubsubsection{\texorpdfstring{enableStd}{enableStd}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+using \mbox{\hyperlink{namespacerang_1_1rang__implementation_a769f245caecc8bdf2d741f39a48052ac}{rang\+::rang\+\_\+implementation\+::enable\+Std}} = typedef typename std\+::enable\+\_\+if$<$ std\+::is\+\_\+same$<$T, \mbox{\hyperlink{namespacerang_add4e682fec2856474978ff76efcc8b4e}{rang\+::style}}$>$\+::value \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|} std\+::is\+\_\+same$<$T, \mbox{\hyperlink{namespacerang_a41a68f6ed991b29fa720fcfbcd319ef9}{rang\+::fg}}$>$\+::value \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|} std\+::is\+\_\+same$<$T, \mbox{\hyperlink{namespacerang_ad33ed681a0b63f07283bbb55d19da7d2}{rang\+::bg}}$>$\+::value \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|} std\+::is\+\_\+same$<$T, \mbox{\hyperlink{namespacerang_a3b83d0d73d49b5a75c3b92031f2c77ee}{rang\+::fgB}}$>$\+::value \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|} std\+::is\+\_\+same$<$T, \mbox{\hyperlink{namespacerang_a42edf1c1b0d8e843ceb1208259177f08}{rang\+::bgB}}$>$\+::value, std\+::ostream \&$>$\+::type}
+
+
+
+\doxysubsection{Documentación de funciones}
+\Hypertarget{namespacerang_1_1rang__implementation_a55b24057ec0aee2a5570193ab9e38a50}\label{namespacerang_1_1rang__implementation_a55b24057ec0aee2a5570193ab9e38a50} 
+\index{rang::rang\_implementation@{rang::rang\_implementation}!controlMode@{controlMode}}
+\index{controlMode@{controlMode}!rang::rang\_implementation@{rang::rang\_implementation}}
+\doxysubsubsection{\texorpdfstring{controlMode()}{controlMode()}}
+{\footnotesize\ttfamily std\+::atomic$<$ \mbox{\hyperlink{namespacerang_a9a0ad8048ed47f032f5bdb687ba64164}{control}} $>$ \& rang\+::rang\+\_\+implementation\+::control\+Mode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+\Hypertarget{namespacerang_1_1rang__implementation_af195c8344db945b8027c500cdf835964}\label{namespacerang_1_1rang__implementation_af195c8344db945b8027c500cdf835964} 
+\index{rang::rang\_implementation@{rang::rang\_implementation}!isTerminal@{isTerminal}}
+\index{isTerminal@{isTerminal}!rang::rang\_implementation@{rang::rang\_implementation}}
+\doxysubsubsection{\texorpdfstring{isTerminal()}{isTerminal()}}
+{\footnotesize\ttfamily bool rang\+::rang\+\_\+implementation\+::is\+Terminal (\begin{DoxyParamCaption}\item[{const std\+::streambuf \texorpdfstring{$\ast$}{*}}]{osbuf }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+\Hypertarget{namespacerang_1_1rang__implementation_af1561ff8768eaa943f809d2e6d2a469d}\label{namespacerang_1_1rang__implementation_af1561ff8768eaa943f809d2e6d2a469d} 
+\index{rang::rang\_implementation@{rang::rang\_implementation}!setColor@{setColor}}
+\index{setColor@{setColor}!rang::rang\_implementation@{rang::rang\_implementation}}
+\doxysubsubsection{\texorpdfstring{setColor()}{setColor()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{namespacerang_1_1rang__implementation_a769f245caecc8bdf2d741f39a48052ac}{enable\+Std}}$<$ T $>$ rang\+::rang\+\_\+implementation\+::set\+Color (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{T const}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{namespacerang_1_1rang__implementation_a536a3edd1809b7bcda844161c1cb1a05}\label{namespacerang_1_1rang__implementation_a536a3edd1809b7bcda844161c1cb1a05} 
+\index{rang::rang\_implementation@{rang::rang\_implementation}!supportsColor@{supportsColor}}
+\index{supportsColor@{supportsColor}!rang::rang\_implementation@{rang::rang\_implementation}}
+\doxysubsubsection{\texorpdfstring{supportsColor()}{supportsColor()}}
+{\footnotesize\ttfamily bool rang\+::rang\+\_\+implementation\+::supports\+Color (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+\Hypertarget{namespacerang_1_1rang__implementation_a0883547d97b7b5572aa6f4cb62d370c6}\label{namespacerang_1_1rang__implementation_a0883547d97b7b5572aa6f4cb62d370c6} 
+\index{rang::rang\_implementation@{rang::rang\_implementation}!winTermMode@{winTermMode}}
+\index{winTermMode@{winTermMode}!rang::rang\_implementation@{rang::rang\_implementation}}
+\doxysubsubsection{\texorpdfstring{winTermMode()}{winTermMode()}}
+{\footnotesize\ttfamily std\+::atomic$<$ \mbox{\hyperlink{namespacerang_af70222b38ecff8fc5aef0958d052b433}{win\+Term}} $>$ \& rang\+::rang\+\_\+implementation\+::win\+Term\+Mode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+

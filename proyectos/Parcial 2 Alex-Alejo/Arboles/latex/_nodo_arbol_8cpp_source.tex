@@ -1,0 +1,81 @@
+\doxysection{C\+:/\+Users/\+Alex\+\_\+22/\+Desktop/\+Semestre III/\+Estructura\+DD/\+New\+Repositorio/\+ED-\/-\/-\/9686/proyectos/\+Parcial 2 Alex-\/\+Alejo/\+Arboles/\+Nodo\+Arbol.cpp}
+\hypertarget{_nodo_arbol_8cpp_source}{}\label{_nodo_arbol_8cpp_source}\mbox{\hyperlink{_nodo_arbol_8cpp}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_nodo_arbol_8h}{NodoArbol.h}}"{}}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00004\ \textcolor{comment}{//\ Name:\ NodoArbol<T>::NodoArbol}}
+\DoxyCodeLine{00005\ \textcolor{comment}{//\ Purpose:\ Constructor\ de\ la\ clase\ NodoArbol}}
+\DoxyCodeLine{00006\ \textcolor{comment}{//\ Parameters:}}
+\DoxyCodeLine{00007\ \textcolor{comment}{//\ -\/\ valor:\ Valor\ a\ asignar\ al\ nodo}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ Return:\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{}}
+\DoxyCodeLine{00017\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00018\ \mbox{\hyperlink{class_nodo_arbol_a5f8d86bb8a26bb708a27a14161fea2b3}{NodoArbol<T>::NodoArbol}}(T\ valor)\ :\ dato(valor),\ izquierdo(nullptr),\ derecho(nullptr)\ \{}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00024\ \textcolor{comment}{//\ Name:\ NodoArbol<T>::setDato}}
+\DoxyCodeLine{00025\ \textcolor{comment}{//\ Purpose:\ Establece\ el\ valor\ del\ nodo}}
+\DoxyCodeLine{00026\ \textcolor{comment}{//\ Parameters:}}
+\DoxyCodeLine{00027\ \textcolor{comment}{//\ -\/\ \_dato:\ Valor\ a\ asignar\ al\ nodo}}
+\DoxyCodeLine{00028\ \textcolor{comment}{//\ Return:\ void}}
+\DoxyCodeLine{00030\ \textcolor{comment}{}}
+\DoxyCodeLine{00036\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00037\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_nodo_arbol_adfb518dcd2f618471f09e1c91044b596}{NodoArbol<T>::setDato}}(T\ \_dato)\{}
+\DoxyCodeLine{00038\ \ \ \ \ this-\/>dato\ =\ \_dato;}
+\DoxyCodeLine{00039\ \}}
+\DoxyCodeLine{00040\ \ }
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00043\ \textcolor{comment}{//\ Name:\ NodoArbol<T>::setIzquierdo}}
+\DoxyCodeLine{00044\ \textcolor{comment}{//\ Purpose:\ Establece\ el\ nodo\ izquierdo\ del\ nodo\ actual}}
+\DoxyCodeLine{00045\ \textcolor{comment}{//\ Parameters:}}
+\DoxyCodeLine{00046\ \textcolor{comment}{//\ -\/\ \_izquierdo:\ Puntero\ al\ nodo\ izquierdo\ a\ asignar}}
+\DoxyCodeLine{00047\ \textcolor{comment}{//\ Return:\ void}}
+\DoxyCodeLine{00049\ \textcolor{comment}{}}
+\DoxyCodeLine{00055\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00056\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_nodo_arbol_af83e99192e86eff82849e65d1130e8d7}{NodoArbol<T>::setIzquierdo}}(\mbox{\hyperlink{class_nodo_arbol}{NodoArbol<T>}}*\_izquierdo)\{}
+\DoxyCodeLine{00057\ \ \ \ \ izquierdo\ =\ \_izquierdo;}
+\DoxyCodeLine{00058\ \}}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ }
+\DoxyCodeLine{00062\ \textcolor{comment}{//\ Name:\ NodoArbol<T>::setDerecho}}
+\DoxyCodeLine{00063\ \textcolor{comment}{//\ Purpose:\ Establece\ el\ nodo\ derecho\ del\ nodo\ actual}}
+\DoxyCodeLine{00064\ \textcolor{comment}{//\ Parameters:}}
+\DoxyCodeLine{00065\ \textcolor{comment}{//\ -\/\ \_derecho:\ Puntero\ al\ nodo\ derecho\ a\ asignar}}
+\DoxyCodeLine{00066\ \textcolor{comment}{//\ Return:\ void}}
+\DoxyCodeLine{00068\ \textcolor{comment}{}}
+\DoxyCodeLine{00075\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00076\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_nodo_arbol_a3086a5acf6e23db721e9db9743136f01}{NodoArbol<T>::setDerecho}}(\mbox{\hyperlink{class_nodo_arbol}{NodoArbol<T>}}*\ \_derecho)\{}
+\DoxyCodeLine{00077\ \ \ \ \ derecho\ =\ \_derecho;}
+\DoxyCodeLine{00078\ \}}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00081\ \textcolor{comment}{//\ Name:\ NodoArbol<T>::getDato}}
+\DoxyCodeLine{00082\ \textcolor{comment}{//\ Purpose:\ Obtiene\ el\ valor\ almacenado\ en\ el\ nodo}}
+\DoxyCodeLine{00083\ \textcolor{comment}{//\ Return:\ Valor\ del\ nodo}}
+\DoxyCodeLine{00085\ \textcolor{comment}{}}
+\DoxyCodeLine{00091\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00092\ T\ \mbox{\hyperlink{class_nodo_arbol_a2ee6edd95acdf5eb16cff69347211c1b}{NodoArbol<T>::getDato}}()\{}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordflow}{return}\ dato;}
+\DoxyCodeLine{00094\ \}}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00098\ \textcolor{comment}{//\ Name:\ NodoArbol<T>::getIzquierdo}}
+\DoxyCodeLine{00099\ \textcolor{comment}{//\ Purpose:\ Obtiene\ el\ puntero\ al\ nodo\ izquierdo\ del\ nodo\ actual}}
+\DoxyCodeLine{00100\ \textcolor{comment}{//\ Return:\ Puntero\ al\ nodo\ izquierdo}}
+\DoxyCodeLine{00102\ \textcolor{comment}{}}
+\DoxyCodeLine{00108\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00109\ \mbox{\hyperlink{class_nodo_arbol}{NodoArbol<T>}}*\&\ \mbox{\hyperlink{class_nodo_arbol_a1bff071e8bad11ef7b4e2d482a8ce709}{NodoArbol<T>::getIzquierdo}}()\{}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keywordflow}{return}\ izquierdo;}
+\DoxyCodeLine{00111\ \}}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00114\ \textcolor{comment}{//\ Name:\ NodoArbol<T>::getDerecho}}
+\DoxyCodeLine{00115\ \textcolor{comment}{//\ Purpose:\ Obtiene\ el\ puntero\ al\ nodo\ derecho\ del\ nodo\ actual}}
+\DoxyCodeLine{00116\ \textcolor{comment}{//\ Return:\ Puntero\ al\ nodo\ derecho}}
+\DoxyCodeLine{00118\ \textcolor{comment}{}}
+\DoxyCodeLine{00124\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00125\ \mbox{\hyperlink{class_nodo_arbol}{NodoArbol<T>}}*\&\ \mbox{\hyperlink{class_nodo_arbol_a05447396a71e22cba3df58290ca9ce39}{NodoArbol<T>::getDerecho}}()\{}
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keywordflow}{return}\ derecho;}
+\DoxyCodeLine{00127\ \}}
+
+\end{DoxyCode}

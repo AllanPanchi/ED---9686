@@ -22,8 +22,14 @@
 
 /* These functions are defined in EasyBMP.h */
 
+
 bool EasyBMPwarnings = true;
 
+/* These functions are defined in EasyBMP.cpp */
+/**
+ * @brief Set the Easy B M Pwarnings Off object
+ * 
+ */
 void SetEasyBMPwarningsOff( void )
 { EasyBMPwarnings = false; }
 void SetEasyBMPwarningsOn( void )
@@ -32,7 +38,11 @@ bool GetEasyBMPwarningState( void )
 { return EasyBMPwarnings; }
 
 /* These functions are defined in EasyBMP_DataStructures.h */
-
+// IntPow is defined at the bottom of this file
+/**
+ * @brief Construct a new BMFH::BMFH object
+ * 
+ */
 int IntPow( int base, int exponent )
 {
  int i;
@@ -42,6 +52,10 @@ int IntPow( int base, int exponent )
  return output;
 }
 
+/**
+ * @brief Construct a new BMFH::BMFH object
+ * 
+ */
 BMFH::BMFH()
 {
  bfType = 19778;
@@ -49,6 +63,12 @@ BMFH::BMFH()
  bfReserved2 = 0;
 }
 
+/**
+ * @brief B M F H::Switch Endianess
+ * 
+ * @return void
+ * 
+ */
 void BMFH::SwitchEndianess( void )
 {
  bfType = FlipWORD( bfType );
@@ -59,6 +79,11 @@ void BMFH::SwitchEndianess( void )
  return;
 }
 
+/**
+ * @brief B M F H::BMIH
+ * 
+ * 
+ */
 BMIH::BMIH()
 {
  biPlanes = 1;

@@ -1,0 +1,46 @@
+\doxysection{C\+:/\+Users/\+Alex\+\_\+22/\+Desktop/\+Semestre III/\+Estructura\+DD/\+New\+Repositorio/\+ED-\/-\/-\/9686/proyectos/\+Parcial 2 Alex-\/\+Alejo/\+Arboles/\+Registro.h}
+\hypertarget{_registro_8h_source}{}\label{_registro_8h_source}\mbox{\hyperlink{_registro_8h}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{UNIVERSIDAD\ DE\ LAS\ FUERZAS\ ARMADAS\ ESPE}}
+\DoxyCodeLine{00003\ \textcolor{comment}{Materia:\ Estructura\ de\ Datos}}
+\DoxyCodeLine{00004\ \textcolor{comment}{NRC:\ 9686}}
+\DoxyCodeLine{00005\ \textcolor{comment}{Integrantes:\ \ \ \ Alejandro\ Andrade}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Allan\ Panchi}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Alex\ Trejo\ }}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Sebastian\ Verdugo}}
+\DoxyCodeLine{00009\ \textcolor{comment}{Fecha\ de\ inicio:\ 15/06/2023}}
+\DoxyCodeLine{00010\ \textcolor{comment}{Fecha\ de\ modificación:\ 15/06/2023}}
+\DoxyCodeLine{00011\ \textcolor{comment}{}}
+\DoxyCodeLine{00012\ \textcolor{comment}{Ordenamiento\ de\ lista\ circular\ doblemente\ enlazadas}}
+\DoxyCodeLine{00013\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_empleado_8cpp}{Empleado.cpp}}"{}}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_registro}{Registro}}}
+\DoxyCodeLine{00031\ \{}
+\DoxyCodeLine{00032\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00033\ \ \ \ std::string\ \mbox{\hyperlink{class_registro_ae6d028f49829b1705ae62fa7102225cb}{getCedula}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00034\ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_registro_a3a3da21498661a9edd62232a87c03e28}{setCedula}}(std::string\ newCedula);}
+\DoxyCodeLine{00035\ \ \ \ std::string\ \mbox{\hyperlink{class_registro_a61b54bdf02273bc2875862496111eafa}{getEstado}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00036\ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_registro_afec8ea07efc85a5892042ff817354134}{setEstado}}(std::string\ newEstado);}
+\DoxyCodeLine{00037\ \ \ \ \mbox{\hyperlink{class_fecha}{Fecha}}\ \mbox{\hyperlink{class_registro_aaf9325271986fb49a91d1303feeaefd0}{getEntrada}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00038\ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_registro_ad89309a80198a4d050c91c272f16c2dd}{setEntrada}}(\mbox{\hyperlink{class_fecha}{Fecha}}\ newEntrada);}
+\DoxyCodeLine{00039\ \ \ \ \mbox{\hyperlink{class_fecha}{Fecha}}\ \mbox{\hyperlink{class_registro_aa10ddc858ed8c0ba409613d1b10ad731}{getSalida}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00040\ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_registro_acf5ee6da02fa4fe024ea70c5881828f3}{setSalida}}(\mbox{\hyperlink{class_fecha}{Fecha}}\ newSalida);}
+\DoxyCodeLine{00041\ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_registro_a2b88c18ceb3ff11e434b7dcb58328e22}{toString}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00042\ \ \ \ \mbox{\hyperlink{class_registro_a681141e98b185e198e765b355916f302}{Registro}}();}
+\DoxyCodeLine{00043\ \ \ \ \mbox{\hyperlink{class_registro_a681141e98b185e198e765b355916f302}{Registro}}(std::string\ cedula,\ \mbox{\hyperlink{class_fecha}{Fecha}}\ entrada,\ \mbox{\hyperlink{class_fecha}{Fecha}}\ salida,\ std::string\ estado);}
+\DoxyCodeLine{00044\ \ \ \ \mbox{\hyperlink{class_registro_a10783a2dd3ca4252513c56eea1697153}{\string~Registro}}();}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00047\ \ \ \ std::string\ cedula,\ estado;}
+\DoxyCodeLine{00048\ \ \ \ \mbox{\hyperlink{class_fecha}{Fecha}}\ entrada;}
+\DoxyCodeLine{00049\ \ \ \ \mbox{\hyperlink{class_fecha}{Fecha}}\ salida;}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \};}
+\DoxyCodeLine{00052\ }
+
+\end{DoxyCode}

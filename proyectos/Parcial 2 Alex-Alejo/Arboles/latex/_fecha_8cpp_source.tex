@@ -1,0 +1,426 @@
+\doxysection{C\+:/\+Users/\+Alex\+\_\+22/\+Desktop/\+Semestre III/\+Estructura\+DD/\+New\+Repositorio/\+ED-\/-\/-\/9686/proyectos/\+Parcial 2 Alex-\/\+Alejo/\+Arboles/\+Fecha.cpp}
+\hypertarget{_fecha_8cpp_source}{}\label{_fecha_8cpp_source}\mbox{\hyperlink{_fecha_8cpp}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_fecha_8h}{Fecha.h}}"{}}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <ctime>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <locale>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_val_datos_8h}{ValDatos.h}}"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00010\ \mbox{\hyperlink{class_fecha_a5fbc6564d9c48e73cf8d27568a2a7fc5}{Fecha::Fecha}}()}
+\DoxyCodeLine{00011\ \{}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{comment}{//\ Establece\ la\ configuración\ regional\ en\ español}}
+\DoxyCodeLine{00013\ \ \ \ \ setlocale(LC\_ALL,\ \textcolor{stringliteral}{"{}es\_ES.UTF-\/8"{}});}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{comment}{//\ Obtiene\ el\ tiempo\ actual\ del\ sistema}}
+\DoxyCodeLine{00016\ \ \ \ \ std::time\_t\ tiempoActual\ =\ std::time(\textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{comment}{//\ Convierte\ el\ tiempo\ en\ una\ estructura\ tm}}
+\DoxyCodeLine{00019\ \ \ \ \ std::tm*\ tiempoLocal\ =\ std::localtime(\&tiempoActual);}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{comment}{//\ Obtiene\ los\ componentes\ de\ fecha\ y\ hora}}
+\DoxyCodeLine{00022\ \ \ \ \ this-\/>dia\ =\ tiempoLocal-\/>tm\_mday;}
+\DoxyCodeLine{00023\ \ \ \ \ this-\/>mes\ =\ tiempoLocal-\/>tm\_mon+1;}
+\DoxyCodeLine{00024\ \ \ \ \ this-\/>anio\ =\ tiempoLocal-\/>tm\_year\ +\ 1900;}
+\DoxyCodeLine{00025\ \ \ \ \ this-\/>hora\ =\ tiempoLocal-\/>tm\_hour;}
+\DoxyCodeLine{00026\ \ \ \ \ this-\/>minuto\ =\ tiempoLocal-\/>tm\_min;}
+\DoxyCodeLine{00027\ \ \ \ \ this-\/>segundo\ =\ tiempoLocal-\/>tm\_sec;}
+\DoxyCodeLine{00028\ \}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00035\ \mbox{\hyperlink{class_fecha_ae34f2ebe1ac7f3a78eefb68e8d1c8b86}{Fecha::\string~Fecha}}()}
+\DoxyCodeLine{00036\ \{}
+\DoxyCodeLine{00037\ \}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00049\ \mbox{\hyperlink{class_fecha_a5fbc6564d9c48e73cf8d27568a2a7fc5}{Fecha::Fecha}}(\textcolor{keywordtype}{int}\ dia,\ \textcolor{keywordtype}{int}\ mes,\ \textcolor{keywordtype}{int}\ anio,\ \textcolor{keywordtype}{int}\ hora,\ \textcolor{keywordtype}{int}\ minuto,\ \textcolor{keywordtype}{int}\ segundo)}
+\DoxyCodeLine{00050\ \{}
+\DoxyCodeLine{00051\ \ \ \ \ this-\/>dia\ =\ dia;}
+\DoxyCodeLine{00052\ \ \ \ \ this-\/>mes\ =\ mes;}
+\DoxyCodeLine{00053\ \ \ \ \ this-\/>anio\ =\ anio;}
+\DoxyCodeLine{00054\ \ \ \ \ this-\/>hora\ =\ hora;}
+\DoxyCodeLine{00055\ \ \ \ \ this-\/>minuto\ =\ minuto;}
+\DoxyCodeLine{00056\ \ \ \ \ this-\/>segundo\ =\ segundo;}
+\DoxyCodeLine{00057\ \}}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00065\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fecha_a9f8e09d5e11a3bf9e4c234e8cd2c004a}{Fecha::getDia}}()}
+\DoxyCodeLine{00066\ \{}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>dia;}
+\DoxyCodeLine{00068\ \}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00075\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fecha_a274c19166fdc6169ae02247b06372aa4}{Fecha::setDia}}(\textcolor{keywordtype}{int}\ dia)}
+\DoxyCodeLine{00076\ \{}
+\DoxyCodeLine{00077\ \ \ \ \ this-\/>dia\ =\ dia;}
+\DoxyCodeLine{00078\ \}}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00086\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fecha_aa501ddd9a46effadac3f08c89140d9ac}{Fecha::getMes}}()}
+\DoxyCodeLine{00087\ \{}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>mes;}
+\DoxyCodeLine{00089\ \}}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00097\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fecha_a889235a87ea75cb02373e894d8e4c660}{Fecha::setMes}}(\textcolor{keywordtype}{int}\ mes)}
+\DoxyCodeLine{00098\ \{}
+\DoxyCodeLine{00099\ \ \ \ \ this-\/>mes\ =\ mes;}
+\DoxyCodeLine{00100\ \}}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00107\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fecha_a89ebafe74bc6e5f53ad688dce1d3fc26}{Fecha::getAnio}}()}
+\DoxyCodeLine{00108\ \{}
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>anio;}
+\DoxyCodeLine{00110\ \}}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00117\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fecha_a3cfbea8834e7a23023f11c3d069838f0}{Fecha::setAnio}}(\textcolor{keywordtype}{int}\ anio)}
+\DoxyCodeLine{00118\ \{}
+\DoxyCodeLine{00119\ \ \ \ \ this-\/>anio\ =\ anio;}
+\DoxyCodeLine{00120\ \}}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00127\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fecha_a7a128345105e12fba2241760f71facb2}{Fecha::getHora}}()}
+\DoxyCodeLine{00128\ \{}
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>hora;}
+\DoxyCodeLine{00130\ \}}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00137\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fecha_a7463eddcfbb8f2d5ff92ad3b68492200}{Fecha::setHora}}(\textcolor{keywordtype}{int}\ hora)}
+\DoxyCodeLine{00138\ \{}
+\DoxyCodeLine{00139\ \ \ \ \ this-\/>hora\ =\ hora;}
+\DoxyCodeLine{00140\ \}}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00147\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fecha_a73fe73683b83448ca47e31c20f217556}{Fecha::getMinuto}}()}
+\DoxyCodeLine{00148\ \{}
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>minuto;}
+\DoxyCodeLine{00150\ \}}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00157\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fecha_af6cf206265727de1037a156254d62771}{Fecha::setMinuto}}(\textcolor{keywordtype}{int}\ minuto)}
+\DoxyCodeLine{00158\ \{}
+\DoxyCodeLine{00159\ \ \ \ \ this-\/>minuto\ =\ minuto;}
+\DoxyCodeLine{00160\ \}}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00167\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fecha_ab88e0a6149971c518acf94ed67afeace}{Fecha::getSegundo}}()}
+\DoxyCodeLine{00168\ \{}
+\DoxyCodeLine{00169\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>segundo;}
+\DoxyCodeLine{00170\ \}}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00177\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fecha_a699b288f9426bc0ea4848afa0e6c68a0}{Fecha::setSegundo}}(\textcolor{keywordtype}{int}\ segundo)}
+\DoxyCodeLine{00178\ \{}
+\DoxyCodeLine{00179\ \ \ \ \ this-\/>segundo\ =\ segundo;}
+\DoxyCodeLine{00180\ \}}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00186\ \mbox{\hyperlink{class_fecha}{Fecha}}\ \mbox{\hyperlink{class_fecha_a75a3568767c5b2edfe03300552a4a543}{Fecha::getFechaActual}}(\mbox{\hyperlink{class_fecha}{Fecha}}\ fecha)\{}
+\DoxyCodeLine{00187\ \ \ \ \ time\_t\ tiempoActual\ =\ time(\textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00188\ \ \ \ \ tm*\ tiempoLocal\ =\ localtime(\&tiempoActual);}
+\DoxyCodeLine{00189\ }
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Asignar\ los\ componentes\ de\ la\ fecha\ y\ hora\ actual\ a\ los\ miembros\ de\ la\ clase}}
+\DoxyCodeLine{00191\ \ \ \ \ fecha.\mbox{\hyperlink{class_fecha_a274c19166fdc6169ae02247b06372aa4}{setDia}}(tiempoLocal-\/>tm\_mday);}
+\DoxyCodeLine{00192\ \ \ \ \ fecha.\mbox{\hyperlink{class_fecha_a889235a87ea75cb02373e894d8e4c660}{setMes}}(tiempoLocal-\/>tm\_mon\ +\ 1);}
+\DoxyCodeLine{00193\ \ \ \ \ fecha.\mbox{\hyperlink{class_fecha_a3cfbea8834e7a23023f11c3d069838f0}{setAnio}}(tiempoLocal-\/>tm\_year\ +\ 1900);}
+\DoxyCodeLine{00194\ \ \ \ \ fecha.\mbox{\hyperlink{class_fecha_a7463eddcfbb8f2d5ff92ad3b68492200}{setHora}}(tiempoLocal-\/>tm\_hour);}
+\DoxyCodeLine{00195\ \ \ \ \ fecha.\mbox{\hyperlink{class_fecha_af6cf206265727de1037a156254d62771}{setMinuto}}(tiempoLocal-\/>tm\_min);}
+\DoxyCodeLine{00196\ \ \ \ \ fecha.\mbox{\hyperlink{class_fecha_a699b288f9426bc0ea4848afa0e6c68a0}{setSegundo}}(tiempoLocal-\/>tm\_sec);}
+\DoxyCodeLine{00197\ \ \ \ \ }
+\DoxyCodeLine{00198\ \ \ \ \ \textcolor{keywordflow}{return}\ fecha;}
+\DoxyCodeLine{00199\ \}}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00206\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fecha_a4cf9774d291305be96b3e2a6fa3b3623}{Fecha::esAnioBisiesto}}(\textcolor{keywordtype}{int}\ anio)\ \{}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (anio\ \%\ 4\ ==\ 0\ \&\&\ anio\ \%\ 100\ !=\ 0)\ ||\ (anio\ \%\ 400\ ==\ 0);}
+\DoxyCodeLine{00208\ \}}
+\DoxyCodeLine{00209\ }
+\DoxyCodeLine{00216\ \mbox{\hyperlink{class_fecha}{Fecha}}\ \mbox{\hyperlink{class_fecha_afdf4d56e344b200ec4caa2f4c0885b41}{Fecha::validarFecha}}(\mbox{\hyperlink{class_fecha}{Fecha}}\&\ fecha)\{}
+\DoxyCodeLine{00217\ \ \ \ \ \textcolor{keywordtype}{int}\ anio,\ mes,\ dia;}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Ingrese\ el\ a\(\backslash\)xA4o:\ "{}};}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ fecha.\mbox{\hyperlink{class_fecha_a3cfbea8834e7a23023f11c3d069838f0}{setAnio}}(\mbox{\hyperlink{class_validar_datos_ae9b7a04ab4641ca3cd97140b345b9c4e}{ValidarDatos::validarEntero}}());}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (fecha.\mbox{\hyperlink{class_fecha_a89ebafe74bc6e5f53ad688dce1d3fc26}{getAnio}}()<2023)\ \{}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}A\(\backslash\)xA4o\ invalido.\ \(\backslash\)n\ Ingrese\ de\ nuevo\ el\ a\(\backslash\)xA4o:\(\backslash\)t"{}};}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \ \ \ \ fecha.\mbox{\hyperlink{class_fecha_a3cfbea8834e7a23023f11c3d069838f0}{setAnio}}(\mbox{\hyperlink{class_validar_datos_ae9b7a04ab4641ca3cd97140b345b9c4e}{ValidarDatos::validarEntero}}());}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00225\ }
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Ingrese\ el\ mes:\ "{}};}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ fecha.\mbox{\hyperlink{class_fecha_a889235a87ea75cb02373e894d8e4c660}{setMes}}(\mbox{\hyperlink{class_validar_datos_ae9b7a04ab4641ca3cd97140b345b9c4e}{ValidarDatos::validarEntero}}());}
+\DoxyCodeLine{00228\ }
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (fecha.\mbox{\hyperlink{class_fecha_aa501ddd9a46effadac3f08c89140d9ac}{getMes}}()\ <\ 1\ \ ||\ fecha.\mbox{\hyperlink{class_fecha_aa501ddd9a46effadac3f08c89140d9ac}{getMes}}()\ >\ 12)\ \{}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Mes\ invalido.\ \(\backslash\)n\ Ingrese\ de\ nuevo\ el\ mes:\(\backslash\)t"{}};}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \ \ \ \ fecha.\mbox{\hyperlink{class_fecha_a889235a87ea75cb02373e894d8e4c660}{setMes}}(\mbox{\hyperlink{class_validar_datos_ae9b7a04ab4641ca3cd97140b345b9c4e}{ValidarDatos::validarEntero}}());}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00233\ }
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Ingrese\ el\ dia:\ "{}};}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ fecha.\mbox{\hyperlink{class_fecha_a274c19166fdc6169ae02247b06372aa4}{setDia}}(\mbox{\hyperlink{class_validar_datos_ae9b7a04ab4641ca3cd97140b345b9c4e}{ValidarDatos::validarEntero}}());}
+\DoxyCodeLine{00236\ }
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ diasEnMes\ =\ 0;}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (fecha.\mbox{\hyperlink{class_fecha_aa501ddd9a46effadac3f08c89140d9ac}{getMes}}()\ ==\ 2)\ \{}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \ \ \ \ diasEnMes\ =\ \mbox{\hyperlink{class_fecha_a4cf9774d291305be96b3e2a6fa3b3623}{esAnioBisiesto}}(fecha.\mbox{\hyperlink{class_fecha_a89ebafe74bc6e5f53ad688dce1d3fc26}{getAnio}}())\ ?\ 29\ :\ 28;}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (fecha.\mbox{\hyperlink{class_fecha_aa501ddd9a46effadac3f08c89140d9ac}{getMes}}()\ ==\ 4\ ||\ fecha.\mbox{\hyperlink{class_fecha_aa501ddd9a46effadac3f08c89140d9ac}{getMes}}()\ ==\ 6\ ||\ fecha.\mbox{\hyperlink{class_fecha_aa501ddd9a46effadac3f08c89140d9ac}{getMes}}()\ ==\ 9\ ||\ fecha.\mbox{\hyperlink{class_fecha_aa501ddd9a46effadac3f08c89140d9ac}{getMes}}()\ ==\ 11)\ \{}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \ \ \ \ diasEnMes\ =\ 30;}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \ \ \ \ diasEnMes\ =\ 31;}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00245\ }
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (fecha.\mbox{\hyperlink{class_fecha_a9f8e09d5e11a3bf9e4c234e8cd2c004a}{getDia}}()\ <\ 1\ ||\ fecha.\mbox{\hyperlink{class_fecha_a9f8e09d5e11a3bf9e4c234e8cd2c004a}{getDia}}()\ >\ diasEnMes)\ \{}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Dia\ invalido.\ \(\backslash\)n\ Ingrese\ de\ nuevo\ el\ dia:\(\backslash\)t"{}};}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \ \ \ \ fecha.\mbox{\hyperlink{class_fecha_a274c19166fdc6169ae02247b06372aa4}{setDia}}(\mbox{\hyperlink{class_validar_datos_ae9b7a04ab4641ca3cd97140b345b9c4e}{ValidarDatos::validarEntero}}());}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00250\ }
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ fecha;}
+\DoxyCodeLine{00252\ \}}
+\DoxyCodeLine{00253\ }
+\DoxyCodeLine{00260\ \mbox{\hyperlink{class_fecha}{Fecha}}\ \mbox{\hyperlink{class_fecha_a7c7c14b983f643aa1f9537e4085fe670}{Fecha::validarFechaNacimiento}}(\mbox{\hyperlink{class_fecha}{Fecha}}\ \&fecha)\ \{}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Validar\ año}}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ anio,\ mes,\ dia;}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Ingrese\ el\ a\(\backslash\)xA4o:\ "{}};}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ fecha.\mbox{\hyperlink{class_fecha_a3cfbea8834e7a23023f11c3d069838f0}{setAnio}}(\mbox{\hyperlink{class_validar_datos_ae9b7a04ab4641ca3cd97140b345b9c4e}{ValidarDatos::validarEntero}}());}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (fecha.\mbox{\hyperlink{class_fecha_a89ebafe74bc6e5f53ad688dce1d3fc26}{getAnio}}()<1956\ ||\ fecha.\mbox{\hyperlink{class_fecha_a89ebafe74bc6e5f53ad688dce1d3fc26}{getAnio}}()\ >\ 2005)\ \{}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}A\(\backslash\)xA4o\ invalido.\ \(\backslash\)n\ Ingrese\ de\ nuevo\ el\ a\(\backslash\)xA4o:\(\backslash\)t"{}};}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \ \ \ \ fecha.\mbox{\hyperlink{class_fecha_a3cfbea8834e7a23023f11c3d069838f0}{setAnio}}(\mbox{\hyperlink{class_validar_datos_ae9b7a04ab4641ca3cd97140b345b9c4e}{ValidarDatos::validarEntero}}());}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Ingrese\ el\ mes:\ "{}};}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ fecha.\mbox{\hyperlink{class_fecha_a889235a87ea75cb02373e894d8e4c660}{setMes}}(\mbox{\hyperlink{class_validar_datos_ae9b7a04ab4641ca3cd97140b345b9c4e}{ValidarDatos::validarEntero}}());}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Validar\ mes}}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (fecha.\mbox{\hyperlink{class_fecha_aa501ddd9a46effadac3f08c89140d9ac}{getMes}}()\ <\ 1\ \ ||\ fecha.\mbox{\hyperlink{class_fecha_aa501ddd9a46effadac3f08c89140d9ac}{getMes}}()\ >\ 12)\ \{}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Mes\ invalido.\ \(\backslash\)n\ Ingrese\ de\ nuevo\ el\ mes:\(\backslash\)t"{}};}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \ \ \ \ fecha.\mbox{\hyperlink{class_fecha_a889235a87ea75cb02373e894d8e4c660}{setMes}}(\mbox{\hyperlink{class_validar_datos_ae9b7a04ab4641ca3cd97140b345b9c4e}{ValidarDatos::validarEntero}}());}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Ingrese\ el\ dia:\ "{}};}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ fecha.\mbox{\hyperlink{class_fecha_a274c19166fdc6169ae02247b06372aa4}{setDia}}(\mbox{\hyperlink{class_validar_datos_ae9b7a04ab4641ca3cd97140b345b9c4e}{ValidarDatos::validarEntero}}());}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Validar\ día}}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ diasEnMes\ =\ 0;}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (fecha.\mbox{\hyperlink{class_fecha_aa501ddd9a46effadac3f08c89140d9ac}{getMes}}()\ ==\ 2)\ \{}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \ \ \ \ diasEnMes\ =\ \mbox{\hyperlink{class_fecha_a4cf9774d291305be96b3e2a6fa3b3623}{esAnioBisiesto}}(fecha.\mbox{\hyperlink{class_fecha_a89ebafe74bc6e5f53ad688dce1d3fc26}{getAnio}}())\ ?\ 29\ :\ 28;}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (fecha.\mbox{\hyperlink{class_fecha_aa501ddd9a46effadac3f08c89140d9ac}{getMes}}()\ ==\ 4\ ||\ fecha.\mbox{\hyperlink{class_fecha_aa501ddd9a46effadac3f08c89140d9ac}{getMes}}()\ ==\ 6\ ||\ fecha.\mbox{\hyperlink{class_fecha_aa501ddd9a46effadac3f08c89140d9ac}{getMes}}()\ ==\ 9\ ||\ fecha.\mbox{\hyperlink{class_fecha_aa501ddd9a46effadac3f08c89140d9ac}{getMes}}()\ ==\ 11)\ \{}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \ \ \ \ diasEnMes\ =\ 30;}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \ \ \ \ diasEnMes\ =\ 31;}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00291\ }
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (fecha.\mbox{\hyperlink{class_fecha_a9f8e09d5e11a3bf9e4c234e8cd2c004a}{getDia}}()\ <\ 1\ ||\ fecha.\mbox{\hyperlink{class_fecha_a9f8e09d5e11a3bf9e4c234e8cd2c004a}{getDia}}()\ >\ diasEnMes)\ \{}
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Dia\ invalido.\ \(\backslash\)n\ Ingrese\ de\ nuevo\ el\ dia:\(\backslash\)t"{}};}
+\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ \ \ \ \ fecha.\mbox{\hyperlink{class_fecha_a274c19166fdc6169ae02247b06372aa4}{setDia}}(\mbox{\hyperlink{class_validar_datos_ae9b7a04ab4641ca3cd97140b345b9c4e}{ValidarDatos::validarEntero}}());}
+\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00296\ }
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ fecha;}
+\DoxyCodeLine{00298\ \}}
+\DoxyCodeLine{00299\ }
+\DoxyCodeLine{00307\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fecha_ac8d2d46cf4b15126422ff67364add2a3}{Fecha::operator<}}(\mbox{\hyperlink{class_fecha}{Fecha}}\ fecha)}
+\DoxyCodeLine{00308\ \{}
+\DoxyCodeLine{00309\ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>anio\ <\ fecha.anio)}
+\DoxyCodeLine{00310\ \ \ \ \ \{}
+\DoxyCodeLine{00311\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00312\ \ \ \ \ \}}
+\DoxyCodeLine{00313\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (this-\/>anio\ ==\ fecha.anio)}
+\DoxyCodeLine{00314\ \ \ \ \ \{}
+\DoxyCodeLine{00315\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>mes\ <\ fecha.mes)}
+\DoxyCodeLine{00316\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00317\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00318\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00319\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (this-\/>mes\ ==\ fecha.mes)}
+\DoxyCodeLine{00320\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00321\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>dia\ <\ fecha.dia)}
+\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00324\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00325\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ else\ if\ (this-\/>dia\ ==\ fecha.dia)}}
+\DoxyCodeLine{00326\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \{}}
+\DoxyCodeLine{00327\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ if\ (this-\/>hora\ <\ fecha.hora)}}
+\DoxyCodeLine{00328\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \{}}
+\DoxyCodeLine{00329\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ return\ true;}}
+\DoxyCodeLine{00330\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \}}}
+\DoxyCodeLine{00331\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ else\ if\ (this-\/>hora\ ==\ fecha.hora)}}
+\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \{}}
+\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ if\ (this-\/>minuto\ <\ fecha.minuto)}}
+\DoxyCodeLine{00334\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \{}}
+\DoxyCodeLine{00335\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ return\ true;}}
+\DoxyCodeLine{00336\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{00337\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ else\ if\ (this-\/>minuto\ ==\ fecha.minuto)}}
+\DoxyCodeLine{00338\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \{}}
+\DoxyCodeLine{00339\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ if\ (this-\/>segundo\ <\ fecha.segundo)}}
+\DoxyCodeLine{00340\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \{}}
+\DoxyCodeLine{00341\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ return\ true;}}
+\DoxyCodeLine{00342\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{00343\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{00344\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \}}}
+\DoxyCodeLine{00345\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \}}}
+\DoxyCodeLine{00346\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00347\ \ \ \ \ \}}
+\DoxyCodeLine{00348\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00349\ \}}
+\DoxyCodeLine{00350\ }
+\DoxyCodeLine{00358\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fecha_a9380ce9657127661e90df5eddc1f5df9}{Fecha::operator>}}(\mbox{\hyperlink{class_fecha}{Fecha}}\ fecha)}
+\DoxyCodeLine{00359\ \{}
+\DoxyCodeLine{00360\ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>anio\ >\ fecha.anio)}
+\DoxyCodeLine{00361\ \ \ \ \ \{}
+\DoxyCodeLine{00362\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00363\ \ \ \ \ \}}
+\DoxyCodeLine{00364\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (this-\/>anio\ ==\ fecha.anio)}
+\DoxyCodeLine{00365\ \ \ \ \ \{}
+\DoxyCodeLine{00366\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>mes\ >\ fecha.mes)}
+\DoxyCodeLine{00367\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00368\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00369\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00370\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (this-\/>mes\ ==\ fecha.mes)}
+\DoxyCodeLine{00371\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00372\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>dia\ >\ fecha.dia)}
+\DoxyCodeLine{00373\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00374\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00375\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00376\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ else\ if\ (this-\/>dia\ ==\ fecha.dia)}}
+\DoxyCodeLine{00377\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \{}}
+\DoxyCodeLine{00378\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ if\ (this-\/>hora\ >\ fecha.hora)}}
+\DoxyCodeLine{00379\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \{}}
+\DoxyCodeLine{00380\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ return\ true;}}
+\DoxyCodeLine{00381\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \}}}
+\DoxyCodeLine{00382\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ else\ if\ (this-\/>hora\ ==\ fecha.hora)}}
+\DoxyCodeLine{00383\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \{}}
+\DoxyCodeLine{00384\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ if\ (this-\/>minuto\ >\ fecha.minuto)}}
+\DoxyCodeLine{00385\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \{}}
+\DoxyCodeLine{00386\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ return\ true;}}
+\DoxyCodeLine{00387\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{00388\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ else\ if\ (this-\/>minuto\ ==\ fecha.minuto)}}
+\DoxyCodeLine{00389\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \{}}
+\DoxyCodeLine{00390\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ if\ (this-\/>segundo\ >\ fecha.segundo)}}
+\DoxyCodeLine{00391\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \{}}
+\DoxyCodeLine{00392\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ return\ true;}}
+\DoxyCodeLine{00393\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{00394\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{00395\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \}}}
+\DoxyCodeLine{00396\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \}}}
+\DoxyCodeLine{00397\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00398\ \ \ \ \ \}}
+\DoxyCodeLine{00399\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00400\ \}}
+\DoxyCodeLine{00401\ }
+\DoxyCodeLine{00409\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fecha_aafb98c88c5a0a87e58c7504573f4958a}{Fecha::operator==}}(\mbox{\hyperlink{class_fecha}{Fecha}}\ fecha)}
+\DoxyCodeLine{00410\ \{}
+\DoxyCodeLine{00411\ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>anio\ ==\ fecha.anio\ \&\&\ this-\/>mes\ ==\ fecha.mes\ \&\&\ this-\/>dia\ ==\ fecha.dia\ }
+\DoxyCodeLine{00412\ \ \ \ \ \textcolor{comment}{//\&\&\ this-\/>hora\ ==\ fecha.hora\ \&\&\ this-\/>minuto\ ==\ fecha.minuto\ \&\&\ this-\/>segundo\ ==\ fecha.segundo}}
+\DoxyCodeLine{00413\ \ \ \ \ )}
+\DoxyCodeLine{00414\ \ \ \ \ \{}
+\DoxyCodeLine{00415\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00416\ \ \ \ \ \}}
+\DoxyCodeLine{00417\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00418\ \}}
+\DoxyCodeLine{00419\ }
+\DoxyCodeLine{00427\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fecha_ab0c805590b1c69da4d69bb84baf5fa8c}{Fecha::operator!=}}(\mbox{\hyperlink{class_fecha}{Fecha}}\ fecha)}
+\DoxyCodeLine{00428\ \{}
+\DoxyCodeLine{00429\ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>anio\ !=\ fecha.anio\ ||\ this-\/>mes\ !=\ fecha.mes\ ||\ this-\/>dia\ !=\ fecha.dia\ ||\ this-\/>hora\ !=\ fecha.hora\ ||\ this-\/>minuto\ !=\ fecha.minuto\ ||\ this-\/>segundo\ !=\ fecha.segundo)}
+\DoxyCodeLine{00430\ \ \ \ \ \{}
+\DoxyCodeLine{00431\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00432\ \ \ \ \ \}}
+\DoxyCodeLine{00433\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00434\ \}}
+\DoxyCodeLine{00435\ }
+\DoxyCodeLine{00443\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fecha_a7d1c7cf97a56482694c522f78ca98552}{Fecha::operator<=}}(\mbox{\hyperlink{class_fecha}{Fecha}}\ fecha)}
+\DoxyCodeLine{00444\ \{}
+\DoxyCodeLine{00445\ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>anio\ <\ fecha.anio)}
+\DoxyCodeLine{00446\ \ \ \ \ \{}
+\DoxyCodeLine{00447\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00448\ \ \ \ \ \}}
+\DoxyCodeLine{00449\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (this-\/>anio\ ==\ fecha.anio)}
+\DoxyCodeLine{00450\ \ \ \ \ \{}
+\DoxyCodeLine{00451\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>mes\ <\ fecha.mes)}
+\DoxyCodeLine{00452\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00453\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00454\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00455\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (this-\/>mes\ ==\ fecha.mes)}
+\DoxyCodeLine{00456\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00457\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>dia\ <\ fecha.dia)}
+\DoxyCodeLine{00458\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00459\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00460\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00461\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (this-\/>dia\ ==\ fecha.dia)}
+\DoxyCodeLine{00462\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00463\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>hora\ <\ fecha.hora)}
+\DoxyCodeLine{00464\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00465\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00466\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00467\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (this-\/>hora\ ==\ fecha.hora)}
+\DoxyCodeLine{00468\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00469\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>minuto\ <\ fecha.minuto)}
+\DoxyCodeLine{00470\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00471\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00472\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00473\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (this-\/>minuto\ ==\ fecha.minuto)}
+\DoxyCodeLine{00474\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00475\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>segundo\ <=\ fecha.segundo)}
+\DoxyCodeLine{00476\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00477\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00478\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00479\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00480\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00481\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00482\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00483\ \ \ \ \ \}}
+\DoxyCodeLine{00484\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00485\ \}}
+\DoxyCodeLine{00486\ }
+\DoxyCodeLine{00494\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fecha_a954ee8804c684922ad809129b9b73163}{Fecha::operator>=}}(\mbox{\hyperlink{class_fecha}{Fecha}}\ fecha)}
+\DoxyCodeLine{00495\ \{}
+\DoxyCodeLine{00496\ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>anio\ >\ fecha.anio)}
+\DoxyCodeLine{00497\ \ \ \ \ \{}
+\DoxyCodeLine{00498\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00499\ \ \ \ \ \}}
+\DoxyCodeLine{00500\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (this-\/>anio\ ==\ fecha.anio)}
+\DoxyCodeLine{00501\ \ \ \ \ \{}
+\DoxyCodeLine{00502\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>mes\ >\ fecha.mes)}
+\DoxyCodeLine{00503\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00504\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00505\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00506\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (this-\/>mes\ ==\ fecha.mes)}
+\DoxyCodeLine{00507\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00508\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>dia\ >\ fecha.dia)}
+\DoxyCodeLine{00509\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00510\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00511\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00512\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (this-\/>dia\ ==\ fecha.dia)}
+\DoxyCodeLine{00513\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00514\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>hora\ >\ fecha.hora)}
+\DoxyCodeLine{00515\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00516\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00517\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00518\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (this-\/>hora\ ==\ fecha.hora)}
+\DoxyCodeLine{00519\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00520\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>minuto\ >\ fecha.minuto)}
+\DoxyCodeLine{00521\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00522\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00523\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00524\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (this-\/>minuto\ ==\ fecha.minuto)}
+\DoxyCodeLine{00525\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00526\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>segundo\ >=\ fecha.segundo)}
+\DoxyCodeLine{00527\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00528\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00529\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00530\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00531\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00532\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00533\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00534\ \ \ \ \ \}}
+\DoxyCodeLine{00535\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00536\ \}}
+\DoxyCodeLine{00537\ }
+\DoxyCodeLine{00545\ std::ostream\&\ \mbox{\hyperlink{_fecha_8cpp_a8bbe7d2a8e70d4d42d9e406b6aa617fe}{operator<<}}(std::ostream\&\ os,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fecha}{Fecha}}\&\ fecha)}
+\DoxyCodeLine{00546\ \{}
+\DoxyCodeLine{00547\ \ \ \ \ os\ <<\ fecha.dia\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ fecha.mes\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ fecha.anio\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ fecha.hora\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ fecha.minuto\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ fecha.segundo;}
+\DoxyCodeLine{00548\ \ \ \ \ \textcolor{keywordflow}{return}\ os;}
+\DoxyCodeLine{00549\ \}}
+\DoxyCodeLine{00550\ }
+\DoxyCodeLine{00558\ std::istream\&\ \mbox{\hyperlink{_fecha_8cpp_a443140e62287a8efbe3f7976c268b4ec}{operator>>}}(std::istream\&\ is,\ \mbox{\hyperlink{class_fecha}{Fecha}}\&\ fecha)}
+\DoxyCodeLine{00559\ \{}
+\DoxyCodeLine{00560\ \ \ \ }
+\DoxyCodeLine{00561\ \ \ \ \ \ \ }
+\DoxyCodeLine{00562\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Ingrese\ el\ a\(\backslash\)xA4o:\ "{}};}
+\DoxyCodeLine{00563\ \ \ \ \ is\ >>\ fecha.anio;}
+\DoxyCodeLine{00564\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Ingrese\ el\ mes:\ "{}};}
+\DoxyCodeLine{00565\ \ \ \ \ is\ >>\ fecha.mes;}
+\DoxyCodeLine{00566\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Ingrese\ el\ dia:\ "{}};}
+\DoxyCodeLine{00567\ \ \ \ \ is\ >>\ fecha.dia;}
+\DoxyCodeLine{00568\ \ \ \ }
+\DoxyCodeLine{00569\ \ \ \ \ }
+\DoxyCodeLine{00570\ \ \ \ \ \textcolor{keywordflow}{return}\ is;}
+\DoxyCodeLine{00571\ \}}
+\DoxyCodeLine{00572\ }
+\DoxyCodeLine{00573\ }
+\DoxyCodeLine{00574\ }
+\DoxyCodeLine{00575\ }
+\DoxyCodeLine{00576\ \textcolor{comment}{//\ Path:\ ED-\/-\/-\/9686\(\backslash\)Alejo\(\backslash\)P2\(\backslash\)D2\ Proyecto\ Grupal\ Ordenamiento\(\backslash\)main.cpp}}
+
+\end{DoxyCode}
