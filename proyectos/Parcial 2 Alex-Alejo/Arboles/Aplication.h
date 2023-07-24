@@ -18,7 +18,9 @@ public:
 	void buscarRegistrosPorCedula();
 	void extras();
 
-	void volver();
+	void mainMenu();
+	void backup();
+	void restaurarBackup();
 	void generarBackup();
 	void imprimirEnConsola();
 

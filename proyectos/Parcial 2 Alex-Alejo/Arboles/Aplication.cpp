@@ -162,6 +162,11 @@ void Aplication::mostrarPersonasRegistradas()
 	Lista<Empleado> lista;
 	ManejoArchivos::cargarPersonas("personas.txt", lista);
 	ArbolBinario<float> arbol;
+	
+	if (lista.listaVacia()){
+		std::cout << "No hay personas registradas." << std::endl;
+		return;
+	}
 
 	Nodo<Empleado> *tmp = lista.getPrimero();
 	for(int i = 0; i < lista.size(); i++){
@@ -169,11 +174,8 @@ void Aplication::mostrarPersonasRegistradas()
 		tmp = tmp->getSiguiente();
 	}
 
-	if (lista.listaVacia()){
-		std::cout << "No hay personas registradas." << std::endl;
-	}
+
 	lista.mostrar();
-	arbol.mostrarArbol();
 }
 
 void Aplication::mostrarRegistros()
@@ -391,16 +393,55 @@ void Aplication::buscarRegistrosPorCedula(){
 
 void Aplication::extras(){
 	Menu menu("Extras");
-	menu.add(MenuItem("Regresar",std::bind(&Aplication::volver,this)));
+	menu.add(MenuItem("Regresar",std::bind(&Aplication::mainMenu,this)));
+	menu.add(MenuItem("BACKUP", std::bind(&Aplication::backup,this)));
 	menu.add(MenuItem("Imprimir imagen en consola",std::bind(&Aplication::imprimirEnConsola,this)));
-	menu.add(MenuItem("Generar backup", std::bind(&Aplication::generarBackup,this)));
 	menu.add(MenuItem("Salir", std::bind(&Aplication::salir,this)));
 	menu.run();
 }
 
-void Aplication::volver(){
+void Aplication::mainMenu(){
 	system("cls");
 	run();
+}
+
+void Aplication::backup(){
+	Menu menu("Backup");
+	menu.add(MenuItem("Regresar",std::bind(&Aplication::extras,this)));
+	menu.add(MenuItem("Generar Backup", std::bind(&Aplication::generarBackup,this)));
+	menu.add(MenuItem("Restaurar Backup",std::bind(&Aplication::restaurarBackup,this)));
+	menu.add(MenuItem("Salir", std::bind(&Aplication::salir,this)));
+	menu.run();
+}
+
+void Aplication::restaurarBackup(){
+	system("cls");
+	
+	std::string directorio = ".\\backups\\";
+
+	// Retorna void si el directorio no existe
+	if (!std::filesystem::exists(directorio)) {
+		std::cerr << "El directorio no existe: " << directorio << std::endl;
+		return;
+	}
+
+	// Mostrar todos los archivos en el directorio
+	std::cout << "Archivos en el directorio: " << std::endl;
+
+
+	for (const auto& entry : std::filesystem::directory_iterator(directorio))
+		std::cout << entry.path() << std::endl;
+
+	std::cout << "Ingrese el nombre de la carpeta a restaurar: " << std::endl;
+	std::string fecha;
+	std::cin >> fecha;
+
+	std::string directorioP = directorio + fecha + "\\personas.txt";
+	std::string directorioR = directorio + fecha + "\\registros.txt";
+
+	Backup::copiarArchivo(directorioP, "personas.txt");
+	Backup::copiarArchivo(directorioR, "registros.txt");
+
 }
 
 void Aplication::generarBackup(){
