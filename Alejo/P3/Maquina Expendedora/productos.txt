@@ -1,4 +1,4 @@
-Pepsi 0.25 15 
+Pepsi 0.25 13 
 Jet 0.35 15 
 Tatos 0.5 20 
 KitKat 1 20 
