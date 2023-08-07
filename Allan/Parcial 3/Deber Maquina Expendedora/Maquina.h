@@ -1,15 +1,14 @@
 #include "Producto.cpp"
+#include "Moneda.cpp"
 #include <iostream>
 #include <vector>
 
 class Maquina{
     private:
         std::vector<Producto> producto;
-        float saldo;
+        Moneda monedas;
     public:
         Maquina();
         ~Maquina();
-        float getSaldo() const;
-        void setSaldo(float);
-        bool canjearProducto(Producto& producto, const std::string& nombreProducto, float monto, int cantidadProducto, float saldo, Maquina& maquina);
+        bool canjearProducto(Producto& producto, const std::string& nombreProducto, float monto, int cantidadProducto, Maquina& maquina);
 };

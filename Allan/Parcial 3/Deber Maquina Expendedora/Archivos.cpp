@@ -9,17 +9,21 @@ Archivos::~Archivos()
 {
 }
 
-void Archivos::escribirArchivo(string nombreArchivo, string texto)
+void Archivos::escribirArchivoProducto(const string nombreArchivo, const vector<Producto>& productos)
 {
-    ofstream archivo;
-    archivo.open(nombreArchivo, ios::app);
-    if (archivo.fail())
-    {
-        cout << "No se pudo abrir el archivo" << endl;
-        exit(1);
+    std::ofstream archivo(nombreArchivo);
+    if (archivo.is_open()) {
+        for (const auto& producto : productos) {
+            archivo << producto.getNombre() << " "
+                    << producto.getPrecio() << " "
+                    << producto.getCantidad() << " "
+                    << std::endl;
+        }
+        archivo.close();
+        std::cout << "Productos guardados en el archivo exitosamente." << std::endl;
+    } else {
+        std::cout << "No se pudo abrir el archivo para guardar los productos." << std::endl;
     }
-    archivo << texto << endl;
-    archivo.close();
 }
 
 void Archivos::leerArchivo(string nombreArchivo)

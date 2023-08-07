@@ -1,0 +1,5 @@
+Cola 0.25 19 
+Golpe 0.35 18 
+Chicles 0.05 24 
+Manicho 0.5 24 
+Sandwich 1 43 
