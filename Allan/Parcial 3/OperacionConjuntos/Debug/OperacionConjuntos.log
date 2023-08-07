@@ -1,0 +1,55 @@
+﻿  SetsApp.cpp
+C:\Users\Leonardo\Desktop\ESPE\3 SEMESTRE\Estructura de datos\Programas\Parcial 3\Proyecto\SistemaDeConjuntos\OperacionConjuntos\Validacion.h(233,14): warning C4244: 'return': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\Leonardo\Desktop\ESPE\3 SEMESTRE\Estructura de datos\Programas\Parcial 3\Proyecto\SistemaDeConjuntos\OperacionConjuntos\bgi\graphics\include\graphics.h(281,5): warning C4273: 'getch': vinculación de DLL incoherente
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\conio.h(444,30): message : vea la definición anterior de 'getch'
+C:\Users\Leonardo\Desktop\ESPE\3 SEMESTRE\Estructura de datos\Programas\Parcial 3\Proyecto\SistemaDeConjuntos\OperacionConjuntos\bgi\graphics\include\graphics.h(282,5): warning C4273: 'kbhit': vinculación de DLL incoherente
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\conio.h(450,30): message : vea la definición anterior de 'kbhit'
+C:\Users\Leonardo\Desktop\ESPE\3 SEMESTRE\Estructura de datos\Programas\Parcial 3\Proyecto\SistemaDeConjuntos\OperacionConjuntos\GraphSet.h(114,21): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\Leonardo\Desktop\ESPE\3 SEMESTRE\Estructura de datos\Programas\Parcial 3\Proyecto\SistemaDeConjuntos\OperacionConjuntos\GraphSet.h(118,10): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\Leonardo\Desktop\ESPE\3 SEMESTRE\Estructura de datos\Programas\Parcial 3\Proyecto\SistemaDeConjuntos\OperacionConjuntos\GraphSet.h(123,21): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\Leonardo\Desktop\ESPE\3 SEMESTRE\Estructura de datos\Programas\Parcial 3\Proyecto\SistemaDeConjuntos\OperacionConjuntos\GraphSet.h(127,10): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\Leonardo\Desktop\ESPE\3 SEMESTRE\Estructura de datos\Programas\Parcial 3\Proyecto\SistemaDeConjuntos\OperacionConjuntos\GraphSet.h(157,22): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\Leonardo\Desktop\ESPE\3 SEMESTRE\Estructura de datos\Programas\Parcial 3\Proyecto\SistemaDeConjuntos\OperacionConjuntos\GraphSet.h(158,11): warning C4018: '>=': no coinciden signed/unsigned
+C:\Users\Leonardo\Desktop\ESPE\3 SEMESTRE\Estructura de datos\Programas\Parcial 3\Proyecto\SistemaDeConjuntos\OperacionConjuntos\GraphSet.h(166,22): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\Leonardo\Desktop\ESPE\3 SEMESTRE\Estructura de datos\Programas\Parcial 3\Proyecto\SistemaDeConjuntos\OperacionConjuntos\GraphSet.h(167,11): warning C4018: '>=': no coinciden signed/unsigned
+C:\Users\Leonardo\Desktop\ESPE\3 SEMESTRE\Estructura de datos\Programas\Parcial 3\Proyecto\SistemaDeConjuntos\OperacionConjuntos\GraphSet.h(175,22): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\Leonardo\Desktop\ESPE\3 SEMESTRE\Estructura de datos\Programas\Parcial 3\Proyecto\SistemaDeConjuntos\OperacionConjuntos\GraphSet.h(176,11): warning C4018: '>=': no coinciden signed/unsigned
+C:\Users\Leonardo\Desktop\ESPE\3 SEMESTRE\Estructura de datos\Programas\Parcial 3\Proyecto\SistemaDeConjuntos\OperacionConjuntos\GraphSet.h(188,22): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\Leonardo\Desktop\ESPE\3 SEMESTRE\Estructura de datos\Programas\Parcial 3\Proyecto\SistemaDeConjuntos\OperacionConjuntos\GraphSet.h(192,11): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\Leonardo\Desktop\ESPE\3 SEMESTRE\Estructura de datos\Programas\Parcial 3\Proyecto\SistemaDeConjuntos\OperacionConjuntos\GraphSet.h(224,21): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\Leonardo\Desktop\ESPE\3 SEMESTRE\Estructura de datos\Programas\Parcial 3\Proyecto\SistemaDeConjuntos\OperacionConjuntos\GraphSet.h(225,10): warning C4018: '>=': no coinciden signed/unsigned
+C:\Users\Leonardo\Desktop\ESPE\3 SEMESTRE\Estructura de datos\Programas\Parcial 3\Proyecto\SistemaDeConjuntos\OperacionConjuntos\GraphSet.h(234,21): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\Leonardo\Desktop\ESPE\3 SEMESTRE\Estructura de datos\Programas\Parcial 3\Proyecto\SistemaDeConjuntos\OperacionConjuntos\GraphSet.h(235,10): warning C4018: '>=': no coinciden signed/unsigned
+C:\Users\Leonardo\Desktop\ESPE\3 SEMESTRE\Estructura de datos\Programas\Parcial 3\Proyecto\SistemaDeConjuntos\OperacionConjuntos\GraphSet.h(244,21): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\Leonardo\Desktop\ESPE\3 SEMESTRE\Estructura de datos\Programas\Parcial 3\Proyecto\SistemaDeConjuntos\OperacionConjuntos\GraphSet.h(245,10): warning C4018: '>=': no coinciden signed/unsigned
+C:\Users\Leonardo\Desktop\ESPE\3 SEMESTRE\Estructura de datos\Programas\Parcial 3\Proyecto\SistemaDeConjuntos\OperacionConjuntos\GraphSet.h(258,21): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\Leonardo\Desktop\ESPE\3 SEMESTRE\Estructura de datos\Programas\Parcial 3\Proyecto\SistemaDeConjuntos\OperacionConjuntos\GraphSet.h(262,10): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\Leonardo\Desktop\ESPE\3 SEMESTRE\Estructura de datos\Programas\Parcial 3\Proyecto\SistemaDeConjuntos\OperacionConjuntos\GraphSet.h(299,21): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\Leonardo\Desktop\ESPE\3 SEMESTRE\Estructura de datos\Programas\Parcial 3\Proyecto\SistemaDeConjuntos\OperacionConjuntos\GraphSet.h(300,10): warning C4018: '>=': no coinciden signed/unsigned
+C:\Users\Leonardo\Desktop\ESPE\3 SEMESTRE\Estructura de datos\Programas\Parcial 3\Proyecto\SistemaDeConjuntos\OperacionConjuntos\GraphSet.h(316,21): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\Leonardo\Desktop\ESPE\3 SEMESTRE\Estructura de datos\Programas\Parcial 3\Proyecto\SistemaDeConjuntos\OperacionConjuntos\GraphSet.h(317,10): warning C4018: '>=': no coinciden signed/unsigned
+C:\Users\Leonardo\Desktop\ESPE\3 SEMESTRE\Estructura de datos\Programas\Parcial 3\Proyecto\SistemaDeConjuntos\OperacionConjuntos\GraphSet.h(333,21): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\Leonardo\Desktop\ESPE\3 SEMESTRE\Estructura de datos\Programas\Parcial 3\Proyecto\SistemaDeConjuntos\OperacionConjuntos\GraphSet.h(334,10): warning C4018: '>=': no coinciden signed/unsigned
+C:\Users\Leonardo\Desktop\ESPE\3 SEMESTRE\Estructura de datos\Programas\Parcial 3\Proyecto\SistemaDeConjuntos\OperacionConjuntos\GraphSet.h(347,21): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\Leonardo\Desktop\ESPE\3 SEMESTRE\Estructura de datos\Programas\Parcial 3\Proyecto\SistemaDeConjuntos\OperacionConjuntos\GraphSet.h(351,10): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\Leonardo\Desktop\ESPE\3 SEMESTRE\Estructura de datos\Programas\Parcial 3\Proyecto\SistemaDeConjuntos\OperacionConjuntos\GraphSet.h(383,21): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\Leonardo\Desktop\ESPE\3 SEMESTRE\Estructura de datos\Programas\Parcial 3\Proyecto\SistemaDeConjuntos\OperacionConjuntos\GraphSet.h(384,10): warning C4018: '>=': no coinciden signed/unsigned
+C:\Users\Leonardo\Desktop\ESPE\3 SEMESTRE\Estructura de datos\Programas\Parcial 3\Proyecto\SistemaDeConjuntos\OperacionConjuntos\GraphSet.h(392,21): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\Leonardo\Desktop\ESPE\3 SEMESTRE\Estructura de datos\Programas\Parcial 3\Proyecto\SistemaDeConjuntos\OperacionConjuntos\GraphSet.h(393,10): warning C4018: '>=': no coinciden signed/unsigned
+C:\Users\Leonardo\Desktop\ESPE\3 SEMESTRE\Estructura de datos\Programas\Parcial 3\Proyecto\SistemaDeConjuntos\OperacionConjuntos\GraphSet.h(402,21): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\Leonardo\Desktop\ESPE\3 SEMESTRE\Estructura de datos\Programas\Parcial 3\Proyecto\SistemaDeConjuntos\OperacionConjuntos\GraphSet.h(403,10): warning C4018: '>=': no coinciden signed/unsigned
+C:\Users\Leonardo\Desktop\ESPE\3 SEMESTRE\Estructura de datos\Programas\Parcial 3\Proyecto\SistemaDeConjuntos\OperacionConjuntos\GraphSet.h(416,21): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\Leonardo\Desktop\ESPE\3 SEMESTRE\Estructura de datos\Programas\Parcial 3\Proyecto\SistemaDeConjuntos\OperacionConjuntos\GraphSet.h(420,10): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\Leonardo\Desktop\ESPE\3 SEMESTRE\Estructura de datos\Programas\Parcial 3\Proyecto\SistemaDeConjuntos\OperacionConjuntos\GraphSet.h(460,21): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\Leonardo\Desktop\ESPE\3 SEMESTRE\Estructura de datos\Programas\Parcial 3\Proyecto\SistemaDeConjuntos\OperacionConjuntos\GraphSet.h(461,10): warning C4018: '>=': no coinciden signed/unsigned
+C:\Users\Leonardo\Desktop\ESPE\3 SEMESTRE\Estructura de datos\Programas\Parcial 3\Proyecto\SistemaDeConjuntos\OperacionConjuntos\GraphSet.h(477,21): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\Leonardo\Desktop\ESPE\3 SEMESTRE\Estructura de datos\Programas\Parcial 3\Proyecto\SistemaDeConjuntos\OperacionConjuntos\GraphSet.h(478,10): warning C4018: '>=': no coinciden signed/unsigned
+C:\Users\Leonardo\Desktop\ESPE\3 SEMESTRE\Estructura de datos\Programas\Parcial 3\Proyecto\SistemaDeConjuntos\OperacionConjuntos\GraphSet.h(494,21): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\Leonardo\Desktop\ESPE\3 SEMESTRE\Estructura de datos\Programas\Parcial 3\Proyecto\SistemaDeConjuntos\OperacionConjuntos\GraphSet.h(495,10): warning C4018: '>=': no coinciden signed/unsigned
+C:\Users\Leonardo\Desktop\ESPE\3 SEMESTRE\Estructura de datos\Programas\Parcial 3\Proyecto\SistemaDeConjuntos\OperacionConjuntos\GraphSet.h(507,22): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\Leonardo\Desktop\ESPE\3 SEMESTRE\Estructura de datos\Programas\Parcial 3\Proyecto\SistemaDeConjuntos\OperacionConjuntos\GraphSet.h(511,11): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\Leonardo\Desktop\ESPE\3 SEMESTRE\Estructura de datos\Programas\Parcial 3\Proyecto\SistemaDeConjuntos\OperacionConjuntos\GraphSet.h(527,22): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\Leonardo\Desktop\ESPE\3 SEMESTRE\Estructura de datos\Programas\Parcial 3\Proyecto\SistemaDeConjuntos\OperacionConjuntos\GraphSet.h(531,11): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\Leonardo\Desktop\ESPE\3 SEMESTRE\Estructura de datos\Programas\Parcial 3\Proyecto\SistemaDeConjuntos\OperacionConjuntos\GraphSet.h(590,28): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Leonardo\Desktop\ESPE\3 SEMESTRE\Estructura de datos\Programas\Parcial 3\Proyecto\SistemaDeConjuntos\OperacionConjuntos\GraphSet.h(605,29): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+  OperacionConjuntos.vcxproj -> C:\Users\Leonardo\Desktop\ESPE\3 SEMESTRE\Estructura de datos\Programas\Parcial 3\Proyecto\SistemaDeConjuntos\OperacionConjuntos\Debug\OperacionConjuntos.exe
