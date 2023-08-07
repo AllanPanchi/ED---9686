@@ -1,6 +1,5 @@
 #include "ValDatos.h"
-#include "Maquina.cpp"
-#include "Archivos.h"
+#include "Archivos.cpp"
 #include <iostream>
 #include <string>
 #include <vector>
@@ -10,20 +9,24 @@ using namespace std;
 int main(){
     int opcion = 0;
     Maquina maquina;
+    Archivos manejoA;
     ValidarDatos valDatos;
     vector<Producto> productos;
     string nombreProducto;
+    string archivo = "Productos.txt";
     float precioProducto;
     int cantidadProducto;
     bool encontrado = false;
 
-    maquina.setSaldo(200.00);
+
+
     productos.push_back(Producto(0.05, "Chicles", 30));
     productos.push_back(Producto(0.5, "Papas", 30));
     productos.push_back(Producto(0.3, "Aguas", 30));
     productos.push_back(Producto(0.5, "Mani", 30));
     productos.push_back(Producto(1.00, "Sandwich", 30));
-    
+
+    manejoA.escribirArchivoProducto(archivo, productos);    
     do{
         cout << "Ingrese el numero de la opcion que desea realizar: " << endl;
         cout << "1. Comprar" << endl;
@@ -32,7 +35,6 @@ int main(){
 
         switch(opcion){
             case 1:
-                cout << "saldo de la maquina disponible: " << maquina.getSaldo() << endl;
                 for (const auto& producto : productos) {
                     cout << producto.getNombre() << " - Precio $" << producto.getPrecio() << " - Cantidad: " << producto.getCantidad() << endl;
                     
@@ -44,7 +46,7 @@ int main(){
                 cout << "Ingrese cuantas unidades quiere llevar: ";
                 cantidadProducto = valDatos.validarEntero();
                 for(auto& producto : productos){
-                    canjearProducto(productos, nombreProducto, precioProducto, cantidadProducto, maquina.getSaldo(), maquina);
+                    canjearProducto(productos, nombreProducto, precioProducto, cantidadProducto, maquina);
                     encontrado = true;
                     break;   
                 }
