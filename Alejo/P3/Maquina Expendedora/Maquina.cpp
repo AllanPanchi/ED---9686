@@ -16,7 +16,7 @@
 // Return:
 ////////////////////////////////////////////////////////////////////////
 
-Maquina::Maquina(int monto, int cincoC, int diezC, int veinticincoC, int cincuentaC, int unD)
+Maquina::Maquina(float monto, int cincoC, int diezC, int veinticincoC, int cincuentaC, int unD)
 {
    this->monto = monto;
    this->cincoC = cincoC;

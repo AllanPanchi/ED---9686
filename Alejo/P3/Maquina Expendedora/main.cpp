@@ -5,6 +5,8 @@
 #include <map>
 #include <vector>
 #include <algorithm>
+#include <ctime>
+#include <cstdlib>
 #include "ManejoArchivos.cpp"
 
 void modificarStockMaquina(Maquina& maquina, std::map<float, int> aRestar, std::map<float, int> aSumar){
@@ -143,13 +145,27 @@ void mostrarProductos(Lista<Producto> lista)
 
 int main()
 {
+
+    std::srand(static_cast<unsigned int>(std::time(nullptr)));
+
     system("cls");
 
     std::map<std::string, Producto> productos = leer_productos();
 
-    Maquina maquina = Maquina(95, 50, 50, 50, 50, 50);
-    //ManejoArchivos::guardarMaquina("maquina.txt", maquina);
-    ManejoArchivos::cargarMaquina("maquina.txt", maquina);
+    int cincoC = std::rand() % 41 + 10;
+    int diezC = std::rand() % 41 + 10;
+    int veinticincoC = std::rand() % 41 + 10;
+    int cincuentaC = std::rand() % 41 + 10;
+    int unD = std::rand() % 41 + 10;
+
+    float monto = cincoC * 0.05F +
+                  diezC * 0.10F + 
+                  veinticincoC * 0.25F + 
+                  cincuentaC * 0.50F + 
+                  unD * 1.00F;
+
+    Maquina maquina = Maquina(monto, cincoC, diezC, veinticincoC, cincuentaC, unD);
+    ManejoArchivos::guardarMaquina("maquina.txt", maquina);
 
     std::string nombre;
     float saldo = 0;

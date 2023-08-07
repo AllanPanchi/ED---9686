@@ -14,7 +14,7 @@
 class Maquina
 {
 public:
-   Maquina(int monto, int cincoC, int diezC, int veinticincoC, int cincuentaC, int unD);
+   Maquina(float monto, int cincoC, int diezC, int veinticincoC, int cincuentaC, int unD);
    Maquina();
    ~Maquina();
    float getMonto(void);
