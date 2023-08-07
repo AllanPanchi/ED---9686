@@ -6,10 +6,9 @@
 #include <vector>
 #include <algorithm>
 #include "ManejoArchivos.cpp"
-#include "Moneda.cpp"
 
 void modificarStockMaquina(Maquina& maquina, std::map<float, int> aRestar, std::map<float, int> aSumar){
-    
+
     for (const auto& par : aSumar) {
 
         if (par.first == 0.05F) {
@@ -69,7 +68,7 @@ void comprar_producto(std::map<std::string, Producto>& productos, const std::str
             std::vector<float> monedas = {1, 0.5, 0.25, 0.10, 0.05};
             
             for (float moneda : monedas) {
-                while (vuelto >= moneda) {
+                while (vuelto >= moneda - 0.01) {
                     vuelto -= moneda;
                     monedas_vuelto[moneda]++;
                 }
@@ -79,55 +78,24 @@ void comprar_producto(std::map<std::string, Producto>& productos, const std::str
                 std::cout << "$" << par.first << " x " << par.second << std::endl;
                 cantidades.push_back(par.second);
             }
+            modificarStockProductos(producto, lista);
+            modificarStockMaquina(maquina, monedas_vuelto, monedasIngresadas);
+            system("pause");
+
         } else {
             std::cout << "Dinero insuficiente o producto agotado. Introduce más monedas o elige otro producto." << std::endl;
+            system("pause");
         }
     } else {
         std::cout << "Producto no encontrado." << std::endl;
+        system("pause");
     }
-
-    modificarStockProductos(producto, lista);
-    modificarStockMaquina(maquina, monedas_vuelto, monedasIngresadas);
-
 }
 
 void imprimirMenu(){
     std::cout << "Selecione una opcion: " << std::endl;
     std::cout << "1. Comprar" << std::endl;
     std::cout << "2. Salir" << std::endl;
-}
-
-float validarSaldo(float saldo){
-    
-    std::string saldoString = std::to_string(saldo);
-    std::string p2 = saldoString.substr(saldoString.find(".") + 1);
-    p2 = p2.substr(0, p2.find("0"));
-    
-    for(int i = 0; i < saldoString.length(); i++){
-        if (saldoString.at(i) == '.' && saldoString.at(i+1) == '0'){
-            return saldo;
-        }
-    }
-
-    int p2Int = std::stoi(p2);
-    // Validar que p2Int sea multiplo de 5
-    if(p2Int < 10 && p2Int > 0){
-        return saldo;
-    }
-    while(p2Int % 5 != 0){
-        std::cout << "Ingrese un saldo valido: " << std::endl;
-        std::cin >> saldo;
-        saldoString = std::to_string(saldo);
-        p2 = saldoString.substr(saldoString.find(".") + 1);
-        p2 = p2.substr(0, p2.find("0"));
-        p2Int = std::stoi(p2);
-    }
-    while(saldo < 0){
-        std::cout << "Ingrese un saldo valido: " << std::endl;
-        std::cin >> saldo;
-    }
-    return saldo;
-    
 }
 
 std::map<std::string, Producto> leer_productos() {
@@ -147,9 +115,7 @@ std::map<std::string, Producto> leer_productos() {
         std::cout << "No se encontró el archivo de productos. Creando uno nuevo con valores predeterminados." << std::endl;
         std::ofstream nuevo_archivo("productos.txt");
         if (nuevo_archivo.is_open()) {
-            nuevo_archivo << "ProductoA 10.50" << std::endl;
-            nuevo_archivo << "ProductoB 5.75" << std::endl;
-            nuevo_archivo << "ProductoC 8.20" << std::endl;
+            nuevo_archivo << "Pepsi 0.25 15 \nJet 0.35 15 \n Tatos 0.5 20 \n KitKat 1 20 \nChifles 1.5 20 " << std::endl;
             nuevo_archivo.close();
             std::cout << "Archivo de productos creado exitosamente." << std::endl;
             return leer_productos(); // Llamada recursiva para leer el archivo recién creado
@@ -182,9 +148,9 @@ int main()
     std::map<std::string, Producto> productos = leer_productos();
 
     Maquina maquina = Maquina(95, 50, 50, 50, 50, 50);
-    ManejoArchivos::guardarMaquina("maquina.txt", maquina);
+    //ManejoArchivos::guardarMaquina("maquina.txt", maquina);
+    ManejoArchivos::cargarMaquina("maquina.txt", maquina);
 
-    std::vector<Moneda> cambio;
     std::string nombre;
     float saldo = 0;
     bool salir = false;
@@ -199,6 +165,7 @@ int main()
         Lista<Producto> lista;
         ManejoArchivos::cargarProductos("productos.txt", lista);
         ManejoArchivos::cargarMaquina("maquina.txt", maquina);
+        saldo = 0;
         
         mostrarProductos(lista);
         imprimirMenu();
@@ -208,8 +175,17 @@ int main()
         {
             case 1:
 
+                monedasIngresadas[0.05] = 0;
+                monedasIngresadas[0.10] = 0;
+                monedasIngresadas[0.25] = 0;
+                monedasIngresadas[0.50] = 0;
+                monedasIngresadas[1] = 0;
+                saldo = 0;
+                salir2 = false;
+
                 while (!salir2)
                 {
+                    
                     std::cout << "|---Ingreso del Saldo---|" << std::endl;
                     std::cout << "1. 5 centavos" << std::endl;
                     std::cout << "2. 10 centavos" << std::endl;

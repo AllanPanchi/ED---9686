@@ -65,11 +65,15 @@
         std::ifstream archivo(nombreArchivo);
 
         if (archivo.is_open()) {
-            int monto;
-            std::string valores;
+            float monto;
             int cincoC, diezC, veinticincoC, cincuentaC, unD;
             while (archivo >> monto >> cincoC >> diezC >> veinticincoC >> cincuentaC >> unD) {
-                maquina = Maquina(monto, cincoC, diezC, veinticincoC, cincuentaC, unD);
+                maquina.setMonto(monto);
+                maquina.setCincoC(cincoC);
+                maquina.setDiezC(diezC);
+                maquina.setVeinticincoC(veinticincoC);
+                maquina.setCincuentaC(cincuentaC);
+                maquina.setUnD(unD);
             }
             archivo.close();
         } else {
