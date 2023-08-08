@@ -73,6 +73,8 @@ class FuncionesInterfaz:public Tablero{
 	 */
     void solucionReinas(void);
 	void dibujoReina(int fila, int columna);
+	void dibujoPeonB(int fila, int columna,int dimension);
+	void dibujoPeonN(int fila, int columna,int dimension);
 	void dibujoReinaB(int fila, int columna,int dimension);
 	void reinaB(int fila, int columna);
 	void solucionRB(int x, int y, int n1);

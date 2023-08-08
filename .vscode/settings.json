@@ -87,7 +87,9 @@
         "numeric": "cpp",
         "codecvt": "cpp",
         "numbers": "cpp",
-        "variant": "cpp"
+        "variant": "cpp",
+        "bitset": "cpp",
+        "set": "cpp"
     },
     "C_Cpp.errorSquiggles": "enabled",
     "C_Cpp.default.compilerPath": "cl.exe",

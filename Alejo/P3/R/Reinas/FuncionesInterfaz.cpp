@@ -265,6 +265,62 @@ void FuncionesInterfaz::dibujoReina(int fila, int columna){
 
 	}
 
+void FuncionesInterfaz::dibujoPeonB(int fila, int columna,int dimension){
+	int x=250;
+	int y=150;
+	int x1=301;
+	int y1=200;
+	int aux2=50;
+	int aux3=50;
+	cout<<"Posicion dimension: "<<dimension<<endl;
+	for(int i=0;i<dimension;i++){
+		for(int j=0;j<dimension;j++){
+			if(i==fila &&j==columna){
+			readimagefile("peonB.jpg",x,y,x1,y1);
+		//	setfillstyle(SOLID_FILL, 6);
+		//  fillellipse(x,y, 5, 10);
+		//  fillellipse(x,y+aux, 10, 15);
+		//  bar(x1,y+aux1,x1+aux,y1);
+		   }
+		   	x+=aux2;
+		   	x1+=aux2;
+		}
+		x=251;
+		x1=301;
+		y+=aux3;
+		y1+=aux3;
+	}
+
+}
+
+void FuncionesInterfaz::dibujoPeonN(int fila, int columna,int dimension){
+	int x=250;
+	int y=150;
+	int x1=301;
+	int y1=200;
+	int aux2=50;
+	int aux3=50;
+	cout<<"Posicion dimension: "<<dimension<<endl;
+	for(int i=0;i<dimension;i++){
+		for(int j=0;j<dimension;j++){
+			if(i==fila &&j==columna){
+			readimagefile("peonN.jpg",x,y,x1,y1);
+		//	setfillstyle(SOLID_FILL, 6);
+		//  fillellipse(x,y, 5, 10);
+		//  fillellipse(x,y+aux, 10, 15);
+		//  bar(x1,y+aux1,x1+aux,y1);
+		   }
+		   	x+=aux2;
+		   	x1+=aux2;
+		}
+		x=251;
+		x1=301;
+		y+=aux3;
+		y1+=aux3;
+	}
+
+}
+
 void FuncionesInterfaz::dibujoReinaB(int fila, int columna,int dimension){
 	int x=250;
 	int y=150;

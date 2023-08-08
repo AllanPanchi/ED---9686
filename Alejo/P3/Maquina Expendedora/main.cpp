@@ -9,7 +9,15 @@
 #include <cstdlib>
 #include "ManejoArchivos.cpp"
 
-void modificarStockMaquina(Maquina& maquina, std::map<float, int> aRestar, std::map<float, int> aSumar){
+void regresarMonedas(std::string nombre, Lista<Producto> lista){
+    std::cout << "Se devolveran las monedas ingresadas" << std::endl;
+    Nodo<Producto>* temp = lista.buscar(nombre);
+    int stock = temp->getValor().getStock() + 1 ;
+    temp->setValor(Producto(temp->getValor().getNombre(), temp->getValor().getPrecio(), stock));
+    ManejoArchivos::guardarProductos("productos.txt", lista);
+}
+
+void modificarStockMaquina(Maquina& maquina, std::map<float, int> aRestar, std::map<float, int> aSumar, std::string nombre, Lista<Producto> lista){
 
     for (const auto& par : aSumar) {
 
@@ -47,6 +55,38 @@ void modificarStockMaquina(Maquina& maquina, std::map<float, int> aRestar, std::
                      maquina.getCincuentaC() * 0.50 + 
                      maquina.getUnD() * 1.00);
 
+    if (maquina.getMonto() <= 0.0F){
+        system("cls");
+        std::cout << "No hay dinero en la maquina" << std::endl;
+        regresarMonedas(nombre, lista);
+        return;
+    } else if (maquina.getCincoC() <= 0){
+        system("cls");
+        std::cout << "No hay monedas de 5 centavos" << std::endl;
+        regresarMonedas(nombre, lista);
+        return;
+    } else if (maquina.getDiezC() <= 0){
+        system("cls");
+        std::cout << "No hay monedas de 10 centavos" << std::endl;
+        regresarMonedas(nombre, lista);
+        return;
+    } else if (maquina.getVeinticincoC() <= 0){
+        system("cls");
+        std::cout << "No hay monedas de 25 centavos" << std::endl;
+        regresarMonedas(nombre, lista);
+        return;
+    } else if (maquina.getCincuentaC() <= 0){
+        system("cls");
+        std::cout << "No hay monedas de 50 centavos" << std::endl;
+        regresarMonedas(nombre, lista);
+        return;
+    } else if (maquina.getUnD() <= 0){
+        system("cls");
+        std::cout << "No hay monedas de 1 dolar" << std::endl;
+        regresarMonedas(nombre, lista);
+        return;
+    }
+
     ManejoArchivos::guardarMaquina("maquina.txt", maquina);
 }
 
@@ -81,7 +121,7 @@ void comprar_producto(std::map<std::string, Producto>& productos, const std::str
                 cantidades.push_back(par.second);
             }
             modificarStockProductos(producto, lista);
-            modificarStockMaquina(maquina, monedas_vuelto, monedasIngresadas);
+            modificarStockMaquina(maquina, monedas_vuelto, monedasIngresadas, producto, lista);
             system("pause");
 
         } else {
@@ -174,6 +214,8 @@ int main()
     int opcion = 0;
     int opcion2 = 0;
 
+    float exedente = 0.0F;
+
     while (!salir)
     {
         system("cls");
@@ -199,7 +241,7 @@ int main()
                 saldo = 0;
                 salir2 = false;
 
-                while (!salir2)
+                while (!salir2 && saldo <= 20.0F)
                 {
                     
                     std::cout << "|---Ingreso del Saldo---|" << std::endl;
@@ -221,26 +263,31 @@ int main()
                     {
                     case 1:
                         saldo += 0.05F;
+                        exedente = 0.05F;
                         monedasIngresadas[0.05]++;
                         break;
 
                     case 2:
                         saldo += 0.10F;
+                        exedente = 0.10F;
                         monedasIngresadas[0.10]++;
                         break;
 
                     case 3:
                         saldo += 0.25F;
+                        exedente = 0.25F;
                         monedasIngresadas[0.25]++;
                         break;
 
                     case 4:
                         saldo += 0.50F;
+                        exedente = 0.50F;
                         monedasIngresadas[0.50]++;
                         break;
 
                     case 5:
                         saldo += 1.0F;
+                        exedente = 1.0F;
                         monedasIngresadas[1]++;
                         break;
                     
@@ -254,6 +301,15 @@ int main()
                     }
 
                 }
+
+                if (saldo > 20.0F) {
+                    saldo -= exedente;
+                    std::cout << "No puede ingresar mas de 20 dolares." << std::endl;
+                    std::cout << "|-----------------------|" << std::endl;
+                    std::cout << "|Su saldo es: \t" << saldo << std::endl;
+                    std::cout << "|-----------------------|" << std::endl;
+                }
+
                 std::cout << "Que desea comprar: " << std::endl;
                 std::cin >> nombre;
                 

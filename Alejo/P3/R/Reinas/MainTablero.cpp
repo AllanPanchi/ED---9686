@@ -31,10 +31,12 @@ int main(int argc, char** argv) {
 	int opcionReina;
 	char datoEntero[10];
 	Reina *rei;
-	FuncionesInterfaz *obj;
+	FuncionesInterfaz *obj, *objPeonB1, *objPeonB2, *objPeonN1, *objPeonN2;
 	Alfil *alfil;
 	FuncionA *obj1;
 	int fila, columna;
+
+	int fpB1, cpB1, fpB2, cpB2, fpN1, cpN1, fpN2, cpN2;
 
 	std::ofstream archivo("tablero.txt");
 	std::string cadena;
@@ -59,6 +61,7 @@ int main(int argc, char** argv) {
         std::cout << "\t[5]  Caballo" << endl;
 		std::cout << "\t[6]  Imprimir tablero en consola" << endl;
 		std::cout << "\t[7]  Crear Tablero con una Reina" << endl;
+		std::cout << "\t[8]  Crear Tablero con peones" << endl;
 		std::cout << "\t[0]  Salir " << endl;
         //str_cpy(datoEntero,ingresarDatosEnteros("\nSelecciona: "));
         //opcion = funcion_atoi(datoEntero,strlen(datoEntero));
@@ -71,6 +74,16 @@ int main(int argc, char** argv) {
 		cout<<"\n";
 		fila=0;
 		columna=0;
+
+		fpB1 = 0;
+		cpB1 = 0;
+		fpB2 = 0;
+		cpB2 = 0;
+		fpN1 = 0;
+		cpN1 = 0;
+		fpN2 = 0;
+		cpN2 = 0;
+
 		cleardevice();
 		obj1->cuadrado();
 		obj->ejes();
@@ -317,15 +330,15 @@ int main(int argc, char** argv) {
 								obj->dibujoReinaB(fila-1,columna-1, dimension);
 								cout<<"[ "<<fila<<" ; "<<columna<<" ]"<<endl;
 
-								// if(dimension == 1){
-								// 	std::cout << "La reina no tiene movimientos posibles" << std::endl;
-								// } else if((fila == 1 && columna == 1) || (fila == 1 && columna == 8) || (fila == 8 && columna == 1) || (fila == 8 && columna == 8)){
-								// 	std::cout << "La reina tiene 3 movimientos posibles" << std::endl;
-								// } else if((fila > 1 && fila < 8) && (columna > 1 && columna < 8)){
-								// 	std::cout << "La reina tiene 8 movimientos posibles" << std::endl;
-								// } else {
-								// 	std::cout << "La reina tiene 5 movimientos posibles" << std::endl;
-								// }
+								if(dimension == 1){
+									std::cout << "La reina no tiene movimientos posibles" << std::endl;
+								} else if((fila == 1 && columna == 1) || (fila == 1 && columna == 8) || (fila == 8 && columna == 1) || (fila == 8 && columna == 8)){
+									std::cout << "La reina tiene 3 movimientos posibles" << std::endl;
+								} else if((fila > 1 && fila < 8) && (columna > 1 && columna < 8)){
+									std::cout << "La reina tiene 8 movimientos posibles" << std::endl;
+								} else {
+									std::cout << "La reina tiene 5 movimientos posibles" << std::endl;
+								}
 							
 							//system("PAUSE");
 							//cleardevice();
@@ -336,6 +349,92 @@ int main(int argc, char** argv) {
 					break;
 				}
 
+
+				system("PAUSE");
+        		cleardevice();
+				break;
+
+			case 8:
+				int dim;
+				cleardevice();
+				cout<<"\n\t Ingrese el tama\xA4o del tablero: ";
+				cin>>dim;
+				while(dim < 2 || dim > 8){
+					cout << "!!! TAMA\xA5O INVALIDO !!!" << endl;
+					cout << "Ingrese nuevamente el tama\xA4o del tablero: ";
+					cin >> dim;
+				}
+
+				chessboard = obj1->createChessboard(dim);
+				obj1->saveChessboardToFile(chessboard,"chessboard.txt");
+
+				readChessboard = obj1->readChessboardFromFile("chessboard.txt");
+
+				obj1->cuadrado2(dim);
+				
+				cout<<"-------------------------Sub-Menu-----------------"<<endl;
+				cout << "\t[1]  Ubicar peones " << endl;
+        		cout << "\t[2]  Continuar " << endl;
+				cin>>opcionReina;
+
+				while (opcionReina!=1||opcionReina!=2){
+					switch(opcionReina){
+						case 1:
+							cleardevice();
+							srand(time(NULL));
+							obj1->cuadrado2(dim);
+							cout<<"dimension:"<<dim<<endl;
+
+							fpB1 = rand() % dim + 1;
+							cout<<"fila:"<<fpB1<<endl;
+							cpB1 = rand() % dim + 1;
+							cout<<"columna:"<<cpB1<<endl;
+							
+							objPeonB1->dibujoPeonB(fpB1-1,cpB1-1, dim);
+							cout<<"[ "<<fpB1<<" ; "<<cpB1<<" ]"<<endl;
+
+							fpB2 = rand() % dim + 1;
+							cout<<"fila:"<<fpB2<<endl;
+							cpB2 = rand() % dim + 1;
+							cout<<"columna:"<<cpB2<<endl;
+							
+							objPeonB2->dibujoPeonB(fpB2-1,cpB2-1, dim);
+							cout<<"[ "<<fpB2<<" ; "<<cpB2<<" ]"<<endl;
+
+							fpN1 = rand() % dim + 1;
+							cout<<"fila:"<<fpN1<<endl;
+							cpN1 = rand() % dim + 1;
+							cout<<"columna:"<<cpN1<<endl;
+							
+							objPeonN1->dibujoPeonN(fpN1-1,cpN1-1, dim);
+							cout<<"[ "<<fpN1<<" ; "<<cpN1<<" ]"<<endl;
+
+							fpN2 = rand() % dim + 1;
+							cout<<"fila:"<<fpN2<<endl;
+							cpN2 = rand() % dim + 1;
+							cout<<"columna:"<<cpN2<<endl;
+							
+							objPeonN2->dibujoPeonN(fpN2-1,cpN2-1, dim);
+							cout<<"[ "<<fpN2<<" ; "<<cpN2<<" ]"<<endl;
+
+							if(fpB1 == fpN1+1 && (cpB1 == cpN1+1 || cpB1 == cpN1+1)){
+								std::cout << "Se amenazan" << std::endl;
+							} else if (fpB2 == fpN1+1 && (cpB2 == cpN1+1 || cpB2 == cpN1+1)){
+								std::cout << "Se amenazan" << std::endl;
+							} else if (fpB1 == fpN2+1 && (cpB1 == cpN2+1 || cpB1 == cpN2+1)){
+								std::cout << "Se amenazan" << std::endl;
+							} else if (fpB2 == fpN2+1 && (cpB2 == cpN2+1 || cpB2 == cpN2+1)) {
+								std::cout << "Se amenazan" << std::endl;
+							} else {
+								std::cout << "No se amenazan" << std::endl;
+							}
+	
+							break;
+						case 2:
+							break;
+					}
+					break;
+				}
 
 				system("PAUSE");
         		cleardevice();
