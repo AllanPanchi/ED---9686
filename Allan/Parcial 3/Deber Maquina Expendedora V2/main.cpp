@@ -10,6 +10,11 @@
 #include "ValDatos.h"
 #include "ManejoArchivos.cpp"
 
+std::string unidades[] = {"cero", "uno", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nueve"};
+std::string especiales[] = {"diez", "once", "doce", "trece", "catorce", "quince", "dieciséis", "diecisiete", "dieciocho", "diecinueve"};
+std::string decenas[] = {"", "diez", "veinte", "treinta", "cuarenta", "cincuenta", "sesenta", "setenta", "ochenta", "noventa"};
+std::string centenas[] = {"", "ciento", "doscientos", "trescientos", "cuatrocientos", "quinientos", "seiscientos", "setecientos", "ochocientos", "novecientos"};
+
 void regresarMonedas(std::string nombre, Lista<Producto> lista){
     std::cout << "Se devolveran las monedas ingresadas" << std::endl;
     Nodo<Producto>* temp = lista.buscar(nombre);
@@ -128,6 +133,60 @@ void modificarStockProductos(std::string nombre, Lista<Producto> lista){
     ManejoArchivos::guardarProductos("productos.txt", lista);
 }
 
+std::string transformarNumerosALetras(float numero) {
+    int parte_entera = static_cast<int>(numero);
+    int parte_decimal = static_cast<int>((numero - parte_entera) * 100);
+
+    std::string resultado;
+
+    if (parte_entera < 0 || parte_entera >= 1000000) {
+        return "Número fuera de rango";
+    }
+
+    if (parte_entera == 1000000) {
+        return "un millón";
+    }
+
+    if (parte_entera >= 1000) {
+        int miles = parte_entera / 1000;
+        parte_entera %= 1000;
+
+        if (miles == 1) {
+            resultado += "mil ";
+        } else {
+            resultado += unidades[miles] + " mil ";
+        }
+    }
+
+    if (parte_entera >= 100) {
+        int centena = parte_entera / 100;
+        parte_entera %= 100;
+
+        resultado += centenas[centena] + " ";
+    }
+
+    if (parte_entera >= 20) {
+        int decena = parte_entera / 10;
+        int unidad = parte_entera % 10;
+
+        resultado += decenas[decena] + " ";
+
+        if (unidad > 0) {
+            resultado += "y " + unidades[unidad] + " ";
+        }
+    } else if (parte_entera >= 10) {
+        resultado += especiales[parte_entera - 10] + " ";
+    } else if (parte_entera > 0) {
+        resultado += unidades[parte_entera] + " ";
+    }
+
+    if (parte_decimal > 0) {
+        resultado += "con " + unidades[parte_decimal / 10] + " y " + unidades[parte_decimal % 10];
+    }
+
+    return resultado;
+}
+
 std::string transformarNumerosALetrasInt(int numero){
     std::string cantidad[] = {"dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nueve", "diez"};
     if(numero >= 2 && numero <= 10)
@@ -145,7 +204,8 @@ void comprar_producto(std::map<std::string, Producto>& productos, const std::str
         Producto& seleccionado = iter->second;
         if (seleccionado.getStock() > 0 && saldo >= seleccionado.getPrecio()) {
             float vuelto = saldo - seleccionado.getPrecio();
-            std::cout << "¡Compra exitosa! Tu vuelto es: $" << vuelto << std::endl;
+            std::string vueltostr = transformarNumerosALetras(saldo - seleccionado.getPrecio());
+            std::cout << "¡Compra exitosa! Tu vuelto es: " << vueltostr << std::endl;
             seleccionado.setStock(seleccionado.getStock()-1);
             std::vector<float> monedas = {20, 10, 5, 1, 0.5, 0.25, 0.10, 0.05};
             
@@ -157,69 +217,69 @@ void comprar_producto(std::map<std::string, Producto>& productos, const std::str
             }
             std::cout << "Vuelto:" << std::endl;
             for (const auto& par : monedas_vuelto) {
-                if(par.first == 0.05){
+                if(par.first == 0.05F){
                     if(par.second == 1){
-                        std::cout << "una moneda de 0.05" << std::endl;
+                        std::cout << "una moneda de cinco" << std::endl;
                     }else{ 
-                        // cambio1 = transformarNumerosALetrasInt(par.second);
-                        // std::cout << cambio1 << " monedas de " << par.first << std::endl;
-                        std::cout << par.second << " monedas de " << par.first << std::endl;
+                        cambio1 = transformarNumerosALetrasInt(par.second);
+                        std::cout << cambio1 << " monedas de cinco" << std::endl;
+                        //std::cout << par.second << " monedas de " << par.first << std::endl;
                     }
-                }else if(par.first == 0.10){
+                }else if(par.first == 0.10F){
                     if(par.second == 1)
                         std::cout <<"una moneda de diez"<< std::endl;
                     else{ 
-                        // cambio2 = transformarNumerosALetrasInt(par.second);
-                        // std::cout << cambio2 << " monedas de " << par.first << std::endl;
-                        std::cout << par.second << " monedas de " << par.first << std::endl;
+                        cambio2 = transformarNumerosALetrasInt(par.second);
+                        std::cout << cambio2 << " monedas de diez" << std::endl;
+                        //std::cout << par.second << " monedas de " << par.first << std::endl;
                     }
-                }else if(par.first == 0.25){
+                }else if(par.first == 0.25F){
                     if(par.second == 1)
                         std::cout << "una moneda de veinticinco" << std::endl;
                     else{ 
-                        // cambio3 = transformarNumerosALetrasInt(par.second);
-                        // std::cout << cambio3 << " monedas de " << par.first << std::endl;
-                        std::cout << par.second << " monedas de " << par.first << std::endl;
+                        cambio3 = transformarNumerosALetrasInt(par.second);
+                        std::cout << cambio3 << " monedas de veinticinco" << std::endl;
+                        //std::cout << par.second << " monedas de " << par.first << std::endl;
                     }
-                }else if(par.first == 0.50){
+                }else if(par.first == 0.50F){
                     if(par.second == 1)
                         std::cout << "una moneda de cincuenta" << std::endl;
                     else{ 
-                        // cambio4 = transformarNumerosALetrasInt(par.second);
-                        // std::cout << cambio4 << " monedas de " << par.first << std::endl;
-                        std::cout << par.second << " monedas de " << par.first << std::endl;
+                        cambio4 = transformarNumerosALetrasInt(par.second);
+                        std::cout << cambio4 << " monedas de cincuenta" << std::endl;
+                        //std::cout << par.second << " monedas de " << par.first << std::endl;
                     }
                 }else if(par.first == 1){
                     if(par.second == 1)
                         std::cout << "una moneda de dolar" << std::endl;
                     else{ 
-                        // cambio5 = transformarNumerosALetrasInt(par.second);
-                        // std::cout << cambio5 << " monedas de uno" << std::endl;
-                        std::cout << par.second << " monedas de " << par.first << std::endl;
+                        cambio5 = transformarNumerosALetrasInt(par.second);
+                        std::cout << cambio5 << " monedas de un dolar" << std::endl;
+                        //std::cout << par.second << " monedas de " << par.first << std::endl;
                     }
                 }else if(par.first == 5.00){
                     if(par.second == 1)
                         std::cout << "un billete de cinco" << std::endl;
                     else{ 
-                        // cambio6 = transformarNumerosALetrasInt(par.second);
-                        // std::cout << cambio6 << " billetes de " << par.first << std::endl;
-                        std::cout << par.second << " billetes de " << par.first << std::endl;
+                        cambio6 = transformarNumerosALetrasInt(par.second);
+                        std::cout << cambio6 << " billetes de cinco" << std::endl;
+                        //std::cout << par.second << " billetes de " << par.first << std::endl;
                     }
                 }else if(par.first == 10.00){
                     if(par.second == 1)
                         std::cout << "un billete de diez" << std::endl;
                     else{ 
-                        // cambio7 = transformarNumerosALetrasInt(par.second);
-                        // std::cout << cambio7 << " billetes de " << par.first << std::endl;
-                        std::cout << par.second << " billetes de " << par.first << std::endl;
+                        cambio7 = transformarNumerosALetrasInt(par.second);
+                        std::cout << cambio7 << " billetes de diez" << std::endl;
+                        //std::cout << par.second << " billetes de " << par.first << std::endl;
                     }
                 }else if(par.first == 20.00){
                     if(par.second == 1)
                         std::cout << "un billete de veinte" << std::endl;
                     else{ 
-                        // cambio8 = transformarNumerosALetrasInt(par.second);
-                        // std::cout << cambio8 << " billetes de" << par.first << std::endl;
-                        std::cout << par.second << " billetes de " << par.first << std::endl;
+                        cambio8 = transformarNumerosALetrasInt(par.second);
+                        std::cout << cambio8 << " billetes de veinte" << std::endl;
+                        //std::cout << par.second << " billetes de " << par.first << std::endl;
                     }
                 }
                 cantidades.push_back(par.second);
@@ -431,11 +491,29 @@ int main()
 
                 }
                 
-                if (saldo >= 20.0F) {
+                if (saldo > 20.0F) {
                     saldo -= exedente;
+                    if(exedente == 0.05F){
+                        monedasIngresadas[0.05]--;
+                    }else if(exedente == 0.10F){
+                        monedasIngresadas[0.10]--;
+                    }else if(exedente == 0.25F){
+                        monedasIngresadas[0.25]--;
+                    }else if(exedente == 0.50F){
+                        monedasIngresadas[0.50]--;
+                    }else if(exedente == 1.00F){
+                        monedasIngresadas[1]--;
+                    }else if(exedente == 5.00F){
+                        monedasIngresadas[5]--;
+                    }else if(exedente == 10.00F){
+                        monedasIngresadas[10]--;
+                    }else if(exedente == 20.00F){
+                        monedasIngresadas[20]--;
+                    }
                     std::cout << "Su saldo ya completo el limite." << std::endl;
-                    std::cout << "Su saldo es:" << saldo << std::endl;
                 }
+                
+                std::cout << "Su saldo es:" << saldo << std::endl;
 
                 mostrarProductos(lista);
 
