@@ -1,0 +1,3 @@
+ProductoA 10.50
+ProductoB 5.75
+ProductoC 1.5
