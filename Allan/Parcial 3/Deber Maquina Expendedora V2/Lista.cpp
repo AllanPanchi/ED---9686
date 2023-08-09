@@ -109,6 +109,22 @@
         return NULL;
     }
 
+    template <typename T>
+    Nodo<T>* Lista<T>::buscarUltimo(std::string cedula){
+        Nodo<T> *tmp = this->primero->getAnterior();
+        while(tmp != this->primero){
+            if(tmp->getValor().getCedula() == cedula){
+                return tmp;
+            }
+            tmp = tmp->getAnterior();
+        }
+        if (tmp->getValor().getCedula() == cedula)
+        {
+            return tmp;
+        }
+        return NULL;
+    }
+
     //Mostrar todos los productos de la lista
     template <typename T>
     void Lista<T>::mostrar(){
@@ -136,5 +152,3 @@
         this->primero = nullptr;
         this->actual = nullptr;
     }
-
-  

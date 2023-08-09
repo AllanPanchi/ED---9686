@@ -2,4 +2,4 @@ Pepsi 0.25 15
 Jet 0.35 15 
 Tatos 0.5 20 
 KitKat 1 20 
-Chifles 1.5 20 
+Chifles 1.5 18 

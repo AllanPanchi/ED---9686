@@ -1,10 +1,3 @@
-/***********************************************************************
- * Module:  Producto.h
- * Author:  02ale
- * Modified: domingo, 6 de agosto de 2023 13:44:58
- * Purpose: Declaration of the class Producto
- ***********************************************************************/
-
 #if !defined(__MaquinaExpendedora_Producto_h)
 #define __MaquinaExpendedora_Producto_h
 
