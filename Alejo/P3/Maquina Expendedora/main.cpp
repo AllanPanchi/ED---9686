@@ -31,6 +31,12 @@ void modificarStockMaquina(Maquina& maquina, std::map<float, int> aRestar, std::
             maquina.setCincuentaC(maquina.getCincuentaC() + par.second);
         } else if (par.first == 1.00F) {
             maquina.setUnD(maquina.getUnD() + par.second);
+        } else if (par.first == 5.00F) {
+            maquina.setCincoDB(maquina.getCincoDB() + par.second);
+        } else if(par.first == 10.00F){
+            maquina.setDiezDB(maquina.getDiezDB() + par.second);
+        } else if(par.first == 20.00F){
+            maquina.setVeinteDB(maquina.getVeinteDB() + par.second);
         }
     }
 
@@ -46,6 +52,12 @@ void modificarStockMaquina(Maquina& maquina, std::map<float, int> aRestar, std::
             maquina.setCincuentaC(maquina.getCincuentaC() - par.second);
         } else if (par.first == 1.00F) {
             maquina.setUnD(maquina.getUnD() - par.second);
+        } else if(par.first == 5.00F) {
+            maquina.setCincoDB(maquina.getCincoDB() - par.second);
+        }else if(par.first == 10.00F) {
+            maquina.setDiezDB(maquina.getDiezDB() - par.second);
+        }else if(par.first == 20.00F) {
+            maquina.setVeinteDB(maquina.getVeinteDB() - par.second);
         }
     }
 
@@ -53,36 +65,46 @@ void modificarStockMaquina(Maquina& maquina, std::map<float, int> aRestar, std::
                      maquina.getDiezC() * 0.10 + 
                      maquina.getVeinticincoC() * 0.25 + 
                      maquina.getCincuentaC() * 0.50 + 
-                     maquina.getUnD() * 1.00);
+                     maquina.getUnD() * 1.00 +
+                     maquina.getCincoDB() * 5.00 +
+                     maquina.getDiezDB() * 10.00 +
+                     maquina.getVeinteDB() * 20.00);
 
+    system("cls");
     if (maquina.getMonto() <= 0.0F){
-        system("cls");
         std::cout << "No hay dinero en la maquina" << std::endl;
         regresarMonedas(nombre, lista);
         return;
     } else if (maquina.getCincoC() <= 0){
-        system("cls");
         std::cout << "No hay monedas de 5 centavos" << std::endl;
         regresarMonedas(nombre, lista);
         return;
     } else if (maquina.getDiezC() <= 0){
-        system("cls");
         std::cout << "No hay monedas de 10 centavos" << std::endl;
         regresarMonedas(nombre, lista);
         return;
     } else if (maquina.getVeinticincoC() <= 0){
-        system("cls");
         std::cout << "No hay monedas de 25 centavos" << std::endl;
         regresarMonedas(nombre, lista);
         return;
     } else if (maquina.getCincuentaC() <= 0){
-        system("cls");
         std::cout << "No hay monedas de 50 centavos" << std::endl;
         regresarMonedas(nombre, lista);
         return;
     } else if (maquina.getUnD() <= 0){
-        system("cls");
         std::cout << "No hay monedas de 1 dolar" << std::endl;
+        regresarMonedas(nombre, lista);
+        return;
+    } else if(maquina.getCincoDB() <= 0){
+        std::cout << "No hay billetes de 5 dolares" << std::endl;
+        regresarMonedas(nombre, lista);
+        return;
+    } else if(maquina.getDiezDB() <= 0){
+        std::cout << "No hay billetes de 10 dolares" << std::endl;
+        regresarMonedas(nombre, lista);
+        return;
+    } else if(maquina.getVeinteDB() < 0){
+        std::cout << "No hay billetes de 20 dolares" << std::endl;
         regresarMonedas(nombre, lista);
         return;
     }
@@ -97,6 +119,14 @@ void modificarStockProductos(std::string nombre, Lista<Producto> lista){
     ManejoArchivos::guardarProductos("productos.txt", lista);
 }
 
+std::string transformarNumerosALetrasInt(int numero){
+    std::string cantidad[] = {"dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nueve", "diez"};
+    if(numero >= 2 && numero <= 10)
+        return cantidad[numero - 2];
+    else   
+        return "Numero Fuera del rango";
+}
+
 void comprar_producto(std::map<std::string, Producto>& productos, const std::string& producto, float saldo, Lista<Producto> lista, Maquina maquina, std::map<float, int> monedasIngresadas) {
     auto iter = productos.find(producto);
     std::vector<int> cantidades;
@@ -107,7 +137,7 @@ void comprar_producto(std::map<std::string, Producto>& productos, const std::str
             float vuelto = saldo - seleccionado.getPrecio();
             std::cout << "¡Compra exitosa! Tu vuelto es: $" << vuelto << std::endl;
             seleccionado.setStock(seleccionado.getStock()-1);
-            std::vector<float> monedas = {1, 0.5, 0.25, 0.10, 0.05};
+            std::vector<float> monedas = {20, 10, 5, 1, 0.5, 0.25, 0.10, 0.05};
             
             for (float moneda : monedas) {
                 while (vuelto >= moneda - 0.01) {
@@ -115,9 +145,58 @@ void comprar_producto(std::map<std::string, Producto>& productos, const std::str
                     monedas_vuelto[moneda]++;
                 }
             }
-            std::cout << "Vuelto en monedas:" << std::endl;
+
+            std::cout << "Vuelto:" << std::endl;
             for (const auto& par : monedas_vuelto) {
-                std::cout << "$" << par.first << " x " << par.second << std::endl;
+                if(par.first == 0.05F){
+                    if(par.second == 1){
+                        std::cout << "una moneda de cinco centavos" << std::endl;
+                    }else{ 
+                        std::cout << par.second << " monedas de cinco centavos" << std::endl;
+                    }
+                }else if(par.first == 0.1F){
+                    if(par.second == 1)
+                        std::cout <<"una moneda de diez centavos" << std::endl;
+                    else{ 
+                        std::cout << par.second << " monedas de diez centavos" << std::endl;
+                    }
+                }else if(par.first == 0.25F){
+                    if(par.second == 1)
+                        std::cout << "una moneda de veinticinco centavos" << std::endl;
+                    else{ 
+                        std::cout << par.second << " monedas de veinticinco centavos" << std::endl;
+                    }
+                }else if(par.first == 0.5F){
+                    if(par.second == 1)
+                        std::cout << "una moneda de cincuenta centavos" << std::endl;
+                    else{ 
+                        std::cout << par.second << " monedas de cincuenta centavos" << std::endl;
+                    }
+                }else if(par.first == 1){
+                    if(par.second == 1)
+                        std::cout << "una moneda de dolar" << std::endl;
+                    else{ 
+                        std::cout << par.second << " monedas de un dolar" << std::endl;
+                    }
+                }else if(par.first == 5){
+                    if(par.second == 1)
+                        std::cout << "un billete de cinco dolares" << std::endl;
+                    else{ 
+                        std::cout << par.second << " billetes de cinco dolares" << std::endl;
+                    }
+                }else if(par.first == 10){
+                    if(par.second == 1)
+                        std::cout << "un billete de diez dolares" << std::endl;
+                    else{ 
+                        std::cout << par.second << " billetes de diez dolares" << std::endl;
+                    }
+                }else if(par.first == 20){
+                    if(par.second == 1)
+                        std::cout << "un billete de veinte dolares" << std::endl;
+                    else{ 
+                        std::cout << par.second << " billetes de veinte dolares" << std::endl;
+                    }
+                }
                 cantidades.push_back(par.second);
             }
             modificarStockProductos(producto, lista);
@@ -197,14 +276,21 @@ int main()
     int veinticincoC = std::rand() % 41 + 10;
     int cincuentaC = std::rand() % 41 + 10;
     int unD = std::rand() % 41 + 10;
+    int cincoDB = std::rand() % 21 + 10;
+    int diezDB = std::rand() % 11 + 10;
+    int veinteDB = 0;
 
     float monto = cincoC * 0.05F +
                   diezC * 0.10F + 
                   veinticincoC * 0.25F + 
                   cincuentaC * 0.50F + 
-                  unD * 1.00F;
+                  unD * 1.00F +
+                  cincoDB * 5.00F +
+                  diezDB * 10.00F +
+                  veinteDB * 20.00F;
 
-    Maquina maquina = Maquina(monto, cincoC, diezC, veinticincoC, cincuentaC, unD);
+
+    Maquina maquina = Maquina(monto, cincoC, diezC, veinticincoC, cincuentaC, unD, cincoDB, diezDB, veinteDB);
     ManejoArchivos::guardarMaquina("maquina.txt", maquina);
 
     std::string nombre;
@@ -238,6 +324,10 @@ int main()
                 monedasIngresadas[0.25] = 0;
                 monedasIngresadas[0.50] = 0;
                 monedasIngresadas[1] = 0;
+                monedasIngresadas[5] = 0;
+                monedasIngresadas[10] = 0;
+                monedasIngresadas[20] = 0;
+                
                 saldo = 0;
                 salir2 = false;
 
@@ -245,12 +335,13 @@ int main()
                 {
                     
                     std::cout << "|---Ingreso del Saldo---|" << std::endl;
-                    std::cout << "1. 5 centavos" << std::endl;
-                    std::cout << "2. 10 centavos" << std::endl;
-                    std::cout << "3. 25 centavos" << std::endl;
-                    std::cout << "4. 50 centavos" << std::endl;
-                    std::cout << "5. 1 dolar" << std::endl;
-                    std::cout << "6. Salir" << std::endl;
+                    std::cout << "/ Centavos \tDolares \\" << std::endl;
+                    std::cout << "|1. 5       \t 5. 1   |" << std::endl;
+                    std::cout << "|2. 10      \t 6. 5   |" << std::endl;
+                    std::cout << "|3. 25      \t 7. 10  |" << std::endl;
+                    std::cout << "|4. 50      \t 8. 20  |" << std::endl;
+                    std::cout << "\\-----------------------/" << std::endl;
+                    std::cout << "       9. Salir" << std::endl;
 
                     std::cout << "|-----------------------|" << std::endl;
                     std::cout << "|Su saldo es: \t" << saldo << std::endl;
@@ -292,6 +383,24 @@ int main()
                         break;
                     
                     case 6:
+                        saldo += 5.0F;
+                        exedente = 5.0F;
+                        monedasIngresadas[5]++;
+                        break;
+
+                    case 7:
+                        saldo += 10.0F;
+                        exedente = 10.0F;
+                        monedasIngresadas[10]++;
+                        break;
+
+                    case 8:
+                        saldo += 20.0F;
+                        exedente = 20.0F;
+                        monedasIngresadas[20]++;
+                        break;
+
+                    case 9:
                         salir2 = true;
                         break;
                     
@@ -304,11 +413,36 @@ int main()
 
                 if (saldo > 20.0F) {
                     saldo -= exedente;
+                    if(exedente == 0.05F){
+                        monedasIngresadas[0.05]--;
+                    }else if(exedente == 0.10F){
+                        monedasIngresadas[0.10]--;
+                    }else if(exedente == 0.25F){
+                        monedasIngresadas[0.25]--;
+                    }else if(exedente == 0.50F){
+                        monedasIngresadas[0.50]--;
+                    }else if(exedente == 1.0F){
+                        monedasIngresadas[1]--;
+                    }else if(exedente == 5.0F){
+                        monedasIngresadas[5]--;
+                    }else if(exedente == 10.0F){
+                        monedasIngresadas[10]--;
+                    }else if(exedente == 20.0F){
+                        monedasIngresadas[20]--;
+                    }
                     std::cout << "No puede ingresar mas de 20 dolares." << std::endl;
                     std::cout << "|-----------------------|" << std::endl;
                     std::cout << "|Su saldo es: \t" << saldo << std::endl;
                     std::cout << "|-----------------------|" << std::endl;
+                    system("pause");
                 }
+
+                system("cls");
+                mostrarProductos(lista);
+
+                std::cout << "|-----------------------|" << std::endl;
+                std::cout << "|Su saldo es: \t" << saldo << std::endl;
+                std::cout << "|-----------------------|" << std::endl;
 
                 std::cout << "Que desea comprar: " << std::endl;
                 std::cin >> nombre;

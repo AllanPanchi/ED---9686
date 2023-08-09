@@ -16,7 +16,7 @@
 // Return:
 ////////////////////////////////////////////////////////////////////////
 
-Maquina::Maquina(float monto, int cincoC, int diezC, int veinticincoC, int cincuentaC, int unD)
+Maquina::Maquina(float monto, int cincoC, int diezC, int veinticincoC, int cincuentaC, int unD, int cincoDB, int diezDB, int veinteDB)
 {
    this->monto = monto;
    this->cincoC = cincoC;
@@ -24,6 +24,9 @@ Maquina::Maquina(float monto, int cincoC, int diezC, int veinticincoC, int cincu
    this->veinticincoC = veinticincoC;
    this->cincuentaC = cincuentaC;
    this->unD = unD;
+   this->cincoDB = cincoDB;
+   this->diezDB = diezDB;
+   this->veinteDB = veinteDB;
 }
 
 ////////////////////////////////////////////////////////////////////////
@@ -190,6 +193,78 @@ int Maquina::getUnD(void)
 void Maquina::setUnD(int newUnD)
 {
    unD = newUnD;
+}
+
+////////////////////////////////////////////////////////////////////////
+// Name:       Maquina::getCincoDB()
+// Purpose:    Implementation of Maquina::getCincoDB()
+// Return:     int
+////////////////////////////////////////////////////////////////////////
+
+int Maquina::getCincoDB(void)
+{
+   return cincoDB;
+}
+
+////////////////////////////////////////////////////////////////////////
+// Name:       Maquina::setCincoDB(int newCincoDB)
+// Purpose:    Implementation of Maquina::setCincoDB()
+// Parameters:
+// - newCincoDB
+// Return:     void
+////////////////////////////////////////////////////////////////////////
+
+void Maquina::setCincoDB(int newCincoDB)
+{
+   cincoDB = newCincoDB;
+}
+
+////////////////////////////////////////////////////////////////////////
+// Name:       Maquina::getDiezDB()
+// Purpose:    Implementation of Maquina::getDiezDB()
+// Return:     int
+////////////////////////////////////////////////////////////////////////
+
+int Maquina::getDiezDB(void)
+{
+   return diezDB;
+}
+
+////////////////////////////////////////////////////////////////////////
+// Name:       Maquina::setDiezDB(int newDiezDB)
+// Purpose:    Implementation of Maquina::setDiezDB()
+// Parameters:
+// - newDiezDB
+// Return:     void
+////////////////////////////////////////////////////////////////////////
+
+void Maquina::setDiezDB(int newDiezDB)
+{
+   diezDB = newDiezDB;
+}
+
+////////////////////////////////////////////////////////////////////////
+// Name:       Maquina::getVeinteDB()
+// Purpose:    Implementation of Maquina::getVeinteDB()
+// Return:     int
+////////////////////////////////////////////////////////////////////////
+
+int Maquina::getVeinteDB(void)
+{
+   return veinteDB;
+}
+
+////////////////////////////////////////////////////////////////////////
+// Name:       Maquina::setVeinteDB(int newVeinteDB)
+// Purpose:    Implementation of Maquina::setVeinteDB()
+// Parameters:
+// - newVeinteDB
+// Return:     void
+////////////////////////////////////////////////////////////////////////
+
+void Maquina::setVeinteDB(int newVeinteDB)
+{
+   veinteDB = newVeinteDB;
 }
 
 ////////////////////////////////////////////////////////////////////////

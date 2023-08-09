@@ -51,7 +51,10 @@
                     << temp.getDiezC() << " " 
                     << temp.getVeinticincoC() << " "
                     << temp.getCincuentaC() << " "
-                    << temp.getUnD()
+                    << temp.getUnD() << " "
+                    << temp.getCincoDB() << " "
+                    << temp.getDiezDB() << " "
+                    << temp.getVeinteDB()
                     << std::endl;
 
             archivo.close();
@@ -66,14 +69,17 @@
 
         if (archivo.is_open()) {
             float monto;
-            int cincoC, diezC, veinticincoC, cincuentaC, unD;
-            while (archivo >> monto >> cincoC >> diezC >> veinticincoC >> cincuentaC >> unD) {
+            int cincoC, diezC, veinticincoC, cincuentaC, unD, cincoDB, diezDB, veinteDB;
+            while (archivo >> monto >> cincoC >> diezC >> veinticincoC >> cincuentaC >> unD >> cincoDB >> diezDB >> veinteDB) {
                 maquina.setMonto(monto);
                 maquina.setCincoC(cincoC);
                 maquina.setDiezC(diezC);
                 maquina.setVeinticincoC(veinticincoC);
                 maquina.setCincuentaC(cincuentaC);
                 maquina.setUnD(unD);
+                maquina.setCincoDB(cincoDB);
+                maquina.setDiezDB(diezDB);
+                maquina.setVeinteDB(veinteDB);
             }
             archivo.close();
         } else {
