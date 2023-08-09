@@ -140,6 +140,21 @@ void imprimirMenu(){
     std::cout << "2. Salir" << std::endl;
 }
 
+void mostrarProductos(Lista<Producto> lista)
+{
+    std::cout << "|    \tProductos disponibles: \t\t|" << std::endl;
+    std::cout << "|---------------------------------------|" << std::endl;
+    std::cout << "|    \tNombre\t\tPrecio\tStock\t|" << std::endl;
+    std::cout << "|---------------------------------------|" << std::endl;
+    Nodo<Producto>* temp = lista.getPrimero();
+    do {
+        std::cout << "|    \t" << temp->getValor().getNombre() << "\t\t"
+                << temp->getValor().getPrecio() << "\t"
+                << temp->getValor().getStock() << "\t|" << std::endl;
+        temp = temp->getSiguiente();
+    } while (temp != lista.getPrimero());
+}
+
 std::map<std::string, Producto> leer_productos() {
     std::map<std::string, Producto> productos;
     std::ifstream archivo("productos.txt");
@@ -167,21 +182,6 @@ std::map<std::string, Producto> leer_productos() {
     }
     return productos;
 }
-
-void mostrarProductos(Lista<Producto> lista)
-{
-    std::cout << "|    \tProductos disponibles: \t\t|" << std::endl;
-    std::cout << "|---------------------------------------|" << std::endl;
-    std::cout << "|    \tNombre\t\tPrecio\tStock\t|" << std::endl;
-    std::cout << "|---------------------------------------|" << std::endl;
-    Nodo<Producto>* temp = lista.getPrimero();
-    do {
-        std::cout << "|    \t" << temp->getValor().getNombre() << "\t\t"
-                << temp->getValor().getPrecio() << "\t"
-                << temp->getValor().getStock() << "\t|" << std::endl;
-        temp = temp->getSiguiente();
-    } while (temp != lista.getPrimero());
-    }
 
 int main()
 {
