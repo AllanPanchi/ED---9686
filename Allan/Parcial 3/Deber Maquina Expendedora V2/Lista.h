@@ -29,11 +29,12 @@ class Lista{
 
     Nodo<T>* buscar(std::string cedula);
 
+    // Buscar el ultimo Nodo por su cedula
+    Nodo<T>* buscarUltimo(std::string cedula);
+
     // Mostrar todos los registros de la lista
     void mostrar();
 
     void vaciarLista();
-
-    void bucketSortCedula();
 
 };

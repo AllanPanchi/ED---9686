@@ -1,7 +1,6 @@
 #include "Maquina.h"
-#include <iostream>
 
-Maquina::Maquina(int monto, int cincoC, int diezC, int veinticincoC, int cincuentaC, int unD)
+Maquina::Maquina(float monto, int cincoC, int diezC, int veinticincoC, int cincuentaC, int unD, int cincoDB, int diezDB, int veinteDB)
 {
    this->monto = monto;
    this->cincoC = cincoC;
@@ -9,6 +8,9 @@ Maquina::Maquina(int monto, int cincoC, int diezC, int veinticincoC, int cincuen
    this->veinticincoC = veinticincoC;
    this->cincuentaC = cincuentaC;
    this->unD = unD;
+   this->cincoDB = cincoDB;
+   this->diezDB = diezDB;
+   this->veinteDB = veinteDB;
 }
 
 Maquina::Maquina()
@@ -18,7 +20,6 @@ Maquina::Maquina()
 
 Maquina::~Maquina()
 {
-   // TODO : implement
 }
 
 float Maquina::getMonto(void)
@@ -81,6 +82,36 @@ void Maquina::setUnD(int newUnD)
    unD = newUnD;
 }
 
+int Maquina::getCincoDB(void)
+{
+   return cincoDB;
+}
+
+void Maquina::setCincoDB(int newCincoDB)
+{
+   cincoDB = newCincoDB;
+}
+
+int Maquina::getDiezDB(void)
+{
+   return diezDB;
+}
+
+void Maquina::setDiezDB(int newDiezDB)
+{
+   diezDB = newDiezDB;
+}
+
+int Maquina::getVeinteDB(void)
+{
+   return veinteDB;
+}
+
+void Maquina::setVeinteDB(int newVeinteDB)
+{
+   veinteDB = newVeinteDB;
+}
+
 void Maquina::toString(void)
 {
    std::cout << "Monto: " << this->getMonto() 
@@ -89,5 +120,8 @@ void Maquina::toString(void)
                << " 25c: " << this->getVeinticincoC()
                << " 50c: " << this->getCincuentaC()
                << " 1$: " << this->getUnD()
+               << " 5$B: " << this->getCincoDB()
+               << " 10$B: " << this->getDiezDB()
+               << " 20$B: " << this->getVeinteDB()
                << std::endl;
 }

@@ -1,5 +1,5 @@
-Cola 0.25 19 
-Golpe 0.35 18 
-Chicles 0.05 24 
-Manicho 0.5 24 
-Sandwich 1 43 
+Pepsi 0.25 4 
+Jet 0.35 10 
+Tatos 0.5 14 
+KitKat 1 12 
+Chifles 1.5 11 

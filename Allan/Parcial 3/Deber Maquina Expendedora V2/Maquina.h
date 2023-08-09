@@ -1,11 +1,11 @@
+
 #if !defined(__MaquinaExpendedora_Maquina_h)
 #define __MaquinaExpendedora_Maquina_h
-
 
 class Maquina
 {
 public:
-   Maquina(int monto, int cincoC, int diezC, int veinticincoC, int cincuentaC, int unD);
+   Maquina(float monto, int cincoC, int diezC, int veinticincoC, int cincuentaC, int unD, int cincoDB, int diezDB, int veinteDB);
    Maquina();
    ~Maquina();
    float getMonto(void);
@@ -21,6 +21,13 @@ public:
    void setCincuentaC(int newCincuentaC);
    int getUnD(void);
    void setUnD(int newUnD);
+   int getCincoDB(void);
+   void setCincoDB(int newCincoDB);
+   int getDiezDB(void);
+   void setDiezDB(int newDiezDB);
+   int getVeinteDB(void);
+   void setVeinteDB(int newVeinteDB);
+
 
    void toString(void);
 
@@ -32,7 +39,10 @@ private:
    int veinticincoC;
    int cincuentaC;
    int unD;
-
+   int cincoDB;
+   int diezDB;
+   int veinteDB;
+   
 };
 
 #endif

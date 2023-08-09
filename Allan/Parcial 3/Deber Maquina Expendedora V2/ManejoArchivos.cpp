@@ -15,7 +15,6 @@
             } while (temp != lista.getPrimero());
 
             archivo.close();
-            std::cout << "Archivo sobrescrito exitosamente." << std::endl;
         } else {
             std::cout << "No se pudo abrir el archivo para sobrescribir." << std::endl;
         }
@@ -46,12 +45,15 @@
 
         if (archivo.is_open()) {
             Maquina temp = maquina;
-            archivo << temp.getMonto() << " "
-                    << temp.getCincoC() << " " 
-                    << temp.getDiezC() << " " 
-                    << temp.getVeinticincoC() << " "
-                    << temp.getCincuentaC() << " "
-                    << temp.getUnD()
+            archivo << temp.getMonto() << ";"
+                    << temp.getCincoC() << ";" 
+                    << temp.getDiezC() << ";" 
+                    << temp.getVeinticincoC() << ";"
+                    << temp.getCincuentaC() << ";"
+                    << temp.getUnD() << ";"
+                    << temp.getCincoDB() << ";"
+                    << temp.getDiezDB() << ";"
+                    << temp.getVeinteDB()
                     << std::endl;
 
             archivo.close();
@@ -65,11 +67,18 @@
         std::ifstream archivo(nombreArchivo);
 
         if (archivo.is_open()) {
-            int monto;
-            std::string valores;
-            int cincoC, diezC, veinticincoC, cincuentaC, unD;
-            while (archivo >> monto >> cincoC >> diezC >> veinticincoC >> cincuentaC >> unD) {
-                maquina = Maquina(monto, cincoC, diezC, veinticincoC, cincuentaC, unD);
+            float monto;
+            int cincoC, diezC, veinticincoC, cincuentaC, unD, unDB, cincoDB, diezDB, veinteDB;
+            while (archivo >> monto >> cincoC >> diezC >> veinticincoC >> cincuentaC >> unD >> unDB >> cincoDB >> diezDB >> veinteDB) {
+                maquina.setMonto(monto);
+                maquina.setCincoC(cincoC);
+                maquina.setDiezC(diezC);
+                maquina.setVeinticincoC(veinticincoC);
+                maquina.setCincuentaC(cincuentaC);
+                maquina.setUnD(unD);
+                maquina.setCincoDB(cincoDB);
+                maquina.setDiezDB(diezDB);
+                maquina.setVeinteDB(veinteDB);
             }
             archivo.close();
         } else {

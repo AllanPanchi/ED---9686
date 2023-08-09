@@ -1,5 +1,4 @@
 #include "Producto.h"
-#include <iostream>
 
 Producto::Producto(std::string newNombre, float newPrecio, int newStock)
 {
