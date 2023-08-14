@@ -1,0 +1,5 @@
+Coca 0.75 12 
+Oreo 0.8 15 
+Tango 0.35 17 
+Galak 0.5 16 
+Jugo 1.6 20 

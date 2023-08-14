@@ -58,7 +58,7 @@ Ordenamiento de lista circular doblemente enlazadas
 
     template <typename T>
     void Lista<T>::insertar(T dato){
-        Nodo<T> *nuevo = new Nodo(dato);
+        Nodo<T> *nuevo = new Nodo<T>(dato);
         if (this->primero == nullptr)
         {
             this->primero = nuevo;

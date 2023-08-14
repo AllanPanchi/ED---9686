@@ -268,6 +268,7 @@ bool comprar_producto(std::map<std::string, Producto>& productos, const std::str
                     }
                 }
                 cantidades.push_back(par.second);
+                system("pause");
             }
             system("pause");
             modificarStockProductos(producto, lista);
