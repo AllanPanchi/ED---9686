@@ -127,15 +127,85 @@ std::string transformarNumerosALetrasInt(int numero){
         return "Numero Fuera del rango";
 }
 
-void comprar_producto(std::map<std::string, Producto>& productos, const std::string& producto, float saldo, Lista<Producto> lista, Maquina maquina, std::map<float, int> monedasIngresadas) {
+std::string vueltoStr(float _vuelto){
+    std::string numeros[] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"};
+    std::string cantidad[] = {"cero", "un/o", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nueve"};
+    std::string vuelto = std::to_string(_vuelto);
+    std::string vueltoStr = "";
+    if(_vuelto > 9 && vuelto[3] == '0' && vuelto[1] == '0'){
+
+        return vueltoStr + "diez dolar/es y cero centavos";
+        
+    } else {
+        for(int i = 0; i <= vuelto.length(); i++){
+            if(i == 0){
+                for(int j = 0; j <= 9; j++){
+                    if(vuelto[i] == numeros[j].c_str()[0] && vuelto[i+1] == '.'){
+                        vueltoStr = vueltoStr + cantidad[j] + " dolar/es";
+                        break;
+                    } else if (vuelto[i] == numeros[j].c_str()[0] && vuelto[i+1] != '.'){
+                        for(int k = 0; k <= 9; k++){
+                            if(vuelto[i+1] == numeros[k].c_str()[0]){
+                                vueltoStr = vueltoStr + cantidad[j] + " con " + cantidad[k] + " dolar/es";
+                            } else if (vuelto[i+1] == '0'){
+                                vueltoStr = vueltoStr + " diez dolar/es";
+                            }
+                        }
+                    }
+                }
+            }
+
+            
+        }
+    }
+
+    size_t splitIndex = vuelto.find(".") + 1;
+
+    if(vuelto.find(".")){
+
+    std::string p2 = vuelto.substr(splitIndex);
+    
+    if(p2[0] == '0' && p2[1] == '0'){
+        return vueltoStr + " y cero centavo/s";
+    } else {
+        vueltoStr = vueltoStr + " y " ;
+    }
+
+    for(int i = 0; i <= p2.length(); i++){
+        if(i == 0){
+
+        for(int j = 0; j <= 9; j++){
+            if(p2[i] == numeros[j].c_str()[0] && p2[i+1] == '.'){
+                vueltoStr = vueltoStr + cantidad[j] + " centavo/s";
+            } else if (p2[i] == numeros[j].c_str()[0] && p2[i+1] != '.'){
+                for(int k = 0; k <= 9; k++){
+                    if(p2[i+1] == numeros[k].c_str()[0]){
+                        vueltoStr = vueltoStr + cantidad[j] + " con " + cantidad[k] + " centavo/s";
+                        break;
+                    } else if (p2[i+1] == '0'){
+                        vueltoStr = vueltoStr + " diez centavo/s";
+                        break;
+                    }
+                }
+            }
+        }
+        }
+    }
+
+    }
+    return vueltoStr;
+}
+
+
+bool comprar_producto(std::map<std::string, Producto>& productos, const std::string& producto, float saldo, Lista<Producto> lista, Maquina maquina, std::map<float, int> monedasIngresadas) {
     auto iter = productos.find(producto);
     std::vector<int> cantidades;
     std::map<float, int> monedas_vuelto;
     if (iter != productos.end()) {
         Producto& seleccionado = iter->second;
-        if (seleccionado.getStock() > 0 && saldo >= seleccionado.getPrecio()) {
+        if (seleccionado.getStock() > 1 && saldo >= seleccionado.getPrecio()) {
             float vuelto = saldo - seleccionado.getPrecio();
-            std::cout << "¡Compra exitosa! Tu vuelto es: $" << vuelto << std::endl;
+            std::cout << "Compra exitosa \nTu vuelto es: $ " << vuelto << "\n> " << vueltoStr(vuelto) << std::endl;
             seleccionado.setStock(seleccionado.getStock()-1);
             std::vector<float> monedas = {20, 10, 5, 1, 0.5, 0.25, 0.10, 0.05};
             
@@ -199,9 +269,11 @@ void comprar_producto(std::map<std::string, Producto>& productos, const std::str
                 }
                 cantidades.push_back(par.second);
             }
+            system("pause");
             modificarStockProductos(producto, lista);
             modificarStockMaquina(maquina, monedas_vuelto, monedasIngresadas, producto, lista);
             system("pause");
+            return true;
 
         } else {
             std::cout << "Dinero insuficiente o producto agotado. Introduce más monedas o elige otro producto." << std::endl;
@@ -211,6 +283,7 @@ void comprar_producto(std::map<std::string, Producto>& productos, const std::str
         std::cout << "Producto no encontrado." << std::endl;
         system("pause");
     }
+    return false;
 }
 
 void imprimirMenu(){
@@ -243,8 +316,9 @@ std::map<std::string, Producto> leer_productos() {
             std::istringstream iss(linea);
             std::string nombre;
             float precio;
-            iss >> nombre >> precio;
-            productos[nombre] = Producto(nombre, precio, 10); // Aquí puedes establecer el stock inicial de cada producto
+            int stack;
+            iss >> nombre >> precio >> stack;
+            productos[nombre] = Producto(nombre, precio, stack);
         }
         archivo.close();
     } else {
@@ -297,6 +371,7 @@ int main()
     float saldo = 0;
     bool salir = false;
     bool salir2 = false;
+    bool salir3 = false;
     int opcion = 0;
     int opcion2 = 0;
 
@@ -446,8 +521,20 @@ int main()
 
                 std::cout << "Que desea comprar: " << std::endl;
                 std::cin >> nombre;
+                salir3 = comprar_producto(productos, nombre, saldo, lista, maquina, monedasIngresadas);
                 
-                comprar_producto(productos, nombre, saldo, lista, maquina, monedasIngresadas);
+                while(!salir3){
+                    system("cls");
+                    mostrarProductos(lista);
+
+                    std::cout << "|-----------------------|" << std::endl;
+                    std::cout << "|Su saldo es: \t" << saldo << std::endl;
+                    std::cout << "|-----------------------|" << std::endl;
+
+                    std::cout << "Que desea comprar: " << std::endl;
+                    std::cin >> nombre;
+                    salir3 = comprar_producto(productos, nombre, saldo, lista, maquina, monedasIngresadas);
+                }
                 break;
             case 2:
                 salir = true;
