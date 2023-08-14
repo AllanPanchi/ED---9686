@@ -1,5 +1,5 @@
-Jugo 0.3 5 
-Manicho 0.5 6 
-Mani 0.4 9 
-Rocklets 0.35 15 
-Sandwich 1.5 21 
+Jugo 0.3 4 
+Manicho 0.5 5 
+Mani 0.4 5 
+Rocklets 0.35 10 
+Sandwich 1.5 11 

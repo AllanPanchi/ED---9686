@@ -1,0 +1,54 @@
+# Project: CalculadoraPolaca
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe
+CC   = gcc.exe
+WINDRES = windres.exe
+RES  = 
+OBJ  = main.o Nodo.o Pila.o Operaciones.o Prefijo.o IngresoExpresiones.o Postfijo.o Menu.o Funciones.o $(RES)
+LINKOBJ  = main.o Nodo.o Pila.o Operaciones.o Prefijo.o IngresoExpresiones.o Postfijo.o Menu.o Funciones.o $(RES)
+LIBS =   
+INCS = 
+CXXINCS = 
+BIN  = CalculadoraPolaca.exe
+CXXFLAGS = $(CXXINCS)  
+CFLAGS = $(INCS)  
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before CalculadoraPolaca.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o "CalculadoraPolaca.exe" $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+Nodo.o: Nodo.cpp
+	$(CPP) -c Nodo.cpp -o Nodo.o $(CXXFLAGS)
+
+Pila.o: Pila.cpp
+	$(CPP) -c Pila.cpp -o Pila.o $(CXXFLAGS)
+
+Operaciones.o: Operaciones.cpp
+	$(CPP) -c Operaciones.cpp -o Operaciones.o $(CXXFLAGS)
+
+Prefijo.o: Prefijo.cpp
+	$(CPP) -c Prefijo.cpp -o Prefijo.o $(CXXFLAGS)
+
+IngresoExpresiones.o: IngresoExpresiones.cpp
+	$(CPP) -c IngresoExpresiones.cpp -o IngresoExpresiones.o $(CXXFLAGS)
+
+Postfijo.o: Postfijo.cpp
+	$(CPP) -c Postfijo.cpp -o Postfijo.o $(CXXFLAGS)
+
+Menu.o: Menu.cpp
+	$(CPP) -c Menu.cpp -o Menu.o $(CXXFLAGS)
+
+Funciones.o: Funciones.cpp
+	$(CPP) -c Funciones.cpp -o Funciones.o $(CXXFLAGS)

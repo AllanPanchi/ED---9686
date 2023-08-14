@@ -116,7 +116,7 @@ void modificarStockMaquina(Maquina& maquina, std::map<float, int> aRestar, std::
         std::cout << "No hay billetes de 10 dolares" << std::endl;
         regresarMonedas(nombre, lista);
         return;
-    }else if(maquina.getVeinteDB() < 0){
+    }else if(maquina.getVeinteDB() <= 0){
         system("cls");
         std::cout << "No hay billetes de 20 dolares" << std::endl;
         regresarMonedas(nombre, lista);
@@ -181,7 +181,7 @@ std::string transformarNumerosALetras(float numero) {
     }
 
     if (parte_decimal > 0) {
-        resultado += "con " + unidades[parte_decimal / 10] + " y " + unidades[parte_decimal % 10];
+        resultado += "dolares con " + unidades[parte_decimal / 10] + " y " + unidades[parte_decimal % 10] + " centavos";
     }
 
     return resultado;
@@ -204,23 +204,26 @@ void comprar_producto(std::map<std::string, Producto>& productos, const std::str
         Producto& seleccionado = iter->second;
         if (seleccionado.getStock() > 0 && saldo >= seleccionado.getPrecio()) {
             float vuelto = saldo - seleccionado.getPrecio();
+            fflush(stdin);
             std::string vueltostr = transformarNumerosALetras(saldo - seleccionado.getPrecio());
-            std::cout << "¡Compra exitosa! Tu vuelto es: " << vueltostr << std::endl;
+            std::cout << "¡Compra exitosa! Tu vuelto es: " << vueltostr << " : " << vuelto << std::endl;
             seleccionado.setStock(seleccionado.getStock()-1);
             std::vector<float> monedas = {20, 10, 5, 1, 0.5, 0.25, 0.10, 0.05};
-            
+        
             for (float moneda : monedas) {
                 while (vuelto >= moneda - 0.01) {
                     vuelto -= moneda;
                     monedas_vuelto[moneda]++;
                 }
             }
+
             std::cout << "Vuelto:" << std::endl;
             for (const auto& par : monedas_vuelto) {
                 if(par.first == 0.05F){
                     if(par.second == 1){
                         std::cout << "una moneda de cinco" << std::endl;
                     }else{ 
+                        
                         cambio1 = transformarNumerosALetrasInt(par.second);
                         std::cout << cambio1 << " monedas de cinco" << std::endl;
                         //std::cout << par.second << " monedas de " << par.first << std::endl;
@@ -228,7 +231,8 @@ void comprar_producto(std::map<std::string, Producto>& productos, const std::str
                 }else if(par.first == 0.10F){
                     if(par.second == 1)
                         std::cout <<"una moneda de diez"<< std::endl;
-                    else{ 
+                    else{
+
                         cambio2 = transformarNumerosALetrasInt(par.second);
                         std::cout << cambio2 << " monedas de diez" << std::endl;
                         //std::cout << par.second << " monedas de " << par.first << std::endl;
@@ -307,8 +311,9 @@ std::map<std::string, Producto> leer_productos() {
             std::istringstream iss(linea);
             std::string nombre;
             float precio;
-            iss >> nombre >> precio;
-            productos[nombre] = Producto(nombre, precio, 10); // Aquí puedes establecer el stock inicial de cada producto
+            int stock;
+            iss >> nombre >> precio >> stock;
+            productos[nombre] = Producto(nombre, precio, stock); // Aquí puedes establecer el stock inicial de cada producto
         }
         archivo.close();
     } else {
@@ -355,7 +360,7 @@ int main()
     int unD = std::rand() % 41 + 10;
     int cincoDB = std::rand() % 31 + 10;
     int diezDB = std::rand() % 21 + 10;
-    int veinteDB = 0;
+    int veinteDB = 1;
 
     float monto = cincoC * 0.05F +
                   diezC * 0.10F + 

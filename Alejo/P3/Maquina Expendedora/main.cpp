@@ -70,7 +70,6 @@ void modificarStockMaquina(Maquina& maquina, std::map<float, int> aRestar, std::
                      maquina.getDiezDB() * 10.00 +
                      maquina.getVeinteDB() * 20.00);
 
-    system("cls");
     if (maquina.getMonto() <= 0.0F){
         std::cout << "No hay dinero en la maquina" << std::endl;
         regresarMonedas(nombre, lista);
