@@ -135,8 +135,8 @@ void comprar_producto(std::map<std::string, Producto>& productos, const std::str
         Producto& seleccionado = iter->second;
         if (seleccionado.getStock() > 0 && saldo >= seleccionado.getPrecio()) {
             float vuelto = saldo - seleccionado.getPrecio();
-            std::cout << "Se realizó la compra!, por favor retire su vuelto de: " << vuelto << std::endl;
-            std::cout << "Presione ENTER para continuar...";
+            std::cout << "Se realizo la compra!, por favor retire su vuelto de: " << vuelto << std::endl;
+            system("pause");
             std::cin.get();
             seleccionado.setStock(seleccionado.getStock()-1);
             std::vector<float> monedas = {20, 10, 5, 1, 0.5, 0.25, 0.10, 0.05};
@@ -201,23 +201,18 @@ void comprar_producto(std::map<std::string, Producto>& productos, const std::str
                 }
                 cantidades.push_back(par.second);
             }
-            std::cout << "Presione ENTER para continuar...";
-                std::cin.get();
+            system("pause");
             modificarStockProductos(producto, lista);
             modificarStockMaquina(maquina, monedas_vuelto, monedasIngresadas, producto, lista);
 
         } else {
             std::cout << "Dinero insuficiente o producto agotado. Introduzca más monedas o elija otro producto." << std::endl;
-            std::cout << "Presione ENTER para continuar...";
-                std::cin.get();
+            system("pause");
         }
     } else {
         std::cout << "Producto no encontrado." << std::endl;
-        std::cout << "Presione ENTER para continuar...";
-                std::cin.get();
+        system("pause");
     }
-    std::cout << "Presione ENTER para continuar...";
-                std::cin.get();
 }
 
 void imprimirMenu(){
@@ -493,8 +488,7 @@ int main()
                 std::cout << "Gracias por su compra!" << std::endl;
                 std::cout << "Disfrute su pedido :) " << std::endl;
 
-                std::cout << "Presione ENTER para continuar...";
-                std::cin.get();
+                system("pause");
                 break;
             case 2:
                 salir = true;
