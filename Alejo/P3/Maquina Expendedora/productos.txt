@@ -1,5 +1,13 @@
 Pepsi 0.25 15 
+<<<<<<< HEAD
 Jet 0.35 -1 
+=======
+<<<<<<< HEAD
+Jet 0.35 7 
+=======
+Jet 0.35 8 
+>>>>>>> d7e1aca0e7b5ed37339d8dc38ade9c27973f1b62
+>>>>>>> be729eb3a82d7eecbedc704ad75a16294ae46d65
 Tatos 0.5 20 
 KitKat 1 20 
 Chifles 1.5 19 

@@ -466,8 +466,9 @@ std::map<std::string, Producto> leer_productos() {
             std::istringstream iss(linea);
             std::string nombre;
             float precio;
-            iss >> nombre >> precio;
-            productos[nombre] = Producto(nombre, precio, 10); // Aquí puedes establecer el stock inicial de cada producto
+            int stock;
+            iss >> nombre >> precio >> stock;
+            productos[nombre] = Producto(nombre, precio, stock); // Aquí puedes establecer el stock inicial de cada producto
         }
         archivo.close();
     } else {
@@ -709,7 +710,7 @@ int main()
 
         
     }
-
+    system("pause");
     system("cls");
     return 0;
 }
