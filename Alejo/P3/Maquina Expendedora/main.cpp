@@ -198,6 +198,7 @@ void comprar_producto(std::map<std::string, Producto>& productos, const std::str
                     }
                 }
                 cantidades.push_back(par.second);
+                system("pause");
             }
             modificarStockProductos(producto, lista);
             modificarStockMaquina(maquina, monedas_vuelto, monedasIngresadas, producto, lista);
