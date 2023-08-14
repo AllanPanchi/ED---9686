@@ -1,0 +1,8 @@
+Pepsi 1 27 
+Doritos 0.5 37 
+Pringles 1.5 39 
+Agua 0.6 29 
+Coca 1 27 
+Sprite 1 29 
+Oreo 0.8 49 
+Tango 0.8 49 
