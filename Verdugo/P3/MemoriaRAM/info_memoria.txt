@@ -1,8 +1,0 @@
-Hay un 30 por ciento de memoria en uso.
-Hay 66786036 Kbytes totales de memoria física.
-Hay 46566264 Kbytes libres de memoria física.
-Hay 100340468 Kbytes totales de archivo de paginación.
-Hay 78953164 Kbytes libres de archivo de paginación.
-Hay 137438953344 Kbytes totales de memoria virtual.
-Hay 137434705376 Kbytes libres de memoria virtual.
-Hay 0 Kbytes libres de memoria extendida.
