@@ -32,6 +32,7 @@ void Aplication::run()
 */
 void Aplication::registroNuevoEmpleado()
 {
+	
 	Empleado persona;
 	ValidarDatos validar;
 	Lista<Empleado> lista;
@@ -80,6 +81,7 @@ void Aplication::registroNuevoEmpleado()
 	}else{
 		std::cout << " Ya se  encuentra registrado!!" << std::endl;
 	}
+	system("python ./0_O(n).py");
 	
 }
 
@@ -87,7 +89,7 @@ void Aplication::registroNuevoEmpleado()
 *@brief Función de registro de entrada y salida de un empleado
 */
 void Aplication::registrarEntrada(){
-	
+
 	Registro registro;
 	Lista<Registro> listaRegistro;
 
@@ -174,6 +176,8 @@ void Aplication::registrarEntrada(){
 		return;
 	}
 
+	system("python ./0_O(n).py");
+
 }
 
 /**
@@ -196,8 +200,8 @@ void Aplication::mostrarPersonasRegistradas()
 		tmp = tmp->getSiguiente();
 	}
 
-
 	lista.mostrar();
+	system("python ./0_O(n).py");
 }
 
 /**
@@ -211,6 +215,7 @@ void Aplication::mostrarRegistros()
 		std::cout << "No hay registros." << std::endl;
 	}
 	lista.mostrar();
+	system("python ./0_O(n).py");
 }
 
 /**
@@ -298,7 +303,7 @@ void Aplication::mostrarRegistrosPorCedula()
 
 	Lista<Registro> listaOrdenada = ordenarPorCedula(lista);
 		
-		
+	system("python ./0_O(logn).py");
 }
 
 
@@ -307,6 +312,7 @@ void Aplication::mostrarRegistrosPorCedula()
 */
 void Aplication::mostrarEmpleadosPorSueldo()
 {
+	
 	const auto ordenarPorSueldo = [](Lista<Empleado>& lista) -> Lista<Empleado> {
 		float sueldo;
 		Nodo<Empleado>* tmp = lista.getPrimero();
@@ -347,6 +353,8 @@ void Aplication::mostrarEmpleadosPorSueldo()
 
 	Lista<Empleado> listaOrdenada = ordenarPorSueldo(lista);
 	listaOrdenada.mostrar();
+
+	system("python ./0_O(logn).py");
 }
 
 /**
@@ -354,6 +362,7 @@ void Aplication::mostrarEmpleadosPorSueldo()
 */
 void Aplication::buscarRegistroPorFecha()
 {
+	system("python ./0_O(n).py");
 	Lista<Registro> lista;
 	ValidarDatos validar;
 	ArbolBinario<Fecha> arbol;
@@ -405,6 +414,8 @@ void Aplication::buscarRegistroPorFecha()
 *@brief Función de buscar registros por cedula
 */
 void Aplication::buscarRegistrosPorCedula(){
+	
+	system("python ./0_O(n).py");
 	Lista<Registro> lista;
 	ValidarDatos validar;
 	std::string cedula;
