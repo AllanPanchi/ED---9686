@@ -81,7 +81,7 @@ void Aplication::registroNuevoEmpleado()
 	}else{
 		std::cout << " Ya se  encuentra registrado!!" << std::endl;
 	}
-	system("python ./0_O(n).py");
+	system("python ./graficos/0_O(n).py");
 	
 }
 
@@ -176,7 +176,7 @@ void Aplication::registrarEntrada(){
 		return;
 	}
 
-	system("python ./0_O(n).py");
+	system("python ./graficos/0_O(n).py");
 
 }
 
@@ -201,7 +201,7 @@ void Aplication::mostrarPersonasRegistradas()
 	}
 
 	lista.mostrar();
-	system("python ./0_O(n).py");
+	system("python ./graficos/0_O(n).py");
 }
 
 /**
@@ -215,7 +215,7 @@ void Aplication::mostrarRegistros()
 		std::cout << "No hay registros." << std::endl;
 	}
 	lista.mostrar();
-	system("python ./0_O(n).py");
+	system("python ./graficos/0_O(n).py");
 }
 
 /**
@@ -303,7 +303,7 @@ void Aplication::mostrarRegistrosPorCedula()
 
 	Lista<Registro> listaOrdenada = ordenarPorCedula(lista);
 		
-	system("python ./0_O(logn).py");
+	system("python ./graficos/0_O(logn).py");
 }
 
 
@@ -354,7 +354,7 @@ void Aplication::mostrarEmpleadosPorSueldo()
 	Lista<Empleado> listaOrdenada = ordenarPorSueldo(lista);
 	listaOrdenada.mostrar();
 
-	system("python ./0_O(logn).py");
+	system("python .graficos//0_O(logn).py");
 }
 
 /**
@@ -362,7 +362,7 @@ void Aplication::mostrarEmpleadosPorSueldo()
 */
 void Aplication::buscarRegistroPorFecha()
 {
-	system("python ./0_O(n).py");
+	system("python ./graficos/0_O(n).py");
 	Lista<Registro> lista;
 	ValidarDatos validar;
 	ArbolBinario<Fecha> arbol;
@@ -415,7 +415,7 @@ void Aplication::buscarRegistroPorFecha()
 */
 void Aplication::buscarRegistrosPorCedula(){
 	
-	system("python ./0_O(n).py");
+	system("python ./graficos/0_O(n).py");
 	Lista<Registro> lista;
 	ValidarDatos validar;
 	std::string cedula;
