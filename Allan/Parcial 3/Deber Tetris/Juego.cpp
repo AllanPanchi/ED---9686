@@ -6,11 +6,10 @@
 #include <Windows.h>
 
 void Juego::ocultarCursor() {
-	//Ocular el cursor de la consola
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     CONSOLE_CURSOR_INFO cursorInfo;
     GetConsoleCursorInfo(hConsole, &cursorInfo);
-    cursorInfo.bVisible = false; // Oculta el cursor
+    cursorInfo.bVisible = false;
     SetConsoleCursorInfo(hConsole, &cursorInfo);
 }
 
