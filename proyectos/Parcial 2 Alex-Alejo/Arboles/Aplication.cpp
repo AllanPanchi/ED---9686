@@ -362,7 +362,11 @@ void Aplication::mostrarEmpleadosPorSueldo()
 */
 void Aplication::buscarRegistroPorFecha()
 {
+<<<<<<< HEAD
 	system("python ./graficos/0_O(n).py");
+=======
+	
+>>>>>>> cb933f12fa8212f6342f295743ff5a298523a44d
 	Lista<Registro> lista;
 	ValidarDatos validar;
 	ArbolBinario<Fecha> arbol;
@@ -408,6 +412,8 @@ void Aplication::buscarRegistroPorFecha()
 					"/" << fecha.getAnio() << std::endl;
 	}
 
+	system("python ./0_O(n).py");
+
 }
 
 /**
@@ -415,7 +421,11 @@ void Aplication::buscarRegistroPorFecha()
 */
 void Aplication::buscarRegistrosPorCedula(){
 	
+<<<<<<< HEAD
 	system("python ./graficos/0_O(n).py");
+=======
+	
+>>>>>>> cb933f12fa8212f6342f295743ff5a298523a44d
 	Lista<Registro> lista;
 	ValidarDatos validar;
 	std::string cedula;
@@ -452,6 +462,7 @@ void Aplication::buscarRegistrosPorCedula(){
 	} else {
 		std::cout << "No se encontro registro para " << cedula << std::endl;
 	}
+	system("python ./0_O(n).py");
 }
 
 /**
@@ -571,12 +582,14 @@ void generarPdf(std::string nombreArchivoTxt){
 	{
 		std::cout << "(Se ha creado el PDF)" << std::endl;
 	}
+	system("python ./0_O(n).py");
 }
 
 void Aplication::guardarEnPdf(){
 	system("cls");
 	generarPdf("personas.txt");
-	generarPdf("registros.txt");	
+	generarPdf("registros.txt");
+	system("python ./0_O(1).py");	
 }
 void Aplication::ayuda(){
 	system("cls");
@@ -589,6 +602,7 @@ void Aplication::ayuda(){
 	menu.add(MenuItem("Salir", std::bind(&Aplication::salir,this)));
 	
 	system(".\\helper.chm");
+	system("python ./0_O(1).py");
 	menu.run();	
 }
 
@@ -642,6 +656,7 @@ void Aplication::restaurarBackup(){
 
 	Backup::copiarArchivo(directorioP, "personas.txt");
 	Backup::copiarArchivo(directorioR, "registros.txt");
+	system("python ./0_O(1).py");
 
 }
 
@@ -672,6 +687,7 @@ void Aplication::generarBackup(){
 
 	Backup::copiarArchivo("personas.txt", directorioP + "\\personas.txt");
 	Backup::copiarArchivo("registros.txt", directorioR + "\\registros.txt");
+	system("python ./0_O(1).py");
 
 }
 
@@ -682,6 +698,7 @@ void Aplication::imprimirEnConsola(){
 	system("cls");
 	Imagen imagen("image.bmp");
 	imagen.imprimirImagenEnConsola();
+	system("python ./0_O(1).py");
 }
 
 /**
