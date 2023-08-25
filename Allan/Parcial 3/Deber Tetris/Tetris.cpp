@@ -13,7 +13,6 @@ Tetris::Tetris() {
 }
 
 Tetris::Tetris(int numRows, int numCols) : filas(numRows), columnas(numCols) {	
-    puntaje = 0;
     tablero = std::vector<std::vector<char>>(numRows, std::vector<char>(numCols, ' '));
     
     for (int i = 0; i < filas; ++i) {

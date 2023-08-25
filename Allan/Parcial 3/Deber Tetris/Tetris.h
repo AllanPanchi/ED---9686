@@ -11,7 +11,6 @@ class Tetris
 private:
     int filas;
     int columnas;
-    int puntaje;
     std::vector<std::vector<char>> tablero;
 
 public:
