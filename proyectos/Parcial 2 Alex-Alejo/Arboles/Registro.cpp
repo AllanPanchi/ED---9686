@@ -162,12 +162,16 @@ void Registro::toString(void)
                                  << entrada.getDia()
                                  << "/" << entrada.getMes()
                                  << "/" << entrada.getAnio() << std::endl;
-   std::cout << "Hora de salida: " << salida.getHora()
-                                 << ":" << salida.getMinuto()
-             << " \nDia/Mes/A\xA4o: " 
-                                 << salida.getDia()
-                                 << "/" << salida.getMes()
-                                 << "/" << salida.getAnio() << std::endl;
+   if(estado == "Entrada"){
+      std::cout << "No se ha registrado la salida" << std::endl;
+   } else {
+      std::cout << "Hora de salida: " << salida.getHora()
+                                    << ":" << salida.getMinuto()
+               << " \nDia/Mes/A\xA4o: " 
+                                    << salida.getDia()
+                                    << "/" << salida.getMes()
+                                    << "/" << salida.getAnio() << std::endl;
+   } 
 }
 
 ////////////////////////////////////////////////////////////////////////

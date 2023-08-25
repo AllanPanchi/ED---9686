@@ -91,6 +91,9 @@ void Aplication::registrarEntrada(){
 	Registro registro;
 	Lista<Registro> listaRegistro;
 
+	Empleado persona;
+	Lista<Empleado> listaPersonas;
+
 	ValidarDatos validar;
 	std::string cedula, estado;
 	Fecha entrada, salida, eTmp, sTmp;
@@ -98,12 +101,18 @@ void Aplication::registrarEntrada(){
 	estado = "Entrada";
 
 	ManejoArchivos::cargarRegistros("registros.txt", listaRegistro);
+	ManejoArchivos::cargarPersonas("personas.txt", listaPersonas);
 
 	system("cls");
 
 	std::cout << "\nIngrese la cedula: ";
 	
 	cedula = validar.ingresarCedulaValida();
+
+	if(listaPersonas.buscar(cedula) == nullptr){
+		std::cout << "El empleado no existe." << std::endl;
+		return;
+	}
 
 	if (listaRegistro.listaVacia()) {
 		estado = "Entrada";
@@ -442,22 +451,133 @@ void Aplication::extras(){
 	menu.add(MenuItem("Regresar",std::bind(&Aplication::mainMenu,this)));
 	menu.add(MenuItem("BACKUP", std::bind(&Aplication::backup,this)));
 	menu.add(MenuItem("Imprimir imagen en consola",std::bind(&Aplication::imprimirEnConsola,this)));
+	menu.add(MenuItem("Guardar en pdf", std::bind(&Aplication::guardarEnPdf,this)));
 	menu.add(MenuItem("Ayuda", std::bind(&Aplication::ayuda,this)));
 	menu.add(MenuItem("Salir", std::bind(&Aplication::salir,this)));
 	menu.run();
 }
 
+void generarPdf(std::string nombreArchivoTxt){
+	system("cls");
+	
+    std::fstream reporte;
+	std::ostringstream out;
+	PDF archivoPdf;
+	std::string titulo;
+	std::string palabraActual;
+	std::string nombreArchivoPdf;
+	std::string nombreArchivo;
+	string mensajeDeError;
+	int maxLineasPorPagina = 40;  // Número máximo de líneas por página
+	int lineas = 0;  // Contador de líneas en la página actual
+	int contador = 1;
+	nombreArchivo = (nombreArchivoTxt == "personas.txt") ? "PERSONAS" : "REGISTROS";
+	out << nombreArchivo<<".pdf";
+	nombreArchivoPdf = out.str();
 
+	archivoPdf.setFont(PDF::COURIER_BOLD, 12);
+	
+	titulo = (nombreArchivoTxt == "personas.txt") ? "Reporte de Empleados" : "Reporte de Registros";
+	
+	archivoPdf.showTextXY(titulo,50,762);
+	archivoPdf.setFont(PDF::COURIER, 10);
+	reporte.open(nombreArchivoTxt, std::ios::in);
+
+    Empleado persona;
+	Lista<Empleado> listaPersonas;
+	ManejoArchivos::cargarPersonas("personas.txt", listaPersonas);
+	Nodo<Empleado> *tmpPersona = listaPersonas.getPrimero();
+
+	Registro registro;
+	Lista<Registro> listaRegistros;
+	ManejoArchivos::cargarRegistros("registros.txt", listaRegistros);
+	Nodo<Registro> *tmpRegistro = listaRegistros.getPrimero();
+
+	if(nombreArchivoTxt == "personas.txt"){
+		lineas++;
+		for(int i = 0; i < listaPersonas.size(); i++){
+			
+			archivoPdf.showTextXY("----------------- EMPLEADO -----------------", 50, 747 - 14 * lineas);
+			lineas++;
+			std::string fechaTemp = std::to_string(tmpPersona->getValor().getFechaNacimiento().getDia()) + "/" + 
+									std::to_string(tmpPersona->getValor().getFechaNacimiento().getMes()) + "/" +
+									std::to_string(tmpPersona->getValor().getFechaNacimiento().getAnio());
+			archivoPdf.showTextXY("CEDULA: " + tmpPersona->getValor().getCedula(), 50, 747 - 14 * lineas);
+			lineas++;
+			archivoPdf.showTextXY("NOMBRE: " + tmpPersona->getValor().getNombre(), 50, 747 - 14 * lineas);
+			lineas++;
+			archivoPdf.showTextXY("APELLIDO: " + tmpPersona->getValor().getApellido(), 50, 747 - 14 * lineas);
+			lineas++;
+			archivoPdf.showTextXY("FECHA DE NACIMIENTO: " + fechaTemp, 50, 747 - 14 * lineas);
+			lineas++;
+			archivoPdf.showTextXY("SUELDO $: " + std::to_string(tmpPersona->getValor().getSueldo()), 50, 747 - 14 * lineas);
+			lineas++;
+			tmpPersona = tmpPersona->getSiguiente();
+		}
+		lineas++;
+	} else {
+		lineas++;
+		for(int i = 0; i < listaRegistros.size(); i++){
+			std::string fechaEntrada = std::to_string(tmpRegistro->getValor().getEntrada().getDia()) + "/" + 
+									std::to_string(tmpRegistro->getValor().getEntrada().getMes()) + "/" +
+									std::to_string(tmpRegistro->getValor().getEntrada().getAnio()) + " - " +
+									std::to_string(tmpRegistro->getValor().getEntrada().getHora()) + ":" +
+									std::to_string(tmpRegistro->getValor().getEntrada().getMinuto()) + ":" +
+									std::to_string(tmpRegistro->getValor().getEntrada().getSegundo());
+			std::string fechaSalida = std::to_string(tmpRegistro->getValor().getSalida().getDia()) + "/" +
+									std::to_string(tmpRegistro->getValor().getSalida().getMes()) + "/" +
+									std::to_string(tmpRegistro->getValor().getSalida().getAnio()) + " - " +
+									std::to_string(tmpRegistro->getValor().getSalida().getHora()) + ":" +
+									std::to_string(tmpRegistro->getValor().getSalida().getMinuto()) + ":" +
+									std::to_string(tmpRegistro->getValor().getSalida().getSegundo());
+			archivoPdf.showTextXY("----------------- REGISTRO -----------------", 50, 747 - 14 * lineas);
+			lineas++;
+			archivoPdf.showTextXY("CEDULA: " + tmpRegistro->getValor().getCedula(), 50, 747 - 14 * lineas);
+			lineas++;
+			archivoPdf.showTextXY("ENTRADA: " + fechaEntrada, 50, 747 - 14 * lineas);
+			lineas++;
+			if(tmpRegistro->getValor().getEstado() == "Entrada"){
+				archivoPdf.showTextXY("SALIDA: NO SE REGISTRO SALIDA", 50, 747 - 14 * lineas);
+			} else {
+				archivoPdf.showTextXY("SALIDA: " + fechaSalida, 50, 747 - 14 * lineas);
+			}
+			lineas++;
+			tmpRegistro = tmpRegistro->getSiguiente();
+
+		}
+		lineas++;
+	}
+
+	std::cout<<"Numero de paginas de " << nombreArchivoPdf << " : " << archivoPdf.getCurrentPage() + 1 <<std::endl;
+	reporte.close();
+	
+	mensajeDeError = "Lo sentimos ha ocurrido un error...";
+	if(!archivoPdf.writeToFile(nombreArchivoPdf, mensajeDeError))
+	{
+		std::cout << mensajeDeError << std::endl;
+	}
+	else
+	{
+		std::cout << "(Se ha creado el PDF)" << std::endl;
+	}
+}
+
+void Aplication::guardarEnPdf(){
+	system("cls");
+	generarPdf("personas.txt");
+	generarPdf("registros.txt");	
+}
 void Aplication::ayuda(){
 	system("cls");
 	Menu menu("Extras");
 	menu.add(MenuItem("Regresar",std::bind(&Aplication::mainMenu,this)));
 	menu.add(MenuItem("BACKUP", std::bind(&Aplication::backup,this)));
 	menu.add(MenuItem("Imprimir imagen en consola",std::bind(&Aplication::imprimirEnConsola,this)));
+	menu.add(MenuItem("Guardar en pdf", std::bind(&Aplication::guardarEnPdf,this)));
 	menu.add(MenuItem("Ayuda", std::bind(&Aplication::ayuda,this)));
 	menu.add(MenuItem("Salir", std::bind(&Aplication::salir,this)));
 	
-	system(".\\html\\index.html");
+	system(".\\helper.chm");
 	menu.run();	
 }
 

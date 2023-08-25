@@ -1,0 +1,23 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-std=c++11",
+                "-g",
+                "-I'C:\\libsC++\\SFML-2.5.1\\include'",
+                "-L'C:\\libsC++\\SFML-2.5.1\\lib'",
+                "-o",
+                "main",
+                "main.cpp",
+                "-lsfml-graphics",
+                "-lsfml-window",
+                "-lsfml-system"
+            ],
+            "group": "build"
+        }        
+    ]
+}

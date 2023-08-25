@@ -1,0 +1,4 @@
+hola
+gato
+perro
+allan

@@ -10,6 +10,8 @@
 
 #pragma once
 #include "ManejoArchivos.cpp"
+#include "Metrics.cpp"
+#include "pdf.cpp"
 #include ".\Ext\Backup.cpp"
 #include ".\Ext\Imagen.cpp"
 
@@ -33,6 +35,7 @@ public:
 	void restaurarBackup();
 	void generarBackup();
 	void imprimirEnConsola();
+	void guardarEnPdf();
 	void ayuda();
 
 	void salir();
